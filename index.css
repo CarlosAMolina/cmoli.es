@@ -19,6 +19,18 @@ body {
 .icon-social-network-color {
   color: #c700ff;
 }
+.flex-row {
+    display: flex;
+}
+.side-large-color {
+  color: #c700ff;
+}
+.side {
+  flex: 0 0 300px;
+}
+.content {
+  flex: 1 auto;
+}
 
 @keyframes flickerAnimation {
   0%   { opacity:1; }
