@@ -32,7 +32,7 @@ body {
   text-align: center;
 }
 
-@media max-width: 930px {
+@media screen and (max-width: 930px) {
   .flex-row {
       flex-direction: column;
   }
