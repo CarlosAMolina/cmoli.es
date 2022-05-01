@@ -32,19 +32,8 @@ body {
   text-align: center;
 }
 
-
 @media max-width: 930px {
   .flex-row {
       flex-direction: column;
   }
-}
-
-@keyframes flickerAnimation {
-  0%   { opacity:1; }
-  50%  { opacity:0; }
-  100% { opacity:1; }
-}
-.animate-flicker {
-    animation: flickerAnimation infinite;
-    animation-duration: 3s;
 }
