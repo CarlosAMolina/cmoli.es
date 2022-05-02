@@ -36,13 +36,18 @@ a {
   border: #96c3f1 1px solid;
 }
 .side-large {
+  border: #96c3f1 1px solid;
   text-align: center;
   text-transform: uppercase;
   color: #e3e3e3;
 }
 .side-paragraph {
-  text-align: left;
+  border-bottom: 1px #4a4b50 dotted;
   color: #e3e3e3;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
 }
 
 @media screen and (max-width: 930px) {
