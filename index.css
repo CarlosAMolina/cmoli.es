@@ -1,6 +1,10 @@
 body {
   background-color: #1a1a1a;
 }
+a {
+  color: #63c0f5;
+  text-shadow: 0 0 5px rgba(104,182,255,0.5);
+}
 
 .section-social-network {
   display: flex;
@@ -17,11 +21,6 @@ body {
 .flex-row {
     display: flex;
 }
-.side-large {
-  text-align: center;
-  text-transform: uppercase;
-  color: #c700ff;
-}
 .side {
   flex: 0 0 300px;
 }
@@ -32,6 +31,15 @@ body {
   width: 100%;
   max-width: 100%;
   text-align: center;
+}
+.side-large {
+  text-align: center;
+  text-transform: uppercase;
+  color: #e3e3e3;
+}
+.side-paragraph {
+  text-align: left;
+  color: #e3e3e3;
 }
 
 @media screen and (max-width: 930px) {
