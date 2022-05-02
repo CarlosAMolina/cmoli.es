@@ -17,7 +17,9 @@ body {
 .flex-row {
     display: flex;
 }
-.side-large-color {
+.side-large {
+  text-align: center;
+  text-transform: uppercase;
   color: #c700ff;
 }
 .side {
