@@ -32,6 +32,9 @@ a {
   max-width: 100%;
   text-align: center;
 }
+.side-border {
+  border: #96c3f1 1px solid;
+}
 .side-large {
   text-align: center;
   text-transform: uppercase;
