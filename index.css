@@ -56,7 +56,9 @@ a {
   width: 1rem;
   position: relative;
 }
-
+.side-icon-color {
+  color: #e3e3e3;
+}
 @media screen and (max-width: 930px) {
   .flex-row {
       flex-direction: column;
