@@ -49,6 +49,13 @@ a {
   padding-bottom: 10px;
   text-align: left;
 }
+.side-icon {
+  display: inline-block;
+  top: 0.15rem;
+  height: 1rem;
+  width: 1rem;
+  position: relative;
+}
 
 @media screen and (max-width: 930px) {
   .flex-row {
