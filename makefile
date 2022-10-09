@@ -1,3 +1,4 @@
+HTML_VPS_PATHNAME:=/tmp
 DESTINATION_PATHNAME:=/tmp/web
 HTML_DESTINATION_PATHNAME:=$(DESTINATION_PATHNAME)/html
 HTML_BLOG_DESTINATION_PATHNAME:=$(HTML_DESTINATION_PATHNAME)/blog
@@ -16,6 +17,8 @@ create-web:
 	mkdir $(HTML_BLOG_DESTINATION_PATHNAME)
 	mkdir $(HTML_WIKI_DESTINATION_PATHNAME)
 	mkdir $(PANDOC_CONFIG_DESTINATION_PATHNAME)
+	cp favicon.ico $(DESTINATION_PATHNAME)
+	cp robots.txt $(DESTINATION_PATHNAME)
 	cp src/index.html $(HTML_DESTINATION_PATHNAME)
 	cp src/index.css $(HTML_DESTINATION_PATHNAME)
 	cp src/avatar.png $(HTML_DESTINATION_PATHNAME)
@@ -26,10 +29,15 @@ create-web:
 	./convert-md-to-html $(HTML_BLOG_LOCAL_PATHNAME)/2021-09-12-utilizar-protonmail-con-tor-y-no-con-protonvpn.md $(HTML_BLOG_DESTINATION_PATHNAME)/2021-09-12-utilizar-protonmail-con-tor-y-no-con-protonvpn.html $(HTML_BLOG_CSS_DESTINATION_PATHNAME) $(PANDOC_TEMPLATE_DESTINATION_PATHNAME) $(PANDOC_METADATA_DESTINATION_PATHNAME)
 	./convert-md-to-html $(HTML_WIKI_LOCAL_PATHNAME)/ssh.md $(HTML_WIKI_DESTINATION_PATHNAME)/ssh.html $(HTML_BLOG_CSS_DESTINATION_PATHNAME) $(PANDOC_TEMPLATE_DESTINATION_PATHNAME) $(PANDOC_METADATA_DESTINATION_PATHNAME)
 
+send-files:
+	scp -P $(VPS_DEV_PORT) -r $(DESTINATION_PATHNAME)/ $(VPS_DEV_USER)@$(VPS_DEV_IP):$(HTML_VPS_PATHNAME)/
+
 open-html:
 	firefox $(HTML_DESTINATION_PATHNAME)/index.html
 
-all: create-web open-html
+test: create-web open-html
+
+deploy: create-web send-files
 
 export-template-html:
 	# https://pandoc.org/MANUAL.html#option--print-default-template
