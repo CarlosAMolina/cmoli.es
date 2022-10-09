@@ -14,7 +14,7 @@ export VPS_DEV_USER=foo
 
 ## Run project
 
-Create html files and deploy in the VPS:
+Create HTML files and deploy on the VPS:
 
 ```bash
 make deploy
