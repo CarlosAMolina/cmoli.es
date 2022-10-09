@@ -14,3 +14,5 @@ pandoc \
     "${pandoc_metadata_pathname}" \
     $input_file_pathname \
     -o "${output_file_pathname}"
+
+rm $input_file_pathname
