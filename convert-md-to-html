@@ -1,0 +1,16 @@
+#!/bin/bash
+
+input_file_pathname=$1
+output_file_pathname=$2
+css_pathname=$3
+pandoc_template_pathname=$4
+pandoc_metadata_pathname=$5
+
+pandoc \
+    --css="${css_pathname}" \
+    --standalone \
+    --template="${pandoc_template_pathname}" \
+    -t html \
+    "${pandoc_metadata_pathname}" \
+    $input_file_pathname \
+    -o "${output_file_pathname}"
