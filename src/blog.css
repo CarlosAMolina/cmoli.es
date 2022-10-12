@@ -38,3 +38,18 @@ blockquote {
 img {
  max-width:100%
 }
+
+.flex-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.icon-home {
+  height: 32px;
+  width: 32px;
+}
+
+.icon-home-color {
+  color: #30ec30;
+}
