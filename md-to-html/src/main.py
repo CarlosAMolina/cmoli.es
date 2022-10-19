@@ -31,7 +31,7 @@ class DirectoryAnalyzer:
             print(dir_pathname, dirnames, filenames)
             for filename in filenames:
                 if FilenameExtensionDetector.is_md(filename):
-                    yield pathlib.PurePath(dir_pathname, filename)
+                    yield str(pathlib.PurePath(dir_pathname, filename))
 
 
 if __name__ == "__main__":
