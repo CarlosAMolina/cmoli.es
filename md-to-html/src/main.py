@@ -1,6 +1,12 @@
 import pathlib
 
 
+class FilenameExtensionDetector:
+    @staticmethod
+    def is_md(filename: str) -> bool:
+        return pathlib.PurePosixPath(filename).suffix == ".md"
+
+
 class FilenameWithExtension:
     def __init__(self, filename: str):
         self._filename = filename
