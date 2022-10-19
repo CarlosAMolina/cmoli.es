@@ -1,2 +1,4 @@
-.*swp
+env
+__pycache__
 /src/felices-fiestas/src/movie.mp4
+.*swp
