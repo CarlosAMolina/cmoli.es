@@ -33,3 +33,11 @@ class DirectoryAnalyzer:
             for filename in filenames:
                 if FilenameExtensionDetector.is_md(filename):
                     yield str(pathlib.PurePath(dir_pathname, filename))
+
+
+class CssPathDetector:
+    def __init__(self, css_path: pathlib.Path):
+        self._css_path = css_path
+
+    def get_css_relative_pathname_from_file_path(self, file_path: pathlib.path) -> str:
+        raise NotImplementedError
