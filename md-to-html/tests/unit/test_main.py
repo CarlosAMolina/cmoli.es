@@ -1,3 +1,4 @@
+import pathlib
 import unittest
 
 from src import main
@@ -21,3 +22,14 @@ class TestFilenameWithExtension(unittest.TestCase):
 
     def test_md(self):
         self.assertEqual("foo.md", self.filename_with_extension.md)
+
+
+class TestCssPathDetector(unittest.TestCase):
+    def test_get_css_relative_pathname_from_file_path(self):
+        css_path = pathlib.PurePath("/foo/bar/foo.css")
+        html_path = pathlib.PurePath("/foo/bar/folder_1/folder_2/index.html")
+        css_path_detector = main.CssPathDetector(css_path)
+        self.assertEqual(
+            "../../foo.css",
+            css_path_detector.get_css_relative_pathname_from_file_path(html_path),
+        )

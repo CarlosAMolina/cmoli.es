@@ -42,4 +42,13 @@ class CssPathDetector:
     def get_css_relative_pathname_from_file_path(
         self, file_path: pathlib.PurePath
     ) -> str:
-        raise NotImplementedError
+        css_pathname_without_filename = self._css_path.parent
+        file_pathname_without_filename = file_path.parent
+        folders_between_files_path: pathlib.PurePosixPath = (
+            file_pathname_without_filename.relative_to(css_pathname_without_filename)
+        )
+        folders_between_files = str(folders_between_files_path).split("/")
+        relative_pathnames = [".." for _ in folders_between_files]
+        relative_pathname = "/".join(relative_pathnames)
+        result = "{}/{}".format(relative_pathname, self._css_path.name)
+        return result
