@@ -44,15 +44,16 @@ class CssPathDetector:
     ) -> str:
         css_pathname_without_filename = self._css_path.parent
         file_pathname_without_filename = file_path.parent
-        if css_pathname_without_filename == file_pathname_without_filename:
-            return self._css_filename
-        else:
-            return self._get_css_relative_pathname_from_file_path_when_files_in_different_paths(
+        return (
+            self._css_filename
+            if css_pathname_without_filename == file_pathname_without_filename
+            else self._get_css_relative_pathname_when_files_with_different_paths(
                 css_pathname_without_filename,
                 file_pathname_without_filename,
             )
+        )
 
-    def _get_css_relative_pathname_from_file_path_when_files_in_different_paths(
+    def _get_css_relative_pathname_when_files_with_different_paths(
         self,
         css_pathname_without_filename: pathlib.PurePath,
         file_pathname_without_filename: pathlib.PurePath,
