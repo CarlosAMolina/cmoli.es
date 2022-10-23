@@ -18,7 +18,7 @@ class FilenameWithExtension:
         return self._get_filename_with_extension(".html")
 
     def _get_filename_with_extension(self, extension: str) -> str:
-        return str(pathlib.Path(self._filename).with_suffix(extension))
+        return str(pathlib.PurePath(self._filename).with_suffix(extension))
 
     @property
     def md(self) -> str:
@@ -36,8 +36,10 @@ class DirectoryAnalyzer:
 
 
 class CssPathDetector:
-    def __init__(self, css_path: pathlib.Path):
+    def __init__(self, css_path: pathlib.PurePath):
         self._css_path = css_path
 
-    def get_css_relative_pathname_from_file_path(self, file_path: pathlib.path) -> str:
+    def get_css_relative_pathname_from_file_path(
+        self, file_path: pathlib.PurePath
+    ) -> str:
         raise NotImplementedError
