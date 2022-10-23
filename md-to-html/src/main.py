@@ -70,3 +70,43 @@ class CssPathDetector:
     @property
     def _css_filename(self) -> str:
         return self._css_path.name
+
+
+class CommandGenerator:
+    def __init__(
+        self,
+        css_file_pathname: str,
+        filename_to_convert: str,
+        output_dir_pathname: str,
+        pandoc_metadata_file_pathname: str,
+        pandoc_template_file_pathname: str,
+    ):
+        self._css_file_pathname = css_file_pathname
+        self._filename_with_extension_to_convert = FilenameWithExtension(
+            filename_to_convert
+        )
+        self._output_dir_pathname = output_dir_pathname
+        self._pandoc_metadata_file_pathname = pandoc_metadata_file_pathname
+        self._pandoc_template_file_pathname = pandoc_template_file_pathname
+
+    @property
+    def command(self) -> str:
+        return "convert-md-to-html {} {} {} {} {}".format(
+            self._file_to_convert_pathname,
+            self._file_converted_pathname,
+            self._css_file_pathname,
+            self._pandoc_template_file_pathname,
+            self._pandoc_metadata_file_pathname,
+        )
+
+    @property
+    def _file_to_convert_pathname(self) -> str:
+        return "{}/{}".format(
+            self._output_dir_pathname, self._filename_with_extension_to_convert.md
+        )
+
+    @property
+    def _file_converted_pathname(self) -> str:
+        return "{}/{}".format(
+            self._output_dir_pathname, self._filename_with_extension_to_convert.html
+        )
