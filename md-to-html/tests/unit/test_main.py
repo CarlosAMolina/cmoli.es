@@ -33,3 +33,12 @@ class TestCssPathDetector(unittest.TestCase):
             "../../foo.css",
             css_path_detector.get_css_relative_pathname_from_file_path(html_path),
         )
+
+    def test_get_css_relative_pathname_from_file_path_if_files_in_same_path(self):
+        css_path = pathlib.PurePath("/foo/bar/foo.css")
+        html_path = pathlib.PurePath("/foo/bar/index.html")
+        css_path_detector = main.CssPathDetector(css_path)
+        self.assertEqual(
+            "foo.css",
+            css_path_detector.get_css_relative_pathname_from_file_path(html_path),
+        )
