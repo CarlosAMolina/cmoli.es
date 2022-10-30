@@ -126,9 +126,15 @@ def get_parser():
     return parser
 
 
+def get_path_substract_common_parts(
+    path_1: pathlib.PurePath, path_2: pathlib.PurePath
+) -> pathlib.PurePath:
+    return path_1.relative_to(path_2)
+
+
 def run(
     css_pathname: str,
-    output_dir_pathname: str,
+    output_dir_pathname: str,  # TODO rm this parameter, use pathname_to_analyze
     pandoc_metadata_file_pathname: str,
     pandoc_template_file_pathname: str,
     pathname_to_analyze: str,
@@ -144,9 +150,14 @@ def run(
             css_relative_pathname = (
                 css_path_detector.get_css_relative_pathname_from_file_path(md_path)
             )
+            pathname_file_to_convert = str(
+                get_path_substract_common_parts(
+                    md_path, pathlib.PurePath(pathname_to_analyze)
+                )
+            )
             command = CommandGenerator(
                 css_file_pathname=css_relative_pathname,
-                filename_to_convert=md_path.name,
+                filename_to_convert=pathname_file_to_convert,
                 output_dir_pathname=output_dir_pathname,
                 pandoc_template_file_pathname=pandoc_template_file_pathname,
                 pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,

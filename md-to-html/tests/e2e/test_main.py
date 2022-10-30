@@ -1,3 +1,4 @@
+from distutils import dir_util
 import pathlib
 import unittest
 
@@ -30,7 +31,11 @@ class TestRun(unittest.TestCase):
     def setUp(self):
         script_dir = pathlib.Path(__file__).parent.absolute()
         tests_dir = script_dir.parent
-        self.pathname_to_analyze = pathlib.PurePath(tests_dir, "files", "fake-project")
+        self.pathname_to_analyze = "/tmp/cmoli.es/html"
+        pathname_with_files_to_analyze = str(
+            pathlib.PurePath(tests_dir, "files", "fake-project")
+        )
+        dir_util.copy_tree(pathname_with_files_to_analyze, self.pathname_to_analyze)
 
     def test_run(self):
         css_pathname = str(pathlib.PurePath(self.pathname_to_analyze, "style.css"))
