@@ -35,12 +35,14 @@ class TestRun(unittest.TestCase):
     def test_run(self):
         css_pathname = str(pathlib.PurePath(self.pathname_to_analyze, "style.css"))
         output_dir_pathname = "/tmp/cmoli.es/html"
-        pandoc_template_file_pathname = "pandoc-config/template.html"
         pandoc_metadata_file_pathname = "pandoc-config/metadata.yml"
+        pandoc_template_file_pathname = "pandoc-config/template.html"
+        result_file_pathname = "/tmp/md-to-html"
         main.run(
             css_pathname=css_pathname,
             output_dir_pathname=output_dir_pathname,
             pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,
             pandoc_template_file_pathname=pandoc_template_file_pathname,
             pathname_to_analyze=self.pathname_to_analyze,
+            result_file_pathname=result_file_pathname,
         )

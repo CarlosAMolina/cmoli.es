@@ -1,3 +1,4 @@
+import argparse
 import os
 import pathlib
 import typing as tp
@@ -112,17 +113,30 @@ class CommandGenerator:
         )
 
 
+def get_parser():
+    parser = argparse.ArgumentParser(
+        description="Create script to convert .md files to .html"
+    )
+    parser.add_argument("css_pathname", type=str)
+    parser.add_argument("output_dir_pathname", type=str)
+    parser.add_argument("pandoc_metadata_file_pathname", type=str)
+    parser.add_argument("pandoc_template_file_pathname", type=str)
+    parser.add_argument("pathname_to_analyze", type=str)
+    parser.add_argument("result_file_pathname", type=str)
+    return parser
+
+
 def run(
     css_pathname: str,
     output_dir_pathname: str,
     pandoc_metadata_file_pathname: str,
     pandoc_template_file_pathname: str,
     pathname_to_analyze: str,
+    result_file_pathname: str,
 ):
+    print(f"Init export file {result_file_pathname}")
     css_path = pathlib.PurePath(css_pathname)
     css_path_detector = CssPathDetector(css_path)
-    result_file_pathname = "/tmp/md-to-html"
-    print(f"Init export file {result_file_pathname}")
     with open(result_file_pathname, "w") as f:
         for md_pathname in DirectoryAnalyzer().get_md_pathnames(pathname_to_analyze):
             print(f"Detected .md file: {md_pathname}")
@@ -140,3 +154,15 @@ def run(
             print(f"Command: {command}")
             f.write(command)
             f.write("\n")
+
+
+if __name__ == "__main__":
+    args = get_parser().parse_args()
+    run(
+        args.css_pathname,
+        args.output_dir_pathname,
+        args.pandoc_metadata_file_pathname,
+        args.pandoc_template_file_pathname,
+        args.pathname_to_analyze,
+        args.result_file_pathname,
+    )
