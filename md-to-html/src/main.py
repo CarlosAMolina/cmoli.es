@@ -92,7 +92,7 @@ class CommandGenerator:
 
     @property
     def command(self) -> str:
-        return "convert-md-to-html {} {} {} {} {}".format(
+        return "./convert-md-to-html {} {} {} {} {}".format(
             self._file_to_convert_pathname,
             self._file_converted_pathname,
             self._css_file_pathname,

@@ -46,7 +46,7 @@ class TestCssPathDetector(unittest.TestCase):
 
 class TestCommandGenerator(unittest.TestCase):
     def test_command(self):
-        expected_result = "convert-md-to-html {} {} {} {} {}".format(
+        expected_result = "./convert-md-to-html {} {} {} {} {}".format(
             "/tmp/cmoli.es/html/ssh.md",
             "/tmp/cmoli.es/html/ssh.html",
             "../blog.css",
