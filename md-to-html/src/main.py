@@ -121,17 +121,22 @@ def run(
 ):
     css_path = pathlib.PurePath(css_pathname)
     css_path_detector = CssPathDetector(css_path)
-    for md_pathname in DirectoryAnalyzer().get_md_pathnames(pathname_to_analyze):
-        print(f"Detected .md file: {md_pathname}")
-        md_path = pathlib.PurePath(md_pathname)
-        css_relative_pathname = (
-            css_path_detector.get_css_relative_pathname_from_file_path(md_path)
-        )
-        command = CommandGenerator(
-            css_file_pathname=css_relative_pathname,
-            filename_to_convert=md_path.name,
-            output_dir_pathname=output_dir_pathname,
-            pandoc_template_file_pathname=pandoc_template_file_pathname,
-            pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,
-        ).command
-        print(f"Command: {command}")
+    result_file_pathname = "/tmp/md-to-html"
+    print(f"Init export file {result_file_pathname}")
+    with open(result_file_pathname, "w") as f:
+        for md_pathname in DirectoryAnalyzer().get_md_pathnames(pathname_to_analyze):
+            print(f"Detected .md file: {md_pathname}")
+            md_path = pathlib.PurePath(md_pathname)
+            css_relative_pathname = (
+                css_path_detector.get_css_relative_pathname_from_file_path(md_path)
+            )
+            command = CommandGenerator(
+                css_file_pathname=css_relative_pathname,
+                filename_to_convert=md_path.name,
+                output_dir_pathname=output_dir_pathname,
+                pandoc_template_file_pathname=pandoc_template_file_pathname,
+                pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,
+            ).command
+            print(f"Command: {command}")
+            f.write(command)
+            f.write("\n")
