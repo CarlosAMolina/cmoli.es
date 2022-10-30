@@ -20,7 +20,7 @@ class TestDirectoryAnalyzer(unittest.TestCase):
         self.assertEqual(
             [
                 str(pathlib.PurePath(self.pathname_to_analyze, "foo.md")),
-                str(pathlib.PurePath(self.pathname_to_analyze, "folder-1", "foo.md")),
+                str(pathlib.PurePath(self.pathname_to_analyze, "folder-1", "bar.md")),
             ],
             md_files,
         )
@@ -46,3 +46,7 @@ class TestRun(unittest.TestCase):
             pathname_to_analyze=self.pathname_to_analyze,
             result_file_pathname=result_file_pathname,
         )
+        with open(result_file_pathname, "r") as f:
+            result = f.read()
+        expected_result = """convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html style.css pandoc-config/template.html pandoc-config/metadata.yml\nconvert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html ../style.css pandoc-config/template.html pandoc-config/metadata.yml\n"""
+        self.assertEqual(expected_result, result)
