@@ -118,7 +118,6 @@ def get_parser():
         description="Create script to convert .md files to .html"
     )
     parser.add_argument("css_pathname", type=str)
-    parser.add_argument("output_dir_pathname", type=str)
     parser.add_argument("pandoc_metadata_file_pathname", type=str)
     parser.add_argument("pandoc_template_file_pathname", type=str)
     parser.add_argument("pathname_to_analyze", type=str)
@@ -134,7 +133,6 @@ def get_path_substract_common_parts(
 
 def run(
     css_pathname: str,
-    output_dir_pathname: str,  # TODO rm this parameter, use pathname_to_analyze
     pandoc_metadata_file_pathname: str,
     pandoc_template_file_pathname: str,
     pathname_to_analyze: str,
@@ -158,7 +156,7 @@ def run(
             command = CommandGenerator(
                 css_file_pathname=css_relative_pathname,
                 filename_to_convert=pathname_file_to_convert,
-                output_dir_pathname=output_dir_pathname,
+                output_dir_pathname=pathname_to_analyze,
                 pandoc_template_file_pathname=pandoc_template_file_pathname,
                 pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,
             ).command
@@ -171,7 +169,6 @@ if __name__ == "__main__":
     args = get_parser().parse_args()
     run(
         args.css_pathname,
-        args.output_dir_pathname,
         args.pandoc_metadata_file_pathname,
         args.pandoc_template_file_pathname,
         args.pathname_to_analyze,
