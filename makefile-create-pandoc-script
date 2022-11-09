@@ -2,7 +2,7 @@ DOCKER_CUSTOM_IMAGE_NAME=python-create-pandoc-script
 DOCKER_CONTAINER_NAME=$(DOCKER_CUSTOM_IMAGE_NAME)-container
 DOCKER_IMAGE_NAME=python:latest
 DOCKER_VOLUME_WEB_CONTENT_SOURCE=nginx-web-content
-DOCKER_VOLUME_WEB_CONTENT_TARGET=/web-content
+DOCKER_VOLUME_WEB_CONTENT_TARGET=/volume
 
 pull-docker-image:
 	# https://hub.docker.com/_/nginx/
@@ -21,6 +21,7 @@ run-container:
 		$(DOCKER_CUSTOM_IMAGE_NAME)
 
 copy-web-content:
+	#sudo /bin/bash copy-web-content-to-docker-volume $(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
 	/bin/bash copy-web-content-to-docker-volume $(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
 
 stop:
