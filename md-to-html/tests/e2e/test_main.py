@@ -9,7 +9,9 @@ class TestDirectoryAnalyzer(unittest.TestCase):
     def setUp(self):
         script_dir = pathlib.Path(__file__).parent.absolute()
         tests_dir = script_dir.parent
-        self.pathname_to_analyze = pathlib.PurePath(tests_dir, "files", "fake-project")
+        self.pathname_to_analyze = str(
+            pathlib.PurePath(tests_dir, "files", "fake-project")
+        )
 
     def test_get_md_pathnames(self):
         md_files = [
@@ -25,6 +27,12 @@ class TestDirectoryAnalyzer(unittest.TestCase):
             ],
             md_files,
         )
+
+    def test_exception_is_raised_if_pathname_to_analyze_does_not_exist(self):
+        pathname_to_analyze = "/foo/bar/asdf/foo/bar"
+        with self.assertRaises(FileNotFoundError):
+            for _ in main.DirectoryAnalyzer().get_md_pathnames(pathname_to_analyze):
+                pass
 
 
 class TestRun(unittest.TestCase):

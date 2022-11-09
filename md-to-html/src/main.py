@@ -26,10 +26,16 @@ class FilenameWithExtension:
         return self._get_filename_with_extension(".md")
 
 
+def os_walk_exception_handler(exception_instance):
+    raise exception_instance
+
+
 class DirectoryAnalyzer:
     def get_md_pathnames(self, pathname: str) -> tp.Iterator[str]:
         print("Init checking", pathname)
-        for (dir_pathname, dirnames, filenames) in os.walk(pathname):
+        for (dir_pathname, dirnames, filenames) in os.walk(
+            pathname, onerror=os_walk_exception_handler
+        ):
             # print(dir_pathname, dirnames, filenames)
             for filename in filenames:
                 if FilenameExtensionDetector.is_md(filename):
