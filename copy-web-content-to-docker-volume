@@ -7,4 +7,4 @@ echo "[ÐEBUG] Init copy web content to $volume_path"
 cp -r src $volume_path
 cp -r pandoc-config $volume_path
 cp -r md-to-html $volume_path
-cp create-pandoc-script $volume_path
+cp create-pandoc-script-for-files $volume_path

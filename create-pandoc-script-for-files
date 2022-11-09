@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "[DEBUG] Init create pandoc script"
+python volume/md-to-html/src/main.py volume/src/blog.css volume/pandoc-config/metadata.yml volume/pandoc-config/template.html volume/src volume/run-on-files-convert-md-to-html
