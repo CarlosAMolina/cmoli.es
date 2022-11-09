@@ -1,8 +1,10 @@
 DOCKER_CUSTOM_IMAGE_NAME=python-create-pandoc-script
 DOCKER_CONTAINER_NAME=$(DOCKER_CUSTOM_IMAGE_NAME)-container
 DOCKER_IMAGE_NAME=python:latest
+DOCKER_VOLUME_PANDOC_SOURCE=pandoc
+DOCKER_VOLUME_PANDOC_TARGET=/volume-$(DOCKER_VOLUME_PANDOC_SOURCE)
 DOCKER_VOLUME_WEB_CONTENT_SOURCE=nginx-web-content
-DOCKER_VOLUME_WEB_CONTENT_TARGET=/volume
+DOCKER_VOLUME_WEB_CONTENT_TARGET=/volume-$(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
 
 pull-docker-image:
 	# https://hub.docker.com/_/nginx/
@@ -11,7 +13,8 @@ pull-docker-image:
 build-docker-image:
 	docker build -t $(DOCKER_CUSTOM_IMAGE_NAME) .
 
-create-docker-volume:
+create-docker-volumes:
+	docker volume create $(DOCKER_VOLUME_PANDOC_SOURCE)
 	docker volume create $(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
 
 run-container:
@@ -20,17 +23,18 @@ run-container:
 		--rm \
 		-d \
 		--name $(DOCKER_CONTAINER_NAME) \
+		--mount type=volume,source=$(DOCKER_VOLUME_PANDOC_SOURCE),target=$(DOCKER_VOLUME_PANDOC_TARGET) \
 		--mount type=volume,source=$(DOCKER_VOLUME_WEB_CONTENT_SOURCE),target=$(DOCKER_VOLUME_WEB_CONTENT_TARGET) \
 		$(DOCKER_CUSTOM_IMAGE_NAME)
 
-copy-web-content:
-	#sudo /bin/bash copy-web-content-to-docker-volume $(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
-	/bin/bash copy-web-content-to-docker-volume $(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
+copy-files-to-volumes:
+	#sudo /bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_PANDOC_SOURCE) $(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
+	/bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_PANDOC_SOURCE) $(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
 
 stop:
 	docker stop $(DOCKER_CONTAINER_NAME)
 
-run: pull-docker-image build-docker-image create-docker-volume copy-web-content run-container
+run: pull-docker-image build-docker-image create-docker-volumes copy-files-to-volumes run-container
 
 connect:
 	docker exec -it $(DOCKER_CONTAINER_NAME) /bin/sh

@@ -1,4 +1,7 @@
 #!/bin/bash
 
+volume_name_pandoc=volume-pandoc
+volume_name_nginx_web_content=volume-nginx-web-content
+
 echo "[DEBUG] Init create pandoc script"
-python volume/md-to-html/src/main.py volume/src/blog.css volume/pandoc-config/metadata.yml volume/pandoc-config/template.html volume/src volume/run-on-files-convert-md-to-html
+python ${volume_name_pandoc}/md-to-html/src/main.py ${volume_name_nginx_web_content}/src/blog.css ${volume_name_pandoc}/pandoc-config/metadata.yml ${volume_name_pandoc}/pandoc-config/template.html ${volume_name_nginx_web_content}/src ${volume_name_pandoc}/run-on-files-convert-md-to-html
