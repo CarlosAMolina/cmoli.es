@@ -11,6 +11,9 @@ pull-docker-image:
 build-docker-image:
 	docker build -t $(DOCKER_CUSTOM_IMAGE_NAME) .
 
+create-docker-volume:
+	docker volume create $(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
+
 run-container:
 	docker run \
 		-it \
@@ -27,7 +30,7 @@ copy-web-content:
 stop:
 	docker stop $(DOCKER_CONTAINER_NAME)
 
-run: pull-docker-image build-docker-image run-container copy-web-content
+run: pull-docker-image build-docker-image create-docker-volume copy-web-content run-container
 
 connect:
 	docker exec -it $(DOCKER_CONTAINER_NAME) /bin/sh
