@@ -1,13 +1,12 @@
 DOCKER_CUSTOM_IMAGE_NAME=python-create-pandoc-script
 DOCKER_CONTAINER_NAME=$(DOCKER_CUSTOM_IMAGE_NAME)-container
-DOCKER_IMAGE_NAME=python:latest
+DOCKER_IMAGE_NAME=python:3.8.15-alpine3.16
 DOCKER_VOLUME_PANDOC_SOURCE=pandoc
 DOCKER_VOLUME_PANDOC_TARGET=/volume-$(DOCKER_VOLUME_PANDOC_SOURCE)
 DOCKER_VOLUME_WEB_CONTENT_SOURCE=nginx-web-content
 DOCKER_VOLUME_WEB_CONTENT_TARGET=/volume-$(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
 
 pull-docker-image:
-	# https://hub.docker.com/_/nginx/
 	docker pull $(DOCKER_IMAGE_NAME)
 
 build-docker-image:
