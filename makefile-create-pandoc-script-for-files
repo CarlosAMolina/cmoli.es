@@ -30,10 +30,10 @@ copy-files-to-volumes:
 	#sudo /bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_PANDOC_SOURCE) $(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
 	/bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_PANDOC_SOURCE) $(DOCKER_VOLUME_WEB_CONTENT_SOURCE)
 
+run: pull-docker-image build-docker-image create-docker-volumes copy-files-to-volumes run-container
+
 stop:
 	docker stop $(DOCKER_CONTAINER_NAME)
-
-run: pull-docker-image build-docker-image create-docker-volumes copy-files-to-volumes run-container
 
 connect:
 	docker exec -it $(DOCKER_CONTAINER_NAME) /bin/sh
