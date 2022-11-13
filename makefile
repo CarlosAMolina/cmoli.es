@@ -1,36 +1,27 @@
 ROOT_PATHNAME:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
-OUTPUT_PATHNAME:=/tmp/cmoli.es
-SRC_OUTPUT_PATHNAME:=$(OUTPUT_PATHNAME)/html
-PANDOC_CONFIG_PATHNAME:=$(ROOT_PATHNAME)/pandoc-config
-PANDOC_METADATA_INPUT_PATHNAME:=$(PANDOC_CONFIG_PATHNAME)/metadata.yml
-PANDOC_TEMPLATE_INPUT_PATHNAME:=$(PANDOC_CONFIG_PATHNAME)/template.html
-SCRIPT_CONVERT_MD_TO_HTML_PATHNAME:=$(OUTPUT_PATHNAME)/run-md-to-html
-VPS_SRC_OUTPUT_PATHNAME:=/var/www/cmoli.es/html
+# TODO OUTPUT_PATHNAME:=/tmp/cmoli.es
+# TODO SRC_OUTPUT_PATHNAME:=$(OUTPUT_PATHNAME)/html
+# TODO VPS_SRC_OUTPUT_PATHNAME:=/var/www/cmoli.es/html
+SCRIPT_CONVERT_MD_TO_HTML_PATHNAME:=$(ROOT_PATHNAME)/convert-md-to-html-for-files
+SCRIPT_OPEN_HTML_PATHNAME:=$(ROOT_PATHNAME)/open-html
+VOLUME_NAME_NGINX_WEB_CONTENT:=nginx-web-content
+VOLUME_NAME_PANDOC:=pandoc
 
 create-web:
-	rm -rf $(OUTPUT_PATHNAME)
-	mkdir $(OUTPUT_PATHNAME)
-	mkdir $(SRC_OUTPUT_PATHNAME)
-	cp -r src/* $(SRC_OUTPUT_PATHNAME)
-	python md-to-html/src/main.py \
-		$(SRC_OUTPUT_PATHNAME)/blog.css \
-		$(PANDOC_METADATA_INPUT_PATHNAME) \
-		$(PANDOC_TEMPLATE_INPUT_PATHNAME) \
-		$(SRC_OUTPUT_PATHNAME) \
-		$(SCRIPT_CONVERT_MD_TO_HTML_PATHNAME)
-	chmod +x $(SCRIPT_CONVERT_MD_TO_HTML_PATHNAME)
+	docker volume rm $(VOLUME_NAME_PANDOC)
+	docker volume rm $(VOLUME_NAME_NGINX_WEB_CONTENT)
 	/bin/bash $(SCRIPT_CONVERT_MD_TO_HTML_PATHNAME)
 
-send-files:
-	scp -P $(VPS_DEV_PORT) -r $(SRC_OUTPUT_PATHNAME)/* $(VPS_DEV_USER)@$(VPS_DEV_IP):$(VPS_SRC_OUTPUT_PATHNAME)/
+show-web:
+	/bin/bash $(SCRIPT_OPEN_HTML_PATHNAME)
 
-open-html:
-	firefox $(SRC_OUTPUT_PATHNAME)/index.html
+#TODO send-files:
+#TODO 	scp -P $(VPS_DEV_PORT) -r $(SRC_OUTPUT_PATHNAME)/* $(VPS_DEV_USER)@$(VPS_DEV_IP):$(VPS_SRC_OUTPUT_PATHNAME)/
 
-test: create-web open-html
+test: create-web show-web
 
 deploy: create-web send-files
 
-export-template-html:
+export-pandoc-template-html:
 	# https://pandoc.org/MANUAL.html#option--print-default-template
 	pandoc -D html > /tmp/template-default.html
