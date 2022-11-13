@@ -1,6 +1,6 @@
 #!/bin/bash
 
-volume_name_pandoc=pandoc
+volume_name_pandoc=$1
 
 echo "[DEBUG] Init create-pandoc-script-for-files"
 make -f makefile-create-pandoc-script-for-files run

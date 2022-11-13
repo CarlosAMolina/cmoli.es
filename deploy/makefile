@@ -9,7 +9,7 @@ VPS_SRC_OUTPUT_PATHNAME:=/var/www/cmoli.es/html
 create-web:
 	docker volume rm $(VOLUME_NAME_PANDOC)
 	docker volume rm $(VOLUME_NAME_NGINX_WEB_CONTENT)
-	/bin/bash $(SCRIPT_CONVERT_MD_TO_HTML_PATHNAME)
+	/bin/bash $(SCRIPT_CONVERT_MD_TO_HTML_PATHNAME) $(VOLUME_NAME_PANDOC)
 
 show-web:
 	/bin/bash $(SCRIPT_OPEN_HTML_PATHNAME) \
