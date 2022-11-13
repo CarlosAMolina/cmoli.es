@@ -1,16 +1,17 @@
 #!/bin/bash
 
-volume_name_nginx_web_content=$1
-volume_name_pandoc=$2
+docker_pandoc_image_name=$1
+docker_volume_name_nginx_web_content=$2
+docker_volume_name_pandoc=$3
 
 echo "[DEBUG] Init create-pandoc-script-for-files"
 make -f makefile-create-pandoc-script-for-files \
 	run \
-	DOCKER_VOLUME_NGINX_WEB_CONTENT=${volume_name_nginx_web_content} \
-	DOCKER_VOLUME_PANDOC=${volume_name_pandoc}
+	DOCKER_VOLUME_NGINX_WEB_CONTENT=${docker_volume_name_nginx_web_content} \
+	DOCKER_VOLUME_PANDOC=${docker_volume_name_pandoc}
 
 echo "[DEBUG] Init make script executable"
-volume_pandoc_pathname=$(docker volume inspect "${volume_name_pandoc}" --format '{{.Mountpoint}}')
+volume_pandoc_pathname=$(docker volume inspect "${docker_volume_name_pandoc}" --format '{{.Mountpoint}}')
 script_pathname=${volume_pandoc_pathname}/run-on-files-convert-md-to-html
 until [ -f ${script_pathname} ]
 do
@@ -22,5 +23,6 @@ chmod +x ${script_pathname}
 echo "[DEBUG] Init makefile-convert-md-to-html-for-files"
 make -f makefile-convert-md-to-html-for-files \
 	run \
-	DOCKER_VOLUME_NGINX_WEB_CONTENT=${volume_name_nginx_web_content} \
-	DOCKER_VOLUME_PANDOC=${volume_name_pandoc}
+	DOCKER_IMAGE_NAME=${docker_pandoc_image_name} \
+	DOCKER_VOLUME_NGINX_WEB_CONTENT=${docker_volume_name_nginx_web_content} \
+	DOCKER_VOLUME_PANDOC=${docker_volume_name_pandoc}
