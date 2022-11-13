@@ -17,6 +17,7 @@ export VPS_DEV_USER=foo
 Create HTML files and deploy on the VPS:
 
 ```bash
+cd deploy
 make deploy
 ```
 
@@ -25,5 +26,6 @@ make deploy
 Test in you local host:
 
 ```bash
+cd deploy
 make test
 ```

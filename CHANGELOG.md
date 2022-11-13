@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Changed
+- Move deploy logic to the `deploy` folder.
+- Use Docker containers to:
+  - Create the Pandoc script that converts md files to html.
+  - Convert md files to html.
+
 ## [0.4.0] - 2022-10-31
 ### Added
 - Python script to detect the Markdown files to convert to HTML.
