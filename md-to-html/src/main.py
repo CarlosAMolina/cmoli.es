@@ -24,10 +24,17 @@ class Logger:
 
     @property
     def _file_handler(self): 
-        f_handler = logging.FileHandler(filename='file.log', mode="w")
+        f_handler = logging.FileHandler(filename=self._log_file_pathname, mode="w")
         f_format = logging.Formatter(self._log_format, datefmt=self._date_format)
         f_handler.setFormatter(f_format)
         return f_handler
+
+    @property
+    def _log_file_pathname(self) -> str:
+        current_dir_pathname = pathlib.Path(__file__).parent.absolute()
+        result = current_dir_pathname.joinpath("file.log")
+        result = str(result)
+        return result 
 
     @property
     def _log_format(self) -> str:
@@ -164,6 +171,7 @@ def get_parser():
     )
     parser.add_argument("css_pathname", type=str)
     parser.add_argument("pandoc_metadata_file_pathname", type=str)
+    parser.add_argument("pandoc_script_convert_md_to_html_file_pathname", type=str)
     parser.add_argument("pandoc_template_file_pathname", type=str)
     parser.add_argument("pathname_to_analyze", type=str)
     parser.add_argument("result_file_pathname", type=str)
