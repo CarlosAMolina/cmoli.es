@@ -15,7 +15,9 @@ show-web:
 	/bin/bash $(SCRIPT_OPEN_HTML_PATHNAME)
 
 deploy-send-files-to-vps:
-	/bin/bash $(SCRIPT_SEND_FILES_TO_VPS_PATHNAME) $(VPS_SRC_OUTPUT_PATHNAME)
+	/bin/bash $(SCRIPT_SEND_FILES_TO_VPS_PATHNAME) \
+		$(VOLUME_NAME_NGINX_WEB_CONTENT) \
+		$(VPS_SRC_OUTPUT_PATHNAME)
 
 test: create-web show-web
 
