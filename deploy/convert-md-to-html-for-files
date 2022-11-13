@@ -1,9 +1,13 @@
 #!/bin/bash
 
-volume_name_pandoc=$1
+volume_name_nginx_web_content=$1
+volume_name_pandoc=$2
 
 echo "[DEBUG] Init create-pandoc-script-for-files"
-make -f makefile-create-pandoc-script-for-files run
+make -f makefile-create-pandoc-script-for-files \
+	run \
+	DOCKER_VOLUME_NGINX_WEB_CONTENT=${volume_name_nginx_web_content} \
+	DOCKER_VOLUME_PANDOC=${volume_name_pandoc}
 
 echo "[DEBUG] Init make script executable"
 volume_pandoc_pathname=$(docker volume inspect "${volume_name_pandoc}" --format '{{.Mountpoint}}')
@@ -16,5 +20,7 @@ done
 chmod +x ${script_pathname}
 
 echo "[DEBUG] Init makefile-convert-md-to-html-for-files"
-make -f makefile-convert-md-to-html-for-files run
-
+make -f makefile-convert-md-to-html-for-files \
+	run \
+	DOCKER_VOLUME_NGINX_WEB_CONTENT=${volume_name_nginx_web_content} \
+	DOCKER_VOLUME_PANDOC=${volume_name_pandoc}

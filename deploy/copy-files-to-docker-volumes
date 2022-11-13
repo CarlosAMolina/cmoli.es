@@ -1,7 +1,7 @@
 #!/bin/bash
 
-volume_name_pandoc=$1
-volume_name_nginx_web_content=$2
+volume_name_nginx_web_content=$1
+volume_name_pandoc=$2
 
 # Pandoc
 volume_pandoc_pathname=$(docker volume inspect "${volume_name_pandoc}" --format '{{.Mountpoint}}')
