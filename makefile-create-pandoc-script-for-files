@@ -1,3 +1,4 @@
+DOCKERFILE=Dockerfile-create-pandoc-script-for-files
 DOCKER_CUSTOM_IMAGE_NAME=python-create-pandoc-script
 DOCKER_CONTAINER_NAME=$(DOCKER_CUSTOM_IMAGE_NAME)-container
 DOCKER_IMAGE_NAME=python:3.8.15-alpine3.16
@@ -10,7 +11,7 @@ pull-docker-image:
 	docker pull $(DOCKER_IMAGE_NAME)
 
 build-docker-image:
-	docker build -t $(DOCKER_CUSTOM_IMAGE_NAME) .
+	docker build -t $(DOCKER_CUSTOM_IMAGE_NAME) -f $(DOCKERFILE) .
 
 create-docker-volumes:
 	docker volume create $(DOCKER_VOLUME_PANDOC_SOURCE)

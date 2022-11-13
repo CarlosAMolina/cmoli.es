@@ -1,3 +1,4 @@
+DOCKERFILE=Dockerfile-convert-md-to-html-for-files
 DOCKER_CUSTOM_IMAGE_NAME=pandoc-convert-md-to-html
 DOCKER_CONTAINER_NAME=$(DOCKER_CUSTOM_IMAGE_NAME)-container
 DOCKER_IMAGE_NAME=pandoc/core:2.17
@@ -10,7 +11,7 @@ pull-docker-image:
 	docker pull $(DOCKER_IMAGE_NAME)
 
 build-docker-image:
-	docker build -t $(DOCKER_CUSTOM_IMAGE_NAME) -f Dockerfile-convert-md-to-html .
+	docker build -t $(DOCKER_CUSTOM_IMAGE_NAME) -f $(DOCKERFILE) .
 
 run-container:
 	docker run \
