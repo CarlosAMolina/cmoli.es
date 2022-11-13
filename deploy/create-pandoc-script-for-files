@@ -1,7 +1,8 @@
 #!/bin/bash
 
-volume_name_pandoc=volume-pandoc
-volume_name_nginx_web_content=volume-nginx-web-content
+# TODO as args
+volume_name_pandoc=pandoc
+volume_name_nginx_web_content=nginx-web-content
 
 echo "[DEBUG] Init create pandoc script"
 python \
