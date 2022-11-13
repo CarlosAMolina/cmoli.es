@@ -46,7 +46,8 @@ class TestCssPathDetector(unittest.TestCase):
 
 class TestCommandGenerator(unittest.TestCase):
     def test_command(self):
-        expected_result = "./convert-md-to-html {} {} {} {} {}".format(
+        expected_result = "/bin/sh {} {} {} {} {} {}".format(
+            "convert-md-to-html",
             "/tmp/cmoli.es/html/ssh.md",
             "/tmp/cmoli.es/html/ssh.html",
             "../blog.css",
@@ -57,7 +58,8 @@ class TestCommandGenerator(unittest.TestCase):
             css_file_pathname="../blog.css",
             filename_to_convert="ssh.md",
             output_dir_pathname="/tmp/cmoli.es/html",
-            pandoc_template_file_pathname="pandoc-config/template.html",
             pandoc_metadata_file_pathname="pandoc-config/metadata.yml",
+            pandoc_script_convert_md_to_html_file_pathname="convert-md-to-html",
+            pandoc_template_file_pathname="pandoc-config/template.html",
         ).command
         self.assertEqual(expected_result, result)

@@ -37,6 +37,7 @@ class TestDirectoryAnalyzer(unittest.TestCase):
 
 class TestRun(unittest.TestCase):
     def setUp(self):
+        self.maxDiff = None # Show complete diff when test fails.
         script_dir = pathlib.Path(__file__).parent.absolute()
         tests_dir = script_dir.parent
         self.pathname_to_analyze = "/tmp/cmoli.es/html"
@@ -48,16 +49,20 @@ class TestRun(unittest.TestCase):
     def test_run(self):
         css_pathname = str(pathlib.PurePath(self.pathname_to_analyze, "style.css"))
         pandoc_metadata_file_pathname = "pandoc-config/metadata.yml"
+        pandoc_script_convert_md_to_html_file_pathname = "convert-md-to-html"
         pandoc_template_file_pathname = "pandoc-config/template.html"
         result_file_pathname = "/tmp/md-to-html"
         main.run(
             css_pathname=css_pathname,
             pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,
+            pandoc_script_convert_md_to_html_file_pathname=pandoc_script_convert_md_to_html_file_pathname,
             pandoc_template_file_pathname=pandoc_template_file_pathname,
             pathname_to_analyze=self.pathname_to_analyze,
             result_file_pathname=result_file_pathname,
         )
         with open(result_file_pathname, "r") as f:
             result = f.read()
-        expected_result = """./convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html style.css pandoc-config/template.html pandoc-config/metadata.yml\n./convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html ../style.css pandoc-config/template.html pandoc-config/metadata.yml\n"""
+        expected_result = "{}\n{}\n".format(
+        "/bin/sh convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html style.css pandoc-config/template.html pandoc-config/metadata.yml",
+        "/bin/sh convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html ../style.css pandoc-config/template.html pandoc-config/metadata.yml")
         self.assertEqual(expected_result, result)

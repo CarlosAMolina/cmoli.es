@@ -1,0 +1,12 @@
+#!/bin/bash
+
+volume_name_pandoc=pandoc
+
+make -f makefile-create-pandoc-script-for-files run
+
+echo "[DEBUG] Init make script executable"
+volume_pandoc_pathname=$(docker volume inspect "${volume_name_pandoc}" --format '{{.Mountpoint}}')
+chmod +x ${volume_pandoc_pathname}/run-on-files-convert-md-to-html
+
+make -f makefile-convert-md-to-html-for-files run 
+

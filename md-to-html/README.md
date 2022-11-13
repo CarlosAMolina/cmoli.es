@@ -11,7 +11,7 @@ Code to automate the detection of `.md` files and convert them to `.html`.
 
 Run, in the same path of this `README.md` file:
 
-```sh
-python -m unittest discover -s tests
+```bash
+make test
 ```
 

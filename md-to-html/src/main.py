@@ -86,6 +86,7 @@ class CommandGenerator:
         filename_to_convert: str,
         output_dir_pathname: str,
         pandoc_metadata_file_pathname: str,
+        pandoc_script_convert_md_to_html_file_pathname: str,
         pandoc_template_file_pathname: str,
     ):
         self._css_file_pathname = css_file_pathname
@@ -94,11 +95,13 @@ class CommandGenerator:
         )
         self._output_dir_pathname = output_dir_pathname
         self._pandoc_metadata_file_pathname = pandoc_metadata_file_pathname
+        self._pandoc_script_convert_md_to_html_file_pathname = pandoc_script_convert_md_to_html_file_pathname
         self._pandoc_template_file_pathname = pandoc_template_file_pathname
 
     @property
     def command(self) -> str:
-        return "./convert-md-to-html {} {} {} {} {}".format(
+        return "/bin/sh {} {} {} {} {} {}".format(
+            self._pandoc_script_convert_md_to_html_file_pathname,
             self._file_to_convert_pathname,
             self._file_converted_pathname,
             self._css_file_pathname,
@@ -140,6 +143,7 @@ def get_path_substract_common_parts(
 def run(
     css_pathname: str,
     pandoc_metadata_file_pathname: str,
+    pandoc_script_convert_md_to_html_file_pathname: str,
     pandoc_template_file_pathname: str,
     pathname_to_analyze: str,
     result_file_pathname: str,
@@ -163,8 +167,9 @@ def run(
                 css_file_pathname=css_relative_pathname,
                 filename_to_convert=pathname_file_to_convert,
                 output_dir_pathname=pathname_to_analyze,
-                pandoc_template_file_pathname=pandoc_template_file_pathname,
                 pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,
+                pandoc_script_convert_md_to_html_file_pathname=pandoc_script_convert_md_to_html_file_pathname,
+                pandoc_template_file_pathname=pandoc_template_file_pathname,
             ).command
             print(f"Command: {command}")
             f.write(command)
@@ -176,6 +181,7 @@ if __name__ == "__main__":
     run(
         args.css_pathname,
         args.pandoc_metadata_file_pathname,
+        args.pandoc_script_convert_md_to_html_file_pathname,
         args.pandoc_template_file_pathname,
         args.pathname_to_analyze,
         args.result_file_pathname,
