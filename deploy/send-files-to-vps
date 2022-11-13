@@ -1,0 +1,13 @@
+#!/bin/bash
+
+vps_src_output_pathname=$1
+
+volume_name_nginx_web_content=nginx-web-content
+volume_nginx_web_content_pathname=$(docker volume inspect "${volume_name_nginx_web_content}" --format '{{.Mountpoint}}')
+html_directory_pathname=${volume_nginx_web_content_pathname}/src
+
+echo "[DEBUG] Init send files to VPS"
+echo "[DEBUG] Wait some seconds until all .md files have been converted to .html"
+sleep 5
+scp -P ${VPS_DEV_PORT} -r ${html_directory_pathname}/* ${VPS_DEV_USER}@${VPS_DEV_IP}:${vps_src_output_pathname}/
+
