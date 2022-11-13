@@ -1,7 +1,43 @@
 import argparse
+import logging
 import os
 import pathlib
 import typing as tp
+import sys
+
+
+class Logger:
+    @property
+    def logger(self):
+        logger = logging.getLogger(__name__)
+        logger.addHandler(self._console_handler)
+        logger.addHandler(self._file_handler)
+        logger.setLevel(logging.DEBUG)
+        return logger
+
+    @property
+    def _console_handler(self): 
+        c_handler = logging.StreamHandler(sys.stdout)
+        c_format = logging.Formatter(self._log_format, datefmt=self._date_format)
+        c_handler.setFormatter(c_format)
+        return c_handler
+
+    @property
+    def _file_handler(self): 
+        f_handler = logging.FileHandler(filename='file.log', mode="w")
+        f_format = logging.Formatter(self._log_format, datefmt=self._date_format)
+        f_handler.setFormatter(f_format)
+        return f_handler
+
+    @property
+    def _log_format(self) -> str:
+        return '%(asctime)s - %(levelname)s - %(message)s'
+
+    @property
+    def _date_format(self) -> str:
+        return '%Y-%m-%d %H:%M:%S'
+
+logger = Logger().logger
 
 
 class FilenameExtensionDetector:
@@ -32,7 +68,7 @@ def os_walk_exception_handler(exception_instance):
 
 class DirectoryAnalyzer:
     def get_md_pathnames(self, pathname: str) -> tp.Iterator[str]:
-        print("Init checking", pathname)
+        logger.debug(f"Init checking {pathname}")
         for (dir_pathname, dirnames, filenames) in os.walk(
             pathname, onerror=os_walk_exception_handler
         ):
@@ -148,12 +184,12 @@ def run(
     pathname_to_analyze: str,
     result_file_pathname: str,
 ):
-    print(f"Init export file {result_file_pathname}")
+    logger.debug(f"Init export file {result_file_pathname}")
     css_path = pathlib.PurePath(css_pathname)
     css_path_detector = CssPathDetector(css_path)
     with open(result_file_pathname, "w") as f:
         for md_pathname in DirectoryAnalyzer().get_md_pathnames(pathname_to_analyze):
-            print(f"Detected .md file: {md_pathname}")
+            logger.debug(f"Detected .md file: {md_pathname}")
             md_path = pathlib.PurePath(md_pathname)
             css_relative_pathname = (
                 css_path_detector.get_css_relative_pathname_from_file_path(md_path)
@@ -171,7 +207,7 @@ def run(
                 pandoc_script_convert_md_to_html_file_pathname=pandoc_script_convert_md_to_html_file_pathname,
                 pandoc_template_file_pathname=pandoc_template_file_pathname,
             ).command
-            print(f"Command: {command}")
+            logger.debug(f"Command: {command}")
             f.write(command)
             f.write("\n")
 
@@ -186,3 +222,4 @@ if __name__ == "__main__":
         args.pathname_to_analyze,
         args.result_file_pathname,
     )
+
