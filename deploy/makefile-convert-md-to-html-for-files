@@ -3,13 +3,17 @@ DOCKER_CUSTOM_IMAGE_NAME=pandoc-convert-md-to-html
 DOCKER_CONTAINER_NAME=$(DOCKER_CUSTOM_IMAGE_NAME)-container
 DOCKER_IMAGE_NAME=pandoc/minimal:2.17-alpine
 DOCKER_VOLUME_PANDOC=pandoc
-DOCKER_VOLUME_WEB_CONTENT=nginx-web-content
+DOCKER_VOLUME_NGINX_WEB_CONTENT=nginx-web-content
 
 pull-docker-image:
 	docker pull $(DOCKER_IMAGE_NAME)
 
 build-docker-image:
-	docker build -t $(DOCKER_CUSTOM_IMAGE_NAME) -f $(DOCKERFILE) .
+	docker build \
+		-t $(DOCKER_CUSTOM_IMAGE_NAME) \
+		--build-arg volume_pandoc=$(DOCKER_VOLUME_PANDOC) \
+		-f $(DOCKERFILE) \
+		.
 
 run-container:
 	docker run \
@@ -18,7 +22,7 @@ run-container:
 		-d \
 		--name $(DOCKER_CONTAINER_NAME) \
 		--mount type=volume,source=$(DOCKER_VOLUME_PANDOC),target=/$(DOCKER_VOLUME_PANDOC) \
-		--mount type=volume,source=$(DOCKER_VOLUME_WEB_CONTENT),target=/$(DOCKER_VOLUME_WEB_CONTENT) \
+		--mount type=volume,source=$(DOCKER_VOLUME_NGINX_WEB_CONTENT),target=/$(DOCKER_VOLUME_NGINX_WEB_CONTENT) \
 		$(DOCKER_CUSTOM_IMAGE_NAME)
 
 run: pull-docker-image build-docker-image run-container

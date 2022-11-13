@@ -3,17 +3,22 @@ DOCKER_CUSTOM_IMAGE_NAME=python-create-pandoc-script
 DOCKER_CONTAINER_NAME=$(DOCKER_CUSTOM_IMAGE_NAME)-container
 DOCKER_IMAGE_NAME=python:3.8.15-alpine3.16
 DOCKER_VOLUME_PANDOC=pandoc
-DOCKER_VOLUME_WEB_CONTENT=nginx-web-content
+DOCKER_VOLUME_NGINX_WEB_CONTENT=nginx-web-content
 
 pull-docker-image:
 	docker pull $(DOCKER_IMAGE_NAME)
 
 build-docker-image:
-	docker build -t $(DOCKER_CUSTOM_IMAGE_NAME) -f $(DOCKERFILE) .
+	docker build \
+		-t $(DOCKER_CUSTOM_IMAGE_NAME) \
+		-f $(DOCKERFILE) \
+		--build-arg volume_pandoc=$(DOCKER_VOLUME_PANDOC) \
+		--build-arg volume_nginx_web_content=$(DOCKER_VOLUME_NGINX_WEB_CONTENT) \
+		.
 
 create-docker-volumes:
 	docker volume create $(DOCKER_VOLUME_PANDOC)
-	docker volume create $(DOCKER_VOLUME_WEB_CONTENT)
+	docker volume create $(DOCKER_VOLUME_NGINX_WEB_CONTENT)
 
 run-container:
 	docker run \
@@ -22,12 +27,12 @@ run-container:
 		-d \
 		--name $(DOCKER_CONTAINER_NAME) \
 		--mount type=volume,source=$(DOCKER_VOLUME_PANDOC),target=/$(DOCKER_VOLUME_PANDOC) \
-		--mount type=volume,source=$(DOCKER_VOLUME_WEB_CONTENT),target=/$(DOCKER_VOLUME_WEB_CONTENT) \
+		--mount type=volume,source=$(DOCKER_VOLUME_NGINX_WEB_CONTENT),target=/$(DOCKER_VOLUME_NGINX_WEB_CONTENT) \
 		$(DOCKER_CUSTOM_IMAGE_NAME)
 
 copy-files-to-volumes:
-	#sudo /bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_PANDOC) $(DOCKER_VOLUME_WEB_CONTENT)
-	/bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_PANDOC) $(DOCKER_VOLUME_WEB_CONTENT)
+	#sudo /bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_PANDOC) $(DOCKER_VOLUME_NGINX_WEB_CONTENT)
+	/bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_PANDOC) $(DOCKER_VOLUME_NGINX_WEB_CONTENT)
 
 run: pull-docker-image build-docker-image create-docker-volumes copy-files-to-volumes run-container
 

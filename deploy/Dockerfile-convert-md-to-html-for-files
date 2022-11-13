@@ -1,8 +1,6 @@
 # syntax=docker/dockerfile:1
 FROM pandoc/minimal:2.17-alpine
-
-# TODO /pandoc as arg volume-pandoc
-ARG volume_pandoc=pandoc
+ARG volume_pandoc
 ENV volume_pandoc=${volume_pandoc}
 ENTRYPOINT /bin/sh /$volume_pandoc/run-on-files-convert-md-to-html
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
