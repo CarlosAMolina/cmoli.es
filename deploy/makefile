@@ -12,7 +12,8 @@ create-web:
 	/bin/bash $(SCRIPT_CONVERT_MD_TO_HTML_PATHNAME)
 
 show-web:
-	/bin/bash $(SCRIPT_OPEN_HTML_PATHNAME)
+	/bin/bash $(SCRIPT_OPEN_HTML_PATHNAME) \
+		$(VOLUME_NAME_NGINX_WEB_CONTENT)
 
 deploy-send-files-to-vps:
 	/bin/bash $(SCRIPT_SEND_FILES_TO_VPS_PATHNAME) \
