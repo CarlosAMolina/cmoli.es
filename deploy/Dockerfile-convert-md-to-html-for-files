@@ -1,5 +1,4 @@
 # syntax=docker/dockerfile:1
-
 ARG docker_image
 FROM $docker_image
 ARG volume_pandoc
