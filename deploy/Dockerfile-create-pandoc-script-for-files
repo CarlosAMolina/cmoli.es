@@ -1,5 +1,9 @@
 # syntax=docker/dockerfile:1
 FROM python:3.8.15-alpine3.16
 # TODO /pandoc as arg volume-pandoc, and "nginx-web-content" as arg too
-ENTRYPOINT ["/bin/sh", "/pandoc/create-pandoc-script-for-files", "nginx-web-content", "pandoc"]
+ARG volume_nginx_web_content=nginx-web-content
+ARG volume_pandoc=pandoc
+ENV volume_nginx_web_content=${volume_nginx_web_content}
+ENV volume_pandoc=${volume_pandoc}
+ENTRYPOINT /bin/sh /$volume_pandoc/create-pandoc-script-for-files $volume_nginx_web_content $volume_pandoc
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
