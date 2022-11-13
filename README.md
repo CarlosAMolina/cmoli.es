@@ -12,6 +12,10 @@ export VPS_DEV_IP=1.2.3.4
 export VPS_DEV_USER=foo
 ```
 
+### Docker
+
+You need to have Docker installed and run it as non-root.
+
 ## Run project
 
 Create HTML files and deploy on the VPS:
