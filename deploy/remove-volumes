@@ -1,0 +1,19 @@
+#!/bin/bash
+
+docker_volume_name_nginx_web_content=$1
+docker_volume_name_pandoc=$2
+
+remove_if_exists() {
+  volume=$1
+  echo "[DEBUG] Init remove volume ${volume}"
+  if docker volume ls | grep -q ${volume}; then
+    echo "[DEBUG] The volume has been removed"
+    docker volume rm ${volume}
+  else
+    echo "[DEBUG] The volume does not exist, no action is required"
+  fi
+}
+
+remove_if_exists ${docker_volume_name_nginx_web_content}
+remove_if_exists ${docker_volume_name_pandoc}
+
