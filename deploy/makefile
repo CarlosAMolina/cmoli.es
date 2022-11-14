@@ -9,6 +9,7 @@ DOCKER_VOLUME_NAME_PANDOC:=pandoc
 VPS_SRC_OUTPUT_PATHNAME:=/var/www/cmoli.es/html
 
 create-web:
+	git pull origin $(shell git branch --show-current)
 	/bin/bash remove-volumes \
 		$(DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT) \
 		$(DOCKER_VOLUME_NAME_PANDOC)
