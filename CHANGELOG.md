@@ -1,10 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
- 
+
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## [0.5.0] - 2022-11-14
 ### Changed
 - Move deploy logic to the `deploy` folder.
 - Use Docker containers to:
@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Makefile: convert Markdown to HTML and deploy on the VPS.
 - Blog independent of GitHub Pages.
 - Wiki entry independent of GitHub Pages.
-   
+
 ## [0.1.0] - 2022-08-16
 ### Added
 - Index page.
