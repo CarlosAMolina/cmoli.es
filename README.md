@@ -14,7 +14,7 @@ export VPS_DEV_USER=foo
 
 ### Docker
 
-You need to have Docker installed and run it as non-root.
+You need to have Docker installed and run it as [rootless](<https://docs.docker.com/engine/security/rootless/>).
 
 ## Run project
 
