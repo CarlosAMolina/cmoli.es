@@ -35,6 +35,14 @@ blockquote {
  border-left:1px dotted #666
 }
 
+code {
+  background: rgba(0,0,0,0.9);
+  padding: 0px 3px;
+  margin: 0px -3px;
+  color: #aa759f;
+  border-radius: 2px;
+}
+
 img {
  max-width:100%
 }
