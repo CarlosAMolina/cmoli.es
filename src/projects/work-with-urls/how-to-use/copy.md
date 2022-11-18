@@ -11,4 +11,4 @@ Click the `Copy to clipboard` button.
 
 ### Copy stored rules
 
-Please, read the `Export rulest` section.
+Please, read the `Export rules` section.
