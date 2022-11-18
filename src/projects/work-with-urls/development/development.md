@@ -14,7 +14,7 @@ After modify the project, test it with Firefox.
 
 First, package the extension. Source <https://extensionworkshop.com/documentation/publish/package-your-extension/>
 
-Install the add-on, read 'Trying it out' section of the following URL: <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#Trying_it_out>
+Install the add-on, read `Trying it out` section of the following URL: <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#Trying_it_out>
 
 ## Testing
 
