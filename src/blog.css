@@ -35,6 +35,20 @@ blockquote {
  border-left:1px dotted #666
 }
 
+/* Not inline code */
+div.sourceCode {
+  background:rgba(0,0,0,0.9);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:2px;
+  padding-left:10px;
+}
+
+/* Not inline code */
+code.sourceCode {
+  color:#eaeaea;
+  padding-left:10px;
+}
+
 code {
   background: rgba(0,0,0,0.9);
   padding: 0px 3px;
