@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   - USB Linux.
   - Work With URLs.
 
+### Changed
+- The home icon now loads the linked URL in the current browsing context.
+
 ## [0.5.0] - 2022-11-14
 ### Changed
 - Move deploy logic to the `deploy` folder.
