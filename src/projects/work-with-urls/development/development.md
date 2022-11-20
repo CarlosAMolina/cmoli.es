@@ -8,7 +8,7 @@ Clone the project:
 git clone git@github.com:CarlosAMolina/workWithUrls
 ```
 
-## Instal the add-on in Firefox
+## Install the add-on in Firefox
 
 After modify the project, test it with Firefox.
 
