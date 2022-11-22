@@ -8,4 +8,4 @@ The deobfuscation and obfuscation rules configured in the `Configuration` sectio
 4. Click the `Copy to clipboard` button in the add-on's main menu.
 5. The rules will appear in the box below `Value to change (line i). New value (line i+1)` and copied to the clipboard.
 
-The rules will be stored in the clipboard with the format used when multiple rules are configured (see the 'Configuration' section).
+The rules will be stored in the clipboard with the format used when multiple rules are configured (see the `Configuration` section).
