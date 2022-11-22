@@ -6,7 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - 2022-11-22
 ### Added
-- Wiki pages. GitHub pages migration is completed.
+- Wiki pages. GitHub Pages migration is completed.
+
+### Removed
+- GitHub Pages icon.
 
 ## [0.6.0] - 2022-11-20
 ### Added
