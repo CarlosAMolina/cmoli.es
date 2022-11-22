@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] - 2022-11-22
+## [0.7.0] - 2022-11-22
 ### Added
 - Wiki pages. GitHub Pages migration is completed.
 
