@@ -1,9 +1,12 @@
+@import url("base.css");
+
 body {
-  background-color: #1a1a1a;
+  background-color: var(--BACKGROUND-COLOR);
 }
+
 a {
   text-decoration: none;
-  color: #63c0f5;
+  color: var(--TAG-A-COLOR);
   text-shadow: 0 0 5px rgba(104,182,255,0.5);
 }
 

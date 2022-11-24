@@ -1,5 +1,7 @@
+@import url("base.css");
+
 body {
-  background-color: #1a1a1a;
+  background-color: var(--BACKGROUND-COLOR);
   line-height: 1.5;
   font-size: 16px;
   font-family: Mono;
@@ -18,7 +20,7 @@ ul {
 }
 
 a {
-  color: #63c0f5;
+  color: var(--TAG-A-COLOR);
 }
 
 blockquote {
