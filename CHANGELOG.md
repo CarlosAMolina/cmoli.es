@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Do not use `src` in the path of the volume with the web content.
+- Rename some variables.
 
 ## [0.7.1] - 2022-11-27
 ### Added
