@@ -10,21 +10,17 @@ table.center {
   margin-right: auto;
 }
 
-td {
-  text-align: center;
-  width: 10vw;
-}
-
 th, td {
   border: 1px solid #30ec30;
   padding: 15px;
 }
 
-tr:hover {
-  background-color: coral;
+td {
+  text-align: center;
+  width: 10vw;
 }
 
-a.center {
-  text-align: center;
-  display: block;
+tr:hover {
+  background-color: Teal;
 }
+
