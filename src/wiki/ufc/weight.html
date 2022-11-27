@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<table>
+  <tr>
+    <th colspan = "2">Category</th>
+    <th colspan = "2">Weight</th>
+  </tr>
+  <tr>
+    <th>English</th>
+    <th>Spanish</th>
+    <th>Pounds (lb)</th>
+    <th>Kilograms (kg)</th>
+  </tr>
+  <tr>
+    <td>Strawweight</td>
+    <td>Peso paja</td>
+    <td id="strawweight-pounds">115</td>
+    <td id="strawweight-kg"></td>
+  </tr>
+  <tr>
+    <td>Flyweight</td>
+    <td>Peso mosca</td>
+    <td id="flyweight-pounds">125</td>
+    <td id="flyweight-kg"></td>
+  </tr>
+  <tr>
+    <td>Bantamweight</td>
+    <td>Peso gallo</td>
+    <td id="bantamweight-pounds">135</td>
+    <td id="bantamweight-kg"></td>
+  </tr>
+  <tr>
+    <td>Featherweight</td>
+    <td>Peso pluma</td>
+    <td id="featherweight-pounds">145</td>
+    <td id="featherweight-kg"></td>
+  </tr>
+  <tr>
+    <td>Lightweight</td>
+    <td>Peso ligero</td>
+    <td id="lightweight-pounds">155</td>
+    <td id="lightweight-kg"></td>
+  </tr>
+  <tr>
+    <td>Welterweight</td>
+    <td>Peso wélter</td>
+    <td id="welterweight-pounds">170</td>
+    <td id="welterweight-kg"></td>
+  </tr>
+  <tr>
+    <td>Middleweight</td>
+    <td>Peso medio</td>
+    <td id="middleweight-pounds">185</td>
+    <td id="middleweight-kg"></td>
+  </tr>
+  <tr>
+    <td>Light heavyweight</td>
+    <td>Peso ligero</td>
+    <td id="light-heavyweight-pounds">205</td>
+    <td id="light-heavyweight-kg"></td>
+  </tr>
+  <tr>
+    <td>Heavyweight</td>
+    <td>Peso pesado</td>
+    <td id="heavyweight-pounds">265</td>
+    <td id="heavyweight-kg"></td>
+  </tr>
+</table>
+
+<a href="https://www.ufc.com/news/understanding-ufc-weight-classes-and-weigh-ins">Weight reference</a>
+
+<script>
+
+  function setKg(tag_prefix_id) {
+    var tag_kg = tag_prefix_id+"-kg";
+    var tag_pounds = tag_prefix_id+"-pounds";
+    var pounds = document.getElementById(tag_pounds).innerHTML;
+    var kg = getKgFromPounds(pounds);
+    kg = getNumberRoundDecimals(kg, 3);
+    document.getElementById(tag_kg).innerHTML = kg;
+  }
+
+  function getKgFromPounds(pounds) {
+    const POUND_AS_KG = 0.4535924;
+    return pounds * POUND_AS_KG;
+  }
+
+  function getNumberRoundDecimals(number, decimals) {
+    const TEN_RAISED = 10 ** decimals;
+    return Math.round(number * TEN_RAISED) / TEN_RAISED;
+  }
+
+  const tags_prefix_id_to_convert = [
+    "strawweight",
+    "flyweight",
+    "bantamweight",
+    "featherweight",
+    "lightweight",
+    "welterweight",
+    "middleweight",
+    "light-heavyweight",
+    "heavyweight",
+  ]
+
+  for (const tag_prefix_id of tags_prefix_id_to_convert) {
+    setKg(tag_prefix_id)
+  }
+
+</script>
+
+<noscript>JavaScript is required</noscript>
+
+
+</body>
+</html>
