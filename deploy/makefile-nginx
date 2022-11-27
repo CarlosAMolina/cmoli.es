@@ -34,6 +34,6 @@ connect:
 logs:
 	/bin/bash show-nginx-logs $(DOCKER_VOLUME_NGINX_LOGS)
 
-stop:
-	docker stop $(DOCKER_CONTAINER_NAME)
+stop-if-running:
+	docker stop $(DOCKER_CONTAINER_NAME) || true
 
