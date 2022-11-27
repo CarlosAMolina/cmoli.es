@@ -4,7 +4,7 @@ volume_name_nginx_web_content=$1
 vps_src_output_pathname=$2
 
 volume_nginx_web_content_pathname=$(docker volume inspect "${volume_name_nginx_web_content}" --format '{{.Mountpoint}}')
-html_directory_pathname=${volume_nginx_web_content_pathname}/src
+html_directory_pathname=${volume_nginx_web_content_pathname}
 
 echo "[DEBUG] Init send files to VPS"
 echo "[DEBUG] Wait some seconds until all .md files have been converted to .html"

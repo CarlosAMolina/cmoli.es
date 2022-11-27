@@ -3,7 +3,7 @@
 volume_name_nginx_web_content=$1
 
 volume_nginx_web_content_pathname=$(docker volume inspect "${volume_name_nginx_web_content}" --format '{{.Mountpoint}}')
-index_html_pathname=${volume_nginx_web_content_pathname}/src/index.html
+index_html_pathname=${volume_nginx_web_content_pathname}/index.html
 
 echo "[DEBUG] Init open HTML"
 until [ -f ${index_html_pathname} ]
@@ -11,5 +11,5 @@ do
     echo "[DEBUG] The file ${index_html_pathname} does not exist. Retrying again"
     sleep 2
 done
-firefox ${index_html_pathname}
+firefox http://localhost:8080
 

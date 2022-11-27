@@ -37,9 +37,9 @@ copy-files-to-volumes:
 
 run: pull-docker-image build-docker-image create-docker-volumes copy-files-to-volumes run-container
 
-stop:
-	docker stop $(DOCKER_CONTAINER_NAME)
-
 connect:
 	docker exec -it $(DOCKER_CONTAINER_NAME) /bin/sh
+
+stop:
+	docker stop $(DOCKER_CONTAINER_NAME)
 
