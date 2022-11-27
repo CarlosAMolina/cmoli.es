@@ -10,8 +10,7 @@ DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT=nginx-web-content
 DOCKER_VOLUME_NAME_PANDOC=pandoc
 VPS_SRC_OUTPUT_PATHNAME=/var/www/cmoli.es/html
 
-# TODO rename to create-web-content
-create-web:
+create-web-content:
 	git pull origin $(shell git branch --show-current)
 	/bin/bash remove-volumes \
 		$(DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT) \
@@ -47,9 +46,9 @@ stop-containers:
 	make -f makefile-nginx \
 	    stop-if-running
 
-test: stop-containers create-web create-web-server show-web
+test: stop-containers create-web-content create-web-server show-web
 
-deploy: create-web deploy-send-files-to-vps
+deploy: create-web-content deploy-send-files-to-vps
 
 export-pandoc-template-html:
 	# https://pandoc.org/MANUAL.html#option--print-default-template
