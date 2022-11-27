@@ -1,117 +1,103 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="es">
 
-<table>
-  <tr>
-    <th colspan = "2">Category</th>
-    <th colspan = "2">Weight</th>
-  </tr>
-  <tr>
-    <th>English</th>
-    <th>Spanish</th>
-    <th>Pounds (lb)</th>
-    <th>Kilograms (kg)</th>
-  </tr>
-  <tr>
-    <td>Strawweight</td>
-    <td>Peso paja</td>
-    <td id="strawweight-pounds">115</td>
-    <td id="strawweight-kg"></td>
-  </tr>
-  <tr>
-    <td>Flyweight</td>
-    <td>Peso mosca</td>
-    <td id="flyweight-pounds">125</td>
-    <td id="flyweight-kg"></td>
-  </tr>
-  <tr>
-    <td>Bantamweight</td>
-    <td>Peso gallo</td>
-    <td id="bantamweight-pounds">135</td>
-    <td id="bantamweight-kg"></td>
-  </tr>
-  <tr>
-    <td>Featherweight</td>
-    <td>Peso pluma</td>
-    <td id="featherweight-pounds">145</td>
-    <td id="featherweight-kg"></td>
-  </tr>
-  <tr>
-    <td>Lightweight</td>
-    <td>Peso ligero</td>
-    <td id="lightweight-pounds">155</td>
-    <td id="lightweight-kg"></td>
-  </tr>
-  <tr>
-    <td>Welterweight</td>
-    <td>Peso wélter</td>
-    <td id="welterweight-pounds">170</td>
-    <td id="welterweight-kg"></td>
-  </tr>
-  <tr>
-    <td>Middleweight</td>
-    <td>Peso medio</td>
-    <td id="middleweight-pounds">185</td>
-    <td id="middleweight-kg"></td>
-  </tr>
-  <tr>
-    <td>Light heavyweight</td>
-    <td>Peso ligero</td>
-    <td id="light-heavyweight-pounds">205</td>
-    <td id="light-heavyweight-kg"></td>
-  </tr>
-  <tr>
-    <td>Heavyweight</td>
-    <td>Peso pesado</td>
-    <td id="heavyweight-pounds">265</td>
-    <td id="heavyweight-kg"></td>
-  </tr>
-</table>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="weight.css" />
+  </head>
 
-<a href="https://www.ufc.com/news/understanding-ufc-weight-classes-and-weigh-ins">Weight reference</a>
+  <body>
 
-<script>
+    <div class="flex-header">
+      <div class="icon-home">
+        <a
+          href="https://cmoli.es"
+          title="Main page"
+          rel="noopener noreferrer"
+          class="icon-home-color"
+        >
+          <svg viewBox="0 0 256 256">
+            <!-- https://www.iconpacks.net/free-icon/home-2490.html -->
+            <g transform="scale(2.81 2.81)" >
+              <polygon fill="currentColor" points="75.96,30.96 75.96,13.34 67.26,13.34 67.26,22.26 45,0 0.99,44.02 7.13,50.15 45,12.28 82.88,50.15 89.01,44.02 "/>
+              <polygon fill="currentColor" points="45,20 14.04,50.95 14.04,90 35.29,90 35.29,63.14 54.71,63.14 54.71,90 75.96,90 75.96,50.95 "/>
+            </g>
+          </svg>
+        </a>
+      </div>
+    </div>
 
-  function setKg(tag_prefix_id) {
-    var tag_kg = tag_prefix_id+"-kg";
-    var tag_pounds = tag_prefix_id+"-pounds";
-    var pounds = document.getElementById(tag_pounds).innerHTML;
-    var kg = getKgFromPounds(pounds);
-    kg = getNumberRoundDecimals(kg, 3);
-    document.getElementById(tag_kg).innerHTML = kg;
-  }
+    <table class=center>
+      <tr>
+        <th colspan = "2">Category</th>
+        <th colspan = "2">Weight</th>
+      </tr>
+      <tr>
+        <th>English</th>
+        <th>Spanish</th>
+        <th>Pounds (lb)</th>
+        <th>Kilograms (kg)</th>
+      </tr>
+      <tr>
+        <td>Strawweight</td>
+        <td>Peso paja</td>
+        <td id="strawweight-pounds">115</td>
+        <td id="strawweight-kg"></td>
+      </tr>
+      <tr>
+        <td>Flyweight</td>
+        <td>Peso mosca</td>
+        <td id="flyweight-pounds">125</td>
+        <td id="flyweight-kg"></td>
+      </tr>
+      <tr>
+        <td>Bantamweight</td>
+        <td>Peso gallo</td>
+        <td id="bantamweight-pounds">135</td>
+        <td id="bantamweight-kg"></td>
+      </tr>
+      <tr>
+        <td>Featherweight</td>
+        <td>Peso pluma</td>
+        <td id="featherweight-pounds">145</td>
+        <td id="featherweight-kg"></td>
+      </tr>
+      <tr>
+        <td>Lightweight</td>
+        <td>Peso ligero</td>
+        <td id="lightweight-pounds">155</td>
+        <td id="lightweight-kg"></td>
+      </tr>
+      <tr>
+        <td>Welterweight</td>
+        <td>Peso wélter</td>
+        <td id="welterweight-pounds">170</td>
+        <td id="welterweight-kg"></td>
+      </tr>
+      <tr>
+        <td>Middleweight</td>
+        <td>Peso mediano</td>
+        <td id="middleweight-pounds">185</td>
+        <td id="middleweight-kg"></td>
+      </tr>
+      <tr>
+        <td>Light heavyweight</td>
+        <td>Peso semipesado</td>
+        <td id="light-heavyweight-pounds">205</td>
+        <td id="light-heavyweight-kg"></td>
+      </tr>
+      <tr>
+        <td>Heavyweight</td>
+        <td>Peso pesado o completo</td>
+        <td id="heavyweight-pounds">265</td>
+        <td id="heavyweight-kg"></td>
+      </tr>
+    </table>
 
-  function getKgFromPounds(pounds) {
-    const POUND_AS_KG = 0.4535924;
-    return pounds * POUND_AS_KG;
-  }
+    <a class="center" href="https://www.ufc.com/news/understanding-ufc-weight-classes-and-weigh-ins">Weight reference</a>
 
-  function getNumberRoundDecimals(number, decimals) {
-    const TEN_RAISED = 10 ** decimals;
-    return Math.round(number * TEN_RAISED) / TEN_RAISED;
-  }
+    <script src="weight.js"></script>
+    <noscript>JavaScript is required</noscript>
 
-  const tags_prefix_id_to_convert = [
-    "strawweight",
-    "flyweight",
-    "bantamweight",
-    "featherweight",
-    "lightweight",
-    "welterweight",
-    "middleweight",
-    "light-heavyweight",
-    "heavyweight",
-  ]
-
-  for (const tag_prefix_id of tags_prefix_id_to_convert) {
-    setKg(tag_prefix_id)
-  }
-
-</script>
-
-<noscript>JavaScript is required</noscript>
-
-
-</body>
+  </body>
 </html>

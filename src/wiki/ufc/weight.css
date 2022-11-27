@@ -1,0 +1,30 @@
+@import url("../../blog.css");
+
+table {
+ border-collapse: collapse;
+ margin: 20px;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  text-align: center;
+  width: 10vw;
+}
+
+th, td {
+  border: 1px solid #30ec30;
+  padding: 15px;
+}
+
+tr:hover {
+  background-color: coral;
+}
+
+a.center {
+  text-align: center;
+  display: block;
+}
