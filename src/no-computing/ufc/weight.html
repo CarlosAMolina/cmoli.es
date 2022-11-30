@@ -92,6 +92,19 @@
         <td id="heavyweight-kg"></td>
       </tr>
     </table>
+    <h2>Conversor</h2>
+    <label for="kg-input">Peso kg (500 máximo):</label>
+    <input
+      type="number"
+      id="kg-input"
+      name="kg-input"
+      min="0"
+      max="500"
+      step="0.001"
+      placeholder="e.g. 67.5"
+      required
+    >
+    <button type="button" onclick="convertKgToLb()">Convertir a libras</button>
     <h2>Referencias</h2>
     <a href="https://www.ufc.com/news/understanding-ufc-weight-classes-and-weigh-ins">Understanding UFC Weight Classes</a>
     <script src="weight.js"></script>
