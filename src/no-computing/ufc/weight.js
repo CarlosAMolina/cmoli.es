@@ -80,6 +80,7 @@ function setLbConversor() {
 
 function getCategoryFromLb(lb_input) {
   let result = "Category not found";
+  // TODO incorrect conversion for small values like 10 kg
   for (let [category, lb] of categoryAndLb.entries()) {
     if (lb_input >= lb) {
       result = category;
