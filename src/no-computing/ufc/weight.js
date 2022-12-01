@@ -23,11 +23,11 @@ const categoryAndLb = new Map([
 ]);
 
 for (const category of categories) {
-  setLb(category);
-  setKg(category);
+  setLbTable(category);
+  setKgTable(category);
 }
 
-function setLb(category) {
+function setLbTable(category) {
   const tagLb = getTagLbFromCategory(category);
   const lb = categoryAndLb.get(category);
   document.getElementById(tagLb).innerHTML = lb;
@@ -41,7 +41,7 @@ function getTagKgFromCategory(category) {
   return category+"-kg";
 }
 
-function setKg(category) {
+function setKgTable(category) {
   const tagKg = getTagKgFromCategory(category);
   const tagLb = getTagLbFromCategory(category);
   const lb = document.getElementById(tagLb).innerHTML;
@@ -69,10 +69,10 @@ function getNumberRoundDecimals(number, decimals) {
   return Math.round(number * tenRaised) / tenRaised;
 }
 
-function convertKgToLb() {
-  const lb = document.getElementById("kg-input").innerHTML;
-  console.log(lb);
-  const kg = getKgFromLb(lb);
+function setLbConversor() {
+  const kg = document.getElementById("kg-input").value;
   console.log(kg);
-  alert(kg);
+  var result = getLbFromKg(kg);
+  result = getNumberRoundDecimals(result, 3);
+  document.getElementById("convert-kg-result").innerHTML = result;
 }
