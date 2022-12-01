@@ -71,8 +71,22 @@ function getNumberRoundDecimals(number, decimals) {
 
 function setLbConversor() {
   const kg = document.getElementById("kg-input").value;
-  console.log(kg);
   var result = getLbFromKg(kg);
-  result = getNumberRoundDecimals(result, 3);
-  document.getElementById("convert-kg-result").innerHTML = result;
+  lb = getNumberRoundDecimals(result, 3);
+  document.getElementById("convert-kg-to-lb").innerHTML = lb;
+  category = getCategoryFromLb(lb);
+  document.getElementById("convert-kg-to-lb-category").innerHTML = category;
 }
+
+function getCategoryFromLb(lb_input) {
+  let result = "Category not found";
+  for (let [category, lb] of categoryAndLb.entries()) {
+    if (lb_input >= lb) {
+      result = category;
+    } else {
+      break;
+    }
+  }
+  return result;
+}
+
