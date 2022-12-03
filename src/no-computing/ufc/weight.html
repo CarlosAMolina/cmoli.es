@@ -105,7 +105,12 @@
       placeholder="e.g. 67.5"
       required
     >
-    <button type="button" onclick="setLbConversor()">Convertir a libras</button>
+    <label for="conversion-select">Selecciona tipo de conversión:</label>
+    <select name="pets" id="conversion-select">
+        <option value="conversion-kg-to-lb">Kg to Lb</option>
+        <option value="conversion-lb-to-kg">Lb to Kg</option>
+    </select>
+    <button type="button" onclick="setLbConversor()">Convertir</button>
     <p id="convert-kg-to-lb"></p>
     <p id="convert-kg-to-lb-category"></p>
     <h2>Referencias</h2>
