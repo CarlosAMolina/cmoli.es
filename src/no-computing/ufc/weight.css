@@ -20,6 +20,10 @@ td {
   width: 10vw;
 }
 
+td:first-letter {
+  text-transform: uppercase;
+}
+
 tr:hover {
   background-color: Teal;
 }
