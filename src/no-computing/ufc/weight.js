@@ -41,8 +41,20 @@ for (const category of categories) {
 
 function setLbTable(category) {
   const tagLb = getTagLbFromCategory(category);
+  const tagCategoryEn = getTagCategoryEnFromCategory(category);
+  const tagCategoryEs = getTagCategoryEsFromCategory(category);
   const lb = categoryAndLb.get(category);
+  document.getElementById(tagCategoryEn).innerHTML = category;
+  document.getElementById(tagCategoryEs).innerHTML = categoresEnglishAndSpanish.get(category);
   document.getElementById(tagLb).innerHTML = lb;
+}
+
+function getTagCategoryEsFromCategory(category) {
+  return category+'-category-es';
+}
+
+function getTagCategoryEnFromCategory(category) {
+  return category+'-category-en';
 }
 
 function getTagLbFromCategory(category) {
