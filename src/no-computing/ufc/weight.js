@@ -71,10 +71,19 @@ function getNumberRoundDecimals(number, decimals) {
 
 function setLbConversor() {
   const kg = document.getElementById("kg-input").value;
-  var result = getLbFromKg(kg);
-  lb = getNumberRoundDecimals(result, 3);
+  var lb;
+  var category;
+  const inputMin = 0;
+  const inputMax = 500;
+  if (kg < inputMin || kg > inputMax) {
+    lb = 0;
+    category = `Invalid input. Min ${inputMin}. Max ${inputMax}`;
+  } else {
+    var lb = getLbFromKg(kg);
+    lb = getNumberRoundDecimals(lb, 3);
+    category = getCategoryFromLb(lb);
+  }
   document.getElementById("convert-kg-to-lb").innerHTML = lb;
-  category = getCategoryFromLb(lb);
   document.getElementById("convert-kg-to-lb-category").innerHTML = category;
 }
 
