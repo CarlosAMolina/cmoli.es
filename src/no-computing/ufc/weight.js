@@ -75,9 +75,9 @@ function setLbConversor() {
   var category;
   const inputMin = 0;
   const inputMax = 500;
-  if (kg < inputMin || kg > inputMax) {
+  if (kg <= inputMin || kg > inputMax) {
     lb = 0;
-    category = `Invalid input. Min ${inputMin}. Max ${inputMax}`;
+    category = `Peso no válido. Debe ser mayor que ${inputMin} y menor o igual a ${inputMax}`;
   } else {
     var lb = getLbFromKg(kg);
     lb = getNumberRoundDecimals(lb, 3);
@@ -88,12 +88,10 @@ function setLbConversor() {
 }
 
 function getCategoryFromLb(lb_input) {
-  let result = "Category not found";
-  // TODO incorrect conversion for small values like 10 kg
+  let result = categories[categories.length -1];
   for (let [category, lb] of categoryAndLb.entries()) {
-    if (lb_input >= lb) {
-      result = category;
-    } else {
+    if (lb_input <= lb) {
+      result = category
       break;
     }
   }
