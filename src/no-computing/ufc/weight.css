@@ -28,3 +28,27 @@ tr:hover {
   background-color: Teal;
 }
 
+
+button {
+  color: #fff;
+  background-color: #4CAF50;
+  font-size: var(--FONT-SIZE);
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 9px #999;
+}
+
+button:hover {
+  background-color: #3e8e41;
+  color: white;
+}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
