@@ -1,14 +1,26 @@
 const categories = [
-  "strawweight",
-  "flyweight",
-  "bantamweight",
-  "featherweight",
-  "lightweight",
-  "welterweight",
-  "middleweight",
-  "light-heavyweight",
-  "heavyweight",
+  'strawweight',
+  'flyweight',
+  'bantamweight',
+  'featherweight',
+  'lightweight',
+  'welterweight',
+  'middleweight',
+  'light-heavyweight',
+  'heavyweight',
 ]
+
+const categoresEnglishAndSpanish = new Map([
+  [categories[0], 'peso paja'],
+  [categories[1], 'peso mosca'],
+  [categories[2], 'peso gallo'],
+  [categories[3], 'peso pluma'],
+  [categories[4], 'peso ligero'],
+  [categories[5], 'peso wélter'],
+  [categories[6], 'peso mediano'],
+  [categories[7], 'peso semipesado'],
+  [categories[8], 'peso pesado o completo'],
+]);
 
 const categoryAndLb = new Map([
   [categories[0], 115],
@@ -19,7 +31,7 @@ const categoryAndLb = new Map([
   [categories[5], 170],
   [categories[6], 185],
   [categories[7], 205],
-  [categories[8], 265]
+  [categories[8], 265],
 ]);
 
 for (const category of categories) {
@@ -34,11 +46,11 @@ function setLbTable(category) {
 }
 
 function getTagLbFromCategory(category) {
-  return category+"-lb";
+  return category+'-lb';
 }
 
 function getTagKgFromCategory(category) {
-  return category+"-kg";
+  return category+'-kg';
 }
 
 function setKgTable(category) {
@@ -70,21 +82,24 @@ function getNumberRoundDecimals(number, decimals) {
 }
 
 function setLbConversor() {
-  const kg = document.getElementById("kg-input").value;
-  var lb;
-  var category;
+  const kg = document.getElementById('kg-input').value;
+  var lb_description;
+  var category_description;
   const inputMin = 0;
   const inputMax = 500;
   if (kg <= inputMin || kg > inputMax) {
-    lb = 0;
-    category = `Peso no válido. Debe ser mayor que ${inputMin} y menor o igual a ${inputMax}`;
+    lb_description = '-';
+    category_description = `Peso no válido. Debe ser mayor que ${inputMin} y menor o igual a ${inputMax}`;
   } else {
     var lb = getLbFromKg(kg);
     lb = getNumberRoundDecimals(lb, 3);
-    category = getCategoryFromLb(lb);
+    lb_description = `${lb} lb`;
+    category_en = getCategoryFromLb(lb);
+    category_es = categoresEnglishAndSpanish.get(category_en);
+    category_description = `${category_en} (${category_es})`;
   }
-  document.getElementById("convert-kg-to-lb").innerHTML = lb;
-  document.getElementById("convert-kg-to-lb-category").innerHTML = category;
+  document.getElementById('convert-kg-to-lb').innerHTML = lb_description;
+  document.getElementById('convert-kg-to-lb-category').innerHTML = category_description;
 }
 
 function getCategoryFromLb(lb_input) {
