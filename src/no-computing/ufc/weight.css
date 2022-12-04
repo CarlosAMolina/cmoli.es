@@ -17,7 +17,6 @@ th, td {
 
 td {
   text-align: center;
-  width: 10vw;
 }
 
 td:first-letter {
@@ -78,5 +77,11 @@ fieldset legend {
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 930px) {
+  table {
+    width: 100%;
+  }
 }
 
