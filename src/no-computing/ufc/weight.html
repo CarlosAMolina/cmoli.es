@@ -105,18 +105,23 @@
       placeholder="e.g. 67.5"
       required
     >
-    <fieldset>
-    <legend>Selecciona tipo de conversión:</legend>
-    <div>
-      <input type="radio" id="conversion-kg-to-lb" name="conversion-type" value="conversion-kg-to-lb"
-             checked>
-      <label for="conversion-kg-to-lb">Kg to Lb</label>
-    </div>
-    <div>
-      <input type="radio" id="conversion-kg-to-lb" name="conversion-type" value="conversion-lb-to-kg">
-      <label for="conversion-lb-to-kg">Lb to Kg</label>
-    </div>
-    </fieldset>
+    <form>
+      <fieldset>
+        <legend>Selecciona tipo de conversión:</legend>
+        <div>
+          <input type="radio" id="conversion-kg-to-lb" name="conversion-type" value="conversion-kg-to-lb" checked>
+          <label for="conversion-kg-to-lb">Kg to Lb</label>
+        </div>
+        <div>
+          <input type="radio" id="conversion-kg-to-lb" name="conversion-type" value="conversion-lb-to-kg">
+          <label for="conversion-lb-to-kg">Lb to Kg</label>
+        </div>
+        <div>
+          <button type="submit">Convertir</button>
+        </div>
+      </fieldset>
+    </form>
+    <pre id="log"></pre>
     <button type="button" onclick="setLbConversor()">Convertir</button>
     <p id="convert-kg-to-lb"></p>
     <p id="convert-kg-to-lb-category"></p>

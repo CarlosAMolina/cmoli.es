@@ -93,10 +93,32 @@ function getNumberRoundDecimals(number, decimals) {
   return Math.round(number * tenRaised) / tenRaised;
 }
 
+const conversorForm = document.querySelector("form");
+const log = document.querySelector("#log");
+conversorForm.addEventListener(
+  "submit",
+  (event) => {
+    const data = new FormData(conversorForm);
+    let output = "";
+    let conversionType = "";
+    for (const entry of data) {
+      conversionType = entry[1];
+      output = `${output}${entry[0]}=${conversionType}\r`;
+    }
+    if (conversionType == "conversion-kg-to-lb") {
+      setLbConversor();
+    }
+    log.innerText = output;
+    event.preventDefault();
+  },
+  false
+);
+
+
 function setLbConversor() {
   const kg = document.getElementById('kg-input').value;
-  var lb_description;
-  var category_description;
+  let lb_description;
+  let category_description;
   const inputMin = 0;
   const inputMax = 500;
   if (kg <= inputMin || kg > inputMax) {
