@@ -94,7 +94,6 @@ function getNumberRoundDecimals(number, decimals) {
 }
 
 const conversorForm = document.querySelector("form");
-const log = document.querySelector("#log");
 conversorForm.addEventListener(
   "submit",
   (event) => {
@@ -105,17 +104,14 @@ conversorForm.addEventListener(
       conversionType = entry[1];
       output = `${output}${entry[0]}=${conversionType}\r`;
     }
-    if (conversionType == "conversion-kg-to-lb") {
-      setLbConversor();
-    }
-    log.innerText = output;
+    setResultConversor(conversionType);
     event.preventDefault();
   },
   false
 );
 
 
-function setLbConversor() {
+function setResultConversor(conversionType) {
   const weightInput = document.getElementById('conversor-input').value;
   const inputMin = 0;
   const inputMax = 500;
@@ -125,13 +121,23 @@ function setLbConversor() {
     document.getElementById('error-output').classList.remove("hidden");
     document.getElementById('conversor-output').classList.add("hidden");
   } else {
-    var lb = getLbFromKg(weightInput);
-    lb = getNumberRoundDecimals(lb, 3);
-    const lb_description = `${lb} lb`;
-    category_en = getCategoryFromLb(lb);
-    category_es = categoresEnglishAndSpanish.get(category_en);
+    let category_en;
+    let weightOutput;
+    let weightOutputUnit;
+    if (conversionType == "conversion-kg-to-lb") {
+      weightOutput = getLbFromKg(weightInput);
+      category_en = getCategoryFromLb(weightOutput);
+      weightOutputUnit = 'lb';
+    } else {
+      weightOutput = getKgFromLb(weightInput);
+      category_en = getCategoryFromLb(weightInput);
+      weightOutputUnit = 'kg';
+    }
+    weightOutput = getNumberRoundDecimals(weightOutput, 3);
+    const category_es = categoresEnglishAndSpanish.get(category_en);
+    const weight_description = `${weightOutput} ${weightOutputUnit}`;
     const category_description = `${category_en} (${category_es})`;
-    document.getElementById('weight-output').innerHTML = lb_description;
+    document.getElementById('weight-output').innerHTML = weight_description;
     document.getElementById('category-output').innerHTML = category_description;
     document.getElementById('error-output').classList.add("hidden");
     document.getElementById('conversor-output').classList.remove("hidden");
