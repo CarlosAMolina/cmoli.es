@@ -79,7 +79,7 @@ fieldset legend {
   display: none;
 }
 
-@media screen and (max-width: 930px) {
+@media screen and (max-width: 410px) {
 
   .table-categories {
     width: 100%;
@@ -88,5 +88,14 @@ fieldset legend {
   .table-categories th, .table-categories td {
     font-size: 10px;
   }
+}
+
+
+@media screen and (max-width: 930px) {
+
+  .table-categories {
+    width: 100%;
+  }
+
 }
 
