@@ -80,8 +80,13 @@ fieldset legend {
 }
 
 @media screen and (max-width: 930px) {
-  table {
+
+  .table-categories {
     width: 100%;
+  }
+
+  .table-categories th, .table-categories td {
+    font-size: 10px;
   }
 }
 
