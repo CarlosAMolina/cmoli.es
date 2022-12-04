@@ -121,24 +121,28 @@ function setResultConversor(conversionType) {
     document.getElementById('error-output').classList.remove("hidden");
     document.getElementById('conversor-output').classList.add("hidden");
   } else {
-    let category_en;
+    let enCategory;
     let weightOutput;
-    let weightOutputUnit;
+    let kgWeightOutput;
+    let lbWeightOutput;
     if (conversionType == "conversion-kg-to-lb") {
       weightOutput = getLbFromKg(weightInput);
-      category_en = getCategoryFromLb(weightOutput);
-      weightOutputUnit = 'lb';
+      enCategory = getCategoryFromLb(weightOutput);
+      kgWeightOutput = weightInput;
+      lbWeightOutput = weightOutput;
     } else {
       weightOutput = getKgFromLb(weightInput);
-      category_en = getCategoryFromLb(weightInput);
-      weightOutputUnit = 'kg';
+      enCategory = getCategoryFromLb(weightInput);
+      kgWeightOutput = weightOutput;
+      lbWeightOutput = weightInput;
     }
-    weightOutput = getNumberRoundDecimals(weightOutput, 3);
-    const category_es = categoresEnglishAndSpanish.get(category_en);
-    const weight_description = `${weightOutput} ${weightOutputUnit}`;
-    const category_description = `${category_en} (${category_es})`;
-    document.getElementById('weight-output').innerHTML = weight_description;
-    document.getElementById('category-output').innerHTML = category_description;
+    kgWeightOutput = getNumberRoundDecimals(kgWeightOutput, 3);
+    lbWeightOutput = getNumberRoundDecimals(lbWeightOutput, 3);
+    const esCategory = categoresEnglishAndSpanish.get(enCategory);
+    document.getElementById('kg-weight-output').innerHTML = kgWeightOutput;
+    document.getElementById('lb-weight-output').innerHTML = lbWeightOutput;
+    document.getElementById('en-category-output').innerHTML = enCategory;
+    document.getElementById('es-category-output').innerHTML = esCategory;
     document.getElementById('error-output').classList.add("hidden");
     document.getElementById('conversor-output').classList.remove("hidden");
   }

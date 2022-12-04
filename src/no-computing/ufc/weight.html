@@ -122,13 +122,32 @@
         </div>
       </fieldset>
     </form>
-    <div id="conversor-output">
-      <p id="weight-output"></p>
-      <p id="category-output"></p>
+    <div id="conversor-output" class="hidden">
+      <table class=center>
+        <tr>
+          <th rowspan="2">Peso</th>
+          <th>Libras (lb)</th>
+          <td id="lb-weight-output"></td>
+        </tr>
+        <tr>
+          <th>Kilogramos (kg)</th>
+          <td id="kg-weight-output"></td>
+        </tr>
+        <tr>
+          <th rowspan="2">Categoría</th>
+          <th>Inglés</th>
+          <td id="en-category-output"></td>
+        </tr>
+        <tr>
+          <th>Español</th>
+          <td id="es-category-output"></td>
+        </tr>
+      </table>
     </div>
     <p id="error-output"></p>
     <h2>Referencias</h2>
-    <a href="https://www.ufc.com/news/understanding-ufc-weight-classes-and-weigh-ins">Understanding UFC Weight Classes</a>
+    <p><a href="https://www.ufc.com/rankings">Atletas de cada categoría</a></p>
+    <p><a href="https://www.ufc.com/news/understanding-ufc-weight-classes-and-weigh-ins">Understanding UFC Weight Classes</a></p>
     <script src="weight.js"></script>
     <noscript>JavaScript is required</noscript>
   </body>
