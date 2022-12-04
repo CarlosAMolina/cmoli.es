@@ -115,7 +115,7 @@ function setResultConversor(conversionType) {
   const weightInput = document.getElementById('conversor-input').value;
   const inputMin = 0;
   if (weightInput <= inputMin) {
-    errorMsg = `Peso no válido. Debe ser mayor que ${inputMin}`;
+    errorMsg = `Peso no válido. Debe ser mayor que ${inputMin}.`;
     document.getElementById('error-output').innerHTML = errorMsg;
     document.getElementById('error-output').classList.remove("hidden");
     document.getElementById('conversor-output').classList.add("hidden");
