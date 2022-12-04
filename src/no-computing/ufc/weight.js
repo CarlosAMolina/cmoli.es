@@ -114,9 +114,8 @@ conversorForm.addEventListener(
 function setResultConversor(conversionType) {
   const weightInput = document.getElementById('conversor-input').value;
   const inputMin = 0;
-  const inputMax = 500;
-  if (weightInput <= inputMin || weightInput > inputMax) {
-    errorMsg = `Peso no válido. Debe ser mayor que ${inputMin} y menor o igual a ${inputMax}`;
+  if (weightInput <= inputMin) {
+    errorMsg = `Peso no válido. Debe ser mayor que ${inputMin}`;
     document.getElementById('error-output').innerHTML = errorMsg;
     document.getElementById('error-output').classList.remove("hidden");
     document.getElementById('conversor-output').classList.add("hidden");

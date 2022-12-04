@@ -33,7 +33,7 @@ button {
   color: #fff;
   background-color: #4CAF50;
   font-size: var(--FONT-SIZE);
-  padding: 16px 30px;
+  padding: 8px 30px;
   border: none;
   cursor: pointer;
   border-radius: 5px;
