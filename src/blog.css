@@ -67,5 +67,5 @@ img {
 }
 
 .icon-home-color {
-  color: #30ec30;
+  color: var(--GREEN-COLOR);
 }

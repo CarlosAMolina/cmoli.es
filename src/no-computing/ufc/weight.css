@@ -11,7 +11,7 @@ table.center {
 }
 
 th, td {
-  border: 1px solid #30ec30;
+  border: 1px solid var(--GREEN-COLOR);
   padding: 15px;
 }
 
@@ -57,7 +57,7 @@ input[type="radio"]{
   border-radius: 50%;
   width: 16px;
   height: 16px;
-  border: 2px solid #30ec30;
+  border: 2px solid var(--GREEN-COLOR);
   transition: 0.2s all linear;
   margin-right: 5px;
   position: relative;
@@ -69,7 +69,7 @@ input[type="radio"]:checked {
 }
 
 fieldset {
-  border: 1px solid #30ec30;
+  border: 1px solid var(--GREEN-COLOR);
 }
 
 fieldset legend {
