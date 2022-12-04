@@ -116,24 +116,26 @@ conversorForm.addEventListener(
 
 
 function setLbConversor() {
-  const kg = document.getElementById('kg-input').value;
-  let lb_description;
-  let category_description;
+  const weightInput = document.getElementById('conversor-input').value;
   const inputMin = 0;
   const inputMax = 500;
-  if (kg <= inputMin || kg > inputMax) {
-    lb_description = '-';
-    category_description = `Peso no válido. Debe ser mayor que ${inputMin} y menor o igual a ${inputMax}`;
+  if (weightInput <= inputMin || weightInput > inputMax) {
+    errorMsg = `Peso no válido. Debe ser mayor que ${inputMin} y menor o igual a ${inputMax}`;
+    document.getElementById('error-output').innerHTML = errorMsg;
+    document.getElementById('error-output').classList.remove("hidden");
+    document.getElementById('conversor-output').classList.add("hidden");
   } else {
-    var lb = getLbFromKg(kg);
+    var lb = getLbFromKg(weightInput);
     lb = getNumberRoundDecimals(lb, 3);
-    lb_description = `${lb} lb`;
+    const lb_description = `${lb} lb`;
     category_en = getCategoryFromLb(lb);
     category_es = categoresEnglishAndSpanish.get(category_en);
-    category_description = `${category_en} (${category_es})`;
+    const category_description = `${category_en} (${category_es})`;
+    document.getElementById('weight-output').innerHTML = lb_description;
+    document.getElementById('category-output').innerHTML = category_description;
+    document.getElementById('error-output').classList.add("hidden");
+    document.getElementById('conversor-output').classList.remove("hidden");
   }
-  document.getElementById('convert-kg-to-lb').innerHTML = lb_description;
-  document.getElementById('convert-kg-to-lb-category').innerHTML = category_description;
 }
 
 function getCategoryFromLb(lb_input) {

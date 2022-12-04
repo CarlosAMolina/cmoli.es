@@ -45,3 +45,7 @@ button:hover {
   color: white;
 }
 
+.hidden {
+  display: none;
+}
+

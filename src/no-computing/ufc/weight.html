@@ -94,11 +94,11 @@
     </table>
     <p>Atletas de cada categoría: <a href="https://www.ufc.com/rankings">link</a>.</p>
     <h2>Conversor</h2>
-    <label for="kg-input">Peso:</label>
+    <label for="conversor-input">Peso:</label>
     <input
       type="number"
-      id="kg-input"
-      name="kg-input"
+      id="conversor-input"
+      name="conversor-input"
       min="0.001"
       max="500"
       step="0.001"
@@ -122,8 +122,11 @@
       </fieldset>
     </form>
     <pre id="log"></pre>
-    <p id="convert-kg-to-lb"></p>
-    <p id="convert-kg-to-lb-category"></p>
+    <div id="conversor-output">
+      <p id="weight-output"></p>
+      <p id="category-output"></p>
+    </div>
+    <p id="error-output"></p>
     <h2>Referencias</h2>
     <a href="https://www.ufc.com/news/understanding-ufc-weight-classes-and-weigh-ins">Understanding UFC Weight Classes</a>
     <script src="weight.js"></script>
