@@ -85,8 +85,17 @@ fieldset legend {
     width: 100%;
   }
 
+  .table-conversor-output {
+    width: 100%;
+  }
+
   .table-categories th, .table-categories td {
     font-size: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .table-conversor-output th, .table-conversor-output td {
     padding-left: 5px;
     padding-right: 5px;
   }
