@@ -87,6 +87,8 @@ fieldset legend {
 
   .table-categories th, .table-categories td {
     font-size: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 
