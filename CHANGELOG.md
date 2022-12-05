@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.9.1] - 2022-12-04
+## [0.9.1] - 2022-12-05
 ### Added
 - UFC weight converter.
 - UFC responsive table.
