@@ -1,0 +1,6 @@
+#!/bin/bash
+
+volume_name_nginx_logs=$1
+
+volume_path=$(docker volume inspect "${volume_name_nginx_logs}" --format '{{.Mountpoint}}')
+tail -f $volume_path/access.log

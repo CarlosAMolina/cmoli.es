@@ -1,7 +1,9 @@
+@import url("base.css");
+
 body {
-  background-color: #1a1a1a;
+  background-color: var(--BACKGROUND-COLOR);
   line-height: 1.5;
-  font-size: 16px;
+  font-size: var(--FONT-SIZE);
   font-family: Mono;
   width: 90%;
   max-width: 1000px;
@@ -10,15 +12,15 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#b5e853;
+  color: var(--YELLOW-COLOR);
 }
 
 ul {
-  list-style-image: linear-gradient(#b5e853, #b5e853);
+  list-style-image: linear-gradient(var(--YELLOW-COLOR), var(--YELLOW-COLOR));
 }
 
 a {
-  color: #63c0f5;
+  color: var(--TAG-A-COLOR);
 }
 
 blockquote {
@@ -65,5 +67,5 @@ img {
 }
 
 .icon-home-color {
-  color: #30ec30;
+  color: var(--GREEN-COLOR);
 }

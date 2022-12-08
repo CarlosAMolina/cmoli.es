@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.9.1] - 2022-12-05
+### Added
+- UFC weight converter.
+- UFC responsive table.
+
+### Changed
+- Move common settings to base.css.
+
+## [0.9.0] - 2022-11-27
+### Added
+- No computing section.
+
+## [0.8.0] - 2022-11-27
+### Added
+- Nginx Docker for local testing.
+
+### Changed
+- Do not use `src` in the path of the volume with the web content.
+- Rename some variables.
+
+## [0.7.1] - 2022-11-27
+### Added
+- base.css file with common css configuration.
+
 ## [0.7.0] - 2022-11-22
 ### Added
 - Wiki pages. GitHub Pages migration is completed.

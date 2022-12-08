@@ -1,0 +1,112 @@
+@import url("../../blog.css");
+
+table {
+ border-collapse: collapse;
+ margin: 20px;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  border: 1px solid var(--GREEN-COLOR);
+  padding: 15px;
+}
+
+td {
+  text-align: center;
+}
+
+td:first-letter {
+  text-transform: uppercase;
+}
+
+tr:hover {
+  background-color: Teal;
+}
+
+button {
+  color: #fff;
+  background-color: #4CAF50;
+  font-size: var(--FONT-SIZE);
+  padding: 8px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #3e8e41;
+  color: white;
+}
+
+input[type=number] {
+  background-color: #EEE5E4;
+  padding: 4px 1px;
+  border: solid var(--YELLOW-COLOR);
+  border-radius: 5px;
+  width: 10em;
+}
+
+input[type="radio"]{
+  appearance: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--GREEN-COLOR);
+  transition: 0.2s all linear;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+input[type="radio"]:checked {
+  border: 6px solid var(--YELLOW-COLOR);
+}
+
+fieldset {
+  border: 1px solid var(--GREEN-COLOR);
+}
+
+fieldset legend {
+  padding: 6px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 410px) {
+
+  .table-categories {
+    width: 100%;
+  }
+
+  .table-conversor-output {
+    width: 100%;
+  }
+
+  .table-categories th, .table-categories td {
+    font-size: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .table-conversor-output th, .table-conversor-output td {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+
+@media screen and (max-width: 930px) {
+
+  .table-categories {
+    width: 100%;
+  }
+
+}
+

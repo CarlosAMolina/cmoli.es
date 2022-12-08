@@ -14,4 +14,4 @@ cp create-pandoc-script-for-files $volume_pandoc_pathname
 # Web content
 volume_web_content_pathname=$(docker volume inspect "${volume_name_nginx_web_content}" --format '{{.Mountpoint}}')
 echo "[ÐEBUG] Init copy web content to $volume_web_content_pathname"
-cp -r ../src $volume_web_content_pathname
+cp -r ../src/* $volume_web_content_pathname
