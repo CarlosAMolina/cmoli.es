@@ -17,5 +17,8 @@ Los puntos analizados son:
 
 ## Apartados
 
-- [Introducción al programa desarrollado](01-programa-desarrollado.html).
+Para realizar nuestro viaje al lenguaje Rust, deberemos seguir en orden los siguientes apartados:
+
+- [Introducción al programa desarrollado](01-developed-program.html).
+- [Instalación Rust y Python](02-installation-rust-and-python.html).
 
