@@ -10,7 +10,11 @@ remove_if_exists() {
   if exists_volume ${volume}; then
     echo "[DEBUG] The volume exists. Init remove"
     docker volume rm ${volume}
-    echo "[DEBUG] The volume has been removed"
+    if exists_volume ${volume}; then
+      echo "[ERROR] The volume has not been removed"
+    else
+      echo "[DEBUG] The volume has been removed"
+    fi
   else
     echo "[DEBUG] The volume does not exist, no action is required"
   fi
