@@ -12,6 +12,7 @@ remove_if_exists() {
     docker volume rm ${volume}
     if exists_volume ${volume}; then
       echo "[ERROR] The volume has not been removed"
+      exit 1
     else
       echo "[DEBUG] The volume has been removed"
     fi
