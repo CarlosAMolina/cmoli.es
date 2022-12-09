@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#docker_volume_name_nginx_logs=$1
-docker_volume_name_nginx_web_content=$1
-docker_volume_name_pandoc=$2
-
 remove_if_exists() {
   volume=$1
   echo "[DEBUG] Init remove volume ${volume}"
@@ -29,7 +25,10 @@ exists_volume() {
   fi
 }
 
-#remove_if_exists ${docker_volume_name_nginx_logs}
-remove_if_exists ${docker_volume_name_nginx_web_content}
-remove_if_exists ${docker_volume_name_pandoc}
+volumes=( "$@" )
+
+for volume in ${volumes[@]};
+do
+  remove_if_exists ${volume}
+done
 
