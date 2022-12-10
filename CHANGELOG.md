@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - Stop container: raise exception if the container has not been stopped.
     - Create pandoc script: wait until the container ends and raise exception if the script has not been created.
     - Convert md to html: wait until the container ends.
+    - Create Nginx server: wait until Ningx server is listening.
 
 ## [0.9.2] - 2022-12-08
 ### Added

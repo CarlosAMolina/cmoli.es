@@ -26,7 +26,11 @@ run-server:
 		--mount type=volume,source=$(DOCKER_VOLUME_NGINX_WEB_CONTENT),target=/usr/share/nginx/html,readonly \
 		$(DOCKER_CUSTOM_IMAGE_NAME)
 
-run: pull-docker-image build-docker-image run-server
+wait-nginx-is-listening:
+	/bin/bash wait-until-nginx-is-listening \
+		http://localhost:8080/
+
+run: pull-docker-image build-docker-image run-server wait-nginx-is-listening
 
 connect:
 	docker exec -it $(DOCKER_CONTAINER_NAME) /bin/bash
