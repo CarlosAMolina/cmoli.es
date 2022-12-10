@@ -15,6 +15,7 @@ make -f makefile-create-pandoc-script-for-files \
 echo "[DEBUG] Init make script executable"
 volume_pandoc_pathname=$(docker volume inspect "${docker_volume_name_pandoc}" --format '{{.Mountpoint}}')
 script_pathname=${volume_pandoc_pathname}/run-on-files-convert-md-to-html
+# TODO replace with wait container stops
 until [ -f ${script_pathname} ]
 do
     echo "[DEBUG] The file ${script_pathname} does not exist. Retrying again"
