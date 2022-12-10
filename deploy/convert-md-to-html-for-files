@@ -12,7 +12,6 @@ make -f makefile-create-pandoc-script-for-files \
 	DOCKER_VOLUME_NGINX_WEB_CONTENT=${docker_volume_name_nginx_web_content} \
 	DOCKER_VOLUME_PANDOC=${docker_volume_name_pandoc}
 
-echo "[DEBUG] Init make script executable"
 volume_pandoc_pathname=$(docker volume inspect "${docker_volume_name_pandoc}" --format '{{.Mountpoint}}')
 script_pathname=${volume_pandoc_pathname}/run-on-files-convert-md-to-html
 
@@ -24,6 +23,7 @@ else
     exit 1
 fi
 
+echo "[DEBUG] Init make script executable"
 chmod +x ${script_pathname}
 
 echo "[DEBUG] Init makefile-convert-md-to-html-for-files"
