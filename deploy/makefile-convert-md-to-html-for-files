@@ -26,7 +26,11 @@ run-container:
 		--mount type=volume,source=$(DOCKER_VOLUME_NGINX_WEB_CONTENT),target=/$(DOCKER_VOLUME_NGINX_WEB_CONTENT) \
 		$(DOCKER_CUSTOM_IMAGE_NAME)
 
-run: pull-docker-image build-docker-image run-container
+wait-container-ends:
+	/bin/bash wait-while-container-is-running \
+		$(DOCKER_CONTAINER_NAME)
+
+run: pull-docker-image build-docker-image run-container wait-container-ends
 
 connect:
 	docker exec -it $(DOCKER_CONTAINER_NAME) /bin/sh

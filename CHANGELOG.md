@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Deploy remove-volumes script: accept array of arguments and raise exception if the volume could not be removed.
 - Deploy stop container: raise exception if the container has not been stopped.
+- Deploy convert md to html: wait until the container is stopped.
 
 ## [0.9.2] - 2022-12-08
 ### Added
