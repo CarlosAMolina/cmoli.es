@@ -35,7 +35,11 @@ copy-files-to-volumes:
 	#sudo /bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_PANDOC) $(DOCKER_VOLUME_NGINX_WEB_CONTENT)
 	/bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_NGINX_WEB_CONTENT) $(DOCKER_VOLUME_PANDOC)
 
-run: pull-docker-image build-docker-image create-docker-volumes copy-files-to-volumes run-container
+wait-container-ends:
+	/bin/bash wait-while-container-is-running \
+		$(DOCKER_CONTAINER_NAME)
+
+run: pull-docker-image build-docker-image create-docker-volumes copy-files-to-volumes run-container wait-container-ends
 
 connect:
 	docker exec -it $(DOCKER_CONTAINER_NAME) /bin/sh
