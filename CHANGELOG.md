@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - 2022-12-xx
+### Added
+- Deploy:
+    - Activate Docker service if not active.
+
 ### Changed
 - Deploy:
     - Script remove-volumes: accept array of arguments and raise exception if the volume could not be removed.
