@@ -10,6 +10,9 @@ DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT=nginx-web-content
 DOCKER_VOLUME_NAME_PANDOC=pandoc
 VPS_SRC_OUTPUT_PATHNAME=/var/www/cmoli.es/html
 
+activate-docker-if-not-active:
+	/bin/bash activate-docker-service-if-not-active
+
 create-web-content:
 	git pull origin $(shell git branch --show-current)
 	/bin/bash remove-volumes \
@@ -46,9 +49,9 @@ stop-containers:
 	make -f makefile-nginx \
 	    stop-if-running
 
-test: stop-containers create-web-content create-web-server show-web
+test: activate-docker-if-not-active stop-containers create-web-content create-web-server show-web
 
-deploy: create-web-content deploy-send-files-to-vps
+deploy: activate-docker-if-not-active create-web-content deploy-send-files-to-vps
 
 export-pandoc-template-html:
 	# https://pandoc.org/MANUAL.html#option--print-default-template
