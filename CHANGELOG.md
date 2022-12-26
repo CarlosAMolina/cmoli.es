@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Deploy, activate Docker service if not active.
 
 ### Changed
+- Section no informatica, ufc: add no hover table th rowspan.
 - Deploy:
     - Script remove-volumes: accept array of arguments and raise exception if the volume could not be removed.
     - Stop container: raise exception if the container has not been stopped.
