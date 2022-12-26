@@ -132,7 +132,7 @@ En el apartado que habla de logs generados, se muestran ejemplos de logs creados
 
 ## Recursos
 
-- Documentación oficial
+- Documentación Arch Linux
 
   <https://wiki.archlinux.org/title/Libinput>
 
