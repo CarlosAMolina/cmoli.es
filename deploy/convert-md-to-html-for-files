@@ -13,7 +13,6 @@ make -f makefile-create-pandoc-script-for-files \
 	DOCKER_VOLUME_PANDOC=${docker_volume_name_pandoc}
 
 volume_pandoc_pathname=$(/bin/bash get-docker-volume-pathname "${docker_volume_name_pandoc}")
-
 script_pathname=${volume_pandoc_pathname}/run-on-files-convert-md-to-html
 
 echo "[DEBUG] Init check if the file has been created: ${script_pathname}"

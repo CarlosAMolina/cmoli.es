@@ -4,7 +4,6 @@ volume_name_nginx_web_content=$1
 vps_src_output_pathname=$2
 
 volume_nginx_web_content_pathname=$(/bin/bash get-docker-volume-pathname "${volume_name_nginx_web_content}")
-
 html_directory_pathname=${volume_nginx_web_content_pathname}
 
 echo "[DEBUG] Init send files to VPS"
