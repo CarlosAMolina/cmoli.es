@@ -3,7 +3,8 @@
 url_nginx_localhost=$1
 volume_name_nginx_web_content=$2
 
-volume_nginx_web_content_pathname=$(docker volume inspect "${volume_name_nginx_web_content}" --format '{{.Mountpoint}}')
+volume_nginx_web_content_pathname=$(/bin/bash get-docker-volume-pathname "${volume_name_nginx_web_content}")
+
 index_html_pathname=${volume_nginx_web_content_pathname}/index.html
 
 echo "[DEBUG] Init open HTML"
