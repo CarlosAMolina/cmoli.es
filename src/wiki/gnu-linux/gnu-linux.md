@@ -3,6 +3,7 @@
 ## Contenidos
 
 - [Network](network.html)
+- [TouchPad](touchpad.html)
 - [Reemplazar texto en archivos](#reemplazar-texto-en-archivos)
 
 ## Reemplazar texto en archivos

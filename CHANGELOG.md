@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - 202x-xx-xx TODO
+### Added
+- Wiki Gnu-Linux TouchPad.
+
 ### Fixed
 - Flexbox social icon position in main page.
 
