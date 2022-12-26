@@ -8,8 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - 202x-xx-xx TODO
 ### Added
 - Wiki Gnu-Linux TouchPad.
-- Deploy:
-    - Activate Docker service if not active.
+- Deploy, activate Docker service if not active.
 
 ### Changed
 - Deploy:
@@ -18,9 +17,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - Create pandoc script: wait until the container ends and raise exception if the script has not been created.
     - Convert md to html: wait until the container ends.
     - Create Nginx server: wait until Ningx server is listening.
+    - Refactor pass some values as arguments.
 
 ### Fixed
-- Flexbox social icon position in main page.
+- Flexbox social icon in main page to avoid reversed focus when there is more than one icon.
 
 ## [0.9.2] - 2022-12-08
 ### Added
