@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] - 202x-xx-xx TODO
+## [0.10.0] - 2022-12-26
 ### Added
 - Wiki Gnu-Linux TouchPad.
 - Deploy, activate Docker service if not active.
