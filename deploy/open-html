@@ -1,6 +1,7 @@
 #!/bin/bash
 
-volume_name_nginx_web_content=$1
+url_nginx_localhost=$1
+volume_name_nginx_web_content=$2
 
 volume_nginx_web_content_pathname=$(docker volume inspect "${volume_name_nginx_web_content}" --format '{{.Mountpoint}}')
 index_html_pathname=${volume_nginx_web_content_pathname}/index.html
@@ -11,5 +12,5 @@ do
     echo "[DEBUG] The file ${index_html_pathname} does not exist. Retrying again"
     sleep 2
 done
-firefox http://localhost:8080
+firefox $url_nginx_localhost
 

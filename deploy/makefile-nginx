@@ -4,6 +4,7 @@ DOCKER_CONTAINER_NAME=$(DOCKER_CUSTOM_IMAGE_NAME)-container
 DOCKER_IMAGE_NAME=$(DOCKER_IMAGE_NAME)
 DOCKER_VOLUME_NGINX_WEB_CONTENT=$(DOCKER_VOLUME_NGINX_WEB_CONTENT)
 DOCKER_VOLUME_NGINX_LOGS=$(DOCKER_VOLUME_NGINX_LOGS)
+URL_NGINX_LOCALHOST=$(URL_NGINX_LOCALHOST)
 
 pull-docker-image:
 	docker pull $(DOCKER_IMAGE_NAME)
@@ -28,7 +29,7 @@ run-server:
 
 wait-nginx-is-listening:
 	/bin/bash wait-until-nginx-is-listening \
-		http://localhost:8080/
+		$(URL_NGINX_LOCALHOST)
 
 run: pull-docker-image build-docker-image run-server wait-nginx-is-listening
 
