@@ -1,5 +1,16 @@
 # TouchPad
 
+## Contenidos
+
+- [Verificar que TouchPad es detectado por el sistema](#verificar-que-touchpad-es-detectado-por-el-sistema)
+- [Ver en logs que el TouchPad es detectado](#ver-en-logs-que-el-touchpad-es-detectado)
+- [Ver relación evento con dispositivo](#ver-relación-evento-con-dispositivo)
+- [Mostrar pon pantalla los eventos de los dispositivos](#mostrar-pon-pantalla-los-eventos-de-los-dispositivos)
+- [Solucionar problemas](#solucionar-problemas)
+  - [Dispositivo no es detectado](#dispositivo-no-es-detectado)
+  - [TouchPad deja de funcionar](#touchpad-deja-de-funcionar)
+- [Recursos](#recursos)
+
 ## Verificar que TouchPad es detectado por el sistema
 
 El siguiente comando muestra los dispositivos de entrada:
