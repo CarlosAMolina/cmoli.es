@@ -1,11 +1,13 @@
 # Change Log
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] - 2022-12-xx
+## [Unreleased] - 202x-xx-xx TODO
 ### Added
+- Wiki Gnu-Linux TouchPad.
 - Deploy:
     - Activate Docker service if not active.
 
@@ -16,6 +18,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - Create pandoc script: wait until the container ends and raise exception if the script has not been created.
     - Convert md to html: wait until the container ends.
     - Create Nginx server: wait until Ningx server is listening.
+
+### Fixed
+- Flexbox social icon position in main page.
 
 ## [0.9.2] - 2022-12-08
 ### Added

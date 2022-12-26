@@ -13,7 +13,7 @@ a {
 
 .section-social-network {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 .icon-social-network {
   height: 32px;
