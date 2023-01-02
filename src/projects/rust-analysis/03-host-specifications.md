@@ -66,4 +66,4 @@ Mostrar datos del Kernel:
 Links de este tutorial:
 
 - [Página principal](introduction.html).
-
+- [Siguiente apartado. Código Rust vs Python](04-code-rust-vs-python.html).
