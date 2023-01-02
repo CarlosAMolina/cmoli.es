@@ -1,5 +1,10 @@
 # Rust Análisis
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Apartados](#apartados)
+
 ## Introducción
 
 ¡Bienvenid@! En esta serie de entradas conoceremos el lenguaje de programación Rust.

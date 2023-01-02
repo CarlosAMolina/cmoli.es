@@ -1,5 +1,17 @@
 # Instalación Rust y Python
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Instalación](#instalación)
+  - [Instalación Rust](#instalación-rust)
+  - [Instalación Python](#instalación-python)
+  - [Comprobar la instalación](#comprobar-la-instalación)
+- [Editor de Código](#editor-de-código)
+  - [Editor de código para Rust](#editor-de-código-para-rust)
+  - [Editor de código para Python](#editor-de-código-para-python)
+- [Recursos](#recursos)
+
 ## Introducción 
 
 Como el programa desarrollado está escrito en Rust y Python, lo primero que necesitamos es instalar estos lenguajes de programación en nuestro equipo.

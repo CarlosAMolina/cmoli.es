@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [unreleased] - 2023-TODO
+### Added
+- Toc to theproject Rust Analysis.
+
 ## [0.10.1] - 2023-01-02
 ### Changed
 - Open github.com in the same tab instead of in a new one.
