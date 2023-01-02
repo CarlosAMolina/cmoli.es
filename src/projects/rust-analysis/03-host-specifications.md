@@ -1,13 +1,20 @@
 # Especificaciones del equipo
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Características](#características)
+- [Recursos](#recursos)
+
 ## Introducción 
 
-Para tener una idea de los resultados que se conseguirían dependiendo del equipo utilizado, a continuación muestro las características del ordenador con el que he trabajado para que podáis saber si en vuestro equipo de mejores características obtendríais unos resultados más eficientes que los mostrados en los apartados de este proyecto.
+Para tener una idea de los resultados que se conseguirían dependiendo del equipo utilizado, a continuación muestro las características del ordenador con el que he trabajado. Así podéis saber si en vuestro equipo de mejores especificaciones obtendríais unos resultados más eficientes que los dados en los apartados de este proyecto.
 
 ## Características
 
 - CPU:
-  - Arquitectura x86_64
+  - Modelo: Intel(R) Core(TM) i5-4440 CPU @ 3.10GHz
+  - Arquitectura: x86_64
   - CPU(s): 4. Detalles:
     - Socket(s): 1
     - Núcleo(s) por socket: 4
@@ -21,10 +28,9 @@ Para tener una idea de los resultados que se conseguirían dependiendo del equip
     - L1i: 128 KiB
     - L2: 1 MiB
     - L3: 6 MiB
-  - Modelo: Intel(R) Core(TM) i5-4440 CPU @ 3.10GHz
 - Memoria:
-  - RAM: 7.895,9 MiB.
-  - Swap: 16.384,0 MiB.
+  - RAM: 7.895,9 MiB
+  - Swap: 16.384,0 MiB
 - Sistema operativo: Debian GNU/Linux 11 (bullseye)
 - Kernel:
   - Nombre: Linux
@@ -51,8 +57,13 @@ Mostrar datos del Kernel:
 
   - Kernel release vs kernel version:
 
-  <https://unix.stackexchange.com/questions/124466/what-is-the-difference-of-kernel-distributions-release-and-version>
+    <https://unix.stackexchange.com/questions/124466/what-is-the-difference-of-kernel-distributions-release-and-version>
 
   - Por qué Debian tiene diferente valor para kernel release y kernel version:
 
-  <https://serverfault.com/questions/391456/debian-and-kernel-versions>
+    <https://serverfault.com/questions/391456/debian-and-kernel-versions>
+
+Links de este tutorial:
+
+- [Página principal](introduction.html).
+
