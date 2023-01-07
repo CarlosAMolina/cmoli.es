@@ -154,6 +154,15 @@ alsamixer
 # Set `Master` volume for example to 50 by pressing the up arrow key and unmute it by pressing the `m` key.
 ```
 
+Configure keyboard volume control:
+
+```bash
+# Comment lines in ~/.config/i3/config `# Use pactl to adjust volume in PulseAudio.` section and use:
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && $refresh_i3status
+```
+
 ## Not done
 
 particion que modificar
