@@ -119,6 +119,15 @@ localectl status # check x11 is configured
 pacman -S i3-wm
 pacman -S xfce4-terminal
 reboot
+# i3lock
+pacman -S i3lock
+# Configure i3lock in i3 config file adding:
+# ```
+# bindsym Control+Mod1+l exec i3lock
+# ```
+# i3 status bar
+pacman -S i3status
+# Reload i3 with: shift + alt + r
 ```
 
 ## Not done
