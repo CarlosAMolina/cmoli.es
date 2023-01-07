@@ -141,6 +141,8 @@ pacman -S ttf-dejavu
 
 ### Audio
 
+<https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture>
+
 ```bash
 sudo pacman -S alsa-utils
 ```
