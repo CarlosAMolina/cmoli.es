@@ -165,9 +165,5 @@ mkfs.ext4 /dev/sda1
 
 # TODO check wifi encryption (wpa, etc)
 pacstrap /mnt base linux linux-firmware vim grub networkmanager dhcpcd netctl wpa_supplicant dialog
-
-pacman -S xorg-server xorg-xinit xf86-video-amdgpu
-# https://www.sololinux.es/instalar-xfce-desktop-en-arch-linux/
-pacman -S xfce4 xfce4-goodies
 ```
 
