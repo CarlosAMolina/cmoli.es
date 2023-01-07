@@ -130,6 +130,15 @@ pacman -S i3status
 # Reload i3 with: shift + alt + r
 ```
 
+### Language packages
+
+In order to be able to write the `~` character, install:
+
+```bash
+# This package was installed while installing Firefox.
+pacman -S ttf-dejavu
+```
+
 ## Not done
 
 particion que modificar
