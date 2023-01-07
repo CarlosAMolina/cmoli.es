@@ -139,6 +139,19 @@ In order to be able to write the `~` character, install:
 pacman -S ttf-dejavu
 ```
 
+### Audio
+
+```bash
+sudo pacman -S alsa-utils
+```
+
+If the sound is muted, you can unmute the Master with:
+
+```bash
+alsamixer
+# Set `Master` volume for example to 50 by pressing the up arrow key and unmute it by pressing the `m` key.
+```
+
 ## Not done
 
 particion que modificar
