@@ -107,3 +107,5 @@ Pueden verse los servicios iniciados con `sudo systemctl --type=service`.
 ## Recursos
 
 <https://wiki.archlinux.org/title/Network_configuration>
+
+<https://wiki.archlinux.org/title/Systemd-networkd>
