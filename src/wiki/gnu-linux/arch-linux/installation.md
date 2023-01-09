@@ -197,8 +197,5 @@ w
 mkswap /dev/sda6
 swapon
 mkfs.ext4 /dev/sda1
-
-# TODO check wifi encryption (wpa, etc)
-pacstrap /mnt base linux linux-firmware vim grub networkmanager dhcpcd netctl wpa_supplicant dialog
 ```
 
