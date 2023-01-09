@@ -165,37 +165,3 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- && $refr
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && $refresh_i3status
 ```
 
-## Not done
-
-particion que modificar
-```bash
-fdisk -l
-fdisk /dev/sda
-o
-n
-p
-1
-<none>
-+3.6G
-n
-e
-2
-<none>
-<none>
-n
-<none>
-+0.5G
-n
-<none>
-<none>
-t
-6
-82
-a
-1
-w
-mkswap /dev/sda6
-swapon
-mkfs.ext4 /dev/sda1
-```
-
