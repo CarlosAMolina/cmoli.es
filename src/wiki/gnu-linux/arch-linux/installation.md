@@ -143,6 +143,8 @@ pacman -S ttf-dejavu
 
 <https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture>
 
+Note. During the installation of Firefox, the audio package `jack2` was installed.
+
 ```bash
 sudo pacman -S alsa-utils
 ```
