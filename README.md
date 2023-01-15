@@ -16,9 +16,12 @@ Example:
 
 ```bash
 export VPS_DEV_PORT=123
+export VPS_DEV_IDENTITY_FILE=~/.ssh/id_rsa
 export VPS_DEV_IP=1.2.3.4
 export VPS_DEV_USER=foo
 ```
+
+To configure the VPS identity file, you can follow this tutorial about how to connect to a server via SSH without credentials <https://cmoli.es/wiki/ssh.html>.
 
 ## Run project
 

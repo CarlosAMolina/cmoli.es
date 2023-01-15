@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Improve ssh contents.
 - Wiki git clone URL example.
 
+### Fix
+- VPS connection using identity file.
+
 ## [0.10.1] - 2023-01-02
 ### Changed
 - Open github.com in the same tab instead of in a new one.
