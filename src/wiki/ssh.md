@@ -2,13 +2,51 @@
 
 ### Generar clave de identificación
 
-Seguir los pasos indicados en el siguiente enlace:
+Comenzamos generando la clave en nuestro equipo que se conectará al servidor:
+
+```bash
+ssh-keygen -t rsa
+```
+
+Tras ejecutar el anterior comando, aparecerán una serie de preguntas, podemos dejar la opción por defecto en todas ellas. Cuando nos pregunta por el nombre del archivo, puede cambiarse a otro, por ejemplo a `id_rsa_vps`. Esto creará los archivos necesarios en `~/.ssh/`.
+
+En el servidor al que conectarnos, creamos el siguiente archivo si no existe: `~/.ssh/authorized_keys`.
+
+Copiamos todo el contenido del archivo que creamos inicialmente `~/.ssh/id_rsa_vps.pub` y lo pegaremos en el archivo `~/.ssh/authorized_keys` del servidor. Al pegarlo, es posible cambiar la parte final tras el símbolo igual, para indicar con ese nombre más datos sobre el equipo al que pertenece la clave; por ejemplo, si la clave termina en `...asdf= foo@bar`, para mostrar que pertenece a un equipo de sobremesa quedaría como `...asdf= foo@bar_desktop`.
+
+Ahora, nos conectamos al servidor sin introducir contraseña mediante este comando:
+
+```bash
+ssh -p 22 -i ~/.ssh/id_rsa_vps foo@1.2.3.4
+```
+
+#### Referencias
 
 <https://atareao.es/ubuntu/sincronizacion-sin-contrasena-en-linux/>
 
 ### Configurar cliente para acceder al servidor 
 
-Seguir los pasos del siguiente enlace:
+Con el fin de facilitar la conexión, evitando tener que indicar el puerto, archivo de claves y dirección IP, creamos en nuestro equipo el archivo `~/.ssh/config` con este contenido:
+
+```bash
+Host foo
+    Hostname 1.2.3.4
+    IdentityFile ~/.ssh/id_rsa_vps
+    IdentitiesOnly yes
+    User foo
+    Port 22
+```
+
+Ahora, la conexión se realiza simplemente con:
+
+```bash
+ssh foo
+```
+
+#### Referencias
 
 <https://atareao.es/ubuntu/configuracion-de-ssh/>
 
+### Eliminar clave de identificación
+
+En el servidor, simplemente eliminamos la clave del archivo `~/.ssh/authorized_keys`.
