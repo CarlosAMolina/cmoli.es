@@ -1,3 +1,13 @@
+# SSH
+
+## Contenidos
+
+- [Conexión a servidor con SSH sin credenciales](#conexión-a-servidor-con-ssh-sin-credenciales)
+  - [Generar clave de identificación](#generar-clave-de-identificación)
+  - [Configurar cliente para acceder al servidor](#configurar-cliente-para-acceder-al-servidor)
+  - [Eliminar clave de identificación](#eliminar-clave-de-identificación)
+  - [Referencias](#referencias)
+
 ## Conexión a servidor con SSH sin credenciales
 
 ### Generar clave de identificación
@@ -20,10 +30,6 @@ Ahora, nos conectamos al servidor sin introducir contraseña mediante este coman
 ssh -p 22 -i ~/.ssh/id_rsa_vps foo@1.2.3.4
 ```
 
-#### Referencias
-
-<https://atareao.es/ubuntu/sincronizacion-sin-contrasena-en-linux/>
-
 ### Configurar cliente para acceder al servidor 
 
 Con el fin de facilitar la conexión, evitando tener que indicar el puerto, archivo de claves y dirección IP, creamos en nuestro equipo el archivo `~/.ssh/config` con este contenido:
@@ -43,10 +49,16 @@ Ahora, la conexión se realiza simplemente con:
 ssh foo
 ```
 
-#### Referencias
-
-<https://atareao.es/ubuntu/configuracion-de-ssh/>
-
 ### Eliminar clave de identificación
 
 En el servidor, simplemente eliminamos la clave del archivo `~/.ssh/authorized_keys`.
+
+### Referencias
+
+Generar claves:
+
+<https://atareao.es/ubuntu/sincronizacion-sin-contrasena-en-linux/>
+
+Configurar cliente:
+
+<https://atareao.es/ubuntu/configuracion-de-ssh/>
