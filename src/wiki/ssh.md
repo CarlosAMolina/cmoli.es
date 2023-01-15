@@ -41,7 +41,7 @@ Host foo
     Hostname 1.2.3.4
     IdentityFile ~/.ssh/id_rsa_vps
     IdentitiesOnly yes
-    User foo
+    User bar
     Port 22
 ```
 
