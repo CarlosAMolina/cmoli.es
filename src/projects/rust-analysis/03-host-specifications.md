@@ -20,7 +20,6 @@ Para tener una idea de los resultados que se conseguirían dependiendo del equip
     - Núcleo(s) por socket: 4
     - Hilo(s) de procesamiento por núcleo: 1
   - Velocidad del reloj:
-    - Normal: 3.091,305 MHz
     - Máxima: 3.300,0000 MHz
     - Mínima: 800,0000 MHz
   - Caché:
@@ -29,13 +28,25 @@ Para tener una idea de los resultados que se conseguirían dependiendo del equip
     - L2: 1 MiB
     - L3: 6 MiB
 - Memoria:
-  - RAM: 7.895,9 MiB
-  - Swap: 16.384,0 MiB
-- Sistema operativo: Debian GNU/Linux 11 (bullseye)
+  - RAM: 7.887,4 MiB
+  - Swap: 12.288,0 MiB
+- Sistema operativo: Arch Linux
 - Kernel:
   - Nombre: Linux
-  - Release: 5.10.0-13-amd64
-  - Versión: #1 SMP Debian 5.10.106-1 (2022-03-17)
+  - Release: 6.1.6-arch1-1
+  - Versión: #1 SMP PREEMPT_DYNAMIC Sat, 14 Jan 2023 13:09:35 +0000
+
+## Comandos utilizados
+
+Para obtener las anteriores características, los comandos utilizados han sido los siguientes:
+
+- CPU: `lscpu`.
+- Memoria: `top`.
+- Sistema operativo: `cat /etc/os-release`.
+- Kernel:
+  - Nombre: `uname`.
+  - Release: `uname -r`.
+  - Versión: `uname -v`.
 
 ## Recursos
 
@@ -43,7 +54,7 @@ Obtener características CPU:
 
 <https://linuxhandbook.com/check-cpu-info-linux/>
 
-Mostrar memoria (utilizado comando top):
+Mostrar memoria:
 
 <https://www.cyberciti.biz/faq/how-to-check-memory-debian-linux/>
 
@@ -58,10 +69,6 @@ Mostrar datos del Kernel:
   - Kernel release vs kernel version:
 
     <https://unix.stackexchange.com/questions/124466/what-is-the-difference-of-kernel-distributions-release-and-version>
-
-  - Por qué Debian tiene diferente valor para kernel release y kernel version:
-
-    <https://serverfault.com/questions/391456/debian-and-kernel-versions>
 
 Links de este tutorial:
 
