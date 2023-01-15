@@ -22,7 +22,9 @@ Tras ejecutar el anterior comando, aparecerán una serie de preguntas, podemos d
 
 En el servidor al que conectarnos, creamos el siguiente archivo si no existe: `~/.ssh/authorized_keys`.
 
-Copiamos todo el contenido del archivo que creamos inicialmente `~/.ssh/id_rsa_vps.pub` y lo pegaremos en el archivo `~/.ssh/authorized_keys` del servidor. Al pegarlo, es posible cambiar la parte final tras el símbolo igual, para indicar con ese nombre más datos sobre el equipo al que pertenece la clave; por ejemplo, si la clave termina en `...asdf= foo@bar`, para mostrar que pertenece a un equipo de sobremesa quedaría como `...asdf= foo@bar_desktop`.
+Copiamos todo el contenido del archivo que creamos inicialmente `~/.ssh/id_rsa_vps.pub` y lo pegaremos en una nueva línea en el archivo `~/.ssh/authorized_keys` del servidor.
+
+Después de pegarlo, podemos cambiar en el archivo del servidor la parte final tras el símbolo igual, para indicar con ese nombre más datos sobre el equipo al que pertenece la clave; por ejemplo, si la clave termina en `...asdf= foo@bar`, mostramos que es de un equipo de sobremesa dejándolo como `...asdf= foo@bar_desktop`.
 
 Ahora, nos conectamos al servidor sin introducir contraseña mediante este comando:
 
@@ -51,7 +53,7 @@ ssh foo
 
 ### Eliminar clave de identificación
 
-En el servidor, simplemente eliminamos la clave del archivo `~/.ssh/authorized_keys`.
+Para evitar que un equipo se conecte al servidor con el método explicado en este apartado, solamente debemos eliminar en el archivo `~/.ssh/authorized_keys` del servidor la clave que corresponda al equipo.
 
 ### Referencias
 
