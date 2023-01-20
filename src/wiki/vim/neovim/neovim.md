@@ -24,14 +24,7 @@ set clipboard+=unnamedplus
 
 ## Plugins
 
-En este apartado veremos cómo instalar varios plugins que suelo utilizar en Neovim.
-
-### Python
-
-Para programar en el lenguaje Python, utilizo el plugion `pyright`, puede instalarse del siguiente modo:
-
-```bash
-```
+Ver [plugins](plugins.html).
 
 ## Referencias
 
@@ -42,7 +35,3 @@ Arch Linux wiki:
 Clipboard:
 
 <https://neovim.io/doc/user/provider.html#provider-clipboard>
-
-Plugin. Pyright
-
-<https://github.com/microsoft/pyright>
