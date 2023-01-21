@@ -74,7 +74,7 @@ Desinstalar extensión (ejemplo coc-pyright):
 
 Una vez instalado, al escribir nos aparecerán opciones de autocompletado, pero no podremos seleccionarlas, conviene modificar el siguiente archivo de configuración para una mejor experiencia y añadir funcionalidades.
 
-Sobre añadir funcionalidades, para que estas nos ayuden al editar ciertos tipos de archivos, es necesario instalar extensiones adicionales. Por ejemplo, al trabajar con un archivo Python, si queremos ordenar los imports, aunque la opción esté configurada en Coc, debemos instalar la extensión `coc-pyright`.
+Sobre añadir funcionalidades que nos ayuden al editar archivos, para utilizarlas es necesario realizar otras acciones; una opción es instalar extensiones. Por ejemplo, al trabajar con un archivo Python, si queremos ordenar los imports, aunque la opción esté configurada en Coc, debemos instalar la extensión `coc-pyright`.
 
 ```bash
 vi ~/.config/nvim/init.vim
