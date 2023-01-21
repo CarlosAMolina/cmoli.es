@@ -112,6 +112,19 @@ Desde el modo comando, con `:OR` se organizarán los imports.
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 ```
 
+#### Mostrar comandos disponibles
+
+En modo comando, pulsando la barra espaciadora y la tecla `c`, podremos ver las opciones que permite Coc.
+
+```bash
+" Show commands
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+```
+
+Podemos movernos por la lista con los cursores de navegación del teclado, seleccionar una opción al pulsar enter y salir de la lista con escape.
+
+Por ejemplo, de tener configurada la opción de organizar los imports, esta saldrá en la lista mostrada por el comando anterior como `editor.action.organizeImport`
+
 ## pyright
 
 Para programar en el lenguaje Python, utilizo el plugin `pyright`, puede instalarse utilizando `Coc` (explicado en este apartado de plugins):
