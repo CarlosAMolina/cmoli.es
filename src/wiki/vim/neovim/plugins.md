@@ -30,7 +30,11 @@ Tras esto, reiniciamos Neovim y ejecutamos la orden:
 
 ## Coc
 
+### Coc introducción
+
 Coc (Conquer of Completion) nos permitirá autocompletar texto.
+
+### Coc instalación
 
 Es necesario tener instado `nodejs`:
 
@@ -40,9 +44,29 @@ sudo pacman -S nodejs
 
 Instalaremos Coc utilizando el gestor de plugins `vim-plug` (ver sección donde se explica su funcionamiento), añadiendo el plugin `Plug 'neoclide/coc.nvim', {'branch': 'release'}`.
 
-Una vez instalado, al escribir nos aparecerán opciones de autocompletado, pero no podremos seleccionarlas, conviene realizar las siguientes configuraciones en el archivo `~/.config/nvim/init.vim`
+Para poder instalar plugins mediante `CocInstall`, necesitamos instalar `npm`:
 
-- Navegar entre las opciones de autocompletado con el tabulador:
+```bash
+sudo pacman -S npm
+```
+
+### Configuración
+
+Una vez instalado, al escribir nos aparecerán opciones de autocompletado, pero no podremos seleccionarlas, conviene modificar el siguiente archivo de configuración para una mejor experiencia y añadir funcionalidades.
+
+```bash
+vi ~/.config/nvim/init.vim
+```
+
+#### Reducir updatetime
+
+Con esto conseguimos que las acciones se realicen antes, por ejemplo, al resaltar dónde se usa la función sobre la que tengamos el cursor (este resaltado de ejemplo también hay que configurarlo).
+
+```bash
+set updatetime=300
+```
+
+#### Navegar entre las opciones de autocompletado con el tabulador
 
 ```bash
 inoremap <silent><expr> <TAB>
@@ -52,17 +76,40 @@ inoremap <silent><expr> <TAB>
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 ```
 
-- Seleccionar una opción de autocompletado al pulsar tecla enter:
+#### Seleccionar una opción de autocompletado con la tecla enter
 
 ```bash
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 ```
 
-Para poder instalar plugins mediante `CocInstall`, necesitamos instalar `npm`:
+#### Navegar por el código
+
+Debemos estar en el modo comando de Neovim (pulsar escape).
 
 ```bash
-sudo pacman -S npm
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+```
+
+#### Resaltar código seleccionado
+
+Para resaltar dónde se definió o dónde se utiliza la función, clase, etc sobre la que tengamos el cursor.
+
+```bash
+autocmd CursorHold * silent call CocActionAsync('highlight')
+```
+
+#### Organizar automáticamente los imports
+
+Desde el modo comando, con `:OR` se organizarán los imports.
+
+```bash
+" Add `:OR` command for organize imports of the current buffer
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 ```
 
 ## pyright
