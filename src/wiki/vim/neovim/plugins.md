@@ -50,9 +50,31 @@ Para poder instalar plugins mediante `CocInstall`, necesitamos instalar `npm`:
 sudo pacman -S npm
 ```
 
+#### Coc comandos gestión extensiones
+
+Instalar extensión (ejemplo coc-pyright):
+
+```bash
+:CocInstall coc-pyright
+```
+
+Mostrar extensiones instaladas:
+
+```bash
+:CocList extensions
+```
+
+Desinstalar extensión (ejemplo coc-pyright):
+
+```bash
+:CocUninstall coc-pyright
+```
+
 ### Configuración
 
 Una vez instalado, al escribir nos aparecerán opciones de autocompletado, pero no podremos seleccionarlas, conviene modificar el siguiente archivo de configuración para una mejor experiencia y añadir funcionalidades.
+
+Sobre añadir funcionalidades, para que estas nos ayuden al editar ciertos tipos de archivos, es necesario instalar extensiones adicionales. Por ejemplo, al trabajar con un archivo Python, si queremos ordenar los imports, aunque la opción esté configurada en Coc, debemos instalar la extensión `coc-pyright`.
 
 ```bash
 vi ~/.config/nvim/init.vim
@@ -149,7 +171,13 @@ Ahora podremos trabajar con archivos de Python utilizando la ayuda que ofrece `p
 
 Coc
 
-<https://github.com/neoclide/coc.nvim>
+- Documentación:
+
+  <https://github.com/neoclide/coc.nvim>
+
+- Comandos gestión extensiones:
+
+  <https://github.com/neoclide/coc.nvim/issues/1311#issuecomment-547225815>
 
 Pyright
 
