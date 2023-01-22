@@ -92,13 +92,13 @@ El siguiente ejemplo desinstala `coc-pyright`:
 
 ### Configuración
 
-Una vez instalado, al escribir nos aparecerán opciones de autocompletado, pero no podremos seleccionarlas, conviene modificar el siguiente archivo de configuración para una mejor experiencia y añadir funcionalidades.
-
-Sobre añadir funcionalidades que nos ayuden al editar archivos, para utilizarlas es necesario realizar otras acciones; una opción es instalar extensiones. Por ejemplo, al trabajar con un archivo Python, si queremos ordenar los imports, aunque la opción esté configurada en Coc, debemos instalar la extensión `coc-pyright`.
+Una vez instalado, al escribir nos aparecerán opciones de autocompletado, pero no podremos seleccionarlas, para ello hemos editar el archivo de configuración.
 
 ```bash
 vi ~/.config/nvim/init.vim
 ```
+
+Sobre añadir funcionalidades que nos ayuden al editar archivos, para utilizarlas es necesario realizar otras acciones; una opción es instalar extensiones. Por ejemplo, al trabajar con un archivo Python, si queremos ordenar los imports, aunque la opción esté configurada en Coc, debemos instalar la extensión `coc-pyright`.
 
 #### Reducir updatetime
 
