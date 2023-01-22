@@ -6,12 +6,14 @@ En este apartado veremos cómo instalar varios plugins que suelo utilizar en Neo
 
 Se trata de un gestor de plugins.
 
-Instalación:
+### Instar Vim-plug
 
 ```bash
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
+
+### Instalar plugins con Vim-plug
 
 Para instalar plugins con `vim-plug`, en `~/.config/nvim/init.vim` creamos la sección `call` e indicamos los plugins deseados:
 
@@ -26,6 +28,20 @@ Tras esto, reiniciamos Neovim y ejecutamos la orden:
 
 ```bash
 :PlugInstall
+```
+
+### Mostrar plugins instalados con Vim-plug
+
+```bash
+:PlugStatus
+```
+
+### Desinstalar plugins instalados con Vim-plug
+
+Primero, los eliminamos del archivo `init.vim` en la sección `call plug` y ejecutamos:
+
+```bash
+:PlugClean
 ```
 
 ## Coc
