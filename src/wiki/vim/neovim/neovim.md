@@ -2,7 +2,7 @@
 
 ## Contenidos
 
-- [¿Qué es?](#¿qué-es?)
+- [Introducción Neovim](#introducción-neovim)
 - [Instalación](#instalación)
   - [Arch Linux](#arch-linux)
 - [Configuración](#configuración)
@@ -11,7 +11,7 @@
 - [Plugins](#plugins)
 - [Referencias](#referencias)
 
-## ¿Qué es?
+## Introducción Neovim
 
 Neovim es un fork de Vim con mejoras.
 
