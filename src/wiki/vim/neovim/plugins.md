@@ -68,19 +68,23 @@ sudo pacman -S npm
 
 #### Coc comandos gestión extensiones
 
-Instalar extensión (ejemplo coc-pyright):
+##### Instalar extensiones con Coc
+
+El siguiente ejemplo instala `coc-pyright`:
 
 ```bash
 :CocInstall coc-pyright
 ```
 
-Mostrar extensiones instaladas:
+##### Mostrar extensiones instaladas
 
 ```bash
 :CocList extensions
 ```
 
-Desinstalar extensión (ejemplo coc-pyright):
+##### Desinstalar extensiones con Coc
+
+El siguiente ejemplo desinstala `coc-pyright`:
 
 ```bash
 :CocUninstall coc-pyright
