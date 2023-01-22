@@ -187,6 +187,16 @@ Para programar en el lenguaje Python, utilizo el plugin `pyright`, puede instala
 
 Ahora podremos trabajar con archivos de Python utilizando la ayuda que ofrece `pyright` :).
 
+## rust-analyzer
+
+Esta extensión nos ayudará al editar archivos del lenguaje Rust.
+
+Podemos instalarla mediante Coc:
+
+```bash
+:CocInstall coc-rust-analyzer
+```
+
 ## Referencias
 
 Coc
@@ -202,6 +212,10 @@ Coc
 Pyright
 
 <https://github.com/microsoft/pyright>
+
+rust-analyzer
+
+<https://rust-analyzer.github.io/>
 
 Vim-plug
 
