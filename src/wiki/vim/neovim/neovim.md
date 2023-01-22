@@ -2,7 +2,7 @@
 
 ## ¿Qué es?
 
-Neovim es un Fork de Vim con mejoras.
+Neovim es un fork de Vim con mejoras.
 
 ## Instalación
 
@@ -14,7 +14,7 @@ sudo pacman -S neovim
 
 ## Configuración
 
-La configuración de neovim se realiza en este archivo de configuración:
+La configuración de Neovim se realiza en el siguiente archivo:
 
 ```bash
 vi ~/.config/nvim/init.vim
@@ -30,10 +30,9 @@ set clipboard+=unnamedplus
 
 ### Corrección ortográfica
 
-Para habilitar la corrección ortográfica en Español para solo archivos de tipo Markdown, puede añadirse la siguiente configuración:
+Habilitamos la corrección ortográfica en español para solo archivos de tipo Markdown con la siguiente configuración:
 
 ```bash
-"https://vi.stackexchange.com/questions/6950/how-to-enable-spell-check-for-certain-file-types
 augroup markdownSpell
     autocmd!
     autocmd FileType markdown setlocal spell
@@ -48,10 +47,14 @@ Ver [plugins](plugins.html).
 
 ## Referencias
 
-Arch Linux wiki:
+Arch Linux wiki
 
 <https://wiki.archlinux.org/title/Neovim>
 
-Clipboard:
+Clipboard
 
 <https://neovim.io/doc/user/provider.html#provider-clipboard>
+
+Corrección ortográfica
+
+<https://vi.stackexchange.com/questions/6950/how-to-enable-spell-check-for-certain-file-types>

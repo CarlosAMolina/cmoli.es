@@ -6,7 +6,7 @@ En este apartado veremos cómo instalar varios plugins que suelo utilizar en Neo
 
 Se trata de un gestor de plugins.
 
-### Instar Vim-plug
+### Instalar Vim-plug
 
 ```bash
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
@@ -18,7 +18,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 Para instalar plugins con `vim-plug`, en `~/.config/nvim/init.vim` creamos la sección `call` e indicamos los plugins deseados:
 
 ```bash
-# vi ~/.config/nvim/init.vim
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
@@ -38,15 +37,13 @@ Tras esto, reiniciamos Neovim y ejecutamos la orden:
 
 ### Desinstalar plugins instalados con Vim-plug
 
-Primero, los eliminamos del archivo `init.vim` en la sección `call plug` y ejecutamos:
+Primero, los eliminamos en el archivo `init.vim` de la sección `call plug`; tras esto ejecutamos:
 
 ```bash
 :PlugClean
 ```
 
 ## Coc
-
-### Coc introducción
 
 Coc (Conquer of Completion) nos permitirá autocompletar texto.
 
@@ -98,11 +95,11 @@ Una vez instalado, al escribir nos aparecerán opciones de autocompletado, pero 
 vi ~/.config/nvim/init.vim
 ```
 
-Sobre añadir funcionalidades que nos ayuden al editar archivos, para utilizarlas es necesario realizar otras acciones; una opción es instalar extensiones. Por ejemplo, al trabajar con un archivo Python, si queremos ordenar los imports, aunque la opción esté configurada en Coc, debemos instalar la extensión `coc-pyright`.
+Para utilizar funcionalidades que nos ayuden al editar archivos, es necesario realizar otras acciones; una opción es instalar extensiones. Por ejemplo, al trabajar con un archivo Python, si queremos ordenar los imports, aunque la opción esté configurada en Coc, debemos instalar la extensión `coc-pyright`.
 
 #### Reducir updatetime
 
-Con esto conseguimos que las acciones se realicen antes, por ejemplo, al resaltar dónde se usa la función sobre la que tengamos el cursor (este resaltado de ejemplo también hay que configurarlo).
+Con esto conseguimos que las acciones se realicen antes, por ejemplo, resaltar dónde se utiliza la función sobre la que tengamos el cursor (este resaltado de ejemplo también hay que configurarlo).
 
 ```bash
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
@@ -146,9 +143,11 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 ```
 
+Por ejemplo, para ir a la definición del método sobre el que tengamos situado el cursor, estando Neovim en modo comando pulsaremos `gd`.
+
 #### Resaltar código seleccionado
 
-Para resaltar dónde se definió o dónde se utiliza la función, clase, etc sobre la que tengamos el cursor.
+Esta opción resalta dónde se definió o dónde se utiliza la función, clase, etc sobre la que tengamos el cursor.
 
 ```bash
 " Highlight the symbol and its references when holding the cursor
@@ -157,7 +156,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 #### Organizar automáticamente los imports
 
-Desde el modo comando, con `:OR` se organizarán los imports.
+Desde el modo comando, escribiendo `:OR` se organizarán los imports.
 
 ```bash
 " Add `:OR` command for organize imports of the current buffer
@@ -179,13 +178,13 @@ Por ejemplo, de tener configurada la opción de organizar los imports, esta sald
 
 ## pyright
 
-Para programar en el lenguaje Python, utilizo el plugin `pyright`, puede instalarse utilizando `Coc` (explicado en este apartado de plugins):
+Para programar en el lenguaje Python, utilizo el plugin `pyright`, puede instalarse a través de `Coc` (explicado en este apartado de plugins):
 
 ```bash
 :CocInstall coc-pyright
 ```
 
-Ahora podremos trabajar con archivos de Python utilizando la ayuda que ofrece `pyright` :).
+Ahora, al editar un archivo de Python, recibiremos ayuda de `pyright`.
 
 ## rust-analyzer
 
@@ -203,7 +202,7 @@ Este plugin mostrará un árbol con los archivos del proyecto en el que nos enco
 
 ### Instalar nvim-tree
 
-Añadiremos a vimp-plug, el siguiente plugin:
+Añadiremos a `vim-plug` el siguiente plugin:
 
 ```bash
 Plug 'nvim-tree/nvim-tree.lua'
@@ -217,7 +216,7 @@ Para poder utilizar esta extensión, por ejemplo, abrir y cerrar el árbol de ar
 lua require'nvim-tree'.setup {}
 ```
 
-De querer añadir más opciones de configuración, lo haremos también en el archivo `init.vim` con lua heredoc, por ejemplo, para añadir la opción `vim.opt.termguicolors = true`, escribiremos en `init.vim`:
+De querer utilizar más opciones de configuración, lo haremos también en el archivo `init.vim` con lua heredoc, por ejemplo, para añadir la opción `vim.opt.termguicolors = true`, escribiremos en `init.vim`:
 
 ```bash
 lua << EOF
