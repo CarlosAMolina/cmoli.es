@@ -197,6 +197,46 @@ Podemos instalarla mediante Coc:
 :CocInstall coc-rust-analyzer
 ```
 
+## nvim-tree
+
+Este plugin mostrará un árbol con los archivos del proyecto en el que nos encontremos.
+
+### Instalar nvim-tree
+
+Añadiremos a vimp-plug, el siguiente plugin:
+
+```bash
+Plug 'nvim-tree/nvim-tree.lua'
+```
+
+### Configurar nvim-tree
+
+Para poder utilizar esta extensión, por ejemplo, abrir y cerrar el árbol de archivos con el comando `:NvimTreeToggle`, añadiremos la siguiente línea al archivo `init.vim`:
+
+```bash
+lua require'nvim-tree'.setup {}
+```
+
+De querer añadir más opciones de configuración, lo haremos también en el archivo `init.vim` con lua heredoc, por ejemplo, para añadir la opción `vim.opt.termguicolors = true`, escribiremos en `init.vim`:
+
+```bash
+lua << EOF
+vim.opt.termguicolors = true
+EOF
+```
+
+### Utilizar nvim-tree
+
+Los comandos se introducen en el modo comando de Neovim.
+
+Abrir y cerrar árbol de archivos:
+
+```bash
+:NvimTreeToggle
+```
+
+Para expandir el contenido de una carpeta, utilizamos la tecla enter.
+
 ## Referencias
 
 Coc
@@ -208,6 +248,16 @@ Coc
 - Comandos gestión extensiones:
 
   <https://github.com/neoclide/coc.nvim/issues/1311#issuecomment-547225815>
+
+nvim-tree
+
+- Documentación:
+
+  <https://github.com/nvim-tree/nvim-tree.lua>
+
+- Poder utilizar sus comandos:
+
+  <https://github.com/nvim-tree/nvim-tree.lua/issues/767#issuecomment-962637481>
 
 Pyright
 
