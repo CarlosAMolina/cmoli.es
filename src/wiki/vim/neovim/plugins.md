@@ -1,5 +1,37 @@
 # Neovim plugins
 
+## Contenidos
+
+- [Introducción Neovim plugins](#introducción-neovim-plugins)
+- [Vim-plug](#vim-plug)
+  - [Instalar Vim-plug](#instalar-vim-plug)
+  - [Instalar plugins con Vim-plug](#instalar-plugins-con-vim-plug)
+  - [Mostrar plugins instalados con Vim-plug](#mostrar-plugins-instalados-con-vim-plug)
+  - [Desinstalar plugins con Vim-plug](#desinstalar-plugins-con-vim-plug)
+- [Coc](#coc)
+  - [Coc instalación](#coc-instalación)
+    - [Coc comandos gestión extensiones](#coc-comandos-gestión-extensiones)
+      - [Instalar extensiones con Coc](#instalar-extensiones-con-coc)
+      - [Mostrar extensiones instaladas](#mostrar-extensiones-instaladas)
+      - [Desinstalar extensiones con Coc](#desinstalar-extensiones-con-coc)
+  - [Configuración](#configuración)
+    - [Reducir updatetime](#reducir-updatetime)
+    - [Navegar entre las opciones de autocompletado con el tabulador](#navegar-entre-las-opciones-de-autocompletado-con-el-tabulador)
+    - [Seleccionar una opción de autocompletado con la tecla enter](#seleccionar-una-opción-de-autocompletado-con-la-tecla-enter)
+    - [Navegar por el código](#navegar-por-el-código)
+    - [Resaltar código seleccionado](#resaltar-código-seleccionado)
+    - [Organizar automáticamente los imports](#organizar-automáticamente-los-imports)
+    - [Mostrar comandos disponibles](#mostrar-comandos-disponibles)
+- [pyright](#pyright)
+- [rust-analyzer](#rust-analyzer)
+- [nvim-tree](#nvim-tree)
+  - [Instalar nvim-tree](#instalar-nvim-tree)
+  - [Configurar nvim-tree](#configurar-nvim-tree)
+  - [Utilizar nvim-tree](#utilizar-nvim-tree)
+- [Referencias](#referencias)
+
+## Introducción Neovim plugins
+
 En este apartado veremos cómo instalar varios plugins que suelo utilizar en Neovim.
 
 ## Vim-plug
@@ -35,7 +67,7 @@ Tras esto, reiniciamos Neovim y ejecutamos la orden:
 :PlugStatus
 ```
 
-### Desinstalar plugins instalados con Vim-plug
+### Desinstalar plugins con Vim-plug
 
 Primero, los eliminamos en el archivo `init.vim` de la sección `call plug`; tras esto ejecutamos:
 
