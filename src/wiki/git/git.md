@@ -2,7 +2,6 @@ Nota. Palabras en mayúsculas precedidas por el símbolo $ indica que deben sust
 
 ## Contenidos
 
-- [Contenidos](#contenidos)
 - [Configuración inicial](#configuración-inicial)
 - [Crear repositorio remoto desde un repositorio local](#crear-repositorio-remoto-desde-un-repositorio-local)
 - [Cambiar nombre de un repositorio](#cambiar-nombre-de-un-repositorio)
