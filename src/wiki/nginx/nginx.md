@@ -26,7 +26,7 @@ Si queremos mostrar los archivos que tengamos en la ruta `/home/foo/bar/public_h
 sudo vi /etc/nginx/sites-available/default
 ```
 
-En la sección `server`, para root indicaremos el path deseado:
+En la sección `server`, para `root` indicaremos el path deseado:
 
 ```bash
 server {
@@ -34,13 +34,13 @@ server {
 }
 ```
 
-Reiniciamos el servicio Nginx:
+Reiniciamos el servicio `nginx`:
 
 ```bash
 sudo nginx -s reload
 ```
 
-Desde el navegador web, para visualizar por ejemplo al archivo que tengamos en `/home/foo/bar/public_html/index.html`, accedemos a `http://1.2.3.4./index.html`. 
+Desde el navegador web, visualizamos por ejemplo al archivo que tengamos en `/home/foo/bar/public_html/index.html` accediendo a `http://1.2.3.4./index.html`.
 
 [Recursos](https://www.nginx.com/blog/setting-up-nginx/)
 
