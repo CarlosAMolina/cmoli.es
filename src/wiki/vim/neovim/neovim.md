@@ -8,6 +8,8 @@
 - [Configuración](#configuración)
   - [Copiar entre instancias](#copiar-entre-instancias)
   - [Corrección ortográfica](#corrección-ortográfica)
+    - [Errores corrección ortográfica](#errores-corrección-ortográfica)
+      - [No encuentra archivo](#no-encuentra-archivo)
 - [Plugins](#plugins)
 - [Referencias](#referencias)
 
