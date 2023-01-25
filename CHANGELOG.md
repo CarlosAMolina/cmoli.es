@@ -12,7 +12,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Move wiki ssh file to its own folder.
-###
 
 ## [0.11.0] - 2023-01-22
 ### Added
