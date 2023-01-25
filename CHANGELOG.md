@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - TODO
 ### Added
 - Wiki Neovim: fix spell errors.
+- Wiki Git: fix push permission denied
 
 ## [0.11.0] - 2023-01-22
 ### Added
