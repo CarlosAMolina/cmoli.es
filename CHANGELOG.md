@@ -9,7 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Wiki Neovim: fix spell errors.
 - Wiki Git: fix push permission denied
-- Wiki Nginx.
+
+### Changed
+- Move wiki ssh file to its own folder.
+###
 
 ## [0.11.0] - 2023-01-22
 ### Added
