@@ -2,8 +2,9 @@ Nota. Palabras en mayúsculas precedidas por el símbolo $ indica que deben sust
 
 ## Contenidos
 
+- [Contenidos](#contenidos)
 - [Configuración inicial](#configuración-inicial)
-- [Crear repositorio remoto desde el repositorio local](#crear-repositorio-remoto-desde-un-repositorio-local)
+- [Crear repositorio remoto desde un repositorio local](#crear-repositorio-remoto-desde-un-repositorio-local)
 - [Cambiar nombre de un repositorio](#cambiar-nombre-de-un-repositorio)
   - [GitLab](#gitlab)
 - [Staging area](#staging-area)
@@ -11,10 +12,11 @@ Nota. Palabras en mayúsculas precedidas por el símbolo $ indica que deben sust
 - [Continous integration](#continous-integration)
 - [SSH](#ssh)
   - [Consideraciones](#consideraciones)
-  - [Error authentication failed](#error-authentication-failed)
+  - [Errores SSH](#errores-ssh)
+    - [Error authentication failed](#error-authentication-failed)
+    - [Error push permission denied](#error-push-permission-denied)
 - [OSINT](#osint)
   - [Email de quién realizó el commit](#email-de-quién-realizó-el-commit)
-
 
 ## Configuración inicial
 
