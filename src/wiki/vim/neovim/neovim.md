@@ -52,6 +52,24 @@ augroup END
 set spelllang=es
 ```
 
+#### Errores corrección ortográfica
+
+##### No encuentra archivo
+
+De tener este error al iniciar Neovim:
+
+```bash
+Warning: Cannot find word list "en.utf-8.spl" or "en.ascii.spl"
+Warning: Cannot find word list "en.utf-8.spl" or "en.ascii.spl"
+```
+
+La solución es:
+
+```bash
+ln -s .vimrc .nvimrc
+ln -s .vim .nvim
+```
+
 ## Plugins
 
 Ver [plugins](plugins.html).
@@ -68,4 +86,11 @@ Clipboard
 
 Corrección ortográfica
 
-<https://vi.stackexchange.com/questions/6950/how-to-enable-spell-check-for-certain-file-types>
+  - Habilitar para ciertos archivos
+
+    <https://vi.stackexchange.com/questions/6950/how-to-enable-spell-check-for-certain-file-types>
+
+  - Error no encontrar archivo
+
+    <https://github.com/neovim/neovim/issues/1551#issuecomment-64467321>
+
