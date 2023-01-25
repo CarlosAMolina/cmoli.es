@@ -1,5 +1,12 @@
 # Nginx
 
+## Contenidos
+
+- [Instalación](#instalación)
+  - [Debian](#debian)
+- [Iniciar servidor](#iniciar-servidor)
+- [Cambiar ruta de los contenidos a mostrar](#cambiar-ruta-de-los-contenidos-a-mostrar)
+
 ## Instalación
 
 ### Debian
