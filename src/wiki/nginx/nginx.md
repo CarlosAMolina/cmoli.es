@@ -41,7 +41,13 @@ server {
 }
 ```
 
-Reiniciamos el servicio `nginx`:
+Verificamos que la configuración es correcta:
+
+```bash
+sudo nginx -t
+```
+
+Tras saber que los cambios son válidos, reiniciamos el servicio `nginx`:
 
 ```bash
 sudo nginx -s reload
