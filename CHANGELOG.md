@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased] -
+### Added
+- Wiki Nginx: build from sources.
+
+### Changed
+
 ## [0.11.1] - 2023-01-25
 ### Added
 - Wiki Neovim: fix spell errors.
