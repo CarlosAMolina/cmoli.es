@@ -115,6 +115,48 @@ Verificamos versión instalada y la configuración empleada:
 /usr/local/nginx/nginx -V
 ```
 
+##### Añadir Nginx como un servicio
+
+Esto nos permitirá iniciar, parar, etc. el servidor sin tener que llamar al ejecutable usando toda su ruta.
+
+Utilizamos el script del siguiente [link](https://www.nginx.com/resources/wiki/start/topics/examples/systemd/). Guardamos su contenido en el archivo mostrado en el enlace.
+
+Como explica el enlace, puede que haya que escribir la ruta correcta de PIDFile y del ejecutable de Nginx.
+
+```bash
+sudo vi /lib/systemd/system/nginx.service
+```
+
+Podemos iniciar el servicio con:
+
+```bash
+sudo systemctl start nginx.service
+```
+
+De obtener el [error](https://askubuntu.com/questions/710420/why-are-some-systemd-services-in-the-masked-state) `Failed to start nginx.service: Unit nginx.service is masked.`, lo solucionamos con:
+
+```bash
+systemctl unmask nginx.service
+```
+
+Una vez iniciado, podemos comprobar su estado con:
+
+```bash
+sudo systemctl status nginx.service
+```
+
+Y para finalizarlo:
+
+```bash
+sudo systemctl stop nginx.service
+```
+
+Configuramos que se inicie el servicio cada vez que se inicie el servidor:
+
+```bash
+sudo systemctl enable nginx.service
+```
+
 ## Módulos
 
 Los módulos amplían las funcionalidades del servidor.
@@ -126,7 +168,13 @@ Hay dos tipos:
 - Módulos que vienen en el código de Nginx: ver sección `Modules reference` en [link]<https://nginx.org/en/docs/>.
 - Módulos de terceras partes: <https://www.nginx.com/resources/wiki/modules/>
 
-## Cambiar estado del servidor
+## Comandos del servidor
+
+### Listar comandos disponibles
+
+```bash
+nginx -h
+```
 
 ### Iniciar servidor
 
