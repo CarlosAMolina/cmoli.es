@@ -130,29 +130,10 @@ De obtener el [error](https://askubuntu.com/questions/710420/why-are-some-system
 systemctl unmask nginx.service
 ```
 
-Una vez iniciado, podemos comprobar su estado con:
-
-```bash
-sudo systemctl status nginx.service
-```
-
-Y para finalizarlo:
-
-```bash
-sudo systemctl stop nginx.service
-```
-
 Configuramos que se inicie el servicio cada vez que se inicie el servidor:
 
 ```bash
 sudo systemctl enable nginx.service
 ```
 
-Cuando modifiquemos archivos de configuración, para recargarlos y comprobar que no contienen errores, podemos ejecutar el siguiente comando, que tiene la ventaja de ser inmediato (no deja Nginx sin servicio) y de haber errores en la configuración, el comando fallará:
-
-```bash
-sudo systemctl reload nginx.service
-
-Si en lugar de utilizar `reload` empleamos `restart`, primero el servidor se para y no se iniciará de haber errores en la configuración.
-
-```
+Más opciones de `systemctl` pueden consultarse en el apartado de comandos.

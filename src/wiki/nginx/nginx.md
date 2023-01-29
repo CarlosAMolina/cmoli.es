@@ -10,7 +10,7 @@
 
 ## Instalación
 
-Ver [apartado instalación](installation.html).
+Ver apartado [instalación](installation.html).
 
 ## Módulos
 
@@ -25,46 +25,7 @@ Hay dos tipos:
 
 ## Comandos del servidor
 
-Los comandos sobre parar, iniciar, etc. el servidor también puede realizarse con `systemctl` (ver apartado instalación).
-
-### Listar comandos disponibles
-
-```bash
-nginx -h
-```
-
-### Iniciar servidor
-
-```bash
-sudo nginx
-```
-
-Verificamos su funcionamiento:
-
-```bash
-ps aux | grep nignx
-```
-
-### Parar servidor
-
-```bash
-sudo nginx -s quit
-# Option `stop` executes a fast shutdown and option `quit` a graceful one.
-```
-
-[Recursos](https://nginx.org/en/docs/beginners_guide.html)
-
-### Verificar configuración es correcta
-
-```bash
-sudo nginx -t
-```
-
-### Reiniciamos el servicio `nginx`:
-
-```bash
-sudo nginx -s reload
-```
+Ver sección [comandos](commands.html).
 
 ## Configuración
 
