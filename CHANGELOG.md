@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] -
 ### Added
-- Wiki Nginx: build from sources.
+- Wiki Nginx: install and configuration.
 
 ### Changed
 

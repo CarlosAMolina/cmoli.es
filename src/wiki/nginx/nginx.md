@@ -182,6 +182,8 @@ nginx -h
 sudo nginx
 ```
 
+También puede realizarse con `systemctl` (ver apartado correspondiente).
+
 Verificamos su funcionamiento:
 
 ```bash
@@ -192,9 +194,27 @@ ps aux | grep nignx
 
 ```bash
 sudo nginx -s quit
+# Option `stop` executes a fast shutdown and option `quit` a graceful one.
 ```
 
+También puede realizarse con `systemctl` (ver apartado correspondiente).
+
 [Recursos](https://nginx.org/en/docs/beginners_guide.html)
+
+### Verificar configuración es correcta
+
+```bash
+sudo nginx -t
+```
+
+### Reiniciamos el servicio `nginx`:
+
+```bash
+sudo nginx -s reload
+```
+
+También puede realizarse con `systemctl` (ver apartado correspondiente).
+
 
 ## Cambiar ruta de los contenidos a mostrar
 
@@ -212,16 +232,10 @@ server {
 }
 ```
 
-Verificamos que la configuración es correcta:
+Verificamos que la configuración es correcta (ver apartado con los comandos) y reiniciamos el servicio `nginx`
 
 ```bash
 sudo nginx -t
-```
-
-Tras saber que los cambios son válidos, reiniciamos el servicio `nginx`:
-
-```bash
-sudo nginx -s reload
 ```
 
 Desde el navegador web, visualizamos por ejemplo al archivo que tengamos en `/home/foo/bar/public_html/index.html` accediendo a `http://1.2.3.4./index.html`.
