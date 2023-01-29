@@ -6,7 +6,7 @@
 
 Estos términos se utilizan en archivos como por ejemplo, en el `nginx.conf`.
 
-Deben diferenciarse dos términos en la configuración de Nginx: `context` y `directive`.
+Hay dos términos a diferenciar en la configuración de Nginx: context y `directive`.
 
 [Recursos](https://bbvanext.udemy.com/course/nginx-fundamentals).
 
@@ -22,9 +22,9 @@ http {
 
 En estas secciones se indican los `directive`.
 
-Cada `context` puede contener otros `context` que heredan del `context` padre.
+Cada context puede contener otros context que heredan del context padre.
 
-El `context` superior es el propio archivo de configuración, llamado `main context`.
+El context superior es el propio archivo de configuración, llamado `main context`.
 
 #### Context más importantes
 
@@ -42,21 +42,55 @@ server_name foo.com;
 
 En el `main context` configuramos `directives` globales que aplican a todos los procesos.
 
-## Cambiar ruta del contenido a mostrar
+## Editar archivo `nginx.conf`
 
-Si queremos mostrar los archivos que tengamos en la ruta `/home/foo/bar/public_html/`, modificaremos el siguiente archivo:
+En esta sección veremos cómo editar el archivo `nginx.conf`, podemos borrar todo su contenido e ir añadiendo lo que veremos a continuación, donde se describe cómo configurar cada context.
+
+### events
+
+Aunque esté vacío, es necesario dejarlo en el archivo para tener una configuración válida:
 
 ```bash
-sudo vi /etc/nginx/sites-available/default
+event {}
 ```
 
-En la sección `server`, para `root` indicaremos el path deseado:
+### http
+
+#### server
+
+En los archivos de configuración, los context `server` dentro del context `http` se conocen como `virtual host`.
+
+Los `virtual host` se utilizan para ofrecer contenido que se encuentra en una ruta de nuestro servidor.
+
+Se encargan de escuchar en un puerto.
+
+Estudiaremos el siguiente ejemplo:
 
 ```bash
 server {
+    listen 80;
+    server_name 1.2.3.4;
+
     root /home/foo/bar/public_html;
 }
 ```
+
+##### Directive `listen`
+
+Especifica el puerto que escucha.
+
+##### Directive `server_name`
+
+Configura el dominio, sudominio o ip para el que aplica el context `server`.
+
+Puede aceptar wildcards como el asterisco, por ejemplo `*.foo.com` aceptará conexiones de cualquier subdominio, como `www.foo.com`, `images.foo.com`, etc.
+
+##### Directive `root`
+
+Es el `path` principal desde el que Nginx gestionará las peticiones.
+
+Por ejemplo, de recibir la petición `/images/dog.png`, Nginx buscará en `/home/foo/bar/public_html/images/dog.png`.
+
 
 Verificamos que la configuración es correcta (ver apartado con los comandos) y reiniciamos el servicio `nginx`
 

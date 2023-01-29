@@ -148,3 +148,11 @@ Configuramos que se inicie el servicio cada vez que se inicie el servidor:
 sudo systemctl enable nginx.service
 ```
 
+Cuando modifiquemos archivos de configuración, para recargarlos y comprobar que no contienen errores, podemos ejecutar el siguiente comando, que tiene la ventaja de ser inmediato (no deja Nginx sin servicio) y de haber errores en la configuración, el comando fallará:
+
+```bash
+sudo systemctl reload nginx.service
+
+Si en lugar de utilizar `reload` empleamos `restart`, primero el servidor se para y no se iniciará de haber errores en la configuración.
+
+```
