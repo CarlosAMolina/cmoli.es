@@ -1,6 +1,10 @@
 # Nginx configuración
 
+Tras modificar la configuración de Nginx, es necesario verificar que es correcta (ver apartado con los comandos) y reiniar el servicio `nginx`.
+
 ## Contenidos
+
+
 
 ## Términos utilizados en archivos de configuración
 
@@ -46,7 +50,7 @@ En el `main context` configuramos `directives` globales que aplican a todos los 
 
 En esta sección veremos cómo editar el archivo `nginx.conf`, podemos borrar todo su contenido e ir añadiendo lo que veremos a continuación, donde se describe cómo configurar cada context.
 
-### events
+### Context events
 
 Aunque esté vacío, es necesario dejarlo en el archivo para tener una configuración válida:
 
@@ -54,7 +58,33 @@ Aunque esté vacío, es necesario dejarlo en el archivo para tener una configura
 event {}
 ```
 
-### http
+### Context http
+
+#### Context types o directive include
+
+De no tener este directive, Nginx no enviará los archivos `.css` con la cabecera con el MIME type correcto, sino como `Content-Type: text/plain`, puede verificarse haciendo una petición a las cabeceras del archivo:
+
+```bash
+curl -I http://1.2.3.4./style.css
+```
+
+Se soluciona definiendo el content type para cada extensión de archivos mediante:
+
+```bash
+types {
+    text/html html
+    text/css css;
+}
+```
+
+En lugar de escribir todos los casos manualmente, puede cargarse el archivo `mime.types` con la directive `include`:
+
+```bash
+include mime.types
+```
+
+Este archivo posee los content type para diferentes extensiones de archivos y se define utilizando la ruta relativa a `nginx.conf`, en este casos ambos archivos se encuentran en la misma ruta.
+
 
 #### server
 
@@ -81,7 +111,7 @@ Especifica el puerto que escucha.
 
 ##### Directive `server_name`
 
-Configura el dominio, sudominio o ip para el que aplica el context `server`.
+Configura el dominio, sudominio o IP para el que aplica el context `server`.
 
 Puede aceptar wildcards como el asterisco, por ejemplo `*.foo.com` aceptará conexiones de cualquier subdominio, como `www.foo.com`, `images.foo.com`, etc.
 
@@ -91,14 +121,7 @@ Es el `path` principal desde el que Nginx gestionará las peticiones.
 
 Por ejemplo, de recibir la petición `/images/dog.png`, Nginx buscará en `/home/foo/bar/public_html/images/dog.png`.
 
-
-Verificamos que la configuración es correcta (ver apartado con los comandos) y reiniciamos el servicio `nginx`
-
-```bash
-sudo nginx -t
-```
-
-Desde el navegador web, visualizamos por ejemplo al archivo que tengamos en `/home/foo/bar/public_html/index.html` accediendo a `http://1.2.3.4./index.html`.
+Desde el navegador web, visualizamos por ejemplo al archivo que tengamos en `/home/foo/bar/public_html/images/dog.png` accediendo a `http://1.2.3.4./images/dog.png`.
 
 [Recursos](https://www.nginx.com/blog/setting-up-nginx/)
 
