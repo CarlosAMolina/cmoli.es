@@ -46,6 +46,8 @@ server_name foo.com;
 
 En el `main context` configuramos `directives` globales que aplican a todos los procesos.
 
+La lista de directives puede verse en este [link](https://nginx.org/en/docs/dirindex.html).
+
 ## Editar archivo `nginx.conf`
 
 En esta sección veremos cómo editar el archivo `nginx.conf`, podemos borrar todo su contenido e ir añadiendo lo que veremos a continuación, donde se describe cómo configurar cada context.
@@ -190,4 +192,79 @@ Ejemplo de URLs que devolverán esa respuesta:
 
 - http://1.2.3.4/greet
 - http://1.2.3.4/greeting/foo
+
+## Variables
+
+Nginx tiene 2 tipos de variables:
+
+### Variables propias de Nginx
+
+Ejemplo: `$http`, `$uri`, `$args`.
+
+La lista de variables de Nginx puede verse en este [link](https://nginx.org/en/docs/varindex.html); entre paréntesis se indica el módulo que permite utilizarlas.
+
+Ejemplo uso en un string:
+
+```bash
+location /whoami {
+    return 200 "$host\n$uri\n$args\nName: $arg_name";
+}
+```
+
+Visitar la URL "http://1.2.3.4/whoami?name=foo" devolverá:
+
+```bash
+2.8.2.1
+/whoami
+name=foo
+Name: foo
+```
+
+Se observa cómo con `arg_...` podemos acceder al valor de los argumentos.
+
+### Variables que podemos definir
+
+Se definen indicando su nombre (iniciado con símbolo dolar) y luego el valor.
+
+Pueden ser de tipo:
+
+- Booleano.
+- String.
+- Números enteros.
+
+Ejemplo:
+
+```bash
+set $is_holiday true;
+set $user_name 'foo';
+set $min_age 18;
+```
+
+## Conditionals or If statements
+
+No deben usarse dentro de los context `location` ya que provocan comportamientos inesperados, mas información en el [link](https://www.nginx.com/resources/wiki/start/topics/depth/ifisevil/).
+
+Ejemplo para devolver pantalla de error de no incorporar el API Key correcto en la petición:
+
+```bash
+if ( $arg_apikey != 123 ) {
+    return 401 "Incorrect API Key";
+}
+
+location ...
+```
+
+Pueden utilizarse expresiones regulares con `~`. Ejemplo:
+
+```bash
+set $weekend 'No';
+
+if ( $date_local ~ 'Saturday|Sunday' ) {
+    set $weekend 'Yes';
+}
+
+location /is_weekend {
+    return 200 $weekend
+}
+```
 
