@@ -30,7 +30,7 @@ Cada context puede contener otros context que heredan del context padre.
 
 El context superior es el propio archivo de configuración, llamado `main context`.
 
-#### Context más importantes
+#### Contexts más importantes
 
 - http: configura lo relacionado con HTTP.
 - server: donde definimos un host virtual.
@@ -124,4 +124,70 @@ Por ejemplo, de recibir la petición `/images/dog.png`, Nginx buscará en `/home
 Desde el navegador web, visualizamos por ejemplo al archivo que tengamos en `/home/foo/bar/public_html/images/dog.png` accediendo a `http://1.2.3.4./images/dog.png`.
 
 [Recursos](https://www.nginx.com/blog/setting-up-nginx/)
+
+##### Location blocks
+
+El context `location` sirve para interceptar una petición y ofrece alguna respuesta, por ejemplo una redirección, devolver un string, etc.
+
+Tras `location` se indica el prefix match de ser necesario (lo veremos a continuación) y la URI a interceptar
+
+Hay diferentes modos, cada cual tiene mayor prioridad que el resto, es decir, se ejecutará aunque los otros estén escritos antes en la configuración. De mayor a menor orden de prioridad son:
+
+- Exact match.
+- Preferencial prefix match.
+- Regex match.
+- Prefix match.
+
+###### Exact match
+
+Utiliza el símbolo `=` como el match modifier. Ofrece la respuesta de solicitar específicamente esa URI.
+
+```bash
+location = /greet {
+    return 200 'Hi from "/greet" location.';
+}
+```
+
+La URL que obtendrá la respuesta es:
+
+- http://1.2.3.4/greet
+
+###### Preferencial prefix match
+
+Es igual que `prefix match` pero se configura utilizando `^~` y tiene mayor prioridad que el `regex math`.
+
+```bash
+location ^~ /greet {
+    return 200 'Hi from "/greet" location.';
+}
+```
+
+###### Regex match
+
+Añadiendo el símbolo `~` como el match modifier, ofreceremos la respuesta de solicitar lo que concuerde con la expresión regular especificada.
+
+Importante, es sensible a mayúsculas y minúsculas, para hacerlo case insensitive, utilizamos `~*`.
+
+Por ejemplo, para responder a `/greet`, case insensitive, seguido de cualquier número del 0 al 9:
+
+```bash
+location ~* /greet[0-9] {
+    return 200 'Hi from "/greet" location.';
+}
+```
+
+###### Prefix match
+
+En el siguiente ejemplo, todo lo que empiece por `/greet` devolverá la respuesta indicada.
+
+```bash
+location /greet {
+    return 200 'Hi from "/greet" location.';
+}
+```
+
+Ejemplo de URLs que devolverán esa respuesta:
+
+- http://1.2.3.4/greet
+- http://1.2.3.4/greeting/foo
 
