@@ -193,6 +193,151 @@ Ejemplo de URLs que devolverán esa respuesta:
 - http://1.2.3.4/greet
 - http://1.2.3.4/greeting/foo
 
+##### Directive return
+
+Toma un `status code` y el string a devolver, pero si el `status code` es un código de redirección (los del rango 300), en lugar de indicarle un string, hay que pasarle la URL (absoluta o relativa) a la que el cliente será redirigido.
+
+Por ejemplo, para devolver una imagen al visitar el path `/logo`:
+
+```bash
+location /logo {
+    return 307 /image.png;
+}
+```
+
+El usuario que visite `http://1.2.3.4/logo` será redirigido a `http://1.2.3.4/image.png`.
+
+##### Directive rewrite
+
+Tras `rewrite` se especifica la expresión regular par matchear el path con el que trabajar y el segundo argumento en la URL a utilizar en la respuesta.
+
+En lugar de redirigir el cliente a otra URL, la URL no cambia pero el contenido mostrado sí corresponde a otra.
+
+Ejemplo:
+
+```bash
+server {
+    ....
+    rewrite ^/user/\w+ /greet;
+
+    location /greet {
+        return 200 "Hi user";
+    ...
+}
+```
+
+El directive rewrite consume más recursos de Nginx porque modifica la URL enviada por el usuario con la nueva URL especificada y el servidor la trata como una nueva petición, volviéndola a procesar de nuevo (internamente se cambia la petición y se vuelve a analizar desde el inicio del context `server`). En el ejemplo de configuración anterior, cuando el usuario visite `http://1.2.3.4/user/john`, la parte `/user/john` se convierte en `greet` y matcheará el location especificado después; el usuario seguirá viendo en el navegador `http://1.2.3.4/user/john`.
+
+También, se puede trabajar con partes específicas del resultado de la expresión regular, por ejemplo, para tomar el nombre del usuario:
+
+```bash
+rewrite ^/user/(\w+) /greet/$1;
+
+# All users except `john` (defined later) will match this.
+location /greet {
+    return 200 "Hi user";
+}
+
+# Only the user `jonh` will match this.
+location /greet/john {
+    return 200 "Hi John";
+}
+```
+
+El resultado del primer grupo matcheado se accede con `$1`, el segundo con `$2` (ejemplo `rewrite ^/user/(\w+)/(something) /greet/$1 $2;`), etc.
+
+###### Last flag
+
+Para evitar que una URL sea modificada por `rewrite` más de una vez, en el siguiente ejemplo, la petición a `/user/john` sería modificada a `/greet/john` y luego esta a `/thumb.png`
+
+```bash
+server {
+    ....
+    rewrite ^/user/(\w+) /greet/$1;
+    rewrite ^/greet/john /thumb.png;
+    ....
+}
+```
+
+Añadiendo `flag` al final de la línea con `rewrite` evitamos que se apliquen más `rewrite` en la petición. En el ejemplo anterior, la petición quedaría como `/greet/john`.
+
+##### Directive try_files
+
+Puede utilizarse en `server` y `location` contexts.
+
+```bash
+server {
+    ....
+    root /files
+    ....
+    try_files /image.png /image2.png /page_404;
+
+    location /page_404 {
+        return 404 "Not found";
+    }
+}
+```
+
+La configuración anterior revisa si `/files/image.png` existe, de ser así lo devuelve pero en caso contrario, intenta devolver `/files/image2.png`; de nuevo, lo devolverá de existir o pasará a lo siguiente especificado. Lo último configurado, en este caso `/page_404`, se gestiona como una directiva `rewrite`, como vimos, se modificará la petición internamente y volverá a procesarse en el context `server`.
+
+Suele utilizarse con variables, por ejemplo, con la `$uri` devolveremos cualquier path solicitado si existe, en caso contrario se pasa al resto de opciones.
+
+```bash
+server {
+    ....
+    root /files
+    ....
+    try_files $uri /image.png /page_404;
+    ....
+}
+```
+
+Hay que tener en cuenta que `try_files`, excepto para la última opción especificada que es un `rewrite`, el resto se gestionan relativas a  lo definido en `root`. En el siguiente ejemplo, si el usuario accede a `http://1.2.3.4/greet`, no se ejecutará el `location` `/greet` sino que se buscará en el servidor `/files/greet` y si no existe se pasa a lo siguiente configurado en `try_files`.
+
+```bash
+server {
+    ....
+    server 1.2.3.4
+    root /files
+    ....
+    try_files /image.png /greet /page_404;
+
+    location /greet {
+        return 200 "Hi";
+    }
+
+    location /page_404 {
+        return 404 "Not found";
+    }
+}
+```
+
+###### Named locations
+
+Como lo último especificado en `try_files` se gestiona como un rewrite y la petición volverá a evaluarse, esto lo evitamos con los named locations.
+
+Asignamos un nombre a un context `location`, de ese modo el direcitve `try_files` lo llama directamente.
+
+Para utilizarlo, se añade `@` en `try_files` y en `location`. Ejemplo:
+
+```bash
+server {
+    ....
+    server 1.2.3.4
+    root /files
+    ....
+    try_files /image.png /greet @page_404;
+
+    location /greet {
+        return 200 "Hi";
+    }
+
+    location @page_404 {
+        return 404 "Not found";
+    }
+}
+```
+
 ## Variables
 
 Nginx tiene 2 tipos de variables:
