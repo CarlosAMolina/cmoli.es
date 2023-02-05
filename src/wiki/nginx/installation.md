@@ -17,7 +17,7 @@ sudo apt install nginx
 
 Deben realizarse los siguientes apartados en orden.
 
-[Recursos](https://bbvanext.udemy.com/course/nginx-fundamentals)
+[Recursos](https://udemy.com/course/nginx-fundamentals)
 
 ### Descargar código
 

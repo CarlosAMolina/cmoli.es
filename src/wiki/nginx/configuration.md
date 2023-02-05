@@ -1,6 +1,6 @@
 # Nginx configuración
 
-Tras modificar la configuración de Nginx, es necesario verificar que es correcta (ver apartado con los comandos) y reiniar el servicio `nginx`.
+Tras modificar la configuración de Nginx, es necesario verificar que es correcta (ver apartado con los comandos) y reiniciar el servicio `nginx`.
 
 ## Contenidos
 
@@ -12,7 +12,7 @@ Estos términos se utilizan en archivos como por ejemplo, en el `nginx.conf`.
 
 Hay dos términos a diferenciar en la configuración de Nginx: context y `directive`.
 
-[Recursos](https://bbvanext.udemy.com/course/nginx-fundamentals).
+[Recursos](https://udemy.com/course/nginx-fundamentals).
 
 ### Context
 
@@ -26,7 +26,7 @@ http {
 
 En estas secciones se indican los `directive`.
 
-Cada context puede contener otros context que heredan del context padre.
+Cada context puede contener otros context que heredan la configuración del context padre.
 
 El context superior es el propio archivo de configuración, llamado `main context`.
 
@@ -47,6 +47,73 @@ server_name foo.com;
 En el `main context` configuramos `directives` globales que aplican a todos los procesos.
 
 La lista de directives puede verse en este [link](https://nginx.org/en/docs/dirindex.html).
+
+#### Tipos y herencia
+
+Hay tres tipos.
+
+- Standard Directive
+- Array Directive
+- Action Directive
+
+En el siguiente ejemplo se muestran las características de cada tipo (ejemplo obtenido de [este curso](https://udemy.com/course/nginx-fundamentals/).
+
+```bash
+events {}
+
+######################
+# (1) Array Directive
+######################
+# Puede especificarse varias veces sin sobreescribir el anterior, por ejemplo `access_log` aplica a cada archivo configurado.
+# Lo heredan todos los context hijos.
+# Los contexts hijos pueden sobreescribirlo para dentro de dicho context, redeclarando el directive.
+access_log /var/log/nginx/access.log;
+access_log /var/log/nginx/test.log.gz custom_format;
+
+http {
+
+  # Esto es un Include statement, no un directive.
+  include mime.types;
+
+  server {
+    listen 80;
+    server_name site1.com;
+
+    # Hereda access_log del context padre (1)
+  }
+
+  server {
+    listen 80;
+    server_name site2.com;
+
+    #########################
+    # (2) Standard Directive
+    #########################
+    # Solo puede declararse una vez por contexto. Otra declaración lo sobreescribe.
+    # Lo heredan todos los context hijos.
+    # Los contexts hijos pueden sobreescribirlo para dentro de dicho context, redeclarando la directiva.
+    root /sites/site2;
+
+    # Los context dentro de este context server tienen deshabilitados los logs, hemos sobreescrito la herencia (1)
+    access_log off;
+
+    location /images {
+
+      # Utiliza la directive root heredada de (2)
+      try_files $uri /stock.png;
+    }
+
+    location /secret {
+      #######################
+      # (3) Action Directive
+      #######################
+      # Realiza una acción como rewrite or redirect
+      # No se les aplica la herencia ya que modifican el curso normal de la configuración puesto que que la petición se para (redirect/response) or reevalúa (rewrite)
+      return 403 "No permission";
+    }
+  }
+}
+```
 
 ## Editar archivo `nginx.conf`
 
