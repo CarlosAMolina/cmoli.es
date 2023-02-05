@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] -
 ### Added
+- Deploy: test with custon Nginx config file.
 - Wiki Nginx: install and configuration.
 
 ### Changed
