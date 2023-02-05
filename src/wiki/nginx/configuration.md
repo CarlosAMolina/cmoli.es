@@ -194,6 +194,24 @@ Desde el navegador web, visualizamos por ejemplo al archivo que tengamos en `/ho
 
 [Recursos](https://www.nginx.com/blog/setting-up-nginx/)
 
+##### Directive index
+
+Indica el archivo que ofrecer si la petición apunta a un directorio.
+
+Por defecto es `index.html` por lo que, al solicitar nuestro dominio, se nos ofrece directamente este archivo.
+
+Se le pasan varios argumentos, en orden de prioridad con que ofrecerlos. Ejemplo:
+
+```bash
+....
+server {
+    ...
+    root /foo/bar/
+    index index.php index.html;
+    ...
+}
+```
+
 ##### Location blocks
 
 El context `location` sirve para interceptar una petición y ofrece alguna respuesta, por ejemplo una redirección, devolver un string, etc.
