@@ -508,3 +508,6 @@ location /is_weekend {
 }
 ```
 
+## Procesos
+
+Ver [procesos](processes.html).
