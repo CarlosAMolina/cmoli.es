@@ -203,7 +203,7 @@ Por defecto es `index.html` por lo que, al solicitar nuestro dominio, se nos ofr
 Se le pasan varios argumentos, en orden de prioridad con que ofrecerlos. Ejemplo:
 
 ```bash
-....
+...
 server {
     ...
     root /foo/bar/
@@ -211,6 +211,21 @@ server {
     ...
 }
 ```
+
+##### Directive user
+
+Para configurar el usuario con el que Nginx ejecuta el proceso de servidor web.
+
+Se especifica en el main context, por ejemplo, en la primera línea de la configuración, fuera de cualquier directive.
+
+Por ejemplo, para ejecutar el proceso como usuario `wwww-data`:
+
+```bash
+user www-data;
+...
+```
+
+Tras recargar el servicio, con `ps aux | grep nginx` puede verificarse el usuario empleado.
 
 ##### Location blocks
 
