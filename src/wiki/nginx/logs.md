@@ -25,7 +25,6 @@ También, es posible indicar qué archivo de logs utilizar con las directivas `a
 Con `access_log`, se guardarán en la nueva ruta configurada, no en el archivo habitual `access.log`, habría que especificarlo. Por ejemplo:
 
 ```bash
-
 http {
     ...
     server {
