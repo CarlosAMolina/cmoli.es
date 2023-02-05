@@ -5,4 +5,5 @@ FROM $docker_image
 RUN unlink /var/log/nginx/access.log
 RUN unlink /var/log/nginx/error.log
 # Config
+COPY nginx/nginx.conf /etc/nginx/
 COPY nginx/default.conf /etc/nginx/conf.d/
