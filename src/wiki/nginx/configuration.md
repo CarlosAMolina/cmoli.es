@@ -1,16 +1,14 @@
 # Nginx configuración
 
+## Introducción
+
 Tras modificar la configuración de Nginx, es necesario verificar que es correcta (ver apartado con los comandos) y reiniciar el servicio `nginx`.
-
-## Contenidos
-
-
 
 ## Términos utilizados en archivos de configuración
 
-Estos términos se utilizan en archivos como por ejemplo, en el `nginx.conf`.
+Estos términos se utilizan en archivos de configuración, como por ejemplo en el `nginx.conf`.
 
-Hay dos términos a diferenciar en la configuración de Nginx: context y `directive`.
+Hay dos términos a diferenciar en la configuración de Nginx: `context` y `directive`.
 
 [Recursos](https://udemy.com/course/nginx-fundamentals).
 
@@ -26,7 +24,7 @@ http {
 
 En estas secciones se indican los `directive`.
 
-Cada context puede contener otros context que heredan la configuración del context padre.
+Cada context puede contener otros context. Los context heredan la configuración del context padre.
 
 El context superior es el propio archivo de configuración, llamado `main context`.
 
@@ -50,13 +48,13 @@ La lista de directives puede verse en este [link](https://nginx.org/en/docs/diri
 
 #### Tipos y herencia
 
-Hay tres tipos.
+Hay tres tipos de directives.
 
 - Standard Directive
 - Array Directive
 - Action Directive
 
-En el siguiente ejemplo se muestran las características de cada tipo (ejemplo obtenido de [este curso](https://udemy.com/course/nginx-fundamentals/).
+En el siguiente ejemplo, se muestran las características de cada tipo (ejemplo obtenido de [este curso](https://udemy.com/course/nginx-fundamentals/).
 
 ```bash
 events {}
@@ -152,16 +150,13 @@ En lugar de escribir todos los casos manualmente, puede cargarse el archivo `mim
 include mime.types
 ```
 
-Este archivo posee los content type para diferentes extensiones de archivos y se define utilizando la ruta relativa a `nginx.conf`, en este casos ambos archivos se encuentran en la misma ruta.
+Este archivo posee los content type para diferentes extensiones de archivos y se define utilizando el path relativo a `nginx.conf`, en este casos ambos archivos se encuentran en la misma ruta.
 
-
-#### server
+#### Context server o virtual host
 
 En los archivos de configuración, los context `server` dentro del context `http` se conocen como `virtual host`.
 
-Los `virtual host` se utilizan para ofrecer contenido que se encuentra en una ruta de nuestro servidor.
-
-Se encargan de escuchar en un puerto.
+Los `virtual host` se utilizan para ofrecer contenido que se encuentra en una ruta de nuestro servidor. Se encargan de escuchar en un puerto.
 
 Estudiaremos el siguiente ejemplo:
 
