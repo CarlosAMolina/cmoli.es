@@ -31,3 +31,7 @@ Ver sección [comandos](commands.html).
 
 Ver apartado [configuración](configuration.html).
 
+## Logs
+
+Ver apartado [logs](logs.html).
+
