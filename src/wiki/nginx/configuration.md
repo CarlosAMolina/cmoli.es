@@ -433,6 +433,63 @@ server {
 }
 ```
 
+### Buffers y timeouts
+
+Buffering significa utilizar la memoria RAM, o el disco duro de no haber suficiente RAM, para almacenar peticiones y respuestas; así pueden utilizarse desde memoria.
+
+Los timeouts es el tiempo máximo permitido para un evento. Por ejemplo, al recibir una petición de un cliente, terminar después de unos segundos protegiendo al servidor de peticiones muy largas que puedan romperlo.
+
+Al contrario que al configurar los procesos, la configuración de los buffers y los timeouts no depende de las características del servidor, sino de las peticiones recibidas y respuestas dadas.
+
+En caso de no estar seguro de qué configuración utilizar, es mejor dejar los valores por defecto.
+
+Los directives pueden escribirse en el context `http`.
+
+En el siguiente ejemplo (obtenido de [este curso](https://udemy.com/course/nginx-fundamentals))se muestran directives para buffer y timeouts:
+
+```bash
+http {
+  ...
+  # Buffer size for POST submissions
+  client_body_buffer_size 10K;
+  client_max_body_size 8m;
+  # Dar un mayor valor de client_max_body_size que el necesario implica perder memoria en el servidor. De ser pequeño, se esribirán los datos en el disco, lo cual es muy lento.
+  # De recibir una petición POST con un body mayor al client_max_body_size, el servidor responderá con error 413 `Request Entity too Large`. Sirve de protección contra peticiones maliciosas que por ejemplo afecten al rendimiento del servidor.
+
+  # Buffer size for Headers
+  client_header_buffer_size 1k;
+  # 1k es suficiente para la mayoría de peticiones.
+
+  # Max time to receive client headers/body
+  client_body_timeout 12;
+  client_header_timeout 12;
+  # El client_body_timeout se refiere al tiempo ente peticiones consecutivas de lectura.
+
+  # Max time to keep a connection open for
+  keepalive_timeout 15;
+  # Útil si un cliente solicita muchos archivos ya que ahorra tener que crear nuevas conexiones.
+  # Tener en cuenta que no sea muy largo para no sobrepasar el número de máximas peticiones (`worker_processes` x `worker_connections`).
+
+  # Max time for the client accept/receive a response
+  send_timeout 10;
+
+  # Skip buffering for static files
+  sendfile on;
+  # Esto da un mejor rendimiento.
+
+  # Optimise sendfile packets
+  tcp_nopush on;
+
+  server {
+
+    listen 80;
+    ...
+  }
+}
+```
+
+Las unidades pueden verse en este [link](https://nginx.org/en/docs/syntax.html). De no especificar unidades, por defecto el tamaño son bytes y el tiempo milisegundos.
+
 ## Variables
 
 Nginx tiene 2 tipos de variables:
