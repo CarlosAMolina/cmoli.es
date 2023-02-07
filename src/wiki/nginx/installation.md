@@ -70,7 +70,8 @@ Realizamos la configuración:
     --http-log-path=/usr/local/nginx/logs/access.log \
     --with-pcre \
     --pid-path=/usr/local/nginx/nginx.pid \
-    --with-http_ssl_module
+    --with-http_ssl_module \
+    --modules-path=/usr/local/nginx/modules
 ```
 
 Las opciones utilizadas han sido:
@@ -82,6 +83,7 @@ Las opciones utilizadas han sido:
 - `--with-pcre`: utilizar la librería PCRE del sistema para expresiones regulares.
 - `--pid-path`: archivo con el ID del proceso principal.
 - `--with-http_ssl_module`: módulo que añadiremos durante la instalación.
+- `--modules-path`: path para los módulos que instalemos.
 
 ### Compilar configuración
 
