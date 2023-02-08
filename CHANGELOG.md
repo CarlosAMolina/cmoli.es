@@ -5,10 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased] - TODO
+### Added
+- Wiki Neovim: add Pyright config to avoid reportMissingImports error.
+
 ## [0.11.1] - 2023-01-25
 ### Added
 - Wiki Neovim: fix spell errors.
-- Wiki Git: fix push permission denied
+- Wiki Git: fix push permission denied.
 
 ### Changed
 - Move wiki ssh file to its own folder.
