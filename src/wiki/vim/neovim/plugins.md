@@ -218,6 +218,34 @@ Para programar en el lenguaje Python, utilizo el plugin `pyright`, puede instala
 
 Ahora, al editar un archivo de Python, recibiremos ayuda de `pyright`.
 
+### Configurar Pyright
+
+#### Realizar imports desde otros proyectos
+
+Con esta configuración evitaremos el error `Pyright reportMissingImports`.
+
+En el root de nuestro proyecto (donde está la carpeta `.git`), creamos el archivo `pyrightconfig.json`:
+
+```bash
+{
+    "executionEnvironments": [
+        {
+            "root": "folder_a",
+            "extraPaths": [
+                "/home/user/project_b/folder_1",
+                "/home/user/project_b/folder_2"
+            ]
+        }
+    ]
+}
+```
+
+En el ejemplo anterior, suponemos que estamos trabajando en el proyecto con path `/home/user/project_a` y sus archivos python importan contenido de la carpeta `folder_1` y `folder_2` de un proyecto diferente llamado `project_b`.
+
+Importante, debemos editar los archivos desde el root de nuestro proyecto, ejemplo `cd /home/user/project_a` y luego `vi foo/bar.py`.
+
+La documentación puede verse en este [enlace](https://github.com/microsoft/pyright/blob/main/docs/configuration.md).
+
 ## rust-analyzer
 
 Esta extensión nos ayudará al editar archivos del lenguaje Rust.
