@@ -38,3 +38,7 @@ Ver apartado [logs](logs.html).
 ## Módulos
 
 Ver apartado [módulos](modules.html).
+
+## Headers
+
+Ver apartado [headers](headers.html).
