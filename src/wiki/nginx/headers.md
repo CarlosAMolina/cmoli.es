@@ -22,13 +22,12 @@ http {
         ...
     }
 
-    # location ~* \.(css|js|jpg|png)$ { # Example case insensitive for these extensions.
-    location = /image.png {
+    # location = /image.png {
+    location ~* \.(css|js|jpg|png)$ { # Example case insensitive for these extensions.
         add_header Cache-Control public; # Means the resource can be cached.
         add_header Pragma public;
-        add_header Pragma public;
-        add_header vary Accept-encoding; # Means the response can vary based on the request header except encoding
-        expires 1M;
+        add_header Vary Accept-encoding; # Means the response can vary based on the request header except encoding
+        expires 1h;
     }
 }
 ```
@@ -36,15 +35,15 @@ http {
 En las cabeceras de respuesta, pueden verse por ejemplo con `curl -I http://1.2.3.4/image.png`, obtendremos estas adicionales:
 
 ```bash
-Expires: Fri, 15 Jun 2018 08:22:40 GMT
-Cache-Control: max-age-2592000
+Expires: Thu, 09 Feb 2023 22:20:26 GMT
+Cache-Control: max-age=3600
 Cache-Control: public
 Pragma: public
-Vary: Accept-Encoding
+Vary: Accept-encoding
 ```
 
 Sobre estas cabeceras:
 
 - `Expires`: es la fecha de la petición mas el tiempo especificado en el que expirará.
-- `Cache-Control: max-age-2592000`: el número es el tiempo de expiración en segundos.
+- `Cache-Control: max-age=3600`: el número es el tiempo de expiración en segundos.
 
