@@ -9,7 +9,7 @@
 
 ## Instalación
 
-Descargamos de [link](https://st.suckless.org/).
+Descargamos st del siguiente [link](https://st.suckless.org/).
 
 Tras descomprimir la carpeta, ejecutamos:
 
