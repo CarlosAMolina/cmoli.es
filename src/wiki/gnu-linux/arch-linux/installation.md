@@ -165,3 +165,20 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- && $refr
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && $refresh_i3status
 ```
 
+### Autocompletion
+
+#### Autocomplete make command
+
+For example, when using the `make` command, in order to complete options when pressing the tab key, we must install ([link](https://bbs.archlinux.org/viewtopic.php?id=143180)):
+
+```bash
+sudo pacman -S bash-completion
+```
+
+#### Autocomplete git command
+
+For example, to complete git branches, we can install `bash-completion` as we see before. Other option is to source the following script ([link](https://wiki.archlinux.org/title/Git)):
+
+```bash
+source ~/.git-completion.bash
+```
