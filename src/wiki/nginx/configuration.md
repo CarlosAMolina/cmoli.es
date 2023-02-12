@@ -568,3 +568,35 @@ location /is_weekend {
 ## Procesos
 
 Ver [procesos](processes.html).
+
+## Respuestas comprimidas
+
+Sirven para reducir el tamaño de las respuestas al solicitar recursos estáticos, lo que también reduce el tiempo para recibirlas.
+
+Si el cliente es capaz de gestionar respuestas comprimidas (prácticamente todos los navegadores modernos pueden), el servidor comprime el recurso antes de enviarlo y, una vez en el cliente, este descomprime lo recibido.
+
+
+Uso:
+
+```bash
+http {
+    ...
+    gzip on;
+    gzip_comp_level 3;
+    gzip_types text/css;
+    gzip_types text/javascript;
+    ...
+
+    location ~* \.(css|js|jpg|png)$ {
+        ...
+        add_header Vary Accept-encoding;
+        ...
+    }
+
+}
+```
+
+- gzip on: activar el directive del módulo `gzip`:
+- gzip_comp_level: nivel de compresión. A mayor nivel de compresión, el archivo tendrá menor tamaño pero se necesitan más recursos del servidor para crearlo. El valor mínimo es 0 (tamaño original) y a partir del valor 5 no se nota una gran mejora en el tamaño, por lo que son buenas opciones la 3 y 4.
+- gzip_types: a quién aplicar la compresión.
+- add_header Vary Accept-encoding;: el cliente debe indicar si quiere recibir respuestas comprimidas, por tanto esta cabecera es necesaria.
