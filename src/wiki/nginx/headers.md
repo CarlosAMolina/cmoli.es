@@ -22,7 +22,7 @@ http {
         ...
     }
 
-    # location = /image.png {
+    # location = /image.png { # Example specific file.
     location ~* \.(css|js|jpg|png)$ { # Example case insensitive for these extensions.
         add_header Cache-Control public; # Means the resource can be cached.
         add_header Pragma public;
@@ -32,9 +32,10 @@ http {
 }
 ```
 
-En las cabeceras de respuesta, pueden verse por ejemplo con `curl -I http://1.2.3.4/image.png`, obtendremos estas adicionales:
+En las cabeceras de respuesta, obtendremos estas adicionales:
 
 ```bash
+$ curl -I http://localhost:8080/cached-file.html
 Expires: Thu, 09 Feb 2023 22:20:26 GMT
 Cache-Control: max-age=3600
 Cache-Control: public
