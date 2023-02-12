@@ -575,7 +575,6 @@ Sirven para reducir el tamaño de las respuestas al solicitar recursos estático
 
 Si el cliente es capaz de gestionar respuestas comprimidas (prácticamente todos los navegadores modernos pueden), el servidor comprime el recurso antes de enviarlo y, una vez en el cliente, este descomprime lo recibido.
 
-
 Uso:
 
 ```bash
@@ -587,16 +586,36 @@ http {
     gzip_types text/javascript;
     ...
 
-    location ~* \.(css|js|jpg|png)$ {
-        ...
+    location = file-to-compress.txt {
         add_header Vary Accept-encoding;
-        ...
     }
 
 }
 ```
 
-- gzip on: activar el directive del módulo `gzip`:
-- gzip_comp_level: nivel de compresión. A mayor nivel de compresión, el archivo tendrá menor tamaño pero se necesitan más recursos del servidor para crearlo. El valor mínimo es 0 (tamaño original) y a partir del valor 5 no se nota una gran mejora en el tamaño, por lo que son buenas opciones la 3 y 4.
+Del ejemplo anterior:
+
+- gzip on: activar el directive del módulo `gzip`.
+- gzip_comp_level: nivel de compresión. A mayor nivel de compresión, el archivo tendrá menor tamaño pero se necesitan más recursos del servidor para crearlo. El valor mínimo es 0 (tamaño original) y a partir del valor 5 no se nota una gran mejora en el tamaño, por lo que son buenas opciones el nivel de compresión 3 y 4.
 - gzip_types: a quién aplicar la compresión.
-- add_header Vary Accept-encoding;: el cliente debe indicar si quiere recibir respuestas comprimidas, por tanto esta cabecera es necesaria.
+- add_header Vary Accept-encoding: esta cabecera es necesaria ya que el cliente debe indicar en la petición si quiere recibir respuestas comprimidas, para ello envía la cabecera `Accpet-Encoding`.
+
+Por ejemplo, para que un cliente acepte archivos comprimidos en `gzip`:
+
+```bash
+curl -I -H "Accept-Encoding: gzip" http://localhost:8080/file-to-compress.js
+```
+
+A las cabeceras recibidas se les ha añadido la cabecera `Content-Encoding: gzip`.
+
+Podemos ver la diferencia de tamaño transmitido, sin comprimir son 892 Bytes y 293 con compresión:
+
+```bash
+$ curl http://localhost:8080/file-to-compress.js > /tmp/no-compressed.js
+% Received
+892
+
+$ curl -H "Accept-Encoding: gzip" http://localhost:8080/file-to-compress.js > compressed.js
+% Received
+293
+```

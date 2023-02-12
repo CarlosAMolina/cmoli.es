@@ -26,7 +26,7 @@ http {
     location ~* \.(css|js|jpg|png)$ { # Example case insensitive for these extensions.
         add_header Cache-Control public; # Means the resource can be cached.
         add_header Pragma public;
-        add_header Vary Accept-encoding; # Means the response can vary based on the request header except encoding
+        add_header Vary Accept-encoding; # Means the response can vary based on the request header
         expires 1h;
     }
 }
