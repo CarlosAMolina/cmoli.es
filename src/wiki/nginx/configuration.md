@@ -619,3 +619,5 @@ $ curl -H "Accept-Encoding: gzip" http://localhost:8080/file-to-compress.js > co
 % Received
 293
 ```
+
+Documentación del módulo `gzip` en el siguiente [link](https://nginx.org/en/docs/http/ngx_http_gzip_module.html).
