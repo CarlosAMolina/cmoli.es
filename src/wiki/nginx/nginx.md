@@ -42,3 +42,7 @@ Ver apartado [módulos](modules.html).
 ## Headers
 
 Ver apartado [headers](headers.html).
+
+## Testing
+
+Ver apartado [testing](testing.html).
