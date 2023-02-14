@@ -71,6 +71,7 @@ Realizamos la configuración:
     --with-pcre \
     --pid-path=/usr/local/nginx/nginx.pid \
     --with-http_ssl_module \
+    --with-http_v2_module \
     --modules-path=/usr/local/nginx/modules
 ```
 

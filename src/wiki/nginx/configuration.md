@@ -624,3 +624,7 @@ Documentación del módulo `gzip` en el siguiente [link](https://nginx.org/en/do
 ## SSL
 
 Ver [ssl](ssl.html).
+
+## HTTP2
+
+Ver [http2](http2.html).
