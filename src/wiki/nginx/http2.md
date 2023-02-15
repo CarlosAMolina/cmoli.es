@@ -7,7 +7,7 @@ Diferencias con HTTP1:
 - HTTP1 es un protocolo que envía la información como texto mientras que HTTP2 lo hace en formato binario, lo que reduce los errores.
 - HTTP2 comprime las cabeceras de respuesta, lo que reduce los tiempos de transferencia.
 - HTTP2 utiliza conexiones persistentes y multiplex streaming. Con HTTP1 cada recurso (archivo html y las imágenes, estilos css, código js que utiliza, etc.) solicitado necesita una petición distinta (simple streaming), lo que implica tiempo para iniciarla y terminarla. Por el contrario, HTTP2 crea una conexión y en ella se envían varios recursos, ya que en un string de datos binario puede comprimirse; por ejemplo, la conexión pide el html y luego en la misma conexión se piden los recursos css, js, etc. que necesita y estos se envían juntos.
-- HTTP2 puede utilizar server push, es decir, que el cliente suba un archivo js, por ejemplo, que sea interpretado por el servidor.
+- HTTP2 puede utilizar server push, es decir, que en la respuesta en que se envía el archivo html, también se envíen los archivos css, js, etc. asociados.
 
 ## Configuración
 
