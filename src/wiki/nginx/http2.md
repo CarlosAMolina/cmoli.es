@@ -11,6 +11,8 @@ Diferencias con HTTP1:
 
 ## Configuración
 
+### Instalación y activación
+
 HTTP2 necesita:
 
 - Instalar el módulo `http_v2_module` de Nginx.
@@ -38,3 +40,21 @@ $ curl -Ik https://localhost:8080/
 HTTP/2 200
 ...
 ```
+
+### Evitar escuchar HTTP
+
+Aunque tengamos HTTP2 funcionando, si al acceder a la URL con HTTP en lugar de HTTP2 esta devuelve respuesta, podemos evitarlo redirigiendo todas las peticiones HTTP a HTTP2, una manera de conseguirlo es añadir un nuevo server context:
+
+```bash
+# Redirect all trafic to HTTPS.
+server {
+    listen 80;
+    server_name localhost;
+    return 301 https://$server_name$request_uri;
+}
+```
+
+De la anterior configuración:
+
+- `server_name`: posee el mismo valor que el que tengamos para el context server con puerto 443.
+- En lugar de `host` podemos utilizar `$server_name` o el mismo valor que en `server_name` (IP o dominio).
