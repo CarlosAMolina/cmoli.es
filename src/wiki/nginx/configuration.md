@@ -621,10 +621,6 @@ $ curl -H "Accept-Encoding: gzip" http://localhost:8080/file-to-compress.js > co
 ```
 Documentación del módulo `gzip` en el siguiente [link](https://nginx.org/en/docs/http/ngx_http_gzip_module.html).
 
-## SSL
-
-Ver [ssl](ssl.html).
-
 ## HTTP2
 
 Ver [http2](http2.html).
