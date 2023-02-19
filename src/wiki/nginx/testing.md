@@ -52,3 +52,35 @@ Opciones utilizadas:
 
 Puede verse un ejemplo de uso y sus resultados en la sección server push de Nginx.
 
+## Siege
+
+### Siege introducción
+
+Permite hacer pruebas de load testing.
+
+Web en el siguiente [link](https://www.joedog.org/siege-home/).
+
+### Siege instalación
+
+```bash
+sudo pacman -S siege
+```
+
+### Uso
+
+Más ejemplos en el apartado de rate limit.
+
+Ejemplo realizar 10 peticiones en 2 tandas de 5 peticiones concurrentes cada una:
+
+```bash
+siege -v -r 2 -c 5 https://localhost:8080/nginx.png
+```
+
+Del anterior comando:
+
+- `v`: mostrar logs en modo verbose.
+- `r`: número de pruebas que realizar.
+- `c`: número de peticiones concurrentes.
+
+En color azul se mostrarán las peticiones exitosas y en rojo las que fueron fallidas o rechazadas por el servidor.
+

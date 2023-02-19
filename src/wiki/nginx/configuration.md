@@ -628,3 +628,7 @@ Ver [http2](http2.html).
 ## Server Push
 
 Ver [server push](server-push.html).
+
+## Limitar peticiones
+
+Ver [rate-limiting](rate-limiting.html).
