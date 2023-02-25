@@ -1,8 +1,5 @@
 # Nginx instalación
 
-## Contenidos
-
-
 ## Instalación desde repositorios oficiales
 
 Es recomendable realizar la instalación no con este método sino mediante `building from sources` para tener la última versión, más opciones de configuración y añadir módulos.
@@ -64,6 +61,7 @@ Realizamos la configuración:
 
 ```bash
 ./configure \
+    --without-http_autoindex_module \
     --sbin-path=/usr/local/nginx \
     --conf-path=/usr/local/nginx/nginx.conf \
     --error-log-path=/usr/local/nginx/logs/error.log \
@@ -77,6 +75,7 @@ Realizamos la configuración:
 
 Las opciones utilizadas han sido:
 
+- `--without-http_autoindex_module`: omitir este módulo en la instalación (ver sección de módulos).
 - `--sbin-path`: path del ejecutable que inicia y para el servidor Nginx.
 - `--conf-path`: path del archivo de configuración.
 - `--error-log-path`: path del log de error.
@@ -103,7 +102,7 @@ Revisamos que los archivos utilizados en la configuración existen:
 ls /usr/local/nginx
 ```
 
-Verificamos versión instalada y la configuración empleada:
+Para mostrar la versión instalada y la configuración empleada:
 
 ```bash
 /usr/local/nginx/nginx -V
