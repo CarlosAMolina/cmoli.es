@@ -653,6 +653,7 @@ Para evitarlo, añadimos a la configuración
 ```bash
 http {
     ...
+    # Avoid send the Nginx version in the reponse headers.
     server_tokens off;
     ...
 }
@@ -666,3 +667,26 @@ $ curl -Ik https://localhost:8080
 server: nginx
 ....
 ```
+
+## Denegar usar página en un frame
+
+Es bueno evitar esto en páginas de login, por ejemplo.
+
+Ejemplo de configuración para todas las páginas del servidor:
+
+```bash
+server {
+    ...
+    # Frame configuration.
+    # SAMEORIGIN: the page can be in a frame if the frame is in the same site as the page.
+    add_header X-Frame-Options "SAMEORIGIN";
+    ...
+}
+```
+
+Con el inspector del navegador web, en la pestaña `Console` veremos el siguiente error:
+
+```bash
+The loading of “https://localhost:8080/no-allowed-in-frame.html” in a frame is denied by “X-Frame-Options“ directive set to “SAMEORIGIN“.
+```
+
