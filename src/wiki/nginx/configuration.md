@@ -636,3 +636,33 @@ Ver [rate-limiting](rate-limiting.html).
 ## Autenticación
 
 Ver [Autenticación](authentication.html).
+
+## Ocultar versión Nginx en las cabeceras de respuesta
+
+Por defecto, Ningx devuelve en las cabeceras de respuesta su versión:
+
+```bash
+$ curl -Ik https://localhost:8080
+....
+server: nginx/1.23.3
+....
+```
+
+Para evitarlo, añadimos a la configuración
+
+```bash
+http {
+    ...
+    server_tokens off;
+    ...
+}
+```
+
+De este modo obtenemos:
+
+```bash
+$ curl -Ik https://localhost:8080
+....
+server: nginx
+....
+```
