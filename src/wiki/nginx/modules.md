@@ -19,7 +19,7 @@ Solo pueden utilizarse de instalarse Nginx mediante `building from sources`.
 
 Hay dos tipos:
 
-- Módulos que vienen en el código de Nginx: ver sección `Modules reference` en [link]<https://nginx.org/en/docs/>.
+- Módulos que vienen en el código de Nginx: ver sección `Modules reference` en este [link](https://nginx.org/en/docs/).
 - Módulos de terceras partes: <https://www.nginx.com/resources/wiki/modules/>
 
 También, los módulos se diferencian en estos tipos:
