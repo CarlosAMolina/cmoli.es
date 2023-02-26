@@ -1,12 +1,23 @@
 # Nginx HTTP2
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Configuración](#configuración)
+  - [Instalación y activación](#instalación-y-activación)
+  - [Certificado SSL autoformidado](#certificado-ssl-autoformidado)
+    - [Configurar SSL en Nginx](#configurar-ssl-en-nginx)
+  - [Evitar escuchar HTTP](#evitar-escuchar-http)
+  - [Mejorar la seguridad](#mejorar-la-seguridad)
+    - [Deshabilitar SSL](#deshabilitar-ssl)
+
 ## Introducción
 
 Diferencias con HTTP1:
 
 - HTTP1 es un protocolo que envía la información como texto mientras que HTTP2 lo hace en formato binario, lo que reduce los errores.
 - HTTP2 comprime las cabeceras de respuesta, lo que reduce los tiempos de transferencia.
-- HTTP2 utiliza conexiones persistentes y multiplex streaming. Con HTTP1 cada recurso (archivo html y las imágenes, estilos css, código js que utiliza, etc.) solicitado necesita una petición distinta (simple streaming), lo que implica tiempo para iniciarla y terminarla. Por el contrario, HTTP2 crea una conexión y en ella se envían varios recursos, ya que en un string de datos binario puede comprimirse; por ejemplo, la conexión pide el html y luego en la misma conexión se piden los recursos css, js, etc. que necesita y estos se envían juntos.
+- HTTP2 utiliza conexiones persistentes y multiplex streaming. Con HTTP1 cada recurso (archivo html y las imágenes, estilos css, código js que utiliza, etc.) solicitado necesita una petición distinta (simple streaming), lo que implica tiempo para iniciar y terminar la petición. Por el contrario, HTTP2 crea una conexión y en ella se envían varios recursos, ya que en un string de datos binario puede comprimirse; por ejemplo, la conexión pide el html y luego en la misma conexión se piden los recursos css, js, etc. que necesita y estos se envían juntos.
 - HTTP2 puede utilizar server push, es decir, que en la respuesta en que se envía el archivo html, también se envíen los archivos css, js, etc. asociados.
 
 ## Configuración
@@ -83,7 +94,7 @@ http {
 ...
 ```
 
-Para hacer petición con curl, es necesario permitir el certificado autofirmado mediando la opción `k`:
+Para hacer petición con curl, es necesario permitir el certificado autofirmado mediante la opción `k`:
 
 ```bash
 curl -Ik https://localhost:8080/
@@ -104,14 +115,14 @@ server {
 
 De la anterior configuración:
 
-- `server_name`: posee el mismo valor que el que tengamos para el context server con puerto 443.
-- En lugar de `host` podemos utilizar `$server_name` o el mismo valor que en `server_name` (IP o dominio).
+- `server_name`: se le da el mismo valor que el que tengamos para el context server con puerto 443.
+- Puede utilizarse `$host`, `$server_name` o el mismo valor que en `server_name` (IP o dominio).
 
 ### Mejorar la seguridad
 
 #### Deshabilitar SSL
 
-En este apartado cómo mejorar el cifrado de las conexiones.
+En este apartado se explica cómo mejorar el cifrado de las conexiones.
 
 Respecto el protocolo que cifra las conexiones, el protocolo SSL (Secure Sockets Layer) ha sido reemplazado por TLS (Transport Layer Security).
 
@@ -144,8 +155,9 @@ server {
 De la anterior configuración:
 
 - `ssl_protocols`: de no especificarlos, Nginx tiene configurados valores por defecto ([link](https://nginx.org/en/docs/http/configuring_https_servers.html#compatibility)).
+- `ssl_prefer_server_ciphers`: dar prioridad a los ciphers del servidor sobre los del cliente al utilizar los protocolos SSLv3 y TLS. 
 - `ssl_ciphers`: cada uno es separado con `:`, para no usar un cipher, utilizamos `:!`. Esta configuración va cambiando por el tiempo (pueden encontrarse bugs, etc) por lo que hay que buscar una fuente fiable y utilizar los valores que mejor resultados den en la actualidad. De no especificarlos, Nginx tiene configurados valores por defecto ([link](https://nginx.org/en/docs/http/configuring_https_servers.html#compatibility)).
-- `ssl_dhparam`: mejora la seguridad en el intercambio de keys entre el cliente y el servidor. Artículos sobre esto en [link](https://hackernoon.com/algorithms-explained-diffie-hellman-1034210d5100) y [link](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange). Para generar el archivo necesario, utilizamos `openssl` (documentación en este [link](https://wiki.archlinux.org/title/OpenSSL)).
+- `ssl_dhparam`: mejora la seguridad en el intercambio de keys entre el cliente y el servidor. Artículos sobre esto en [link](https://hackernoon.com/algorithms-explained-diffie-hellman-1034210d5100) y [link](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange). Para generar el archivo necesario, utilizamos `openssl` (documentación en este [link](https://wiki.archlinux.org/title/OpenSSL)):
 
     ```bash
     openssl dhparam -out /tmp/dhparam.pem 2048
@@ -154,7 +166,7 @@ De la anterior configuración:
     Del anterior comando:
     - Tamaño 2048: debe coincidir con el valor que utilizamos para crear la clave privada en el certificado SSL autofirmado.
 
-- `add_header Strict-Transport-Security`: cabecera que indica al navegador no cargar nada por HTTP. Esto minimiza las redirecciones del puerto 80 al 443. El valor de `max-age` son segundos. Documentación en el [link](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Strict-Transport-Security).
+- `add_header Strict-Transport-Security`: cabecera que indica al navegador no cargar nada por HTTP. Esto minimiza las redirecciones del puerto 80 al 443. El valor de `max-age` son segundos e indica el tiempo que le navegador debe recordar que el sitio web funciona solo con HTTPs. Documentación en el [link](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Strict-Transport-Security).
 - `ssl_session_cache`. Documentación en este [link](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_session_cache). Guarda en caché los handshakes SSL durante el tiempo especificado, lo que hace las conexiones más rápidas. Sus opciones son:
   - Cómo realizar el caché:
       - `builtin`: específico para un worker process, no muy útil
