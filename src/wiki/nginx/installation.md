@@ -1,5 +1,16 @@
 # Nginx instalación
 
+## Contenidos
+
+- [Instalación desde repositorios oficiales](#instalación-desde-repositorios-oficiales)
+- [Instalación building from sources](#instalación-building-from-sources)
+  - [Descargar código](#descargar-código)
+  - [Instalar requisitos](#instalar-requisitos)
+  - [Configurar instalación](#configurar-instalación)
+  - [Compilar configuración](#compilar-configuración)
+  - [Instalar el archivo compilado](#instalar-el-archivo-compilado)
+  - [Añadir Nginx como un servicio](#añadir-nginx-como-un-servicio)
+
 ## Instalación desde repositorios oficiales
 
 Es recomendable realizar la instalación no con este método sino mediante `building from sources` para tener la última versión, más opciones de configuración y añadir módulos.
@@ -7,8 +18,6 @@ Es recomendable realizar la instalación no con este método sino mediante `buil
 ```bash
 sudo apt install nginx
 ```
-
-[Recursos](https://www.nginx.com/blog/setting-up-nginx/)
 
 ## Instalación building from sources
 
@@ -28,7 +37,7 @@ cd nginx-1.23.3
 
 ### Instalar requisitos
 
-Ejecutamos el comando.
+Ejecutamos el comando:
 
 ```bash
 ./configure
@@ -114,7 +123,7 @@ Esto nos permitirá iniciar, parar, etc. el servidor sin tener que llamar al eje
 
 Utilizamos el script del siguiente [link](https://www.nginx.com/resources/wiki/start/topics/examples/systemd/). Guardamos su contenido en el archivo mostrado en el enlace.
 
-Como explica el enlace, puede que haya que escribir la ruta correcta de PIDFile y del ejecutable de Nginx.
+Como explica el enlace, puede que haya que escribir la ruta correcta de PIDFile y del ejecutable de Nginx:
 
 ```bash
 sudo vi /lib/systemd/system/nginx.service
