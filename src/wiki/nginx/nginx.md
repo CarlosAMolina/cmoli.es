@@ -8,7 +8,6 @@
 - [Comandos del servidor](#comandos-del-servidor)
 - [Configuración](#configuración)
 - [Logs](#logs)
-- [Headers](#headers)
 - [Testing](#testing)
 
 ## Páginas web Nginx
@@ -35,10 +34,6 @@ Ver apartado [configuración](configuration.html).
 ## Logs
 
 Ver apartado [logs](logs.html).
-
-## Headers
-
-Ver apartado [headers](headers.html).
 
 ## Testing
 

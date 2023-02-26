@@ -38,6 +38,7 @@
 - [Respuestas comprimidas](#respuestas-comprimidas)
 - [HTTP2](#http2)
 - [Server Push](#server-push)
+- [Headers](#headers)
 - [Limitar peticiones](#limitar-peticiones)
 - [Autenticación](#autenticación)
 - [Ocultar versión Nginx en las cabeceras de respuesta](#ocultar-versión-nginx-en-las-cabeceras-de-respuesta)
@@ -682,6 +683,10 @@ Ver [http2](http2.html).
 ## Server Push
 
 Ver [server push](server-push.html).
+
+## Headers
+
+Ver apartado [headers](headers.html).
 
 ## Limitar peticiones
 
