@@ -23,6 +23,8 @@ sudo apt install nginx
 
 Deben realizarse los siguientes apartados en orden.
 
+Es recomendable parar el servicio nginx antes de la instalación.
+
 [Recursos](https://udemy.com/course/nginx-fundamentals)
 
 ### Descargar código
