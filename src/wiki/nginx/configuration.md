@@ -43,6 +43,7 @@
 - [Autenticación](#autenticación)
 - [Ocultar versión Nginx en las cabeceras de respuesta](#ocultar-versión-nginx-en-las-cabeceras-de-respuesta)
 - [Denegar usar página en un frame](#denegar-usar-página-en-un-frame)
+- [Logs](#logs)
 
 ## Introducción
 
@@ -748,4 +749,8 @@ Con el inspector del navegador web, en la pestaña `Console` veremos el siguient
 ```bash
 The loading of “https://localhost:8080/no-allowed-in-frame.html” in a frame is denied by “X-Frame-Options“ directive set to “SAMEORIGIN“.
 ```
+
+## Logs
+
+Ver apartado [logs](logs.html).
 

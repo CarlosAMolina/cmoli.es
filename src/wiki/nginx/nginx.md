@@ -7,7 +7,6 @@
 - [Módulos](#módulos)
 - [Comandos del servidor](#comandos-del-servidor)
 - [Configuración](#configuración)
-- [Logs](#logs)
 - [Testing](#testing)
 
 ## Páginas web Nginx
@@ -30,10 +29,6 @@ Ver sección [comandos](commands.html).
 ## Configuración
 
 Ver apartado [configuración](configuration.html).
-
-## Logs
-
-Ver apartado [logs](logs.html).
 
 ## Testing
 
