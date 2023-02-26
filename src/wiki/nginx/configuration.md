@@ -77,7 +77,7 @@ http {
     listen 80;
     server_name site1.com;
 
-    # Hereda access_log del context padre (1)
+    # Hereda access_log del context padre (1).
   }
 
   server {
@@ -92,12 +92,11 @@ http {
     # Los contexts hijos pueden sobreescribirlo para dentro de dicho context, redeclarando la directiva.
     root /sites/site2;
 
-    # Los context dentro de este context server tienen deshabilitados los logs, hemos sobreescrito la herencia (1)
+    # Los context dentro de este context server tienen deshabilitados los logs, hemos sobreescrito la herencia (1).
     access_log off;
 
     location /images {
-
-      # Utiliza la directive root heredada de (2)
+      # Utiliza la directive root heredada de (2).
       try_files $uri /stock.png;
     }
 
@@ -105,19 +104,23 @@ http {
       #######################
       # (3) Action Directive
       #######################
-      # Realiza una acción como rewrite or redirect
-      # No se les aplica la herencia ya que modifican el curso normal de la configuración puesto que que la petición se para (redirect/response) or reevalúa (rewrite)
+      # Realiza una acción como rewrite or redirect.
+      # No se les aplica la herencia ya que modifican el curso normal de la configuración puesto que que la petición se para (redirect/response) or reevalúa (rewrite).
       return 403 "No permission";
     }
   }
 }
 ```
 
-## Editar archivo `nginx.conf`
+## Editar archivo nginx.conf
 
 En esta sección veremos cómo editar el archivo `nginx.conf`, podemos borrar todo su contenido e ir añadiendo lo que veremos a continuación, donde se describe cómo configurar cada context.
 
-### Context events
+## Context
+
+En este apartado se explican los `context` que pueden configurarse.
+
+### events
 
 Aunque esté vacío, es necesario dejarlo en el archivo para tener una configuración válida:
 
@@ -125,9 +128,9 @@ Aunque esté vacío, es necesario dejarlo en el archivo para tener una configura
 event {}
 ```
 
-### Context http
+### Context types o directive include
 
-#### Context types o directive include
+Utilizado en el context `http`.
 
 De no tener este directive, Nginx no enviará los archivos `.css` con la cabecera con el MIME type correcto, sino como `Content-Type: text/plain`, puede verificarse haciendo una petición a las cabeceras del archivo:
 
@@ -152,13 +155,15 @@ include mime.types
 
 Este archivo posee los content type para diferentes extensiones de archivos y se define utilizando el path relativo a `nginx.conf`, en este casos ambos archivos se encuentran en la misma ruta.
 
-#### Context server o virtual host
+### Context server o virtual host
+
+Utilizado en el context `http`.
 
 En los archivos de configuración, los context `server` dentro del context `http` se conocen como `virtual host`.
 
 Los `virtual host` se utilizan para ofrecer contenido que se encuentra en una ruta de nuestro servidor. Se encargan de escuchar en un puerto.
 
-Estudiaremos el siguiente ejemplo:
+En el siguiente ejemplo vemos directivas que explicaremos en el apartado de directives.
 
 ```bash
 server {
@@ -169,27 +174,99 @@ server {
 }
 ```
 
-##### Directive `listen`
+### Location blocks
+
+El context `location` sirve para interceptar una petición y ofrece alguna respuesta, por ejemplo una redirección, devolver un string, etc.
+
+Tras `location` se indica el prefix match de ser necesario (lo veremos a continuación) y la URI a interceptar.
+
+Hay diferentes modos, cada cual tiene mayor prioridad que el resto, es decir, se ejecutará aunque los otros estén escritos antes en la configuración. De mayor a menor orden de prioridad son:
+
+- Exact match.
+- Preferencial prefix match.
+- Regex match.
+- Prefix match.
+
+#### Exact match
+
+Utiliza el símbolo `=` como el match modifier. Ofrece la respuesta de solicitar específicamente esa URI.
+
+```bash
+location = /greet {
+    return 200 'Hi from "/greet" location.';
+}
+```
+
+La URL que obtendrá la respuesta es:
+
+- http://1.2.3.4/greet
+
+#### Preferencial prefix match
+
+Es igual que `prefix match` pero se configura utilizando `^~` y tiene mayor prioridad que el `regex math`.
+
+```bash
+location ^~ /greet {
+    return 200 'Hi from "/greet" location.';
+}
+```
+
+#### Regex match
+
+Añadiendo el símbolo `~` como el match modifier, ofreceremos la respuesta de solicitar lo que concuerde con la expresión regular especificada.
+
+Importante, es sensible a mayúsculas y minúsculas, para hacerlo case insensitive, utilizamos `~*`.
+
+Por ejemplo, para responder a `/greet`, case insensitive, seguido de cualquier número del 0 al 9:
+
+```bash
+location ~* /greet[0-9] {
+    return 200 'Hi from "/greet" location.';
+}
+```
+
+#### Prefix match
+
+En el siguiente ejemplo, todo lo que empiece por `/greet` devolverá la respuesta indicada.
+
+```bash
+location /greet {
+    return 200 'Hi from "/greet" location.';
+}
+```
+
+Ejemplo de URLs que devolverán esa respuesta:
+
+- http://1.2.3.4/greet
+- http://1.2.3.4/greeting/foo
+
+## Directives
+
+Explicamos los directives.
+
+### include
+
+Ver apartado de `context types`.
+
+### listen
 
 Especifica el puerto que escucha.
 
-##### Directive `server_name`
+### server_name
 
 Configura el dominio, sudominio o IP para el que aplica el context `server`.
 
 Puede aceptar wildcards como el asterisco, por ejemplo `*.foo.com` aceptará conexiones de cualquier subdominio, como `www.foo.com`, `images.foo.com`, etc.
 
-##### Directive `root`
+### root
 
 Es el `path` principal desde el que Nginx gestionará las peticiones.
 
-Por ejemplo, de recibir la petición `/images/dog.png`, Nginx buscará en `/home/foo/bar/public_html/images/dog.png`.
-
-Desde el navegador web, visualizamos por ejemplo al archivo que tengamos en `/home/foo/bar/public_html/images/dog.png` accediendo a `http://1.2.3.4./images/dog.png`.
+Por ejemplo, si tenemos configurado `root /home/foo/bar/public_html;`, cuando un cliente web acceda a `http://1.2.3.4./images/dog.png`, el servidor Nginx recibe la petición `/images/dog.png` y buscará el archivo `/home/foo/bar/public_html/images/dog.png`.
 
 [Recursos](https://www.nginx.com/blog/setting-up-nginx/)
 
-##### Directive index
+### index
 
 Indica el archivo que ofrecer si la petición apunta a un directorio.
 
@@ -207,7 +284,7 @@ server {
 }
 ```
 
-##### Directive user
+### user
 
 Para configurar el usuario con el que Nginx ejecuta el proceso de servidor web.
 
@@ -222,73 +299,7 @@ user www-data;
 
 Tras recargar el servicio, con `ps aux | grep nginx` puede verificarse el usuario empleado.
 
-##### Location blocks
-
-El context `location` sirve para interceptar una petición y ofrece alguna respuesta, por ejemplo una redirección, devolver un string, etc.
-
-Tras `location` se indica el prefix match de ser necesario (lo veremos a continuación) y la URI a interceptar
-
-Hay diferentes modos, cada cual tiene mayor prioridad que el resto, es decir, se ejecutará aunque los otros estén escritos antes en la configuración. De mayor a menor orden de prioridad son:
-
-- Exact match.
-- Preferencial prefix match.
-- Regex match.
-- Prefix match.
-
-###### Exact match
-
-Utiliza el símbolo `=` como el match modifier. Ofrece la respuesta de solicitar específicamente esa URI.
-
-```bash
-location = /greet {
-    return 200 'Hi from "/greet" location.';
-}
-```
-
-La URL que obtendrá la respuesta es:
-
-- http://1.2.3.4/greet
-
-###### Preferencial prefix match
-
-Es igual que `prefix match` pero se configura utilizando `^~` y tiene mayor prioridad que el `regex math`.
-
-```bash
-location ^~ /greet {
-    return 200 'Hi from "/greet" location.';
-}
-```
-
-###### Regex match
-
-Añadiendo el símbolo `~` como el match modifier, ofreceremos la respuesta de solicitar lo que concuerde con la expresión regular especificada.
-
-Importante, es sensible a mayúsculas y minúsculas, para hacerlo case insensitive, utilizamos `~*`.
-
-Por ejemplo, para responder a `/greet`, case insensitive, seguido de cualquier número del 0 al 9:
-
-```bash
-location ~* /greet[0-9] {
-    return 200 'Hi from "/greet" location.';
-}
-```
-
-###### Prefix match
-
-En el siguiente ejemplo, todo lo que empiece por `/greet` devolverá la respuesta indicada.
-
-```bash
-location /greet {
-    return 200 'Hi from "/greet" location.';
-}
-```
-
-Ejemplo de URLs que devolverán esa respuesta:
-
-- http://1.2.3.4/greet
-- http://1.2.3.4/greeting/foo
-
-##### Directive return
+### return
 
 Toma un `status code` y el string a devolver, pero si el `status code` es un código de redirección (los del rango 300), en lugar de indicarle un string, hay que pasarle la URL (absoluta o relativa) a la que el cliente será redirigido.
 
@@ -302,11 +313,11 @@ location /logo {
 
 El usuario que visite `http://1.2.3.4/logo` será redirigido a `http://1.2.3.4/image.png`.
 
-##### Directive rewrite
+### rewrite
 
-Tras `rewrite` se especifica la expresión regular par matchear el path con el que trabajar y el segundo argumento en la URL a utilizar en la respuesta.
+Tras `rewrite` se especifica la expresión regular para matchear el path con el que trabajar y el segundo argumento en la URL a utilizar en la respuesta.
 
-En lugar de redirigir el cliente a otra URL, la URL no cambia pero el contenido mostrado sí corresponde a otra.
+En lugar de redirigir el cliente a otra URL, la URL no cambia, pero el contenido mostrado sí corresponde a otra.
 
 Ejemplo:
 
@@ -321,7 +332,7 @@ server {
 }
 ```
 
-El directive rewrite consume más recursos de Nginx porque modifica la URL enviada por el usuario con la nueva URL especificada y el servidor la trata como una nueva petición, volviéndola a procesar de nuevo (internamente se cambia la petición y se vuelve a analizar desde el inicio del context `server`). En el ejemplo de configuración anterior, cuando el usuario visite `http://1.2.3.4/user/john`, la parte `/user/john` se convierte en `greet` y matcheará el location especificado después; el usuario seguirá viendo en el navegador `http://1.2.3.4/user/john`.
+El directive rewrite consume más recursos de Nginx porque modifica la URL enviada por el usuario con la nueva URL especificada y el servidor la trata como una nueva petición, volviéndola a procesar de nuevo (internamente se cambia la petición y se vuelve a analizar toda la configuración desde el inicio del context `server`). En el ejemplo de configuración anterior, cuando el usuario visite `http://1.2.3.4/user/john`, la parte `/user/john` se convierte en `greet` y matcheará el location especificado después; el usuario seguirá viendo en el navegador `http://1.2.3.4/user/john`.
 
 También, se puede trabajar con partes específicas del resultado de la expresión regular, por ejemplo, para tomar el nombre del usuario:
 
@@ -341,7 +352,7 @@ location /greet/john {
 
 El resultado del primer grupo matcheado se accede con `$1`, el segundo con `$2` (ejemplo `rewrite ^/user/(\w+)/(something) /greet/$1 $2;`), etc.
 
-###### Last flag
+#### Last flag
 
 Para evitar que una URL sea modificada por `rewrite` más de una vez, en el siguiente ejemplo, la petición a `/user/john` sería modificada a `/greet/john` y luego esta a `/thumb.png`
 
@@ -356,7 +367,7 @@ server {
 
 Añadiendo `flag` al final de la línea con `rewrite` evitamos que se apliquen más `rewrite` en la petición. En el ejemplo anterior, la petición quedaría como `/greet/john`.
 
-##### Directive try_files
+### try_files
 
 Puede utilizarse en `server` y `location` contexts.
 
@@ -407,7 +418,7 @@ server {
 }
 ```
 
-###### Named locations
+#### Named locations
 
 Como lo último especificado en `try_files` se gestiona como un rewrite y la petición volverá a evaluarse, esto lo evitamos con los named locations.
 
@@ -433,11 +444,11 @@ server {
 }
 ```
 
-### Buffers y timeouts
+#### Buffers y timeouts
 
 Buffering significa utilizar la memoria RAM, o el disco duro de no haber suficiente RAM, para almacenar peticiones y respuestas; así pueden utilizarse desde memoria.
 
-Los timeouts es el tiempo máximo permitido para un evento. Por ejemplo, al recibir una petición de un cliente, terminar después de unos segundos protegiendo al servidor de peticiones muy largas que puedan romperlo.
+Los timeouts es el tiempo máximo permitido para un evento; por ejemplo, al recibir una petición de un cliente, terminar después de unos segundos. Esto protege al servidor de peticiones muy largas que puedan estropear su funcionamiento.
 
 Al contrario que al configurar los procesos, la configuración de los buffers y los timeouts no depende de las características del servidor, sino de las peticiones recibidas y respuestas dadas.
 
@@ -450,22 +461,22 @@ En el siguiente ejemplo (obtenido de [este curso](https://udemy.com/course/nginx
 ```bash
 http {
   ...
-  # Buffer size for POST submissions
+  # Buffer size for POST submissions.
   client_body_buffer_size 10K;
   client_max_body_size 8m;
-  # Dar un mayor valor de client_max_body_size que el necesario implica perder memoria en el servidor. De ser pequeño, se esribirán los datos en el disco, lo cual es muy lento.
+  # Dar un mayor valor de client_max_body_buffer_size que el necesario implica perder memoria en el servidor. De ser pequeño, se esribirán los datos en el disco, lo cual es muy lento.
   # De recibir una petición POST con un body mayor al client_max_body_size, el servidor responderá con error 413 `Request Entity too Large`. Sirve de protección contra peticiones maliciosas que por ejemplo afecten al rendimiento del servidor.
 
-  # Buffer size for Headers
+  # Buffer size for Headers.
   client_header_buffer_size 1k;
   # 1k es suficiente para la mayoría de peticiones.
 
-  # Max time to receive client headers/body
+  # Max time to receive client body/headers.
   client_body_timeout 12;
   client_header_timeout 12;
   # El client_body_timeout se refiere al tiempo ente peticiones consecutivas de lectura.
 
-  # Max time to keep a connection open for
+  # Max time to keep a connection open.
   keepalive_timeout 15;
   # Útil si un cliente solicita muchos archivos ya que ahorra tener que crear nuevas conexiones.
   # Tener en cuenta que no sea muy largo para no sobrepasar el número de máximas peticiones (`worker_processes` x `worker_connections`).
@@ -477,7 +488,7 @@ http {
   sendfile on;
   # Esto da un mejor rendimiento.
 
-  # Optimise sendfile packets
+  # Optimise sendfile packets.
   tcp_nopush on;
 
   server {
@@ -521,7 +532,7 @@ Se observa cómo con `arg_...` podemos acceder al valor de los argumentos.
 
 ### Variables que podemos definir
 
-Se definen indicando su nombre (iniciado con símbolo dolar) y luego el valor.
+Se especifican indicando su nombre (iniciado con el símbolo dolar) y luego el valor.
 
 Pueden ser de tipo:
 
@@ -537,7 +548,7 @@ set $user_name 'foo';
 set $min_age 18;
 ```
 
-## Conditionals or If statements
+## Condicionales o if statements
 
 No deben usarse dentro de los context `location` ya que provocan comportamientos inesperados, mas información en el [link](https://www.nginx.com/resources/wiki/start/topics/depth/ifisevil/).
 
@@ -595,10 +606,10 @@ http {
 
 Del ejemplo anterior:
 
-- gzip on: activar el directive del módulo `gzip`.
-- gzip_comp_level: nivel de compresión. A mayor nivel de compresión, el archivo tendrá menor tamaño pero se necesitan más recursos del servidor para crearlo. El valor mínimo es 0 (tamaño original) y a partir del valor 5 no se nota una gran mejora en el tamaño, por lo que son buenas opciones el nivel de compresión 3 y 4.
-- gzip_types: a quién aplicar la compresión.
-- add_header Vary Accept-encoding: esta cabecera es necesaria ya que el cliente debe indicar en la petición si quiere recibir respuestas comprimidas, para ello envía la cabecera `Accpet-Encoding`.
+- `gzip on`: activar el directive del módulo `gzip`.
+- `gzip_comp_level`: nivel de compresión. A mayor nivel de compresión, el archivo tendrá menor tamaño pero se necesitan más recursos del servidor para crearlo. El valor mínimo es 0 (tamaño original) y a partir del valor 5 no se nota una gran mejora en el tamaño, por lo que son buenas opciones el nivel de compresión 3 y 4.
+- `gzip_types`: a quién aplicar la compresión.
+- `add_header Vary Accept-encoding`: esta cabecera es necesaria ya que el cliente debe indicar en la petición si quiere recibir respuestas comprimidas, para ello envía la cabecera `Accpet-Encoding`.
 
 Por ejemplo, para que un cliente acepte archivos comprimidos en `gzip`:
 
@@ -648,7 +659,7 @@ server: nginx/1.23.3
 ....
 ```
 
-Para evitarlo, añadimos a la configuración
+Para evitarlo, añadimos a la configuración:
 
 ```bash
 http {
@@ -670,7 +681,7 @@ server: nginx
 
 ## Denegar usar página en un frame
 
-Es bueno evitar esto en páginas de login, por ejemplo.
+Es bueno evitar esto en ciertas páginas, como por ejemplo las de login.
 
 Ejemplo de configuración para todas las páginas del servidor:
 
@@ -684,7 +695,7 @@ server {
 }
 ```
 
-Con el inspector del navegador web, en la pestaña `Console` veremos el siguiente error:
+Con el inspector del navegador web, en la pestaña `Console` veremos el siguiente error al incluir páginas en un frame no permitido:
 
 ```bash
 The loading of “https://localhost:8080/no-allowed-in-frame.html” in a frame is denied by “X-Frame-Options“ directive set to “SAMEORIGIN“.
