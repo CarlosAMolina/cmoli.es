@@ -2,6 +2,14 @@
 
 ## Contenidos
 
+- [Páginas web Nginx](#páginas-web-nginx)
+- [Instalación](#instalación)
+- [Módulos](#módulos)
+- [Comandos del servidor](#comandos-del-servidor)
+- [Configuración](#configuración)
+- [Logs](#logs)
+- [Headers](#headers)
+- [Testing](#testing)
 
 ## Páginas web Nginx
 
@@ -14,14 +22,7 @@ Ver apartado [instalación](installation.html).
 
 ## Módulos
 
-Los módulos amplían las funcionalidades del servidor.
-
-Solo pueden utilizarse de instalarse Nginx mediante `building from sources`.
-
-Hay dos tipos:
-
-- Módulos que vienen en el código de Nginx: ver sección `Modules reference` en [link]<https://nginx.org/en/docs/>.
-- Módulos de terceras partes: <https://www.nginx.com/resources/wiki/modules/>
+Ver apartado [módulos](modules.html).
 
 ## Comandos del servidor
 
@@ -34,10 +35,6 @@ Ver apartado [configuración](configuration.html).
 ## Logs
 
 Ver apartado [logs](logs.html).
-
-## Módulos
-
-Ver apartado [módulos](modules.html).
 
 ## Headers
 

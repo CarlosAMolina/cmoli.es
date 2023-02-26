@@ -2,13 +2,27 @@
 
 ## Contenidos
 
+- [Introducción](#introducción)
 - [Tipos](#tipos)
 - [Instalación](#instalación)
 - [Buscar módulos](#buscar-módulos)
 - [Utilizar módulo dinámico](#utilizar-módulo-dinámico)
 - [Eliminar módulos instalador por defecto](#eliminar-módulos-instalador-por-defecto)
 
+## Introducción
+
+Los módulos amplían las funcionalidades del servidor.
+
+Solo pueden utilizarse de instalarse Nginx mediante `building from sources`.
+
 ## Tipos
+
+Hay dos tipos:
+
+- Módulos que vienen en el código de Nginx: ver sección `Modules reference` en [link]<https://nginx.org/en/docs/>.
+- Módulos de terceras partes: <https://www.nginx.com/resources/wiki/modules/>
+
+También, los módulos se diferencian en estos tipos:
 
 - Estáticos: módulos que siempre están cargados.
 - Dinámicos: módulos que pueden seleccionarse configurando Nginx.
