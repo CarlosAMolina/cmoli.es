@@ -1,5 +1,12 @@
 # Nginx Headers
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Expire](#expire)
+  - [Expire introducción](#expire-introducción)
+  - [Expire configuración](#expire-configuración)
+
 ## Introducción
 
 Las cabeceras se especifican con el directive `add_header`. Por ejemplo, con `add_header test_header "foo bar"` obtendremos una cabecera `test_header: foo bar`.
@@ -26,7 +33,7 @@ http {
     location ~* \.(css|js|jpg|png)$ { # Example case insensitive for these extensions.
         add_header Cache-Control public; # Means the resource can be cached.
         add_header Pragma public;
-        add_header Vary Accept-encoding; # Means the response can vary based on the request header
+        add_header Vary Accept-encoding; # Means the response can vary based on the request header.
         expires 1h;
     }
 }
