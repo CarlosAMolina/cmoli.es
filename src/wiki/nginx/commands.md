@@ -2,10 +2,16 @@
 
 ## Contenidos
 
+- [Introducción](#introducción)
+- [Listar comandos disponibles](#listar-comandos-disponibles)
+- [Iniciar servidor](#iniciar-servidor)
+- [Parar servidor](#parar-servidor)
+- [Verificar configuración es correcta](#verificar-configuración-es-correcta)
+- [Reiniciar servicio nginx](#reiniciar-servicio-nginx)
 
 ## Introducción
 
-Los comandos sobre parar, iniciar, etc. el servidor pueden realizarse con el propio ejecutable de Nginx o con `systemctl` (ver apartado instalación para añadir el servicio `nginx.service`).
+Los comandos que paran, inician, etc. el servidor pueden realizarse con el propio ejecutable de Nginx o con `systemctl` (ver apartado instalación para añadir el servicio `nginx.service`).
 
 ## Listar comandos disponibles
 
@@ -27,7 +33,7 @@ Mediante `systemctl`:
 sudo systemctl start nginx.service
 ```
 
-Verificar su funcionamiento con cualquiera de estos dos comandos:
+Puede verificarse su funcionamiento con cualquiera de estos dos comandos:
 
 ```bash
 ps aux | grep nignx
@@ -61,7 +67,7 @@ sudo nginx -t
 
 Como se explica en el apartado de reiniciar el servidor, esta comprobación puede hacerse con los comandos `systemctl`.
 
-## Reiniciamos el servicio `nginx`:
+## Reiniciar servicio nginx
 
 Tras modificar archivos de configuración, para recargarlos y comprobar que no contienen errores, podemos ejecutar los siguientes comandos.
 
@@ -71,11 +77,13 @@ Utilizando el ejecutable:
 sudo nginx -s reload
 ```
 
-De reiniciar el servidor con `systemctl`, el siguiente comando tiene la ventaja de ser inmediato (no deja Nginx sin servicio) y de haber errores en la configuración, el comando fallará:
+Con `systemctl`:
 
 ```bash
 sudo systemctl reload nginx.service
 ```
+
+La ventaja de utilizar `systemctl` es que es inmediato (no deja Nginx sin servicio) y de haber errores en la configuración, el comando fallará:
 
 Si en lugar de utilizar `reload` empleamos `restart`, primero el servidor se para y no se iniciará de haber errores en la configuración.
 
