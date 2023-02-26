@@ -1,5 +1,16 @@
 # Procesos
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Worker processes](#worker-processes)
+  - [Directive worker_process](#directive-worker_process)
+  - [Mostrar número de worker process](#mostrar-número-de-worker-process)
+- [Worker connections](#worker-connections)
+  - [Directive worker_connections](#directive-worker_connections)
+- [Número de peticiones concurrentes posibles](#número-de-peticiones-concurrentes-posibles)
+- [Directive pid](#directive-pid)
+
 ## Introducción
 
 Los procesos generados por Nginx son:
@@ -10,11 +21,13 @@ Los procesos generados por Nginx son:
 Esto puede verse con:
 
 ```bash
-systemctl status nginx
-# CGroup: /system.slice/nginx.service
-#         |- 1211 nginx: master Process /usr/bin/nginx
-#         |- 25144 nginx: worker process
-``` 
+$ systemctl status nginx
+...
+CGroup: /system.slice/nginx.service
+        |- 1211 nginx: master Process /usr/bin/nginx
+        |- 25144 nginx: worker process
+...
+```
 
 En el ejemplo anterior hay 1 worker process.
 
@@ -22,7 +35,7 @@ En el ejemplo anterior hay 1 worker process.
 
 Por defecto Nginx tiene configurado 1 worker process.
 
-Aumentar su número no implica un mejor rendimiento; como máximo debe haber 1 worker process por cpu core. El motivo es que los worker process son asíncronos y responderán a las peticiones tan pronto como lo permita el hardware, y cada núcleo de cpu puede gestionar solo un worker process. De configurar 2 worker process en un núcleo, cada proceso funcionarán al 50%, es mejor que solo haya 1 proceso y así trabajará al 100%.
+Aumentar su número no implica un mejor rendimiento; como máximo debe haber 1 worker process por CPU core. El motivo es que los worker process son asíncronos y responderán a las peticiones tan pronto como lo permita el hardware, y cada núcleo de CPU puede gestionar solo un worker process. De configurar 2 worker process en un núcleo, cada proceso funcionarán al 50%, es mejor que solo haya 1 proceso y así trabajará al 100%.
 
 Para comprobar el número de núcleos en nuestro servidor, tenemos los comandos `nproc` o `lscpu | grep CPU\(s\):`.
 
@@ -41,6 +54,17 @@ Con `auto`, habrá 1 proceso por cada CPU. En lugar de auto puede indicarse el n
 ### Mostrar número de worker process
 
 Puede verse con el comando `systemctl status nginx` o con `ps aux | grep nginx`, aparecerá una línea por cada worker process. 
+
+Ejemplo:
+
+```bash
+$ systemctl status nginx
+...
+CGroup: /system.slice/nginx.service
+        |- 1211 nginx: master Process /usr/bin/nginx
+        |- 25144 nginx: worker process
+...
+```
 
 ## Worker connections
 
