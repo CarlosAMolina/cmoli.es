@@ -1,12 +1,17 @@
-## Basic Auth
+# Basic Auth
 
-### Introducción
+## Contenidos
+
+- [Introducción](#introducción)
+- [Configuración](#configuración)
+
+## Introducción
 
 Permite requerir usuario y contraseña para dar respuesta a peticiones.
 
-### Configuración
+## Configuración
 
-Creamos el archivo `.htpasswd`, para ello:
+Primero, creamos el archivo `.htpasswd`, para ello:
 
 ```bash
 htpasswd -c /etc/nginx/.htpasswd user_test
@@ -17,12 +22,7 @@ Del comando anterior:
 - `-c`: generar un nuevo archivo.
 - `user_test`: nombre del usuario.
 
-Utilizamos la directivas:
-
-- `auth_basic` seguida del mensaje a mostrar.
-- `auth_basic_user_file` seguida del archivo de contraseñas.
-
-Ejemplo:
+Con esto, podemos configurar Nginx. Ejemplo:
 
 ```bash
 ...
@@ -34,5 +34,10 @@ location /secure {
 ...
 ```
 
-Tras introducir las credenciales, si accedemos al recurso de nuevo, no se solicitarán; para que vuelvan a ser pedidas habría que abrir una navegación privada.
+Las directivas utilizadas han sido:
+
+- `auth_basic` seguida del mensaje a mostrar.
+- `auth_basic_user_file` seguida del archivo de contraseñas.
+
+Tras introducir las credenciales para obtener el recurso, si accedemos a él de nuevo, no se solicitarán credenciales; para que vuelvan a ser pedidas habría que abrir una navegación privada.
 
