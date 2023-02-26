@@ -1,5 +1,48 @@
 # Nginx configuración
 
+## Contenidos
+
+- [Términos utilizados en archivos de configuración](#términos-utilizados-en-archivos-de-configuración)
+  - [Context](#context)
+    - [Contexts más importantes](#contexts-más-importantes)
+  - [Directive](#directive)
+    - [Tipos y herencia](#tipos-y-herencia)
+- [Editar archivo nginx.conf](#editar-archivo-nginx.conf)
+- [Context](#context)
+  - [events](#events)
+  - [Context types o directive include](#context-types-o-directive-include)
+  - [Context server o virtual host](#context-server-o-virtual-host)
+  - [Location blocks](#location-blocks)
+    - [Exact match](#exact-match)
+    - [Preferencial prefix match](#preferencial-prefix-match)
+    - [Regex match](#regex-match)
+    - [Prefix match](#prefix-match)
+- [Directives](#directives)
+  - [include](#include)
+  - [listen](#listen)
+  - [server_name](#server_name)
+  - [root](#root)
+  - [index](#index)
+  - [user](#user)
+  - [return](#return)
+  - [rewrite](#rewrite)
+    - [Last flag](#last-flag)
+  - [try_files](#try_files)
+    - [Named locations](#named-locations)
+    - [Buffers y timeouts](#buffers-y-timeouts)
+- [Variables](#variables)
+  - [Variables propias de Nginx](#variables-propias-de-nginx)
+  - [Variables que podemos definir](#variables-que-podemos-definir)
+- [Condicionales o if statements](#condicionales-o-if-statements)
+- [Procesos](#procesos)
+- [Respuestas comprimidas](#respuestas-comprimidas)
+- [HTTP2](#http2)
+- [Server Push](#server-push)
+- [Limitar peticiones](#limitar-peticiones)
+- [Autenticación](#autenticación)
+- [Ocultar versión Nginx en las cabeceras de respuesta](#ocultar-versión-nginx-en-las-cabeceras-de-respuesta)
+- [Denegar usar página en un frame](#denegar-usar-página-en-un-frame)
+
 ## Introducción
 
 Tras modificar la configuración de Nginx, es necesario verificar que es correcta (ver apartado con los comandos) y reiniciar el servicio `nginx`.
