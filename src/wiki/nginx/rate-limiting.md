@@ -1,8 +1,16 @@
 # Rate limiting
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Configuración](#configuración)
+  - [Aumentar peticiones permitidas](#aumentar-peticiones-permitidas)
+  - [Opción nodelay](#opción-nodelay)
+- [Enlaces](#enlaces)
+
 ## Introducción
 
-Controlar el número de peticiones que el servidor puede responder y cómo hacerlo ofrece:
+Controlar el número de peticiones que el servidor puede responder y cómo hacerlo. Esto ofrece:
 
 - Seguridad. Por ejemplo contra ataques de fuerza bruta.
 - Reliability. Protege el servidor contra picos de peticiones.
@@ -31,7 +39,7 @@ Ejemplo de configuración en la que solo permitir 1 petición por segundo:
 ```bash
 http {
     ...
-    # Define limit zone
+    # Define limit zone.
     limit_req_zone $request_uri zone=MYZONE:10m rate=1r/s;
 
     server {
@@ -50,7 +58,7 @@ Para probarlo, con el siguiente test enviaremos 10 peticiones en menos de 1 segu
 siege -v -r 2 -c 5 https://localhost:8080/rate-limiting.html
 ```
 
-También podemos verificando al pedir las cabeceras, si lo hacemos en menos de un segundo, obtendremos un error 503 Service Unavailable:
+También, podemos verificando al pedir las cabeceras, si lo hacemos en menos de un segundo, obtendremos un error 503 Service Unavailable:
 
 ```bash
 curl -Ik https://localhost:8080/rate-limiting.html
@@ -60,7 +68,7 @@ curl -Ik https://localhost:8080/rate-limiting.html
 
 El parámetro `burst` añadirá un número de peticiones extra que pueden tener respuesta.
 
-Puede indicarse al definir la zona (en la directiva `limit_req_zone `), en este caso aplicará siempre que esta se use, o también se puede configurar en el lugar donde sea utilizada la zona (directiva `limit_req`).
+Puede indicarse al definir la zona (en la directiva `limit_req_zone`), en este caso aplicará siempre que esta se use, o también se puede configurar en el lugar donde sea utilizada la zona (directiva `limit_req`).
 
 Por ejemplo, de permitir la zona 1 petición por segundo y nosotros añadimos 5 burst, se podrá dar respuesta a 6 peticiones; aunque no se envíe la respuesta inmediatamente. Es decir, no modifica el límite de 1 petición por segundo pero no descartará las peticiones extras que reciba.
 
