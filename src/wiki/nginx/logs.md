@@ -1,3 +1,16 @@
+# Logs Nginx
+
+## Contenidos
+
+- [Tipos](#tipos)
+  - [Access logs](#access-logs)
+  - [Error logs](#error-logs)
+- [Configurar qué logs utilizar](#configurar-qué-logs-utilizar)
+  - [Archivos por defecto](#archivos-por-defecto)
+  - [Archivos específicos para ciertas peticiones](#archivos-específicos-para-ciertas-peticiones)
+  - [Omitir logs](#omitir-logs)
+- [Documentación](#documentación)
+
 ## Tipos 
 
 ### Access logs
@@ -43,7 +56,6 @@ http {
 Para deshabilitar los logs en ciertas peticiones, utilizamos `access_log off;`. Por ejemplo:
 
 ```bash
-
 http {
     ...
     server {
