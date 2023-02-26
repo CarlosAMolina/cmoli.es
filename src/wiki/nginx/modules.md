@@ -1,3 +1,13 @@
+# Módulos Nginx
+
+## Contenidos
+
+- [Tipos](#tipos)
+- [Instalación](#instalación)
+- [Buscar módulos](#buscar-módulos)
+- [Utilizar módulo dinámico](#utilizar-módulo-dinámico)
+- [Eliminar módulos instalador por defecto](#eliminar-módulos-instalador-por-defecto)
+
 ## Tipos
 
 - Estáticos: módulos que siempre están cargados.
