@@ -5,7 +5,9 @@
 - [Introducción](#introducción)
 - [Configuración](#configuración)
   - [Instalación y activación](#instalación-y-activación)
-  - [Certificado SSL autoformidado](#certificado-ssl-autoformidado)
+  - [Certificado SSL](#certificado-ssl)
+    - [Certificado SSL autofirmado](#certificado-ssl-autofirmado)
+    - [Certificado SSL con Let's Encrypt y Certbot](#certificado-ssl-con-let-s-encrypt-y-certbot)
     - [Configurar SSL en Nginx](#configurar-ssl-en-nginx)
   - [Evitar escuchar HTTP](#evitar-escuchar-http)
   - [Mejorar la seguridad](#mejorar-la-seguridad)
@@ -52,7 +54,13 @@ HTTP/2 200
 ...
 ```
 
-### Certificado SSL autoformidado
+### Certificado SSL
+
+Podemos crear un certificado autofirmado, o utilizando servicios externos como Let's Encrypt.
+
+No es recomendable utilzar un certificado autofirmado ya que en el navegador web se tendrá un mensaje de aviso de seguridad.
+
+#### Certificado SSL autofirmado
 
 Es un certificado creado y firmado por nosotros.
 
@@ -75,9 +83,45 @@ Del comando anterior:
 
 Documentación del comando en este [link](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04).
 
+#### Certificado SSL con Let s Encrypt y Certbot
+
+Instalamos Cerbot siguiendo las instrucciones de [su sitio web](https://certbot.eff.org/). Por ejemplo, para [Debian 10](https://certbot.eff.org/instructions?ws=nginx&os=debianbuster):
+
+```bash
+sudo apt update
+sudo apt install snapd
+sudo snap install core
+sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
+
+Debido a que al instalar Nginx utilizamos un path personalizado, no podemos utilizar el plugin Nginx de Certbot que configura Nginx automáticamente, por lo que tendremos que hacer varios pasos manualmente.
+
+En este [enlace](https://community.letsencrypt.org/t/how-to-change-nginx-config-path/110180) recomiendan no utilizar el plugin de Nginx pese a que indiquemos manualmente los paths personalizados.
+
+Para crear los archivos a utilizar con las directivas `ssl_certificate` y `ssl_certificate_key`, seguimos las instrucciones indicadas al ejecutar:
+
+```bash
+sudo certbot certonly --manual
+```
+
+De haber utilizado el plugin de Certbot para Nginx, habría configurado las siguientes directivas (la mayoría de ellas creando el archivo de configuración `/etc/letsencrypt/options-ssl-nginx.conf`):
+
+- `ssl_session_cache`
+- `ssl_session_timeout`
+- `ssl_protocols`
+- `ssl_prefer_server_ciphers`
+- `ssl_ciphers`
+- `ssl_dhparam`
+
+Podemos configurarlas utilizando esta web <https://ssl-config.mozilla.org/>, como recomiendan en este [link](https://community.letsencrypt.org/t/generating-options-ssl-nginx-conf-and-ssl-dhparams-in-certonly-mode/136272). Solamente debemos indicar la versión de Nginx y de OpenSSL (se obtiene con el comando `openssl version`).
+
 #### Configurar SSL en Nginx
 
-Indicamos el puerto y el módulo a utilizar por la directiva listen:
+Para utilizar el certificado SSL, indicamos el puerto y el módulo a utilizar por la directiva listen:
+
+En el siguiente ejemplo, utilizamos el certificado autofirmado.
 
 ```bash
 ...
@@ -155,7 +199,7 @@ server {
 De la anterior configuración:
 
 - `ssl_protocols`: de no especificarlos, Nginx tiene configurados valores por defecto ([link](https://nginx.org/en/docs/http/configuring_https_servers.html#compatibility)).
-- `ssl_prefer_server_ciphers`: dar prioridad a los ciphers del servidor sobre los del cliente al utilizar los protocolos SSLv3 y TLS. 
+- `ssl_prefer_server_ciphers`: dar prioridad a los ciphers del servidor sobre los del cliente al utilizar los protocolos SSLv3 y TLS. En este [link](https://serverfault.com/questions/997614/setting-ssl-prefer-server-ciphers-directive-in-nginx-config) se explica si utilizar `on` o `off`.
 - `ssl_ciphers`: cada uno es separado con `:`, para no usar un cipher, utilizamos `:!`. Esta configuración va cambiando por el tiempo (pueden encontrarse bugs, etc) por lo que hay que buscar una fuente fiable y utilizar los valores que mejor resultados den en la actualidad. De no especificarlos, Nginx tiene configurados valores por defecto ([link](https://nginx.org/en/docs/http/configuring_https_servers.html#compatibility)).
 - `ssl_dhparam`: mejora la seguridad en el intercambio de keys entre el cliente y el servidor. Artículos sobre esto en [link](https://hackernoon.com/algorithms-explained-diffie-hellman-1034210d5100) y [link](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange). Para generar el archivo necesario, utilizamos `openssl` (documentación en este [link](https://wiki.archlinux.org/title/OpenSSL)):
 
