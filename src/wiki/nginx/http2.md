@@ -7,7 +7,11 @@
   - [Instalación y activación](#instalación-y-activación)
   - [Certificado SSL](#certificado-ssl)
     - [Certificado SSL autofirmado](#certificado-ssl-autofirmado)
-    - [Certificado SSL con Let's Encrypt y Certbot](#certificado-ssl-con-let-s-encrypt-y-certbot)
+    - [Certificado SSL con Let s Encrypt y Certbot](#certificado-ssl-con-let-s-encrypt-y-certbot)
+      - [Renovación del certificado](#renovación-del-certificado)
+        - [Renovación del certificado si fue creado manualmente](#renovación-del-certificado-si-fue-creado-manualmente)
+        - [Renovación del certificado manualmente](#renovación-del-certificado-manualmente)
+        - [Renovación del certificado automáticamente](#renovación-del-certificado-automáticamente)
     - [Configurar SSL en Nginx](#configurar-ssl-en-nginx)
   - [Evitar escuchar HTTP](#evitar-escuchar-http)
   - [Mejorar la seguridad](#mejorar-la-seguridad)
@@ -85,7 +89,9 @@ Documentación del comando en este [link](https://www.digitalocean.com/community
 
 #### Certificado SSL con Let s Encrypt y Certbot
 
-Instalamos Cerbot siguiendo las instrucciones de [su sitio web](https://certbot.eff.org/). Por ejemplo, para [Debian 10](https://certbot.eff.org/instructions?ws=nginx&os=debianbuster):
+Gracias a [Let's Encrypt](https://letsencrypt.org/) podemos tener un certificado para nuestro sitio web; más información sobre Let's Encrypt en [este enlace](https://www.digitalocean.com/community/tutorials/an-introduction-to-let-s-encrypt).
+
+Instalamos Cerbot (documentación en [este link](https://eff-certbot.readthedocs.io/en/stable/)) siguiendo las instrucciones de [su sitio web](https://certbot.eff.org/). Por ejemplo, para [Debian 10](https://certbot.eff.org/instructions?ws=nginx&os=debianbuster):
 
 ```bash
 sudo apt update
@@ -116,6 +122,42 @@ De haber utilizado el plugin de Certbot para Nginx, habría configurado las sigu
 - `ssl_dhparam`
 
 Podemos configurarlas utilizando esta web <https://ssl-config.mozilla.org/>, como recomiendan en este [link](https://community.letsencrypt.org/t/generating-options-ssl-nginx-conf-and-ssl-dhparams-in-certonly-mode/136272). Solamente debemos indicar la versión de Nginx y de OpenSSL (se obtiene con el comando `openssl version`).
+
+##### Renovación del certificado
+
+El certificado caduca cada 90 días, el motivo está explicado en [su sitio web](https://letsencrypt.org/docs/faq/#what-is-the-lifetime-for-let-s-encrypt-certificates-for-how-long-are-they-valid); por lo que deberemos renovarlo manual o automáticamente.
+
+###### Renovación del certificado si fue creado manualmente
+
+De haber creado el certificado manualmente (con la opción `--manual`), no podrá ser renovado con los métodos indicados a continuación, hay que repetir el mismo proceso que se realizó para crear el certificado. Esto viene indicado en el siguiente [link](https://github.com/certbot/certbot/issues/7489#issuecomment-548971511).
+
+###### Renovación del certificado manualmente
+
+Simplemente ejecutamos:
+
+```bash
+sudo certbot renew
+```
+
+Aquellos certificados próximos a expirar, serán renovados y, el resto serán omitidos.
+
+Si queremos hacer una prueba para verificar que el certificado se renovaría correctamente, podemos hacer una simulación con:
+
+```bash
+sudo certbot renew --dry-run
+```
+
+El anterior comando ejecutará todos los pasos pero sin renovar el certificado.
+
+###### Renovación del certificado automáticamente
+
+Esta es una muy buena opción para no tener que renovar el certificado cada cierto tiempo.
+
+Como hemos visto, con el comando `sudo certbot renew` solo se renuevan los certificados próximos a caducar, por lo que podemos hacer que ese ejecute diariamente en un cron:
+
+```bash
+@daily certbot renew
+```
 
 #### Configurar SSL en Nginx
 
