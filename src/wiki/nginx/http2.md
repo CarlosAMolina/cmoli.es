@@ -195,7 +195,7 @@ Aunque tengamos HTTP2 funcionando, si al acceder a la URL con HTTP en lugar de H
 server {
     listen 80;
     server_name localhost;
-    return 301 https://$server_name$request_uri;
+    return 301 https://$host$request_uri;
 }
 ```
 
