@@ -252,6 +252,8 @@ De la anterior configuración:
     Del anterior comando:
     - Tamaño 2048: debe coincidir con el valor que utilizamos para crear la clave privada en el certificado SSL autofirmado.
 
+    Como se explicó anteriormente, también se puede obtener el archivo como se explica en esta web <https://ssl-config.mozilla.org/>.
+
 - `add_header Strict-Transport-Security`: cabecera que indica al navegador no cargar nada por HTTP. Esto minimiza las redirecciones del puerto 80 al 443. El valor de `max-age` son segundos e indica el tiempo que le navegador debe recordar que el sitio web funciona solo con HTTPs. Documentación en el [link](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Strict-Transport-Security).
 - `ssl_session_cache`. Documentación en este [link](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_session_cache). Guarda en caché los handshakes SSL durante el tiempo especificado, lo que hace las conexiones más rápidas. Sus opciones son:
   - Cómo realizar el caché:
