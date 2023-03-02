@@ -228,7 +228,8 @@ server {
     ssl_dhparam /etc/nginx/ssl/dhparam.pem;
 
     # Enable HSTS.
-    add_header Strict-Transport-Security "max-age=31536000" always;
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains" always;
+
 
     # SSL sessions.
     ssl_session_cache shared:SSL:40m;
@@ -254,7 +255,14 @@ De la anterior configuración:
 
     Como se explicó anteriormente, también se puede obtener el archivo como se explica en esta web <https://ssl-config.mozilla.org/>.
 
-- `add_header Strict-Transport-Security`: cabecera que indica al navegador no cargar nada por HTTP. Esto minimiza las redirecciones del puerto 80 al 443. El valor de `max-age` son segundos e indica el tiempo que le navegador debe recordar que el sitio web funciona solo con HTTPs. Documentación en el [link](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Strict-Transport-Security).
+- `add_header Strict-Transport-Security`: cabecera que indica al navegador no cargar nada por HTTP. Esto minimiza las redirecciones del puerto 80 al 443.
+
+    El valor de `max-age` son segundos y especifica el tiempo que le navegador debe recordar que el sitio web funciona solo con HTTPs. Documentación en el [link](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Strict-Transport-Security).
+
+    Con `includeSubDomains` la política HSTS aplicará a todos los subdominios.
+
+    La opción `always`, asegura añadir la cabecera a todas las respuesta, incluso a las internas de error. Explicado en este [link](https://www.nginx.com/blog/http-strict-transport-security-hsts-and-nginx/).
+
 - `ssl_session_cache`. Documentación en este [link](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_session_cache). Guarda en caché los handshakes SSL durante el tiempo especificado, lo que hace las conexiones más rápidas. Sus opciones son:
   - Cómo realizar el caché:
       - `builtin`: específico para un worker process, no muy útil
