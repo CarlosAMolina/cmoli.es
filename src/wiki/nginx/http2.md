@@ -233,7 +233,7 @@ server {
     # SSL sessions.
     ssl_session_cache shared:SSL:40m;
     ssl_session_timeout 4h;
-    ssl_session_tickets on;
+    ssl_session_tickets off;
     ...
 }
 ```
@@ -262,4 +262,4 @@ De la anterior configuración:
   - `SSL`: nombre dado al caché (para tipo `shared`).
   - 40m: tamaño del caché de tipo `shared` en bytes (la configuración de la caché `builtin` cambia un poco).
 - `ssl_session_timeout`: tiempo que mantener una sesión cacheada.
-- `ssl_session_tickets`: ofrece mejor rendimiento ya que es un modo de identificar la sesión SSL del navegador web y evitar leer las sesiones cacheadas del servidor para identificarla.
+- `ssl_session_tickets`: ofrece mejor rendimiento ya que es un modo de identificar la sesión SSL del navegador web y evitar leer las sesiones cacheadas del servidor para identificarla. Se recomienda deshabilitarlo ([link](https://github.com/mozilla/server-side-tls/issues/135)).
