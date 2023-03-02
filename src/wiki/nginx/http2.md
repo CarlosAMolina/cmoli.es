@@ -257,9 +257,9 @@ De la anterior configuración:
 
 - `add_header Strict-Transport-Security`: cabecera que indica al navegador no cargar nada por HTTP. Esto minimiza las redirecciones del puerto 80 al 443.
 
-    El valor de `max-age` son segundos y especifica el tiempo que le navegador debe recordar que el sitio web funciona solo con HTTPs. Documentación en el [link](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Strict-Transport-Security).
+    El valor de `max-age` son segundos y especifica el tiempo que le navegador debe recordar que el sitio web funciona solo con HTTPs. Documentación en este [link](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Strict-Transport-Security).
 
-    Con `includeSubDomains` la política HSTS aplicará a todos los subdominios.
+    Con `includeSubDomains`, la política HSTS aplicará a todos los subdominios.
 
     La opción `always`, asegura añadir la cabecera a todas las respuesta, incluso a las internas de error. Explicado en este [link](https://www.nginx.com/blog/http-strict-transport-security-hsts-and-nginx/).
 
