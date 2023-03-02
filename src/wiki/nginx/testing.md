@@ -16,7 +16,7 @@
 
 ## Introducción
 
-En este apartado veremos distintas herramientas para probar el servidor Nginx
+En este apartado veremos distintas herramientas para probar el servidor Nginx.
 
 ## Apache Benchmark
 
