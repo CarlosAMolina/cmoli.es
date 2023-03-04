@@ -23,12 +23,15 @@
     - [Organizar automáticamente los imports](#organizar-automáticamente-los-imports)
     - [Mostrar comandos disponibles](#mostrar-comandos-disponibles)
 - [pyright](#pyright)
+  - [Configurar Pyright](#configurar-pyright)
+    - [Realizar imports desde otros proyectos](#realizar-imports-desde-otros-proyectos)
 - [rust-analyzer](#rust-analyzer)
 - [nvim-tree](#nvim-tree)
   - [Instalar nvim-tree](#instalar-nvim-tree)
   - [Configurar nvim-tree](#configurar-nvim-tree)
   - [Utilizar nvim-tree](#utilizar-nvim-tree)
 - [Referencias](#referencias)
+
 
 ## Introducción Neovim plugins
 
