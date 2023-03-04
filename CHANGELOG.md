@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Wiki Neovim: add Pyright config to avoid reportMissingImports error.
 
+## [0.11.2] - 2023-02-10
+### Added
+- Wiki terminal: st.
+
 ## [0.11.1] - 2023-01-25
 ### Added
 - Wiki Neovim: fix spell errors.
