@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Wiki Neovim: add Pyright config to avoid reportMissingImports error.
 
 ### Changed
-- Separate Vim and Neovim.
+- Wiki vi: change Vim to Vi in index.html and separate Vim and Neovim.
 
 ## [0.11.2] - 2023-02-10
 ### Added
