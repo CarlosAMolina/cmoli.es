@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - TODO
 ### Added
 - Wiki Neovim: add Pyright config to avoid reportMissingImports error.
+- UFC: weight introduction.
 
 ### Changed
 - Wiki vi: change Vim to Vi in index.html and separate Vim and Neovim.
