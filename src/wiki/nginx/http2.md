@@ -112,6 +112,8 @@ Para crear los archivos a utilizar con las directivas `ssl_certificate` y `ssl_c
 sudo certbot certonly --manual
 ```
 
+Cuando el anterior comando nos pregunte por los dominios para los que crear el certificado, si queremos crearlo también para el subdominio `www`, debemos especificarlo. Ejemplo `cmoli.es,www.cmoli.es`.
+
 De haber utilizado el plugin de Certbot para Nginx, habría configurado las siguientes directivas (la mayoría de ellas creando el archivo de configuración `/etc/letsencrypt/options-ssl-nginx.conf`):
 
 - `ssl_session_cache`
@@ -122,6 +124,12 @@ De haber utilizado el plugin de Certbot para Nginx, habría configurado las sigu
 - `ssl_dhparam`
 
 Podemos configurarlas utilizando esta web <https://ssl-config.mozilla.org/>, como recomiendan en este [link](https://community.letsencrypt.org/t/generating-options-ssl-nginx-conf-and-ssl-dhparams-in-certonly-mode/136272). Solamente debemos indicar la versión de Nginx y de OpenSSL (se obtiene con el comando `openssl version`).
+
+Información sobre los archivos creados puede verse en el siguiente archivo:
+
+```bash
+less /etc/letsencrypt/renewal/cmoli.es.conf
+```
 
 ##### Renovación del certificado
 
