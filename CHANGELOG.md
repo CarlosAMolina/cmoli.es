@@ -11,10 +11,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - UFC: weight introduction.
 
 ### Changed
-- Media content: multimedia content is now stored locally instead of being requested from AWS S3.
-
-### Changed
 - Wiki vi: change Vim to Vi in index.html and separate Vim and Neovim.
+- Image files are now stored locally instead of being requested from AWS S3.
+- Media content is retrieved from an external folder when the docker volume is created.
+
+### Removed
+- Image files have been removed.
 
 ## [0.11.3] - 2023-03-05
 ### Fix
