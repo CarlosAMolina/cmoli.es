@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - UFC: weight introduction.
 
 ### Changed
+- Media content: multimedia content is now stored locally instead of being requested from AWS S3.
+
+### Changed
 - Wiki vi: change Vim to Vi in index.html and separate Vim and Neovim.
 
 ## [0.11.3] - 2023-03-05

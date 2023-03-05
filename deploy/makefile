@@ -2,12 +2,14 @@ ROOT_PATHNAME=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 SCRIPT_CONVERT_MD_TO_HTML_PATHNAME=$(ROOT_PATHNAME)/convert-md-to-html-for-files
 SCRIPT_OPEN_HTML_PATHNAME=$(ROOT_PATHNAME)/open-html
 SCRIPT_SEND_FILES_TO_VPS_PATHNAME=$(ROOT_PATHNAME)/send-files-to-vps
+SCRIPT_SET_MEDIA_CONTENT=$(ROOT_PATHNAME)/set-media-content-to-docker-volume
 DOCKER_NGINX_IMAGE_NAME=nginx:latest
 DOCKER_PANDOC_IMAGE_NAME=pandoc/minimal:2.17-alpine
 DOCKER_PYTHON_IMAGE_NAME=python:3.8.15-alpine3.16
 DOCKER_VOLUME_NAME_NGINX_LOGS=nginx-logs
 DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT=nginx-web-content
 DOCKER_VOLUME_NAME_PANDOC=pandoc
+MEDIA_CONTENT_PATHNAME=$(HOME)/Software/cmoli-media-content
 URL_NGINX_LOCALHOST=http://localhost:8080
 VPS_SRC_OUTPUT_PATHNAME=/var/www/cmoli.es/html
 
@@ -24,6 +26,9 @@ create-web-content:
 		$(DOCKER_PYTHON_IMAGE_NAME) \
 		$(DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT) \
 		$(DOCKER_VOLUME_NAME_PANDOC)
+	/bin/bash $(SCRIPT_SET_MEDIA_CONTENT) \
+		$(DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT) \
+		$(MEDIA_CONTENT_PATHNAME)
 
 create-web-server:
 	make -f makefile-nginx \

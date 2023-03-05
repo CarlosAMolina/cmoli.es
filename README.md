@@ -25,6 +25,8 @@ To configure the VPS identity file, you can follow this tutorial about how to co
 
 ## Run project
 
+The media content (images, videos, etc.) must be in the `$HOME/Software/cmoli-media-content` folder using the same paths as the markdown web files. This is required because the media content will be copied from this path to the web content path with the `cp -r` command.
+
 Create HTML files and deploy on the VPS:
 
 ```bash
