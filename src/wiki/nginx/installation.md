@@ -123,7 +123,7 @@ Para mostrar la versión instalada y la configuración empleada:
 
 Esto nos permitirá iniciar, parar, etc. el servidor sin tener que llamar al ejecutable usando toda su ruta.
 
-Utilizamos el script del siguiente [link](https://www.nginx.com/resources/wiki/start/topics/examples/systemd/). Guardamos su contenido en el archivo mostrado en el enlace.
+Utilizamos el script del siguiente [link](https://www.nginx.com/resources/wiki/start/topics/examples/systemd/) (ejemplo obtenido de este [enlace](https://www.nginx.com/resources/wiki/start/topics/examples/initscripts/)). Guardamos su contenido en el archivo mostrado en el enlace.
 
 Como explica el enlace, puede que haya que escribir la ruta correcta de PIDFile y del ejecutable de Nginx:
 
