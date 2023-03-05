@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Wiki vi: change Vim to Vi in index.html and separate Vim and Neovim.
 
+## [0.11.3] - 2023-03-05
+### Fix
+- Felices fiestas video meta image for Linkedin.
+
 ## [0.11.2] - 2023-02-10
 ### Added
 - Wiki terminal: st.
