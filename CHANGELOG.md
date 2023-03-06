@@ -5,10 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.12.0] - 2023-03-06
+## [0.12.0] - 2023-03-07
 ### Added
 - Wiki Neovim: add Pyright config to avoid reportMissingImports error.
 - UFC: weight introduction.
+- Custom error pages.
 
 ### Changed
 - Wiki vi: change Vim to Vi in index.html and separate Vim and Neovim.
