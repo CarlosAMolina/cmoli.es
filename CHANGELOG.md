@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] - TODO
+## [0.12.0] - 2023-03-06
 ### Added
 - Wiki Neovim: add Pyright config to avoid reportMissingImports error.
 - UFC: weight introduction.
@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Media content is retrieved from an external folder when the docker volume is created.
 
 ### Removed
-- Image files have been removed.
+- Image files.
 - Deploy: send files to the VPS.
 
 ## [0.11.3] - 2023-03-05
