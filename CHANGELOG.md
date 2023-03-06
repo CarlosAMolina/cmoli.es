@@ -5,12 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] -
+## [Unreleased] - TODO
 ### Added
 - Deploy: test with custon Nginx config files.
 - Wiki Nginx: install and configuration.
-
-### Changed
 
 ## [0.11.1] - 2023-01-25
 ### Added
