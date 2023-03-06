@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 - Image files have been removed.
+- Deploy: send files to the VPS.
 
 ## [0.11.3] - 2023-03-05
 ### Fix
