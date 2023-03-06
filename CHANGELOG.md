@@ -10,10 +10,33 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Deploy: test with custon Nginx config files.
 - Wiki Nginx: install and configuration.
 
+## [0.12.0] - 2023-03-07
+### Added
+- Wiki Neovim: add Pyright config to avoid reportMissingImports error.
+- UFC: weight introduction.
+- Custom error pages.
+
+### Changed
+- Wiki vi: change Vim to Vi in index.html and separate Vim and Neovim.
+- Image files are now stored locally instead of being requested from AWS S3.
+- Media content is retrieved from an external folder when the docker volume is created.
+
+### Removed
+- Image files.
+- Deploy: send files to the VPS.
+
+## [0.11.3] - 2023-03-05
+### Fix
+- Felices fiestas video meta image for Linkedin.
+
+## [0.11.2] - 2023-02-10
+### Added
+- Wiki terminal: st.
+
 ## [0.11.1] - 2023-01-25
 ### Added
 - Wiki Neovim: fix spell errors.
-- Wiki Git: fix push permission denied
+- Wiki Git: fix push permission denied.
 
 ### Changed
 - Move wiki ssh file to its own folder.

@@ -31,7 +31,7 @@ The aim of [this project](https://github.com/CarlosAMolina/usb-linux) is to auto
 
 I don't want to reinvent the wheel, there are lots of good [projects](https://wiki.archlinux.org/title/Udisks#Mount_helpers) with the same objective. This project was an opportunity to learn Gnu/Linux and Rust.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/projects/usb-linux/desktop-notification-on.png)
+![](desktop-notification-on.png)
 
 > Image. Desktop USB connection notification
 
@@ -222,7 +222,7 @@ exec --no-startup-id $HOME/Software/usb-linux/src/bash/monitor
 
 The previous script will monitor new USB devices and call the Rust binary to show a notification with the device's name and automatically mount the device, the notification will show the mounted path too.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/projects/usb-linux/notification-on.png)
+![](notification-on.png)
 
 > Image. USB connection notification
 
