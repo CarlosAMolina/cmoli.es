@@ -12,10 +12,10 @@
 - [Add non root user to the sudoers file](#add-non-root-user-to-the-sudoers-file)
 - [Configure GUI](#configure-gui)
   - [Language packages](#language-packages)
-  - [Audio](#audio)
-  - [Autocompletion](#autocompletion)
-    - [Autocomplete make command](#autocomplete-make-command)
-    - [Autocomplete git command](#autocomplete-git-command)
+- [Audio](#audio)
+- [Autocompletion](#autocompletion)
+  - [Autocomplete make command](#autocomplete-make-command)
+  - [Autocomplete git command](#autocomplete-git-command)
 
 ## Introduction
 
@@ -160,7 +160,7 @@ In order to be able to write the `~` character, install:
 pacman -S ttf-dejavu
 ```
 
-### Audio
+## Audio
 
 <https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture>
 
@@ -186,9 +186,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- && $refr
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && $refresh_i3status
 ```
 
-### Autocompletion
+## Autocompletion
 
-#### Autocomplete make command
+### Autocomplete make command
 
 For example, when using the `make` command, in order to complete options when pressing the tab key, we must install ([link](https://bbs.archlinux.org/viewtopic.php?id=143180)):
 
@@ -196,7 +196,7 @@ For example, when using the `make` command, in order to complete options when pr
 sudo pacman -S bash-completion
 ```
 
-#### Autocomplete git command
+### Autocomplete git command
 
 For example, to complete git branches, we can install `bash-completion` as we see before. Other option is to source the following script ([link](https://wiki.archlinux.org/title/Git)):
 
