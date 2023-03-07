@@ -69,7 +69,7 @@ Extract the usb before start the system again.
 
 ## Start session
 
-Turn on the pc and write `root` as the user, then write you password.
+Turn on the pc and write `root` as the user, then write your password.
 
 ## Configure network
 
