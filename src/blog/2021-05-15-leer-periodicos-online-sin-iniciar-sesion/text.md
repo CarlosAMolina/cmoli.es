@@ -2,7 +2,7 @@
 
 Muchas veces los periódicos online muestran los primeros párrafos de un artículo y, para leerlo entero debemos iniciar sesión o suscribirnos. Esto me ocurrió con el siguiente artículo sobre Signal, una alternativa a WhatsApp enfocada a la privacidad: <https://elpais.com/tecnologia/2021-05-11/como-un-profesor-de-filosofia-en-zamora-colaboro-en-el-desarrollo-de-signal-la-alternativa-de-whatsapp.html>.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/blog/2021-05-15-leer-periodicos-online-sin-iniciar-sesion/article-login.png)
+![](article-login.png)
 
 > Imagen. Artículo mostrado parcialmente
 
@@ -12,7 +12,7 @@ Para ello, en el navegador web de nuestro ordenador (yo utilizo Firefox, pero cu
 
 Podemos ver una petición GET que obtiene el HTML del artículo, seleccionando esta petición y accediendo a la sección de `Response`, obtenemos el artículo completo.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/blog/2021-05-15-leer-periodicos-online-sin-iniciar-sesion/article-full.png)
+![](article-full.png)
 
 > Imagen. Artículo completo
 

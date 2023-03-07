@@ -8,19 +8,9 @@ You need to have Docker installed and run it as [rootless](<https://docs.docker.
 
 Install [git](<https://git-scm.com/>) to update the project automatically.
 
-### VPS connection
-
-Set in your local host the following environment variables with the VPS configuration and credentials.
-
-Example:
-
-```bash
-export VPS_DEV_PORT=123
-export VPS_DEV_IP=1.2.3.4
-export VPS_DEV_USER=foo
-```
-
 ## Run project
+
+The media content (images, videos, etc.) must be in the `$HOME/Software/cmoli-media-content` folder using the same paths as the markdown web files. This is required because the media content will be copied from this path to the web content path with the `cp -r` command.
 
 Create HTML files and deploy on the VPS:
 
