@@ -5,19 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] - TODO
-### Added
-- Wiki Gnu/Linux:
-  - Arch Linux installation steps.
-  - Partitions.
-
 ## [0.12.0] - 2023-03-07
 ### Added
 - Deploy: test with custon Nginx config files.
+- Custom error pages.
+- UFC: weight introduction.
 - Wiki Nginx: added more information.
 - Wiki Neovim: add Pyright config to avoid reportMissingImports error.
-- UFC: weight introduction.
-- Custom error pages.
+- Wiki Gnu/Linux:
+  - Arch Linux installation steps.
+  - Partitions.
 
 ### Changed
 - Wiki vi: change Vim to Vi in index.html and separate Vim and Neovim.
