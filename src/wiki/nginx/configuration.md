@@ -299,7 +299,7 @@ Especifica el puerto que escucha.
 
 ### server_name
 
-Configura el dominio, sudominio o IP para el que aplica el context `server`.
+Configura el dominio, subdominio o IP para el que aplica el context `server`.
 
 Puede aceptar wildcards como el asterisco, por ejemplo `*.foo.com` aceptará conexiones de cualquier subdominio, como `www.foo.com`, `images.foo.com`, etc.
 
@@ -467,7 +467,7 @@ server {
 
 Como lo último especificado en `try_files` se gestiona como un rewrite y la petición volverá a evaluarse, esto lo evitamos con los named locations.
 
-Asignamos un nombre a un context `location`, de ese modo el direcitve `try_files` lo llama directamente.
+Asignamos un nombre a un context `location`, de ese modo el directive `try_files` lo llama directamente.
 
 Para utilizarlo, se añade `@` en `try_files` y en `location`. Ejemplo:
 

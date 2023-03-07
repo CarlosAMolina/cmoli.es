@@ -62,7 +62,7 @@ HTTP/2 200
 
 Podemos crear un certificado autofirmado, o utilizando servicios externos como Let's Encrypt.
 
-No es recomendable utilzar un certificado autofirmado ya que en el navegador web se tendrá un mensaje de aviso de seguridad.
+No es recomendable utilizar un certificado autofirmado ya que en el navegador web se tendrá un mensaje de aviso de seguridad.
 
 #### Certificado SSL autofirmado
 
