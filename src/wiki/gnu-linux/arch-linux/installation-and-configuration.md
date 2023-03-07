@@ -1,3 +1,24 @@
+## Contents
+
+- [Introduction](#introduction)
+- [Keyboard layout](#keyboard-layout)
+- [Check boot mode is efi](#check-boot-mode-is-efi)
+- [Partitions to use](#partitions-to-use)
+- [Install packages](#install-packages)
+- [Configure the system](#configure-the-system)
+- [Start session](#start-session)
+- [Configure network](#configure-network)
+- [Create non root user](#create-non-root-user)
+- [Add non root user to the sudoers file](#add-non-root-user-to-the-sudoers-file)
+- [Configure GUI](#configure-gui)
+  - [Language packages](#language-packages)
+  - [Audio](#audio)
+  - [Autocompletion](#autocompletion)
+    - [Autocomplete make command](#autocomplete-make-command)
+    - [Autocomplete git command](#autocomplete-git-command)
+
+## Introduction
+
 Installation steps: <https://wiki.archlinux.org/title/Installation_guide>
 
 The following sections show a summary of the required commands.
