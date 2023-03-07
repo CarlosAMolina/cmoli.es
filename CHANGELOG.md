@@ -5,13 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased] - TODO
+## [0.12.0] - 2023-03-07
 ### Added
 - Deploy: test with custon Nginx config files.
 - Wiki Nginx: added more information.
-
-## [0.12.0] - 2023-03-07
-### Added
 - Wiki Neovim: add Pyright config to avoid reportMissingImports error.
 - UFC: weight introduction.
 - Custom error pages.
