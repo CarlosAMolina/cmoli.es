@@ -21,7 +21,7 @@ En esta entrada veremos cómo utilizar algunas opciones de DirBuster.
 
 Lanzar servidor Apache con `/etc/init.d/apache2 start`.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/servidor-apache-welcome-page.png)
+![](servidor-apache-welcome-page.png)
 
 > Imagen. Servidor Apache iniciado
 
@@ -39,17 +39,17 @@ java -jar ~/Documentos/dirbuster/DirBuster-0.9.12/DirBuster-0.0.12.jar
 - File with list of dirs/files: /home/x/Documentos/dirbuster/DirBuster-0.9.12/test.txt
 - Work Method: Use GET requests only
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-configuracion-inicial.png)
+![](dirbuster-configuracion-inicial.png)
 
 > Imagen. DirBuster configuración inicial
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/diccionario-utilizado.png)
+![](diccionario-utilizado.png)
 
 > Imagen. Diccionario utilizado
 
 También, configuramos en DirBuster como proxy la dirección de OWASP ZAP para ver las peticiones que realiza:
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-configuracion-proxy.png)
+![](dirbuster-configuracion-proxy.png)
 
 > Imagen. DirBuster configuración proxy
 
@@ -59,7 +59,7 @@ También, configuramos en DirBuster como proxy la dirección de OWASP ZAP para v
 - Address: 127.0.0.1
 - Puerto: 8081
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/owasp-zap-configuracion-proxy.png)
+![](owasp-zap-configuracion-proxy.png)
 
 > Imagen. OWAS ZAP configuración proxy
 
@@ -83,19 +83,19 @@ En este apartado se analizan las opciones referentes al descubrimiento de archiv
 
 ### `Brute force files` desactivada
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-dirs-configuracion.png)
+![](dirbuster-brute-force-dirs-configuracion.png)
 
 > Imagen. DirBuster configuración
 
 En este caso, no importan las opciones `Use Blank Extention` ni `File extention` puesto que el programa tratará las palabras del diccionario como si fueran directorios que buscar.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-dirs-peticiones.png)
+![](dirbuster-brute-force-dirs-peticiones.png)
 
 > Imagen. OWAS ZAP peticiones de DirBuster
 
 Se observa que DisBuster ha añadido otros archivos y directorios además de los indicados en el diccionario, como `manual` o `icons`.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-dirs-resultados.png)
+![](dirbuster-brute-force-dirs-resultados.png)
 
 > Imagen. DirBuster resultados
 
@@ -103,17 +103,17 @@ Se observa que DisBuster ha añadido otros archivos y directorios además de los
 
 Al utilizarse la opción `Brute force files`, ya no es necesaria la de `Brute Force Dirs` para que el programa funcione.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-files-use-blank-extension-configuracion.png)
+![](dirbuster-brute-force-files-use-blank-extension-configuracion.png)
 
 > Imagen. DirBuster configuración
 
 De los archivos que hay en el diccionario, indica los existentes en la ruta principal del servidor.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-files-use-blank-extension-peticiones.png)
+![](dirbuster-brute-force-files-use-blank-extension-peticiones.png)
 
 > Imagen. OWAS ZAP peticiones de DirBuster
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-files-use-blank-extension-resultados.png)
+![](dirbuster-brute-force-files-use-blank-extension-resultados.png)
 
 > Imagen. DirBuster resultados
 
@@ -121,19 +121,19 @@ Se observa que DirBuster busca algunos directorios por defecto, como `icons`.
 
 ### `Brute force files` seleccionada, `Use Blank Extention` no seleccionada y `File extention` con valor
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-files-file-extention-configuracion.png)
+![](dirbuster-brute-force-files-file-extention-configuracion.png)
 
 > Imagen. DirBuster configuración
 
 Lo indicado en `File Extention` se añade al final de los archivos del diccionario.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-files-file-extention-peticiones.png)
+![](dirbuster-brute-force-files-file-extention-peticiones.png)
 
 > Imagen. OWAS ZAP peticiones de DirBuster
 
 En este caso, en el servidor no existen los archivos buscados:
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-files-file-extention-resultados.png)
+![](dirbuster-brute-force-files-file-extention-resultados.png)
 
 > Imagen. DirBuster resultados
 
@@ -141,15 +141,15 @@ En este caso, en el servidor no existen los archivos buscados:
 
 Se buscan los archivo del diccionario como se han especificado en él y añadiéndoles la extensión descrita.
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-files-use-blank-extention-file-extention-configuracion.png)
+![](dirbuster-brute-force-files-use-blank-extention-file-extention-configuracion.png)
 
 > Imagen. DirBuster configuración
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-files-use-blank-extention-file-extention-peticiones.png)
+![](dirbuster-brute-force-files-use-blank-extention-file-extention-peticiones.png)
 
 > Imagen. OWAS ZAP peticiones de DirBuster
 
-![](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/dirbuster/dirbuster-brute-force-files-use-blank-extention-file-extention-resultados.png)
+![](dirbuster-brute-force-files-use-blank-extention-file-extention-resultados.png)
 
 > Imagen. DirBuster resultados
 

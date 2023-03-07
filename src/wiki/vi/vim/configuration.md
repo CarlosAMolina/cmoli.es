@@ -34,5 +34,5 @@ Note. If the previous file does not exist, create it in order to avoid edit /etc
 
 ### Configuration example
 
-See [.vimrc](https://carlosamolina-public.s3.eu-west-1.amazonaws.com/wiki/vim/.vimrc) example.
+See <https://github.com/CarlosAMolina/dotfiles/blob/main/dotfiles/config/vim/.vimrc>.
 
