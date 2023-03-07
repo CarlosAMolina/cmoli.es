@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - TODO
 ### Added
 - Deploy: test with custon Nginx config files.
-- Wiki Nginx: install and configuration.
+- Wiki Nginx: added more information.
 
 ## [0.12.0] - 2023-03-07
 ### Added
