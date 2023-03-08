@@ -10,7 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Deploy: wait until Docker commands can be executed.
 
 ### Changed
-- Deploy: move update git branch to its own file.
+- Deploy:
+  - The first thing to do is to update the git branch.
+  - Move update git branch to its own file.
 
 ## [0.12.0] - 2023-03-07
 ### Added
