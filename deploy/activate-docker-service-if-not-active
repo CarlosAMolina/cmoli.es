@@ -14,10 +14,10 @@ wait-until-service-is-active() {
   echo "[DEBUG] Init wait until service $SERVICE is active"
   while [ $(is_service_active) -eq 1 ]
   do
-    echo "[DEBUG] Service is not active. Init wait a few seconds"
+    echo "[DEBUG] The service is not active. Init wait a few seconds"
     sleep 5
   done
-  echo "[DEBUG] Service is active"
+  echo "[DEBUG] The service is active"
 }
 
 echo "[DEBUG] Init check service $SERVICE is active"
