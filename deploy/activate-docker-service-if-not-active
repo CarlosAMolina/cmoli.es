@@ -29,3 +29,11 @@ else
   systemctl --user start $SERVICE
   wait-until-service-is-active
 fi
+echo "[DEBUG] Init wait until service $SERVICE accepts commands"
+while [ $(/bin/bash is-docker-available) -eq 1 ]
+do
+  echo "[DEBUG] Docker is not available. Init wait a few seconds"
+  sleep 5
+done
+echo "[DEBUG] Docker is available"
+
