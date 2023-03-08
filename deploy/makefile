@@ -54,9 +54,17 @@ stop-containers:
 	make -f makefile-nginx \
 	    stop-if-running
 
-test: update-git-current-branch activate-docker-if-not-active stop-containers create-web-content create-web-server show-web
+test: update-git-current-branch \
+	activate-docker-if-not-active \
+	stop-containers \
+	create-web-content \
+	create-web-server \
+	show-web
 
-deploy: update-git-current-branch activate-docker-if-not-active stop-containers create-web-content
+deploy: update-git-current-branch \
+	activate-docker-if-not-active \
+	stop-containers \
+	create-web-content
 
 export-pandoc-template-html:
 	# https://pandoc.org/MANUAL.html#option--print-default-template
