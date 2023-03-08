@@ -19,7 +19,6 @@ activate-docker-if-not-active:
 	/bin/bash activate-docker-service-if-not-active
 
 create-web-content:
-	git pull origin $(shell git branch --show-current)
 	/bin/bash remove-volumes \
 		$(DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT) \
 		$(DOCKER_VOLUME_NAME_PANDOC)
