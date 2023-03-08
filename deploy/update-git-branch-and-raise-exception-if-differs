@@ -9,7 +9,7 @@ else
     # If the main makefile file was updated in origin, 
     # its last version won't be used despite pulling it
     # because the old version is running.
-    echo "[ERROR] The local branch was not updated. Remote changes have been downloaded. Please deploy again"
+    echo "[ERROR] The local branch didn't have all the remote changes. Remote changes have been downloaded. Please deploy again"
     exit 1
 fi
 

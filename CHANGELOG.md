@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Deploy:
   - Wait until Docker commands can be executed.
-  - Exit if git branch was not updated.
+  - Exit if git branch didn't have all the remote changes.
 
 ### Changed
 - Deploy:
