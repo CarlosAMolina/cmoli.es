@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.13.0] - 2023-03-08
 ### Added
-- Deploy: wait until Docker commands can be executed.
+- Deploy:
+  - Wait until Docker commands can be executed.
+  - Exit if git branch was not updated.
 
 ### Changed
 - Deploy:
