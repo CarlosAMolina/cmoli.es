@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.13.0] - 2023-03-08
 ### Added
-- Deploy: wait until Docker commands can be executed
+- Deploy: wait until Docker commands can be executed.
+
+### Changed
+- Deploy: move update git branch to its own file.
 
 ## [0.12.0] - 2023-03-07
 ### Added
