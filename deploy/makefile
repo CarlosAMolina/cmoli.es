@@ -2,7 +2,7 @@ ROOT_PATHNAME=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 SCRIPT_CONVERT_MD_TO_HTML_PATHNAME=$(ROOT_PATHNAME)/convert-md-to-html-for-files
 SCRIPT_OPEN_HTML_PATHNAME=$(ROOT_PATHNAME)/open-html
 SCRIPT_SET_MEDIA_CONTENT=$(ROOT_PATHNAME)/set-media-content-to-docker-volume
-SCRIPT_UPDATE_GIT_CURRENT_BRANCH=$(ROOT_PATHNAME)/update-current-git-branch
+SCRIPT_UPDATE_GIT_BRANCH=$(ROOT_PATHNAME)/update-git-branch-and-raise-exception-if-differs
 DOCKER_NGINX_IMAGE_NAME=nginx:latest
 DOCKER_PANDOC_IMAGE_NAME=pandoc/minimal:2.17-alpine
 DOCKER_PYTHON_IMAGE_NAME=python:3.8.15-alpine3.16
@@ -12,8 +12,8 @@ DOCKER_VOLUME_NAME_PANDOC=pandoc
 MEDIA_CONTENT_PATHNAME=$(HOME)/Software/cmoli-media-content
 URL_NGINX_LOCALHOST=http://localhost:8080
 
-update-git-current-branch:
-	/bin/bash $(SCRIPT_UPDATE_GIT_CURRENT_BRANCH)
+assert-git-branch-is-updated:
+	/bin/bash $(SCRIPT_UPDATE_GIT_BRANCH)
 
 activate-docker-if-not-active:
 	/bin/bash activate-docker-service-if-not-active
@@ -53,14 +53,14 @@ stop-containers:
 	make -f makefile-nginx \
 	    stop-if-running
 
-test: update-git-current-branch \
+test: assert-git-branch-is-updated \
 	activate-docker-if-not-active \
 	stop-containers \
 	create-web-content \
 	create-web-server \
 	show-web
 
-deploy: update-git-current-branch \
+deploy: assert-git-branch-is-updated \
 	activate-docker-if-not-active \
 	stop-containers \
 	create-web-content

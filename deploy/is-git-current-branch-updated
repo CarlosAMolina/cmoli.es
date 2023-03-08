@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# https://stackoverflow.com/questions/3258243/check-if-pull-needed-in-git
+
+commit_id_local=$(git rev-parse @)
+commit_id_remote=$(git rev-parse @{u})
+docker ps &> /dev/null
+if [ $commit_id_local = $commit_id_remote ]; then
+  echo 0 # 0 = true
+else
+  echo 1 # 1 = false
+fi
