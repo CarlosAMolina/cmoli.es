@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.13.1] - 2023-03-10
+### Changed
+- Deploy: exit if git branch didn't have the remote changes for makefile instead of for all files.
+
+### Removed
+- Deploy: the first thing to do is to update the git branch.
+
 ## [0.13.0] - 2023-03-08
 ### Added
 - Deploy:
@@ -14,7 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Deploy:
   - The first thing to do is to update the git branch.
-  - Move update git branch to its own file.
+  - Move update git branch to its own script file.
 
 ## [0.12.0] - 2023-03-07
 ### Added
