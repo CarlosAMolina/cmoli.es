@@ -5,7 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.13.1] - 2023-03-10
+## [0.14.0] - 2023-03-10
+### Fix
+- Deploy: detect if the current branch is updated fails if the origin branch was updated from a different path that the current project path.
+
 ### Changed
 - Deploy: exit if git branch didn't have the remote changes for makefile instead of for all files.
 
