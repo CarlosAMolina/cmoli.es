@@ -8,7 +8,46 @@ Observaremos partes del código para mostrar las similitudes y diferencias en el
 
 ## Partes del programa
 
-El programa escrito en Rust y Python está organizado en módulos de manera similar para que sea sencillo comparar ambos lenguajes.
+El programa está organizado en módulos de manera similar en ambos lenguajes para que sea sencillo compararlos:
+
+```bash
+$ tree python/
+python/
+├── pyproject.toml
+├── requirements-dev.txt
+├── src
+│   ├── create_file.py
+│   ├── filter_file.py
+│   ├── lib.py
+│   ├── main.py
+│   ├── m_log.py
+│   ├── read_file.py
+│   └── write_file.py
+└── tests
+    └── unit
+        ├── __init__.py
+        ├── test_filter_file.py
+        └── test_m_log.py
+
+$ tree rust
+rust
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    ├── create_file.rs
+    ├── filter_file.rs
+    ├── lib.rs
+    ├── main.rs
+    ├── m_log.rs
+    ├── read_file.rs
+    └── write_file.rs
+```
+
+Exceptuando los archivos de configuración propios de un proyecto en Python o Rust, la carpeta `src` con el código del programa muestra que ambos proyectos sen han creado con los mismos archivos.
+
+Otra diferencia es la parte de los tests, en Python tienen su propia carpeta y en Rust están escritos dentro de los archivos con el código del programa.
+
+A continuación, se describe la función de cada parte y algunos ejemplos de similitudes y diferencias entre Python Y Rust.
 
 ### Recibir los valores dados por el usuario
 
