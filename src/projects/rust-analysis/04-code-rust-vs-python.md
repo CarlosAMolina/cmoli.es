@@ -8,7 +8,7 @@ Observaremos partes del código para mostrar las similitudes y diferencias en el
 
 ## Partes del programa
 
-El programa está organizado en módulos de manera similar en ambos lenguajes para que sea sencillo compararlos:
+En ambos lenguajes, el programa está organizado en los mismos módulos para que sea sencillo compararlos:
 
 ```bash
 $ tree python/
@@ -43,7 +43,7 @@ rust
     └── write_file.rs
 ```
 
-Exceptuando los archivos de configuración propios de un proyecto en Python o Rust, la carpeta `src` con el código del programa muestra que ambos proyectos sen han creado con los mismos archivos.
+Exceptuando los archivos de configuración propios de un proyecto en Python o Rust, la carpeta `src` con el código del programa muestra que ambos proyectos tienen los mismos archivos.
 
 Otra diferencia es la parte de los tests, en Python tienen su propia carpeta y en Rust están escritos dentro de los archivos con el código del programa.
 
@@ -51,9 +51,9 @@ A continuación, se describe la función de cada parte y algunos ejemplos de sim
 
 ### Recibir los valores dados por el usuario
 
-Lo primero a realizar por el programa es recibir por línea de comandos los valores dados por el usuario. Este programa solo necesita conocer el path donde están los archivos de logs.
+Lo primero a realizar por el programa es recibir por línea de comandos los valores introducidos por el usuario. El único input necesario es el path donde están los archivos de logs a convertir.
 
-En los siguientes ejemplos puede verse como librerías que vienen incorporadas por Python, permiten escribir esta parte de una manera sencilla, es decir, guarda la configuración introducida y ofrece mensajes de ayuda sin tener que implementarlo nosotros, como sí hay que hacer en Rust.
+En los siguientes ejemplos puede verse cómo librerías que vienen incorporadas por defecto en Python, permiten escribir esta parte de una manera sencilla, es decir, guarda los valores recibidos del usuario y ofrece mensajes de ayuda sin tener que implementarlo nosotros, en cambio, sí hay que escribir esto en Rust de no utilizar librerías externas.
 
 - Rust
 
@@ -116,7 +116,7 @@ Una vez se conoce la ruta con los archivos a analizar, deben ordenarse desde el 
 
 ### Modificar logs
 
-Al leer los logs, debe separarse con comas cada parte (dirección IP, paths solcitidados, códigos de respuesta, etc) para generar el archivo .csv final.
+Al leer los logs, debe separarse con comas cada parte (dirección IP, paths solicitados, códigos de respuesta, etc) para generar el archivo .csv final.
 
 ### Programa principal
 
