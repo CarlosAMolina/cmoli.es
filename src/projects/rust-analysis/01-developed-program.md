@@ -26,7 +26,7 @@ Programa que convierte archivos de logs en `csv`:
 
 <https://github.com/CarlosAMolina/nginx-logs>
 
-Links de este tutorial:
+## Links de este tutorial
 
 - [Página principal](introduction.html).
 - [Siguiente apartado. Instalación Rust y Python](02-installation-rust-and-python.html).

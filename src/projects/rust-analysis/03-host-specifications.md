@@ -70,7 +70,7 @@ Mostrar datos del Kernel:
 
     <https://unix.stackexchange.com/questions/124466/what-is-the-difference-of-kernel-distributions-release-and-version>
 
-Links de este tutorial:
+## Links de este tutorial
 
 - [Página principal](introduction.html).
 - [Siguiente apartado. Código Rust vs Python](04-code-rust-vs-python.html).

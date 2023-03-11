@@ -101,7 +101,7 @@ Versiones Python, web oficial:
 
 <https://www.python.org/downloads/>
 
-Links de este tutorial:
+## Links de este tutorial
 
 - [Página principal](introduction.html).
 - [Siguiente apartado. Especificaciones del equipo](03-host-specifications.html).
