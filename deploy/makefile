@@ -2,6 +2,7 @@ ROOT_PATHNAME=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 SCRIPT_CONVERT_MD_TO_HTML_PATHNAME=$(ROOT_PATHNAME)/convert-md-to-html-for-files
 SCRIPT_OPEN_HTML_PATHNAME=$(ROOT_PATHNAME)/open-html
 SCRIPT_SET_MEDIA_CONTENT=$(ROOT_PATHNAME)/set-media-content-to-docker-volume
+SCRIPT_UPDATE_AND_ASSERT_GIT_BRANCH=$(ROOT_PATHNAME)/update-git-branch-and-raise-exception-if-required-file-not-updated
 DOCKER_NGINX_IMAGE_NAME=nginx:latest
 DOCKER_PANDOC_IMAGE_NAME=pandoc/minimal:2.17-alpine
 DOCKER_PYTHON_IMAGE_NAME=python:3.8.15-alpine3.16
@@ -11,11 +12,13 @@ DOCKER_VOLUME_NAME_PANDOC=pandoc
 MEDIA_CONTENT_PATHNAME=$(HOME)/Software/cmoli-media-content
 URL_NGINX_LOCALHOST=http://localhost:8080
 
+assert-required-file-updated-and-update-branch:
+	/bin/bash $(SCRIPT_UPDATE_AND_ASSERT_GIT_BRANCH)
+
 activate-docker-if-not-active:
 	/bin/bash activate-docker-service-if-not-active
 
 create-web-content:
-	git pull origin $(shell git branch --show-current)
 	/bin/bash remove-volumes \
 		$(DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT) \
 		$(DOCKER_VOLUME_NAME_PANDOC)
@@ -50,9 +53,17 @@ stop-containers:
 	make -f makefile-nginx \
 	    stop-if-running
 
-test: activate-docker-if-not-active stop-containers create-web-content create-web-server show-web
+test: assert-required-file-updated-and-update-branch \
+	activate-docker-if-not-active \
+	stop-containers \
+	create-web-content \
+	create-web-server \
+	show-web
 
-deploy: activate-docker-if-not-active stop-containers create-web-content
+deploy: assert-required-file-updated-and-update-branch \
+	activate-docker-if-not-active \
+	stop-containers \
+	create-web-content
 
 export-pandoc-template-html:
 	# https://pandoc.org/MANUAL.html#option--print-default-template

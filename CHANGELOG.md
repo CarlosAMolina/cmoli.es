@@ -9,6 +9,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Toc to the project Rust Analysis.
 
+## [0.14.0] - 2023-03-10
+### Fix
+- Deploy: detect if the current branch is updated fails if the origin branch was updated from a different path that the current project path.
+
+### Changed
+- Deploy: exit if git branch didn't have the remote changes for makefile instead of for all files.
+
+### Removed
+- Deploy: the first thing to do is to update the git branch.
+
+## [0.13.0] - 2023-03-08
+### Added
+- Deploy:
+  - Wait until Docker commands can be executed.
+  - Exit if git branch didn't have all the remote changes.
+
+### Changed
+- Deploy:
+  - The first thing to do is to update the git branch.
+  - Move update git branch to its own script file.
+
 ## [0.12.0] - 2023-03-07
 ### Added
 - Deploy: test with custon Nginx config files.
