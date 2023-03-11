@@ -11,6 +11,7 @@
   - [Editor de código para Rust](#editor-de-código-para-rust)
   - [Editor de código para Python](#editor-de-código-para-python)
 - [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
 
 ## Introducción 
 

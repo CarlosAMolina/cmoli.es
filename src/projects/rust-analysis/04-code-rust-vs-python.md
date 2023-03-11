@@ -1,5 +1,17 @@
 # Código Rust vs Python
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Partes del programa](#partes-del-programa)
+  - [Recibir los valores dados por el usuario](#recibir-los-valores-dados-por-el-usuario)
+  - [Ordenar archivos de logs a analizar](#ordenar-archivos-de-logs-a-analizar)
+  - [Modificar logs](#modificar-logs)
+  - [Programa principal](#programa-principal)
+- [Conclusión](#conclusión)
+- [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
+
 ## Introducción 
 
 Iniciamos con esta entrada las comparaciones entre Rust y Python. 

@@ -4,7 +4,9 @@
 
 - [Introducción](#introducción)
 - [Características](#características)
+- [Comandos utilizados](#comandos-utilizados)
 - [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
 
 ## Introducción 
 
