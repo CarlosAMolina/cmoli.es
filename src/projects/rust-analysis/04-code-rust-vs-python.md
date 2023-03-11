@@ -195,5 +195,5 @@ Programa que convierte archivos de logs en `csv`:
 
 ## Links de este tutorial
 
-- [Página principal](introduction.html).
+- [Página principal](introduction.html)
 

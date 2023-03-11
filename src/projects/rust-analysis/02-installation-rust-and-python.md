@@ -104,6 +104,6 @@ Versiones Python, web oficial:
 
 ## Links de este tutorial
 
-- [Página principal](introduction.html).
-- [Siguiente apartado. Especificaciones del equipo](03-host-specifications.html).
+- [Página principal](introduction.html)
+- [Siguiente apartado. Especificaciones del equipo](03-host-specifications.html)
 
