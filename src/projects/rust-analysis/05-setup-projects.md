@@ -45,11 +45,58 @@ Ya con esto, volvemos a nuestra ruta principal de trabajo:
 cd ~/Software/poc-rust
 ```
 
+## Programa para convertir logs a csv
+
+El programa que utilizaremos para convertir nuestros archivos de logs a csv puede descargarse con el siguiente comando:
+
+```bash
+git clone https://github.com/CarlosAMolina/nginx-logs
+cd nginx-logs
+```
+
+### Configurar versión en Python
+
+Para trabajar con la versión Python del programa, solamente hay que acceder a la carpeta con el código, no es necesario instalar ninguna librería externa.
+
+Ejecutando el programa con el argumento `-h` obtenemos un texto de ayuda:
+
+```bash
+$ cd python
+$ python src/main.py -h
+usage: main.py [-h] pathname
+
+Export Nginx logs to a csv file.
+
+positional arguments:
+  pathname    path to a folder with the log files or to an specific file
+
+options:
+  -h, --help  show this help message and exit
+```
+
+### Configurar versión en Rust
+
+Al igual que hemos lanzado la versión Python de este programa, para Rust, accedemos a la carpeta con el código en este lenguaje y lo ejecutamos, en este caso sin utilizar ningún argumento.
+
+En lugar de obtener un texto de ayuda como en Python, en Rust no se ha implementado esto y simplemente se mostrará con un error que no se ha proporcionado el argumento pathname.
+
+```bash
+$ cd ~/Software/poc-rust/nginx-logs/rust
+$ cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.11s
+     Running `target/debug/nginx_logs`
+Problem parsing arguments: No pathname provided
+```
+
 ## Recursos
 
 Programa para generar logs:
 
 <https://github.com/CarlosAMolina/nginx-logs-generator>
+
+Programa para convertir logs a csv:
+
+<https://github.com/CarlosAMolina/nginx-logs>
 
 ## Links de este tutorial
 
