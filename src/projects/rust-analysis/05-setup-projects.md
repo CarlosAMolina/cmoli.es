@@ -76,16 +76,23 @@ options:
 
 ### Configurar versión en Rust
 
-Al igual que hemos lanzado la versión Python de este programa, para Rust, accedemos a la carpeta con el código en este lenguaje y lo ejecutamos, en este caso sin utilizar ningún argumento.
-
-En lugar de obtener un texto de ayuda como en Python, en Rust no se ha implementado esto y simplemente se mostrará con un error que no se ha proporcionado el argumento pathname.
+Al igual que hemos lanzado la versión Python de este programa, para Rust, accedemos a la carpeta con el código en este lenguaje y lo ejecutamos, en este caso sin utilizar ningún argumento. Se mostrará con un error que no se ha proporcionado el argumento pathname, y un texto de ayuda.
 
 ```bash
 $ cd ~/Software/poc-rust/nginx-logs/rust
 $ cargo run
-    Finished dev [unoptimized + debuginfo] target(s) in 0.11s
-     Running `target/debug/nginx_logs`
+   ...
+   Compiling nginx_logs v0.1.0 (/tmp/nginx-logs/rust)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.28s
+     Running `/tmp/nginx-logs/rust/target/debug/nginx_logs`
 Problem parsing arguments: No pathname provided
+
+usage: cargo run pathname
+
+Export Nginx logs to a csv file.
+
+positional arguments:
+  pathname    path to a folder with the log files or to an specific file
 ```
 
 ## Recursos
