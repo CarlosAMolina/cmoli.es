@@ -78,9 +78,26 @@ use std::env;
 
     let config = Config::new(env::args()).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {}", err);
+        help();
         process::exit(1);
     });
+
+...
+
+fn help() {
+    eprintln!(
+        "
+usage: cargo run pathname
+
+Export Nginx logs to a csv file.
+
+positional arguments:
+  pathname    path to a folder with the log files or to an specific file"
+    );
+}
 ```
+
+Se observa que, hemos tenido que crear una función con el mensaje de ayuda a mostrar en caso de uso incorrecto de la aplicación.
 
 En el archivo `lib.rs` vemos cómo se lee y guarda la entrada del usuario en una estructura `Config`:
 
@@ -104,7 +121,7 @@ impl Config {
 
 - Python
 
-En Python, para leer argumentos y generar mensajes de ayuda, se utilizó la líbrería `argparse`:
+En Python, para leer argumentos y generar mensaje de ayuda, se utilizó la librería `argparse`:
 
 ```python
 import argparse
@@ -121,6 +138,8 @@ def get_args_parsed():
     )
     return parser.parse_args()
 ```
+
+En este caso, la librería `argparse` genera el mensaje de ayuda, no es necesario que lo escribamos como sí tuvimos que hacer en Rust, solo hemos tenido que especificar una descripción del programa y del argumento `pathname`. El mensaje de ayuda será prácticamente igual al que definimos antes en la función help() del código Rust, lo veremos en futuros apartados al ejecutar el programa.
 
 ### Ordenar archivos de logs a analizar
 
