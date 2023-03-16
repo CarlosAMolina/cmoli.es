@@ -1,4 +1,4 @@
-# Rust Análisis
+# Rust VS Otros Lenguajes
 
 ## Contenidos
 
