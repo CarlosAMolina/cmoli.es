@@ -24,19 +24,57 @@ Descargamos el programa y accedemos a su carpeta:
 
 ```bash
 git clone https://github.com/CarlosAMolina/nginx-logs-generator
-cd nginx-logs-generator
+cd nginx-logs-generator/nginx-logs-generator
 ```
 
-Crearemos en la ruta `~/Software/poc-rust/logs/` los siguiente archivos de logs:
-
-- access.log.2.gz, 110 MiB (1.4 GiB sin comprimir).
-- access.log.1, 477 MiB.
-- access.log, 954 MiB.
-
-Para ello, con el siguiente comando, indicamos la ruta de destino (el programa creará la carpeta llamada `logs`), y el tamaño de los archivos (en Gigabytes):
+Ahora, simplemente verificaremos que el programa funciona correctamente:
 
 ```bash
-cargo run ~/Software/poc-rust 1.5 0.5 1
+$ cargo run
+...
+Problem parsing arguments: not enough arguments
+Usage
+    cargo run String Vec<f32>
+        The first argument is the path where the `log` folder will be created to save the log files.
+        The next arguments are the size (Gigabyte) of each log file to be generated.
+    Example:
+        cargo run /tmp 1.5 0.5 1
+
+```
+
+Obtenemos mensaje de error porque no hemos proporcionado como argumento el path donde crear los archivos de logs; no supone un problema, ya que solo queríamos lanzar el programa a modo de prueba.
+
+El último paso es crear el archivo ejecutable de este programa, conviene hacer una breve explicación de los comandos utilizados:
+
+- Con la orden `cargo run` el programa es compilado, utilizando la orden `cargo build`, y también se lanza el ejecutable resultante, el cual se guarda en la carpeta `target/debug`, con el nombre del programa, `nginx-logs-generator` en este caso. Este es un ejecutable creado rápidamente para probar el programa mientras desarrollamos.
+- Con la orden `cargo build --release` compilamos el programa con optimizaciones que harán que funcione a mayor velocidad. El comando `cargo build` generaba un ejecutable sin optimizaciones, que es mas rápido de compilar, por lo que es más conveniente durante el desarrollo del programa, aunque es más lento en ejecución. El ejecutable resultado será creado en `target/relase`.
+
+Por tanto, generamos el ejecutable con:
+
+```bash
+cargo build --relase
+```
+
+Si comparamos los archivos resultantes de `cargo build` y `cargo build --release` vemos que el programa con optimizaciones ocupa menos espacio:
+
+```bash
+$ ls -lh target/debug/nginx-logs-generator
+8,6M target/debug/nginx-logs-generator
+[x@arch nginx-logs-generator]$ ls -lh target/release/nginx-logs-generator
+4,3M target/release/nginx-logs-generator
+```
+
+Puede ejecutarse del siguiente modo:
+
+```bash
+$ ./target/release/nginx-logs-generator
+Problem parsing arguments: not enough arguments
+Usage
+    cargo run String Vec<f32>
+        The first argument is the path where the `log` folder will be created to save the log files.
+        The next arguments are the size (Gigabyte) of each log file to be generated.
+    Example:
+        cargo run /tmp 1.5 0.5 1
 ```
 
 Ya con esto, volvemos a nuestra ruta principal de trabajo:
@@ -93,6 +131,12 @@ Export Nginx logs to a csv file.
 
 positional arguments:
   pathname    path to a folder with the log files or to an specific file
+```
+
+Por último, creamos el ejecutable de este programa, como hemos explicado anteriormente:
+
+```bash
+cargo build --release
 ```
 
 ## Recursos
