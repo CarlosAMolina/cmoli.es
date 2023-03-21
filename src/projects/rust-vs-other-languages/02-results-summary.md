@@ -1,5 +1,14 @@
 # Resumen de los resultados
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Espacio en disco](#espacio-en-disco)
+- [Tiempo de ejecución](#tiempo-de-ejecución)
+- [Memoria](#memoria)
+- [CPU](#cpu)
+- [Links de este tutorial](#links-de-este-tutorial)
+
 ## Introducción
 
 En este apartado se mostrarán los resultados de comparar Rust con otros lenguaje de programación. El objetivo es mostrar un resumen inicial y, en los siguientes capítulos ir obteniendo estas conclusiones paso a paso y analizarlas.
