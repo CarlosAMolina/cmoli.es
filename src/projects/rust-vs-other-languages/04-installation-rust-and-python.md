@@ -13,13 +13,13 @@
 - [Recursos](#recursos)
 - [Links de este tutorial](#links-de-este-tutorial)
 
-## Introducción 
+## Introducción
 
 Como el programa desarrollado está escrito en Rust y Python, lo primero que necesitamos es instalar estos lenguajes de programación en nuestro equipo.
 
 Otro aspecto también a cubrir es disponer de un editor de código donde poder abrir los archivos del programa.
 
-¡Vamos a ello! 
+¡Vamos a ello!
 
 ## Instalación
 
@@ -64,7 +64,7 @@ Unas de las opciones más cómodas pueden ser los [productos de JetBrains](https
 
 De nuevo, la opción más sencilla es quizá [PyCharm de JetBrains](https://www.jetbrains.com/pycharm/), aunque disponemos de muchas otras posibilidades, como puede verse en [el siguiente artículo de Real Python](https://realpython.com/python-ides-code-editors-guide/).
 
-## Recursos 
+## Recursos
 
 Editor de código Python:
 
@@ -105,5 +105,4 @@ Versiones Python, web oficial:
 ## Links de este tutorial
 
 - [Página principal](introduction.html)
-- [Siguiente apartado. Especificaciones del equipo](03-host-specifications.html)
-
+- [Siguiente apartado. Instalación Rust y Python](05-code-rust-vs-python.html)

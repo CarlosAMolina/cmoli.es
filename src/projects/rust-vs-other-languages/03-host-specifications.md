@@ -8,7 +8,7 @@
 - [Recursos](#recursos)
 - [Links de este tutorial](#links-de-este-tutorial)
 
-## Introducción 
+## Introducción
 
 Para tener una idea de los resultados que se conseguirían dependiendo del equipo utilizado, a continuación muestro las características del ordenador con el que he trabajado. Así podéis saber si en vuestro equipo de mejores especificaciones obtendríais unos resultados más eficientes que los dados en los apartados de este proyecto.
 
@@ -75,4 +75,4 @@ Mostrar datos del Kernel:
 ## Links de este tutorial
 
 - [Página principal](introduction.html)
-- [Siguiente apartado. Código Rust vs Python](04-code-rust-vs-python.html)
+- [Siguiente apartado. Código Rust vs Python](04-installation-rust-and-python.html)

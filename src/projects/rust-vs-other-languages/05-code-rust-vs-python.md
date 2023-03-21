@@ -12,9 +12,9 @@
 - [Recursos](#recursos)
 - [Links de este tutorial](#links-de-este-tutorial)
 
-## Introducción 
+## Introducción
 
-Iniciamos con esta entrada las comparaciones entre Rust y Python. 
+Iniciamos con esta entrada las comparaciones entre Rust y Python.
 
 Observaremos partes del código para mostrar las similitudes y diferencias en el programa desarrollado en estos dos lenguajes.
 
@@ -215,4 +215,4 @@ Programa que convierte archivos de logs en `csv`:
 ## Links de este tutorial
 
 - [Página principal](introduction.html)
-- [Siguiente apartado. Configurar proyectos](05-setup-projects.html)
+- [Siguiente apartado. Configurar proyectos](06-setup-projects.html)

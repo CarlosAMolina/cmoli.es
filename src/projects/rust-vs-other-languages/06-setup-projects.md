@@ -1,7 +1,7 @@
 # Configurar los proyectos
 
 
-## Introducción 
+## Introducción
 
 Tras haber comentado las partes del programa, llega la hora de prepararlo para poder ejecutarlo :)
 

@@ -1,3 +1,5 @@
+## Ejecutar el programa
+
 Primero, debemos obtener logs que analizar. Utilizaremos el programa descargado previamente al preparar los proyectos.
 
 Crearemos en la ruta `~/Software/poc-rust/logs/` los siguiente archivos de logs:
