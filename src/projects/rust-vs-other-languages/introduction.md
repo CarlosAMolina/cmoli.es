@@ -9,7 +9,9 @@
 
 ¡Bienvenid@! En esta serie de entradas conoceremos el lenguaje de programación Rust.
 
-Para ello, haremos un laboratorio donde estudiar el comportamiento de un programa escrito en Rust y compararlo con otos lenguajes de programación.
+Lo primero, quisiera agradecer a Carlos León su ayuda al guiarme con los aparatados de este proyecto.
+
+Para analizar el lenguaje Rust, haremos un laboratorio donde estudiar el comportamiento de un programa escrito en Rust y compararlo con otos lenguajes de programación.
 
 Los puntos analizados son:
 
