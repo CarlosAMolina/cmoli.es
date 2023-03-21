@@ -1,4 +1,8 @@
-## Results summary
+## Especificaciones del equipo
+
+Indicar versiones de Python y Rust.
+
+## Resumen resultados
 
 ### Tiempo ejecución
 
