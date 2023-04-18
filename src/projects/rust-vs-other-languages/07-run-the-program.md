@@ -11,5 +11,6 @@ Crearemos en la ruta `~/Software/poc-rust/logs/` los siguiente archivos de logs:
 Para ello, con el siguiente comando, indicamos la ruta de destino (el programa creará la carpeta llamada `logs`), y el tamaño de los archivos (en Gigabytes):
 
 ```bash
-cargo run ~/Software/poc-rust 1.5 0.5 1
+cd ~/Software/poc-rust/nginx-logs-generator/nginx-logs-generator
+./target/release/nginx-logs-generator ~/Software/poc-rust 1.5 0.5 1
 ```
