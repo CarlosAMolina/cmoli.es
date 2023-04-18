@@ -46,7 +46,7 @@ Obtenemos mensaje de error porque no hemos proporcionado como argumento el path 
 
 El último paso es crear el archivo ejecutable de este programa, conviene hacer una breve explicación de los comandos utilizados:
 
-- Con la orden `cargo run` el programa es compilado, utilizando la orden `cargo build`, y también se lanza el ejecutable resultante, el cual se guarda en la carpeta `target/debug`, con el nombre del programa, `nginx-logs-generator` en este caso. Este es un ejecutable creado rápidamente para probar el programa mientras desarrollamos.
+- Con la orden `cargo run` se realizan dos acciones, primero el programa es compilado, igual que si se utiliza la orden `cargo build`, y después se lanza el ejecutable resultante, el cual se guarda en la carpeta `target/debug`, con el nombre del programa, `nginx-logs-generator` en este caso. Este es un ejecutable creado rápidamente para probar el programa mientras desarrollamos.
 - Con la orden `cargo build --release` compilamos el programa con optimizaciones que harán que funcione a mayor velocidad. El comando `cargo build` generaba un ejecutable sin optimizaciones, que es mas rápido de compilar, por lo que es más conveniente durante el desarrollo del programa, aunque es más lento en ejecución. El ejecutable resultado será creado en `target/relase`.
 
 Por tanto, generamos el ejecutable con:
@@ -92,6 +92,12 @@ git clone https://github.com/CarlosAMolina/nginx-logs
 cd nginx-logs
 ```
 
+Actualmente, la última versión está en la rama develop, por lo que cambiamos a ella:
+
+```bash
+git checkout develop
+```
+
 ### Configurar versión en Python
 
 Para trabajar con la versión Python del programa, solamente hay que acceder a la carpeta con el código, no es necesario instalar ninguna librería externa.
@@ -112,9 +118,11 @@ options:
   -h, --help  show this help message and exit
 ```
 
+Con esto, observamos que el programa puede lanzarse.
+
 ### Configurar versión en Rust
 
-Al igual que hemos lanzado la versión Python de este programa, para Rust, accedemos a la carpeta con el código en este lenguaje y lo ejecutamos, en este caso sin utilizar ningún argumento. Se mostrará con un error que no se ha proporcionado el argumento pathname, y un texto de ayuda.
+Al igual que hemos hecho con la versión Python de este programa, para Rust accedemos a la carpeta con el código en este lenguaje y lo ejecutamos, en este caso sin utilizar ningún argumento. Se mostrará con un error que no se ha proporcionado el argumento pathname, y un texto de ayuda.
 
 ```bash
 $ cd ~/Software/poc-rust/nginx-logs/rust
@@ -152,4 +160,5 @@ Programa para convertir logs a csv:
 ## Links de este tutorial
 
 - [Página principal](introduction.html)
+- [Siguiente apartado. Iniciar el programa](07-run-the-program.md)
 
