@@ -20,6 +20,8 @@ cd ~/Software/poc-rust
 
 El primer paso es disponer de logs que convertir a .csv ¿No tienes estos archivos? Ningún problema, con el siguiente programa (escrito en Rust, por supuesto ;)) podemos generar archivos de logs rápidamente.
 
+### Configurar programa que generará logs
+
 Descargamos el programa y accedemos a su carpeta:
 
 ```bash
@@ -76,6 +78,23 @@ Usage
     Example:
         cargo run /tmp 1.5 0.5 1
 ```
+
+### Crear archivos de logs
+
+Para obtener logs que analizar, crearemos en la ruta `~/Software/poc-rust/logs/` los siguiente archivos de logs:
+
+- access.log.2.gz, 110 MiB (1.4 GiB sin comprimir).
+- access.log.1, 477 MiB.
+- access.log, 954 MiB.
+
+Con el siguiente comando, indicamos la ruta de destino (el programa creará la carpeta llamada `logs`), y el tamaño de los archivos (en Gigabytes):
+
+```bash
+cd ~/Software/poc-rust/nginx-logs-generator/nginx-logs-generator
+./target/release/nginx-logs-generator ~/Software/poc-rust 1.5 0.5 1
+```
+
+En total creamos 3.5 Gigabytes de datos por lo que puede tardar un poco. 
 
 Ya con esto, volvemos a nuestra ruta principal de trabajo:
 
@@ -160,5 +179,5 @@ Programa para convertir logs a csv:
 ## Links de este tutorial
 
 - [Página principal](introduction.html)
-- [Siguiente apartado. Iniciar el programa](07-run-the-program.md)
+- [Siguiente apartado. Iniciar el programa](07-compare-execution-time)
 
