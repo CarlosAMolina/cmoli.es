@@ -4,6 +4,52 @@
 
 En este apartado veremos el tiempo que requiere cada programa para procesar los logs creados en el apartado anterior.
 
+## Consideraciones iniciales
+
+Al haber diferentes modos de parsear logs, es necesario buscar la opción más óptima. Para ello, en mi cuenta de GitHub he creado unas pruebas en las que obtengo los valores de un log utilizando:
+
+- Expresiones regulares: comparando diferentes opciones que proporcionan para encontrar los resultados.
+- Sin utilizar expresiones regulares, se buscan los caracteres que indican el fin de cada componente del log (ip remota, usuario remoto, hora, etc...) y se tiene en cuenta el número de caracteres hasta el siguiente elemento.
+
+Para poder utilizar estos proyectos, los pasos son:
+
+```bash
+cd ~/Software
+git clone git@github.com:CarlosAMolina/python
+git clone git@github.com:CarlosAMolina/rust
+```
+
+Los resultados con Python son:
+
+```bash
+$ cd ~/Software/python/regex/performance-logs/
+$ python src/main.py
+Time elapsed match: 51.8112699996891ms
+Time elapsed search: 51.94285400011722ms
+Time elapsed match groups: 51.19512799956283ms
+Time elapsed search groups: 51.559934000124485ms
+Time elapsed without regex: 70.69803299964406ms
+```
+
+Los cuatro primeros resultados son con expresiones regulares y el último sin ellas.
+
+Para Rust, tenemos:
+
+```bash
+$ cd ~/Software/rust/regex/performance-logs/
+$ cargo build --release
+$ ./target/release/performance
+Time elapsed with match: 1.878929ms
+Time elapsed with find: 8.992845ms
+Time elapsed with captures: 36.62146ms
+Time elapsed with no regex: 1.174077ms
+Time elapsed with no regex one loop: 1.206302ms
+```
+
+Los primeros tres resultados utilizan expresiones regulares, y los dos últimos no. La diferencia entre el penúltimo y último resultado es que el último tiene los caracteres a buscar en un array y se recorren en un loop, mientras que el penúltimo trabaja con cada uno por separado, también cambia un poco cómo se calcula la última posición.
+
+En el caso de Python, los mejores resultados se tienen con la opción `match` de las expresiones regulares, mientras que en Rust es mejor no utilizar expresiones regulares.
+
 ## Rust
 
 Sin tener ningún programa ejecutándose en el ordenador, lanzamos nuestro parseador de logs:
@@ -81,12 +127,13 @@ El tamaño del archivo `result.csv` generado es de 2.7G tanto en Rust como en Py
 
 Rus es mucho mas rápido que Python, 30.930s vs 274.736s (4min y 36.736s).
 
-## Python más rápido que Rust
+### Python más rápido que Rust
 
-Para hacer esta comparación, en cada lenguaje se ha utilizado la manera de parsear los logs mas rápida. En Python esto se consigue con expresiones regulares, mientras que en Rust es mejor ir buscando caracteres que identifiquen el final de cada campo.
+Como comentamos al inicio de este apartado, en Rust se tienen mejores tiempos de no utilizar expresiones regulares, pero como curiosidad, si el programa las utilizara, tardaría más tiempo que Python.
 
-TODO comprobar que el anterior párrafo es verdad, poner enlace al repo en GitHub donde comparo distintos métodos en los lenguajes.
+Al inicio de este apartado Rust era más rápido que Python con expresiones regulares pero porque solo analizamos un log, de trabajar con los archivos anteriores, se pasaría de TODO a TODO, lo que da como resultado un peor programa que su versión en Python.
 
-En el caso de utilizar expresiones regulares, Rust tarda más que Python, para verlo, modificamos el código del siguiente modo:
+Para ver esto, debemos cambiar los siguientes archivos del programa en Rust:
 
 TODO
+
