@@ -6,7 +6,20 @@ En este apartado veremos el tiempo que requiere cada programa para procesar los 
 
 ## Consideraciones iniciales
 
-Al haber diferentes modos de parsear logs, es necesario buscar la opción más óptima. Para ello, en mi cuenta de GitHub he creado unas pruebas en las que obtengo los valores de un log utilizando:
+Empezamos comentando algunos puntos a tener en cuenta a la hora de escribir el programa.
+
+### Opciones más eficientes en Rust
+
+Para realizar las operaciones en Rust, es necesario investigar qué método da resultados más eficientes. Por ejemplo:
+
+- Al escribir los resultados en un archivo, para nuestro caso ayuda utilizar BufWriter ya que, como indica [la documentación](https://doc.rust-lang.org/std/io/struct.BufWriter.html), puede mejorar la velocidad en programas que realizan pequeñas y repetidas llamadas de escritura al mismo archivo.
+- No perder tiempo por compilar varias veces la misma expresión regular, para ello [la documentación](https://docs.rs/regex/1.5.4/regex/index.html#example-avoid-compiling-the-same-regex-in-a-loop) recomienda utilizar el crate `lazy_loading`.
+
+Tanto en Rust como Python, el obtener las partes que componen un log cuenta con diversas opciones y algunas son más óptimas que otras, las analizamos en la siguiente sección.
+
+### Obtener partes del log
+
+Al haber diferentes modos de parsear logs, es necesario buscar la opción más óptima. Para ello, en mi cuenta de GitHub he creado unas pruebas en las que obtengo los valores de parser un log 5.000 veces utilizando:
 
 - Expresiones regulares: comparando diferentes opciones que proporcionan para encontrar los resultados.
 - Sin utilizar expresiones regulares, se buscan los caracteres que indican el fin de cada componente del log (ip remota, usuario remoto, hora, etc...) y se tiene en cuenta el número de caracteres hasta el siguiente elemento.
@@ -31,6 +44,16 @@ Time elapsed search groups: 51.559934000124485ms
 Time elapsed without regex: 70.69803299964406ms
 ```
 
+Para estos resultados se ha utilizado:
+
+# TODO 
+
+- Resultado `match`,
+- Resultado `search`, 
+- Resultado `match groups`, 
+- Resultado `search groups`, 
+- Resultado `without regex`.
+
 Los cuatro primeros resultados son con expresiones regulares y el último sin ellas.
 
 Para Rust, tenemos:
@@ -45,6 +68,17 @@ Time elapsed with captures: 36.62146ms
 Time elapsed with no regex: 1.174077ms
 Time elapsed with no regex one loop: 1.206302ms
 ```
+
+Para estos resultados se ha utilizado:
+
+# TODO 
+
+- Resultado `match`,
+- Resultado `find`, 
+- Resultado `caputres`, 
+- Resultado `with no regex`, 
+- Resultado `with no regex one loop`, 
+
 
 Los primeros tres resultados utilizan expresiones regulares, y los dos últimos no. La diferencia entre el penúltimo y último resultado es que el último tiene los caracteres a buscar en un array y se recorren en un loop, mientras que el penúltimo trabaja con cada uno por separado, también cambia un poco cómo se calcula la última posición.
 
@@ -131,9 +165,32 @@ Rus es mucho mas rápido que Python, 30.930s vs 274.736s (4min y 36.736s).
 
 Como comentamos al inicio de este apartado, en Rust se tienen mejores tiempos de no utilizar expresiones regulares, pero como curiosidad, si el programa las utilizara, tardaría más tiempo que Python.
 
-Al inicio de este apartado Rust era más rápido que Python con expresiones regulares pero porque solo analizamos un log, de trabajar con los archivos anteriores, se pasaría de TODO a TODO, lo que da como resultado un peor programa que su versión en Python.
+Es verdad que al analizar la manera más rápida de parsear logs, Rust era más rápido que Python con expresiones regulares, pero porque solo analizamos un log, de trabajar con los archivos anteriores, se pasaría de TODO a TODO, lo que da como resultado un peor programa que su versión en Python.
 
 Para ver esto, debemos cambiar los siguientes archivos del programa en Rust:
 
-TODO
+- Archivo `Cargo.toml`. Añadir en `[dependencies]`:
+
+```bash
+lazy_static = "1.4.0"
+regex = "1.5.6"
+```
+
+- Archivo `src/m_log.rs`:
+
+Descomentar:
+
+```bash
+use lazy_static::lazy_static;
+use regex::Regex;
+```
+
+Comentar la función `get_log` utilizada actualmente y descomentar la función `get_log` que utiliza expresiones regulares.
+
+Como vemos, hemos utilizado la opción `captures`. Los resultados han sido:
+
+- Ejecución 1: 348.511046044s
+- Ejecución 2: 337.281804016s
+- Ejecución 3: 340.43731135s
+- Ejecución 4: 346.087355349s
 
