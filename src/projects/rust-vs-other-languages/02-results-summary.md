@@ -33,10 +33,7 @@ Imágenes Docker utilizadas:
 
 ## Tiempo de ejecución
 
-Lenguaje | Tiempo (ms)
----------|------------
-Rust     |   4
-Python   |   54
+![](execution-time.png)
 
 Se tiene lo eserado, Rust es más rápido que Python. Pero como curiosidad, en el apartado donde se estudia esto en detalle, veremos que, si en Rust parseamos los logs utilizando expresiones regulares, se tiene un resultado más lento que en Python.
 
