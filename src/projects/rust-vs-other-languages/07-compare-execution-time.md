@@ -34,29 +34,7 @@ git clone git@github.com:CarlosAMolina/python
 git clone git@github.com:CarlosAMolina/rust
 ```
 
-Los resultados con Python son:
-
-```bash
-$ cd ~/Software/python/regex/performance-logs/
-$ python src/main.py
-Time elapsed match: 51.8112699996891ms
-Time elapsed search: 51.94285400011722ms
-Time elapsed match groups: 51.19512799956283ms
-Time elapsed search groups: 51.559934000124485ms
-Time elapsed without regex: 70.69803299964406ms
-```
-
-Para estos resultados se ha utilizado:
-
-- Resultado `match`, utiliza la función [re.match](https://docs.python.org/3/library/re.html#re.match) que solo busca si la expresión regular se cumple al inicio del string analizado, por lo que cada vez que se detecta un elemento del log, para buscar el siguiente se analiza el string desde la última posición del elemento encontrado.
-- Resultado `search`, emplea la función [re.search](https://docs.python.org/3/library/re.html#re.search) que busca la primera coincidencia (la que hay más a la izquierda del string) de la expresión regular en cualquier posición del string; el modo de encontrar cada elemento es igual que para `match`.
-- Resultado `match groups`, la función utilizada es [re.match](https://docs.python.org/3/library/re.html#re.match) pero se le pasa una expresión regular que busca todos los elementos a la vez, cada uno guardado en un grupo.
-- Resultado `search groups`, igual que para `match groups` pero la función empleada es [re.search](https://docs.python.org/3/library/re.html#re.search).
-- Resultado `without regex`: se buscan elementos que determinan el fin de cada parte del log y se tiene en cuenta el número de caracteres hasta el siguiente.
-
-Los cuatro primeros resultados son con expresiones regulares y el último sin ellas.
-
-Para Rust, tenemos:
+Los resultados con Rust son:
 
 ```bash
 $ cd ~/Software/rust/regex/performance-logs/
@@ -76,6 +54,26 @@ Para estos resultados se ha utilizado:
 - Resultado `captures`, en este caso empleamos la función [captures](https://docs.rs/regex/latest/regex/struct.Regex.html#method.captures), con la que obtenemos todos los elementos con una sola expresión regular, guardados en grupos.
 - Resultado `with no regex`, no hace uso de expresiones regulares, recorre el string en busca de la posición de los caracteres que indican el fin de cada elemento del log y suma el número de posiciones hasta el siguiente.
 - Resultado `with no regex one loop`, igual que `with no regex` pero guarda los caracteres a buscar en un array que recorre con un loop.
+
+Con Python, tenemos:
+
+```bash
+$ cd ~/Software/python/regex/performance-logs/
+$ python src/main.py
+Time elapsed match: 51.8112699996891ms
+Time elapsed search: 51.94285400011722ms
+Time elapsed match groups: 51.19512799956283ms
+Time elapsed search groups: 51.559934000124485ms
+Time elapsed without regex: 70.69803299964406ms
+```
+
+Para estos resultados se ha utilizado:
+
+- Resultado `match`, utiliza la función [re.match](https://docs.python.org/3/library/re.html#re.match) que solo busca si la expresión regular se cumple al inicio del string analizado, por lo que cada vez que se detecta un elemento del log, para buscar el siguiente se analiza el string desde la última posición del elemento encontrado.
+- Resultado `search`, emplea la función [re.search](https://docs.python.org/3/library/re.html#re.search) que busca la primera coincidencia (la que hay más a la izquierda del string) de la expresión regular en cualquier posición del string; el modo de encontrar cada elemento es igual que para `match`.
+- Resultado `match groups`, la función utilizada es [re.match](https://docs.python.org/3/library/re.html#re.match) pero se le pasa una expresión regular que busca todos los elementos a la vez, cada uno guardado en un grupo.
+- Resultado `search groups`, igual que para `match groups` pero la función empleada es [re.search](https://docs.python.org/3/library/re.html#re.search).
+- Resultado `without regex`: se buscan elementos que determinan el fin de cada parte del log y se tiene en cuenta el número de caracteres hasta el siguiente.
 
 En el caso de Python, los mejores resultados se tienen con la opción `match` de las expresiones regulares, mientras que en Rust es mejor no utilizar expresiones regulares.
 
