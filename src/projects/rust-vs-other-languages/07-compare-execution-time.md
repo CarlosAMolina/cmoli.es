@@ -180,7 +180,16 @@ use lazy_static::lazy_static;
 use regex::Regex;
 ```
 
-Comentar la función `get_log` utilizada actualmente y descomentar la función `get_log` que utiliza expresiones regulares.
+Comentar la función `get_log` utilizada actualmente y descomentar la función `get_log` que utiliza expresiones regulares, tenemos dos opciones, una con la función `find` y la otra con `captures`.
+
+Con `find`, la mejor opción en Rust de utilizar expresiones regulares, los resultados son:
+
+- Ejecución 1: 43.856874086s
+- Ejecución 2: 44.913219761s
+- Ejecución 3: 43.605705085s
+- Ejecución 4: 49.675238313s
+
+La media es de 45.51275931125s
 
 El método utilizado ha sido `captures`, la cual era la opción con resultados más lentos en Rust, pero aun así mejores que en Python cuando comparamos expresiones regulares al inicio de este apartado.
 
@@ -191,6 +200,8 @@ Los resultados han sido:
 - Ejecución 3: 340.43731135s
 - Ejecución 4: 346.087355349s
 
-Es decir, una media de 343.07937918975006s (5min y 43.079s), que es más lento al programa en Python 4min y 36.736s y mucho más lento que Rust sin expresiones regulares, 30.930s.
+Es decir, una media de 343.07937918975006s (5min y 43.079s).
 
-Los archivos obtenidos tienen el mismo `hash` que los dados pro Rust sin utilizar expresiones regulares.
+Anteriormente, la opción mas rápidas de Rust fue 30.930s y en Python 4min y 36.736s. Con expresiones regulares Rust puede tener hacer el análisis en 45.513s, el cual es mejor que Python, pero de utilizar la función de la expresión regular que da los resultados más lentos, se tiene un programa de menor velocidad que en Python.
+
+Los archivos obtenidos con Rust utilizando expresiones regulares y sin ellas, tienen el mismo `hash`, por lo que son iguales.
