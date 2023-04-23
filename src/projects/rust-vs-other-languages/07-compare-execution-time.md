@@ -13,7 +13,7 @@ Empezamos comentando algunos puntos a tener en cuenta a la hora de escribir el p
 Para realizar las operaciones en Rust, es necesario investigar qué método da resultados más eficientes. Por ejemplo:
 
 - Al escribir los resultados en un archivo, para nuestro caso ayuda utilizar BufWriter ya que, como indica [la documentación](https://doc.rust-lang.org/std/io/struct.BufWriter.html), puede mejorar la velocidad en programas que realizan pequeñas y repetidas llamadas de escritura al mismo archivo.
-- No perder tiempo por compilar varias veces la misma expresión regular, para ello [la documentación](https://docs.rs/regex/1.5.4/regex/index.html#example-avoid-compiling-the-same-regex-in-a-loop) recomienda utilizar el crate `lazy_loading`.
+- Si utilizamos expresiones regulares, hay que evitar perder tiempo por compilar varias veces la misma expresión regular, para ello [la documentación](https://docs.rs/regex/1.5.4/regex/index.html#example-avoid-compiling-the-same-regex-in-a-loop) recomienda utilizar el crate `lazy_loading`.
 
 Tanto en Rust como Python, el obtener las partes que componen un log cuenta con diversas opciones y algunas son más óptimas que otras, las analizamos en la siguiente sección.
 
@@ -194,3 +194,4 @@ Como vemos, hemos utilizado la opción `captures`. Los resultados han sido:
 - Ejecución 3: 340.43731135s
 - Ejecución 4: 346.087355349s
 
+Los archivos obtenidos tienen el mismo `hash` que los dados pro Rust sin utilizar expresiones regulares.
