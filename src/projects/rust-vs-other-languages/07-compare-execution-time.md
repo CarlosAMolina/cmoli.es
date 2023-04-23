@@ -30,8 +30,8 @@ Para poder utilizar estos proyectos, los pasos son:
 
 ```bash
 cd ~/Software
-git clone git@github.com:CarlosAMolina/python
 git clone git@github.com:CarlosAMolina/rust
+git clone git@github.com:CarlosAMolina/python
 ```
 
 Los resultados con Rust son:
