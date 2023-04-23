@@ -75,7 +75,7 @@ Para estos resultados se ha utilizado:
 - Resultado `search groups`, igual que para `match groups` pero la función empleada es [re.search](https://docs.python.org/3/library/re.html#re.search).
 - Resultado `without regex`: se buscan elementos que determinan el fin de cada parte del log y se tiene en cuenta el número de caracteres hasta el siguiente.
 
-En el caso de Python, los mejores resultados se tienen con la opción `match` de las expresiones regulares, mientras que en Rust es mejor no utilizar expresiones regulares.
+En el caso de Python, los mejores resultados se tienen con la opción `match` de las expresiones regulares utilizando una expresión regular que capture todos los elementos de una vez, mientras que en Rust es mejor no utilizar expresiones regulares. Estas serán las maneras en que parsearemos los logs.
 
 ## Rust
 
