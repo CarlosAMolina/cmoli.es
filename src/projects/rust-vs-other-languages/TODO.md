@@ -7,5 +7,7 @@ Indicar versiones de Python y Rust.
 ### Tiempo ejecución
 
 Indicar tamaño archivos.
-Hacer 3 iteracciones.
 Add css table.
+Add plot image.
+No debe ser el punto 7, sino el 8, el 7 es el tamaño utilizado.
+
