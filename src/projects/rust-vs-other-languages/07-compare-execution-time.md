@@ -154,6 +154,8 @@ Hemos visto que Rust es mucho mas rápido que Python, necesitando 30.930s el pri
 
 ![](execution-time.png)
 
+> Media tiempo de ejecución
+
 En el caso de Rust, el mejor tiempo se obtiene sin utilizar expresiones regulares, se buscan caracteres que indican el fin de cada elemento del log; en cambio, para Python el modo empleado es la función `match` para utilizar una sola expresión regular que detecta todas las partes del log.
 
 En la imagen anterior, las dos últimas columnas corresponden al programa en Rust utilizando expresiones regulares, comparando la expresión regular más rápida y la más lenta que, como vemos, provoca que se tarde más que en Python, lo comentamos a continuación.
