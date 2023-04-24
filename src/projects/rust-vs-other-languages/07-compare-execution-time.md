@@ -105,12 +105,11 @@ De este modo en todas las ejecuciones se creará un archivo nuevo en lugar de de
 
 Volvemos a repetir los comandos anteriores; los tiempos de ejecución han sido:
 
-- Ejecución 1: 29.436084606s
-- Ejecución 2: 30.226746264s
-- Ejecución 3: 33.715843557s
-- Ejecución 4: 30.339168491s
+Descripción                                            | Ejecución 1 | Ejecución 2 | Ejecución 3 | Ejecución 4 | Media
+-------------------------------------------------------|-------------|-------------|-------------|-------------|--------
+Rust opción más rápida (búsqueda por índice, no regex) | 29.436s     | 30.227s     | 33.716s     | 30.339s     | 30.929s
 
-Como vemos, los tiempos de ejecución son de media: 30.929460729499997s.
+Como vemos, los tiempos de ejecución tienen de media: 30.929s.
 
 En todas las ejecuciones, el archivo `result.csv` es idéntico, todos tienen el mismo hash.
 
@@ -136,14 +135,14 @@ rm error.txt result.csv
 rm -rf src/__pycache__
 ```
 
-Los resultados fueron:
+Los resultados fueron (los añado en una nueva línea de la tabla anterior):
 
-- Ejecución 1: 271.78013042500015s
-- Ejecución 2: 275.31400713799985s
-- Ejecución 3: 274.71298764999983s
-- Ejecución 4: 277.1358656340003s
+Descripción                                            | Ejecución 1 | Ejecución 2 | Ejecución 3 | Ejecución 4 | Media
+-------------------------------------------------------|-------------|-------------|-------------|-------------|---------
+Rust opción más rápida (búsqueda por índice, no regex) | 29.436s     | 30.227s     | 33.716s     | 30.339s     | 30.929s
+Python opción más rápida (regex match, una sola regex) | 271.780s    | 275.314s    | 274.713s    | 277.136s    | 274.736s
 
-La media con Python es de 274.73574771175004s
+Siendo la media con Python de 274.736s (4min y 36.736s).
 
 Como era de esperar, todos los logs han sido parseados correctamente y los archivos `.csv` generados son iguales, tienen el mismo hash (el hash del archivo generado pro Python y Rust sí es distinto).
 
@@ -182,23 +181,26 @@ Comentar la función `get_log` utilizada actualmente y descomentar la función `
 
 Con `find`, la mejor opción en Rust de utilizar expresiones regulares, los resultados son:
 
-- Ejecución 1: 43.856874086s
-- Ejecución 2: 44.913219761s
-- Ejecución 3: 43.605705085s
-- Ejecución 4: 49.675238313s
+Descripción                                            | Ejecución 1 | Ejecución 2 | Ejecución 3 | Ejecución 4 | Media
+-------------------------------------------------------|-------------|-------------|-------------|-------------|---------
+Rust opción más rápida (búsqueda por índice, no regex) | 29.436s     | 30.227s     | 33.716s     | 30.339s     | 30.929s
+Python opción más rápida (regex match, una sola regex) | 271.780s    | 275.314s    | 274.713s    | 277.136s    | 274.736s
+Rust regex más rápida (regex find e índices)           | 43.857s     | 44.913s     | 43.606s     | 49.675s     | 45.513s
 
-La media es de 45.51275931125s
+Obteniendo un tiempo medio de 45.513s.
 
-El método utilizado ha sido `captures`, la cual era la opción con resultados más lentos en Rust, pero aun así mejores que en Python cuando comparamos expresiones regulares al inicio de este apartado.
+De utilizar la función `captures`, la cual era la opción con resultados más lentos en Rust, pero aun así mejores que en Python cuando comparamos expresiones regulares al inicio de este apartado.
 
 Los resultados han sido:
 
-- Ejecución 1: 348.511046044s
-- Ejecución 2: 337.281804016s
-- Ejecución 3: 340.43731135s
-- Ejecución 4: 346.087355349s
+Descripción                                            | Ejecución 1 | Ejecución 2 | Ejecución 3 | Ejecución 4 | Media
+-------------------------------------------------------|-------------|-------------|-------------|-------------|---------
+Rust opción más rápida (búsqueda por índice, no regex) | 29.436s     | 30.227s     | 33.716s     | 30.339s     | 30.929s
+Python opción más rápida (regex match, una sola regex) | 271.780s    | 275.314s    | 274.713s    | 277.136s    | 274.736s
+Rust regex más rápida (regex find e índices)           | 43.857s     | 44.913s     | 43.606s     | 49.675s     | 45.513s
+Rust regex más lenta (regex captures, una sola regex)  | 348.511s    | 337.282s    | 340.437s    | 346.087s    | 343.079s
 
-Es decir, una media de 343.07937918975006s (5min y 43.079s).
+Es decir, una media de 343.079s (5min y 43.079s).
 
 Anteriormente, la opción mas rápidas de Rust fue 30.930s y en Python 4min y 36.736s. Con expresiones regulares Rust puede tener hacer el análisis en 45.513s, el cual es mejor que Python, pero de utilizar la función de la expresión regular que da los resultados más lentos, se tiene un programa de menor velocidad que en Python.
 
