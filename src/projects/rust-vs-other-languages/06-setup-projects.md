@@ -179,5 +179,5 @@ Programa para convertir logs a csv:
 ## Links de este tutorial
 
 - [Página principal](introduction.html)
-- [Siguiente apartado. Iniciar el programa](07-compare-execution-time)
+- [Siguiente apartado. Iniciar el programa](07-compare-execution-time.html)
 
