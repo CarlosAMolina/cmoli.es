@@ -21,7 +21,7 @@ Tanto en Rust como Python, el obtener las partes que componen un log cuenta con 
 
 ### Obtener partes del log
 
-Al haber diferentes modos de parsear logs, es necesario buscar la opción más óptima. Para ello, en mi cuenta de GitHub he creado unas pruebas en las que obtengo los valores de parser un log 5.000 veces utilizando:
+Al haber diferentes modos de parsear logs, es necesario buscar la opción más óptima. Para ello, en mi cuenta de GitHub he creado unas pruebas, en [Rust](https://github.com/CarlosAMolina/rust/blob/master/regex/performance-logs/src/main.rs) y [Python](https://github.com/CarlosAMolina/python/blob/master/regex/performance-logs/src/main.py), en las que obtengo los valores de parser un log 5.000 veces utilizando:
 
 - Expresiones regulares: comparando diferentes opciones que proporcionan para encontrar los resultados.
 - Sin utilizar expresiones regulares, se buscan los caracteres que indican el fin de cada componente del log (ip remota, usuario remoto, hora, etc...) y se tiene en cuenta el número de caracteres hasta el siguiente elemento.
