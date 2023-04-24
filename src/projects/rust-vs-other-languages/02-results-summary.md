@@ -37,7 +37,7 @@ Se tiene lo esperado, Rust es mucho más rápido que Python:
 
 ![](execution-time.png)
 
-Las dos primeras columnas son los resultados más rápidos en cada lenguaje. Con Rust se consigue parseando cada parte del log buscando las posiciones que indican el fin de cada una, no se emplean expresiones regulares; mientras que, en Python se utiliza la función match con una expresión regular que obtiene todos los elementos del log guardados en grupos.
+Las dos primeras columnas son los resultados más rápidos en cada lenguaje. Con Rust se consigue parseando cada parte del log buscando las posiciones que indican el fin de cada una, no se emplean expresiones regulares; mientras que, en Python se utiliza la función `match` con una expresión regular que obtiene todos los elementos del log guardados en grupos.
 
 Como curiosidad, se han añadido las dos últimas columnas donde vemos que, en Rust el programa es más lento con expresiones regulares, e incluso puede llegar a tardar más que la versión de Python según la función de búsqueda empleada.
 

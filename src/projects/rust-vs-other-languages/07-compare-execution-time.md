@@ -146,12 +146,17 @@ Siendo la media con Python de 274.736s (4min y 36.736s).
 
 Como era de esperar, todos los logs han sido parseados correctamente y los archivos `.csv` generados son iguales, tienen el mismo hash (el hash del archivo generado pro Python y Rust sí es distinto).
 
-
 ## Comentario de los resultados
 
 El tamaño del archivo `result.csv` generado es de 2.7G tanto en Rust como en Python.
 
-Rus es mucho mas rápido que Python, 30.930s vs 274.736s (4min y 36.736s).
+Hemos visto que Rust es mucho mas rápido que Python, necesitando 30.930s el primer lenguaje y 274.736s (4min y 36.736s) Python, como puede verse en las dos primeras columnas de esta gráfica:
+
+![](execution-time.png)
+
+En el caso de Rust, el mejor tiempo se obtiene sin utilizar expresiones regulares, se buscan caracteres que indican el fin de cada elemento del log; en cambio, para Python el modo empleado es la función `match` para utilizar una sola expresión regular que detecta todas las partes del log.
+
+En la imagen anterior, las dos últimas columnas corresponden al programa en Rust utilizando expresiones regulares, comparando la expresión regular más rápida y la más lenta que, como vemos, provoca que se tarde más que en Python, lo comentamos a continuación.
 
 ### Python más rápido que Rust
 
