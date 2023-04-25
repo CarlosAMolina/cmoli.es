@@ -32,3 +32,5 @@ Para realizar nuestro viaje al lenguaje Rust, deberemos seguir en orden los sigu
 - [Instalación Rust y Python](04-installation-rust-and-python.html)
 - [Código Rust vs Python](05-code-rust-vs-python.html)
 - [Configurar proyectos](06-setup-projects.html)
+- [Comparar espacio en disco](07-compare-size.html)
+- [Comparar espacio en disco](08-compare-execution-time.html)
