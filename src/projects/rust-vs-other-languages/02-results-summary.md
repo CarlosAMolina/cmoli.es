@@ -11,7 +11,7 @@
 
 ## Introducción
 
-En este apartado se mostrarán los resultados de comparar Rust con otros lenguaje de programación. El objetivo es mostrar un resumen inicial y, en los siguientes capítulos ir obteniendo estas conclusiones paso a paso y analizarlas.
+En este apartado se mostrarán los resultados de comparar Rust con otros lenguaje de programación. El objetivo es mostrar un resumen inicial y, en los siguientes capítulos ir obteniendo estas conclusiones paso a paso y analizarlas en mayor profundidad.
 
 ## Espacio en disco
 
@@ -33,6 +33,12 @@ Imágenes Docker utilizadas:
 
 ## Tiempo de ejecución
 
+Estudiamos el tiempo necesario para convertir los siguientes ficheros de logs a un archivo csv:
+
+- access.log.2.gz, 110 MiB (1.4 GiB sin comprimir).
+- access.log.1, 477 MiB.
+- access.log, 954 MiB.
+
 Se tiene lo esperado, Rust es mucho más rápido que Python:
 
 ![](execution-time.png)
@@ -44,6 +50,8 @@ Las dos primeras columnas son los resultados más rápidos en cada lenguaje. Con
 Como curiosidad, se han añadido las dos últimas columnas donde vemos que, en Rust el programa es más lento con expresiones regulares, e incluso puede llegar a tardar más que la versión de Python según la función de búsqueda empleada.
 
 ## Memoria
+
+Trabajamos con los mismos archivos de logs que al comparar el tiempo de ejecución.
 
 - Heap
 
