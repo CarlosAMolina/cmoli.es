@@ -4,6 +4,12 @@
 
 En este apartado veremos el tiempo que requiere cada programa para procesar los logs creados anteriormente.
 
+Recordemos que, el tamaño de los archivos con logs es:
+
+- access.log.2.gz, 110 MiB (1.4 GiB sin comprimir).
+- access.log.1, 477 MiB.
+- access.log, 954 MiB.
+
 ## Consideraciones iniciales
 
 Empezamos comentando algunos puntos que se tuvieron en cuenta al escribir el programa, para que realizara sus funciones lo mas rápido posible.
