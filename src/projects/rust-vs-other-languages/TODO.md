@@ -4,10 +4,6 @@ Indicar versiones de Python y Rust.
 
 ## Resumen resultados
 
-### Tiempo ejecución
+### Size
 
-Indicar tamaño archivos.
-Add css table.
-Add plot image.
-No debe ser el punto 7, sino el 8, el 7 es el tamaño utilizado.
-
+Usar imágenes docker que correspondan con las versiones utilizadas de Python y Rust.
