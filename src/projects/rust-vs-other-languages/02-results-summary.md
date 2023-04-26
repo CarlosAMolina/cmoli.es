@@ -71,7 +71,7 @@ Trabajamos con los mismos archivos de logs que al comparar el tiempo de ejecuciÃ
 
 ![](metrics-memory-massif-python-add_stacks.png)
 
-> Memoria heap Python
+> Memoria heap y stack Python
 
 - Page level
 
