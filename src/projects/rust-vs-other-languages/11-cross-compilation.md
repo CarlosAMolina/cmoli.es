@@ -22,3 +22,10 @@ x86_64-unknown-linux-musl
 ...
 ```
 
+Se ha probado a crear un programa en un sistema operativo y llevarlo a otro distinto en el siguiente [repositorio de github](https://github.com/CarlosAMolina/rust/tree/master/cross-compilation) y se ha abordado la tarea de diferentes modos:
+
+- De Arch Linux a Debian: se utilizó una imagen Docker para crear el binario desde Arch Linux al sistema operativo Debian.
+- De Ubuntu a MacOS: hubo que instalar un proyecto adicional en Ubuntu para conseguir la compilación.
+
+Como vemos, generar un binario de Rust de una arquitectura a otra, no es un proceso inmediato, sino que hay que realizar unos pasos previos.
+
