@@ -19,17 +19,12 @@ Para conocer el tamaño necesario se utiliza Docker para crear el entorno que tr
 
 Comparando la versión Rust del programa con su versión en Python, los resultados son los siguientes:
 
-Lenguaje | Tamaño    | Descripción
----------|-----------|--------------------------------------------------
-Rust     | 2.83 GB   | Tamaño para compilar el archivo binario y ejecutarlo.
-Rust     | 15.39 MB  | Tamaño para ejecutar el binario, es decir, si ya tenemos el programa compilado, es el espacio que necesitaría el archivo binario y una imagen Docker que pueda ejecutarlo.
-Rust     | 4.1 MB    | Tamaño del binario. De tener un sistema compatible puede utilizarse este binario en lugar de Docker y así sería necesario aún menos espacio.
-Python   | 94,8 MB   |
-
-Imágenes Docker utilizadas:
-
-- Python: python:3.9.13-alpine3.16.
-- Rust: imagen rust:1.62.1-slim para compilación y alpine:3.16 para ejecutar el binario.
+Lenguaje | Tamaño | Imagen Docker            | Descripción
+---------|--------|-------------------------------------------------------------------------------------------
+Rust     | 1.45GB | rust:1.69.0-slim-buster  | Imagen para compilar el archivo ejecutable y lanzarlo.
+Rust     | 11.8MB | alpine:3.17.3            | Imagen de un sistema capaz de lanzar el archivo ejecutable.
+Rust     | 4.5MB  | -                        | Tamaño de archivo ejecutable a utilizar en sistemas compatibles.
+Python   | 51.8MB | python:3.11.3-alpine3.17 | Tamaño del lenguaje para lanzar el programa.
 
 ## Tiempo de ejecución
 

@@ -7,10 +7,6 @@ Add toc to all files.
 
 ## Resumen resultados
 
-### Size
-
-Volver a compilar tras elminar la carpeta `target`
-
 ### Execution time
 
 Comenté que el archivo .csv resultante en Python y Rust tienen distinto hash, decir que es por el salto de línea utilizado en cada caso (poner imagen del cuadrito de aviso que sale al usar meld)
