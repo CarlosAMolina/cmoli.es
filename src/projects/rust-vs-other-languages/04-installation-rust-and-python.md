@@ -2,17 +2,6 @@
 
 ## Contenidos
 
-- [Introducción](#introducción)
-- [Instalación](#instalación)
-  - [Instalación Rust](#instalación-rust)
-  - [Instalación Python](#instalación-python)
-  - [Comprobar la instalación](#comprobar-la-instalación)
-- [Editor de Código](#editor-de-código)
-  - [Editor de código para Rust](#editor-de-código-para-rust)
-  - [Editor de código para Python](#editor-de-código-para-python)
-- [Recursos](#recursos)
-- [Links de este tutorial](#links-de-este-tutorial)
-
 ## Introducción
 
 Como el programa desarrollado está escrito en Rust y Python, lo primero que necesitamos es instalar estos lenguajes de programación en nuestro equipo.
@@ -27,29 +16,62 @@ En lugar de hacer un tutorial que explique paso a paso la instalación, muestro 
 
 ### Instalación Rust
 
-Accediendo [a este enlace](https://www.rust-lang.org/tools/install) de la página oficial de Rust, abriremos una página web que detecta nuestro sistema operativo y explica los pasos necesarios.
+Para la instalación de Rust, seguiremos lo indicado en este [enlace](https://www.rust-lang.org/tools/install) de su página oficial, de este modo instalaremos:
+
+- Rustup: sirve para instalar el lenguaje Rust.
+- Cargo: crea proyectos en lenguaje Rust y hace las funciones de package manager.
+
+#### Instalación Rust por primera vez en el equipo
+
+Accediendo al [enlace](https://www.rust-lang.org/tools/install), abriremos una página web que detecta nuestro sistema operativo y explica el proceso de instalación utilizando Rustup.
+
+#### Actualizar la versión de Rust
+
+En caso de tener ya instalado Rust, podemos actualizarlo a la última versión con este comando:
+
+```bash
+rustup update
+```
 
 ### Instalación Python
 
+Es el turno de instalar Python.
+
+#### Instalación Python por primera vez en el equipo
+
 Si bien desde [la web oficial de Python](https://www.python.org/downloads/) podemos instalar las distintas versiones de Python para diferentes sistemas operativos, recomiendo seguir [este enlace de Real Python](https://realpython.com/installing-python/) con los puntos necesarios en cada sistema operativo.
+
+#### Instalar una versión diferente de Python
+
+También, es posible tener diferentes versiones de Python en nuestro equipo, para ello puede seguirse los pasos de [este enlace](https://cmoli.es/wiki/python/python.html#de-manera-manual).
 
 ### Comprobar la instalación
 
 En los enlaces anteriores tenemos que, para verificar la correcta instalación, podemos ejecutar estos comandos en la terminal:
 
-- Python
-
-```bash
-# Mostrar la versión de Python instalada.
-python --version
-```
-
 - Rust
 
+Mostrar versión de Rust instalada:
+
 ```bash
-# Verificar instalación de Rust y Cargo.
+$ rustc --version
+rustc 1.69.0 (84c898d65 2023-04-16)
+```
+
+Versión de Cargo:
+
+```bash
 # https://www.rust-lang.org/learn/get-started
-cargo --version
+$ cargo --version
+cargo 1.69.0 (6e9a83356 2023-04-12)
+```
+
+- Python
+
+Para mostrar la versión de Python instalada:
+
+```bash
+python --version
 ```
 
 ## Editor de Código
