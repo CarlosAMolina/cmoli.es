@@ -37,6 +37,8 @@ rustup update
 
 Es el turno de instalar Python.
 
+La versión escogida es Python 3.11.3 ya que, en la versión 3.11 se introdujeron [mejoras en su velocidad](https://docs.python.org/3.11/whatsnew/3.11.html#faster-cpython).
+
 #### Instalación Python por primera vez en el equipo
 
 Si bien desde [la web oficial de Python](https://www.python.org/downloads/) podemos instalar las distintas versiones de Python para diferentes sistemas operativos, recomiendo seguir [este enlace de Real Python](https://realpython.com/installing-python/) con los puntos necesarios en cada sistema operativo.
@@ -71,7 +73,8 @@ cargo 1.69.0 (6e9a83356 2023-04-12)
 Para mostrar la versión de Python instalada:
 
 ```bash
-python --version
+$ python --version
+Python 3.11.3
 ```
 
 ## Editor de Código
