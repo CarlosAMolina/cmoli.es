@@ -4,7 +4,7 @@ Para analizar el uso de la CPU, he lanzado 3 veces consecutivas cada programa y 
 
 Rust utiliza el 55% de CPU mientras que Python sigue necesitando más del 100% en algunos momentos; es decir, Python utiliza 1 CPU totalmente y parte de otra. Rust,  en algunas ejecuciones se mantiene cerca de 0% durante más tiempo y en otras el incremento en el consumo de la CPU empieza antes
 
-Se ha investigado si Rust limita el uso de la CPU y creo que no existe esta limitación. He lanzado el programa con Rust con unos archivos de 1 GB de tamaño y la CPU aumenta incluso más del 100%. Tampoco he encontrado en Internet que se indique esta limitación.
+Se ha investigado si Rust limita el uso de la CPU y creo que no existe esta limitación. He lanzado el programa con Rust con unos archivos de 1GB de tamaño y la CPU aumenta incluso más del 100%. Tampoco he encontrado en Internet que se indique esta limitación.
 
 Puede verse los resultados en estas gráficas:
 

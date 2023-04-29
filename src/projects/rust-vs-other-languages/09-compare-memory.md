@@ -1,4 +1,4 @@
-Para medir la memoria, no puede utilzarse los comandos `top` y `htop`, ya que para el binario de Rust, el proceso muestra 0% de memoria. (TODO verificar essto y ver si aplica también para python).
+Para medir la memoria, no puede utilzarse los comandos `top` y `htop`, ya que para el binario de Rust, el proceso muestra 0% de memoria. (TODO verificar esto, a ver si aplica para top htop y también para ps, y ver si aplica también para python).
 
 Tampoco es recomendable usar el comando `ps` para medir la memoria, puede verse [en este link](https://stackoverflow.com/questions/131303/how-can-i-measure-the-actual-memory-usage-of-an-application-or-process).
 
