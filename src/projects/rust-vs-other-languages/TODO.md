@@ -9,7 +9,7 @@ Add toc to all files.
 
 ### Size
 
-Usar imágenes docker que correspondan con las versiones utilizadas de Python y Rust.
+Volver a compilar tras elminar la carpeta `target`
 
 ### Execution time
 
