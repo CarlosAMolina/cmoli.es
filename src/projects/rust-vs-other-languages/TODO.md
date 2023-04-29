@@ -2,6 +2,9 @@
 
 Indicar versiones de Python y Rust.
 
+## TOC
+Add toc to all files.
+
 ## Resumen resultados
 
 ### Size
