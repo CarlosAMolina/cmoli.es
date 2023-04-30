@@ -23,9 +23,18 @@ Python   | 51.8MB | python:3.11.3-alpine3.17 | Tamaño del lenguaje para lanzar 
 
 Estudiamos el tiempo necesario para convertir los siguientes ficheros de logs a un archivo csv:
 
-- access.log.2.gz, 110 MiB (1.4 GiB sin comprimir).
-- access.log.1, 477 MiB.
-- access.log, 954 MiB.
+-  12M access.log
+- 7,1M access.log.1
+- 692K access.log.2.gz
+- 976K access.log.3.gz
+- 1,3M access.log.4.gz
+- 827K access.log.5.gz
+- 902K access.log.6.gz
+- 557K access.log.7.gz
+- 826K access.log.8.gz
+- 902K access.log.9.gz
+
+El número total de líneas de logs a analizar es de 551.692.
 
 Se tiene lo esperado, Rust es mucho más rápido que Python:
 
