@@ -1,6 +1,51 @@
 # Comparar uso de CPU
 
-Para analizar el uso de la CPU, he lanzado 3 veces consecutivas cada programa y medido la CPU utilizada al analizar unos ficheros de log, algunos comprimidos como `.gz`, son los mimso que los utilizados para medir el uso de memoria.
+## Introducción
+
+Otro aspecto a analizar de nuestro programa es el porcentaje de uso que realiza de CPU.
+
+He buscado un programa que pudiera darme esta información pero finalmente he utilizado el comando `ps` de Linux, aunque, al ver el uso de CPU por núcleo, no parece que de unos resultados correctos, como veremos en este apartado.
+
+## Ejecutar medición
+
+Al igual que al estudiar la memoria, se ha desarrollado un script que ejecuta tres veces el programa, eliminando los archivos de resultados al final de cada proceso para que no afecte a los siguientes.
+
+Los pasos son los mismos que al analizar la memoria, primero copiamos los archivos de logs en `/tmp/logs`, que es la ruta que el script estudiará:
+
+```bash
+cp -r ~/Software/poc-rust/logs /tmp/
+```
+
+Iniciamos las medidas, he cerrado los otros programas que pudieran estar funcionando para evitar que alteren las mediciones:
+
+```bash
+cd ~/Software/nginx-logs/measure/measure
+./run-and-measure-cpu
+```
+
+## Representación gráfica de las mediciones
+
+De nuevo, como en el caso de la memoria, para representar los archivos de mediciones disponemos de unos scripts propios:
+
+```bash
+cd ~/Software/nginx-logs/measure/plot/
+```
+
+Recordemos que utilizamos librerías externas de Python como `matplotlib`, por lo que activamos el entorno virtual con las librerías instaladas que creamos al representar los resultados de medir la memoria:
+
+```bash
+source ~/Software/nginx-logs/env/bin/activate
+```
+
+Ejecutamos el script:
+
+```bash
+python src/plot_results.py
+```
+
+Las gráficas se guardarán en la ruta ` ~/Software/nginx-logs/measure/plot/src/results/` como archivos `.png`.
+
+## Resultados
 
 Rust utiliza el 55% de CPU mientras que Python sigue necesitando más del 100% en algunos momentos; es decir, Python utiliza 1 CPU totalmente y parte de otra. Rust,  en algunas ejecuciones se mantiene cerca de 0% durante más tiempo y en otras el incremento en el consumo de la CPU empieza antes
 
