@@ -105,7 +105,44 @@ total 26M
 -rw-r--r-- 1 x x 902K abr 30 18:55 access.log.9.gz
 ```
 
-En total creamos 26MB de datos, sin comprimir son 107MB.
+En total creamos 26MB de datos. Si descomprimimos los archivos, su tamaño total es de 107MB:
+
+```bash
+$ mkdir /tmp/no-gz
+$ cd /tmp/no-gz
+$ gunzip *.gz
+$ ls -lh
+total 107M
+-rw-r--r-- 1 x x  12M abr 30 18:59 access.log
+-rw-r--r-- 1 x x 7,1M abr 30 18:59 access.log.1
+-rw-r--r-- 1 x x 8,8M abr 30 18:59 access.log.2
+-rw-r--r-- 1 x x  13M abr 30 18:59 access.log.3
+-rw-r--r-- 1 x x  17M abr 30 18:59 access.log.4
+-rw-r--r-- 1 x x  11M abr 30 18:59 access.log.5
+-rw-r--r-- 1 x x  12M abr 30 18:59 access.log.6
+-rw-r--r-- 1 x x 7,1M abr 30 18:59 access.log.7
+-rw-r--r-- 1 x x  11M abr 30 18:59 access.log.8
+-rw-r--r-- 1 x x  12M abr 30 18:59 access.log.9
+```
+
+Siendo el número de líneas de logs a analizar en cada archivo (primera columna del siguiente resultado):
+
+```bash
+$ wc *
+    59116   1241292  12000042 access.log
+    36455    765795   7400069 access.log.1
+    45348    951680   9200043 access.log.2
+    63992   1344022  13000180 access.log.3
+    83771   1758733  17000103 access.log.4
+    54194   1137884  11000058 access.log.5
+    59081   1240825  12000066 access.log.6
+    36468    765590   7400063 access.log.7
+    54144   1137566  11000089 access.log.8
+    59123   1241729  12000098 access.log.9
+   551692  11585116 112000811 total
+```
+
+Como se ve, hay un total de 551.692 líneas de logs a analizar.
 
 Ya con esto, volvemos a nuestra ruta principal de trabajo:
 
