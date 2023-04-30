@@ -55,7 +55,7 @@ Primero, los logs a analizar hemos de copiarlos en `/tmp/logs`, que es la ruta q
 cp -r ~/Software/poc-rust/logs /tmp/
 ```
 
-Procedemos con las mediciones, para no afectar a los resultados, he cerramos el resto de programas que tenía ejecutándose:
+Procedemos con las mediciones, para no afectar a los resultados, he cerrado el resto de programas que tenía ejecutándose:
 
 ```bash
 cd ~/Software/nginx-logs/measure/measure
