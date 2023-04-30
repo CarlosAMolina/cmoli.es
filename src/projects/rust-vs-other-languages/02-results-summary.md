@@ -90,6 +90,10 @@ Trabajamos con los mismos archivos de logs que al comparar el tiempo de ejecuci�
 
 > CPU Python
 
+## Compilación multiplataforma
+
+Solamente indicar que, pese a ser posible en Rust crear el archivo ejecutable para distintas plataformas, es un proceso no inmediato ya que requiere pasos previos como la instalación de software adicional.
+
 ## Otros aspectos
 
 Para terminar, comentamos algunos aspectos a tener en cuenta al trabajar con Rust:
