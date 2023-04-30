@@ -160,3 +160,8 @@ Los resultados han sido los siguientes.
 
 Se observa que el consumo de memoria es mayor al descomprimir que al leer los archivos descomprimidos; aunque esto depende del lenguaje, Rust consume más memoria al descomprimir y Python al leer archivos no comprimidos; será por cómo están implementadas las librerías que he utilizado o cómo he creado yo el código.
 
+## Links de este tutorial
+
+- [Página principal](introduction.html)
+- [Siguiente apartado. Comparar CPU](10-compare-cpu.html)
+

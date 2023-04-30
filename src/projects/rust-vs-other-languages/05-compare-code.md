@@ -1,4 +1,4 @@
-# Código Rust vs Python
+# Comparar código Rust y Python
 
 ## Contenidos
 

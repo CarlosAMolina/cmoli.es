@@ -10,3 +10,6 @@ Al tratarse de un lenguaje compilado, resulta mas incómodo hacer pruebas con el
 
 Como vimos en anteriores apartados, es verdad que Rust ofrece la orden `cargo build` para generar el ejecutable de una manera mas rápida que con `cargo build --release` para no tener que esperar tanto tiempo mientras desarrollamos, pero lenguajes interpretados como Python resultan mas cómodos en ese aspecto al evitar el tiempo de compilación para lanzar el programa. 
 
+## Links de este tutorial
+
+- [Página principal](introduction.html)

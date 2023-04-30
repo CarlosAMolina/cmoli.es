@@ -1,4 +1,4 @@
-# Compilación multi plataforma
+# Compilación multiplataforma
 
 ## Introducción
 
@@ -43,4 +43,9 @@ En el caso de compilar el ejecutable para MacOs desde Ubuntu, hubo que instalar 
 ## Conclusiones
 
 En esta sección se ha comentado de manera breve diferentes modos de compilar el programa para una plataforma distinta a la del host anfitrión. Lo que ha querido resaltarse es que, crear un archivo ejecutable con Rust de una arquitectura a otra, no es un proceso inmediato, sino que hay que realizar unos pasos previos como instalar software adicional.
+
+## Links de este tutorial
+
+- [Página principal](introduction.html)
+- [Siguiente apartado. Otros aspectos](12-other-aspects.html)
 

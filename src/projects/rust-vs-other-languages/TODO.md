@@ -1,7 +1,3 @@
-## Especificaciones del equipo
-
-Indicar versiones de Python y Rust.
-
 ## TOC
 Add toc to all files.
 

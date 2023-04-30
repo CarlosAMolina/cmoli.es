@@ -1,4 +1,4 @@
-# Comparar uso de CPU
+# Comparar CPU
 
 ## Introducción
 
@@ -103,4 +103,9 @@ CPU_ID CPU% TIME
 3 109 18:23:28.420047112
 ...
 ```
+
+## Links de este tutorial
+
+- [Página principal](introduction.html)
+- [Siguiente apartado. Compilación multiplataforma](11-cross-compilation.html)
 

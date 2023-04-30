@@ -219,3 +219,9 @@ Puede leerse más sobre esta pérdida de velocidad en Rust respecto a Python en 
 Como conclusión, anteriormente vimos que la opción mas rápida de Rust fue 30.930s y en Python 4min y 36.736s. Con expresiones regulares, Rust puede hacer el análisis en 45.513s, el cual es mejor que Python, pero de utilizar el método de la expresión regular que da los resultados más lentos, se tiene un programa de menor velocidad que en Python, requiriendo 5min y 43.079s.
 
 Terminar indicando que, los archivos obtenidos con Rust utilizando expresiones regulares y sin ellas, tienen el mismo `hash`, por lo que son iguales.
+
+## Links de este tutorial
+
+- [Página principal](introduction.html)
+- [Siguiente apartado. Comparar memoria](09-compare-memory.html)
+
