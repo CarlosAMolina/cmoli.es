@@ -22,7 +22,22 @@ Finalmente utilicé [Valgrind](https://valgrind.org/docs/manual/ms-manual.html) 
 
 ## Instalación Valgrind
 
-TODO
+Si es posible instalar Valgrind desde los repositorios de nuestro sistema operativo, es la manera más sencilla. Por ejemplo, en Arch Linux solo habría que ejecutar:
+
+```bash
+sudo pacman -S valgrind
+```
+
+De no estar disponible en los repositorios o de querer una versión distinta, puede descargarse su código en este [link](https://valgrind.org/downloads/) y las instrucciones vienen explicadas en el archivo README.
+
+Para verificar la versión instalada:
+
+```bash
+$ valgrind --version
+valgrind-3.19.0
+```
+
+Respecto a visualizar los resultados de manera gráfica, utilizaremos unos scripts propios, pero también puede hacerse con [massif-visualizer](https://apps.kde.org/es/massif-visualizer/).
 
 ## Ejecutar medición
 
