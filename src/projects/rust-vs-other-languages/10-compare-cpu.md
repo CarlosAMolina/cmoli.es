@@ -6,9 +6,31 @@ Otro aspecto a analizar de nuestro programa es el porcentaje de uso que realiza 
 
 He buscado un programa que pudiera darme esta información pero finalmente he utilizado el comando `ps` de Linux, aunque, al ver el uso de CPU por núcleo, no parece que de unos resultados correctos, como veremos en este apartado.
 
-## Ejecutar medición
+## Herramienta elegida
 
-Al igual que al estudiar la memoria, se ha desarrollado un script que ejecuta tres veces el programa, eliminando los archivos de resultados al final de cada proceso para que no afecte a los siguientes.
+Para obtener el uso de CPU creé un [script en bash](https://github.com/CarlosAMolina/nginx-logs/blob/develop/measure/measure/measure-cpu) que guarda el resultado del comando `ps` en un archivo, muestro una parte:
+
+```bash
+ps_columns=cpuid,%cpu,%mem
+echo CPU_ID CPU% MEM% TIME > $results_pathname
+while :
+do
+  result=$(ps --no-headers -p $(pgrep $process_name) -o $ps_columns 2> /dev/null)
+  if [ -n "$result" ]; then
+    result="$result $(date +"%T.%N")"
+    echo $result >> $results_pathname
+    #echo $result
+  fi
+done
+```
+
+Este script analiza el proceso que se le indique. Al lanzar el archivo ejecutable de Rust, se crea solo un proceso que puede filtrarse por el nombre `nginx_logs`, y al lanzar el programa con Python, también se crea un solo proceso que, en este caso puede filtrarse por nombre `python`
+
+Se ha intentado medir el uso de la CPU por núcleo. Para medirlo se añade al comando `ps` la opción `cpuid` que muestra el ID del núcleo utilizado; pero, como veremos al comentar los resultados, no parece dar unas mediciones correctas.
+
+Al igual que al estudiar la memoria, el script desarrollado ejecuta tres veces el programa, eliminando los archivos de resultados al final de cada proceso para que no afecte a los siguientes.
+
+## Ejecutar medición
 
 Los pasos son los mismos que al analizar la memoria, primero copiamos los archivos de logs en `/tmp/logs`, que es la ruta que el script estudiará:
 
@@ -47,7 +69,7 @@ Las gráficas se guardarán en la ruta ` ~/Software/nginx-logs/measure/plot/src/
 
 ## Resultados
 
-Rust utiliza el 55% de CPU mientras que Python sigue necesitando más del 100% en algunos momentos; es decir, Python utiliza 1 CPU totalmente y parte de otra. Rust,  en algunas ejecuciones se mantiene cerca de 0% durante más tiempo y en otras el incremento en el consumo de la CPU empieza antes
+Rust utiliza el 55% de CPU mientras que Python sigue necesitando más del 100% en algunos momentos; es decir, Python utiliza 1 CPU totalmente y parte de otra. Rust en algunas ejecuciones se mantiene cerca de 0% durante más tiempo y en otras el incremento en el consumo de la CPU empieza antes
 
 Se ha investigado si Rust limita el uso de la CPU y creo que no existe esta limitación. He lanzado el programa con Rust con unos archivos de 1GB de tamaño y la CPU aumenta incluso más del 100%. Tampoco he encontrado en Internet que se indique esta limitación.
 
@@ -61,27 +83,9 @@ Puede verse los resultados en estas gráficas:
 
 > CPU Python
 
-Para obtener estos resultados, creé un [script en bash](https://github.com/CarlosAMolina/nginx-logs/blob/develop/measure/measure/measure-cpu) que guarda el resultado del comando `top` en un archivo, muestro una parte:
+Sobre el intento de medir el uso de la CPU por núcleo, se tienen valores mayores de 100% para los que se asignan a un núcleo en lugar de a varios, por lo que creo que este comando no es fiable para mostrar el reparto entre núcleos:
 
 ```bash
-ps_columns=cpuid,%cpu,%mem
-echo CPU_ID CPU% MEM% TIME > $results_pathname
-while :
-do
-  result=$(ps --no-headers -p $(pgrep $process_name) -o $ps_columns 2> /dev/null)
-  if [ -n "$result" ]; then
-    result="$result $(date +"%T.%N")"
-    echo $result >> $results_pathname
-    #echo $result
-  fi
-done
-```
-
-Este script analiza el proceso que le indique, he visto que al lanzar el programa con Python, se crea un solo proceso que se puede filtrar con `process_name` igual a `python` y al lanzar el binario de Rust, también se crea solo un proceso que filtro por el nombre `nginx_logs`. Lanzo el script que guarda esta información y ejecuto los programas por separado, no los dos a la vez, luego leo el archivo resultado y lo represento gráficamente gracias a otro [script](https://github.com/CarlosAMolina/nginx-logs/blob/develop/measure/plot/src/plot_results.py).
-
-
-Se ha intentado medir el uso de la CPU por núcleo. Para medirlo se añade al comando `ps` la opción `cpuid` que muestra el id del núcleo utilizado, veo que al haber valores mayores de 100%, sigue asignándolo a un núcleo en lugar de a varios, por lo que creo que este comando no es fiable para mostrar el reparto entre núcleos:
-
 CPU_ID CPU% TIME
 ...
 3 95.0 18:23:28.290094341
@@ -98,4 +102,5 @@ CPU_ID CPU% TIME
 3 107 18:23:28.408946173
 3 109 18:23:28.420047112
 ...
+```
 
