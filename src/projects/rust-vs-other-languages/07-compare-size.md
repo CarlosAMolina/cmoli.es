@@ -141,6 +141,6 @@ En cambio, si pensamos en el espacio para crear el ejecutable, en Rust nos iría
 
 ## Links de este tutorial
 
-- [Página principal](introduction.html)
 - [Siguiente apartado. Comparar tiempo de ejecución](08-compare-execution-time.html)
+- [Página principal](introduction.html)
 

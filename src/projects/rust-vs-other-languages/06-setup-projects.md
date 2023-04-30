@@ -226,6 +226,6 @@ Programa para convertir logs a csv:
 
 ## Links de este tutorial
 
-- [Página principal](introduction.html)
 - [Siguiente apartado. Comparar espacio en disco](07-compare-size.html)
+- [Página principal](introduction.html)
 

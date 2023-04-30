@@ -162,6 +162,6 @@ Se observa que el consumo de memoria es mayor al descomprimir que al leer los ar
 
 ## Links de este tutorial
 
-- [Página principal](introduction.html)
 - [Siguiente apartado. Comparar CPU](10-compare-cpu.html)
+- [Página principal](introduction.html)
 

@@ -129,5 +129,6 @@ Versiones Python, web oficial:
 
 ## Links de este tutorial
 
-- [Página principal](introduction.html)
 - [Siguiente apartado. Comparar código Rust y Python](05-compare-code.html)
+- [Página principal](introduction.html)
+

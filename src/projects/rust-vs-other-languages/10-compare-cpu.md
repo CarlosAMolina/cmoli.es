@@ -106,6 +106,6 @@ CPU_ID CPU% TIME
 
 ## Links de este tutorial
 
-- [Página principal](introduction.html)
 - [Siguiente apartado. Compilación multiplataforma](11-cross-compilation.html)
+- [Página principal](introduction.html)
 

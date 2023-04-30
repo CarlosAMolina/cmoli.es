@@ -222,6 +222,6 @@ Terminar indicando que, los archivos obtenidos con Rust utilizando expresiones r
 
 ## Links de este tutorial
 
-- [Página principal](introduction.html)
 - [Siguiente apartado. Comparar memoria](09-compare-memory.html)
+- [Página principal](introduction.html)
 

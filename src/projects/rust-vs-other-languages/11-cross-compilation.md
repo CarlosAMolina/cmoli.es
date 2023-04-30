@@ -46,6 +46,6 @@ En esta sección se ha comentado de manera breve diferentes modos de compilar el
 
 ## Links de este tutorial
 
-- [Página principal](introduction.html)
 - [Siguiente apartado. Otros aspectos](12-other-aspects.html)
+- [Página principal](introduction.html)
 
