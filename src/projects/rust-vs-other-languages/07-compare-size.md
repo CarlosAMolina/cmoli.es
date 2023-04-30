@@ -129,7 +129,7 @@ El tamaño requerido por nuestra imagen llamada `python-nginx-logs` es de 51.8MB
 Los tamaños de las imágenes Docker han sido:
 
 Lenguaje | Tamaño | Imagen Docker            | Descripción
----------|--------|-------------------------------------------------------------------------------------------
+---------|--------|--------------------------|----------------------------------------------------------------
 Rust     | 1.45GB | rust:1.69.0-slim-buster  | Imagen para compilar el archivo ejecutable y lanzarlo.
 Rust     | 11.8MB | alpine:3.17.3            | Imagen de un sistema capaz de lanzar el archivo ejecutable.
 Rust     | 4.5MB  | -                        | Tamaño de archivo ejecutable a utilizar en sistemas compatibles.
