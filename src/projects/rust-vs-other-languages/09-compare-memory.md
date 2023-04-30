@@ -37,11 +37,66 @@ $ valgrind --version
 valgrind-3.19.0
 ```
 
-Respecto a visualizar los resultados de manera gráfica, utilizaremos unos scripts propios, pero también puede hacerse con [massif-visualizer](https://apps.kde.org/es/massif-visualizer/).
+Respecto a visualizar los resultados de manera gráfica, utilizaremos unos scripts propios, aunque también existe el programa [massif-visualizer](https://apps.kde.org/es/massif-visualizer/). Si quisiéramos instalar `massif-visualizer`, puede utilizarse el enlace anterior o los repositorios oficiales de nuestra distribución, ejemplo en Arch Linux:
+
+```bash
+sudo pacman -S massif-visualizer
+```
 
 ## Ejecutar medición
 
-TODO
+En el proyecto nginx-logs que descargamos previamente, tenemos un [script](https://github.com/CarlosAMolina/nginx-logs/blob/develop/measure/measure/run-and-measure-memory) que se encarga de realizar las mediciones con Valgrind automáticamente.
+
+Este script realizará tres ejecuciones del programa en Rust y otras tres en Python analizando con Valgrind y guardando los archivos con las mediciones, también realiza acciones como eliminar los archivos creados por el programa para que cada ejecución no se vea afectada por la anterior.
+
+Primero, los logs a analizar hemos de copiarlos en `/tmp/logs`, que es la ruta que el script mandará que analice Valgrind:
+
+```bash
+cp -r ~/Software/poc-rust/logs /tmp/
+```
+
+Procedemos con las mediciones:
+
+```bash
+cd ~/Software/nginx-logs/measure/measure
+./run-and-measure-memory
+```
+
+Los archivos de resultados se guardarán en la carpeta `~/Software/nginx-logs/measure/measure/results/`.
+
+## Representación gráfica de las mediciones
+
+Ahora queda representar gráficamente los archivos que hemos creado en `~/Software/nginx-logs/measure/measure/results/`.
+
+La manera más sencilla es utilizar `massif-visualizer`, por ejemplo:
+
+```bash
+massif-visualizer results/massif.out.2931.rust.heap-only
+```
+
+En lugar de utilizar `massif-visualizer`, nosotros crearemos las gráficas de resultados utilizando unos scripts propios que permiten mayor personalización. Cambiamos nuestro directorio de trabajo:
+
+```bash
+cd ~/Software/nginx-logs/measure/plot/
+```
+
+Al ser un script en Python que utiliza librerías como `matplotlib`, instalamos los requisitos:
+
+```bash
+python -m venv ~/Software/nginx-logs/env
+source ~/Software/nginx-logs/env/bin/activate
+pip install -r requirements.txt
+```
+
+Creamos las gráficas:
+
+```bash
+python src/plot_results.py
+```
+
+Este programa generará errores al no encontrar los archivos de mediciones, debemos modificar el nombre de estos archivos en el script `src/plog_results.py`.
+
+Cuando finalice, tendremos archivos `.png` con las gráficas en la ruta ` ~/Software/nginx-logs/measure/plot/src/results/`.
 
 ## Resultados
 
