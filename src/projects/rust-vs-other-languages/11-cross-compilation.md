@@ -1,11 +1,13 @@
 # Compilación multi plataforma
 
-Al crear el archivo binario Rust con el comando `cargo build --target` hay que especificarle la arquitectura destino, al analizar el espacio en disco necesario, utilicé como `target` a `x86_64-unknown-linux-musl`, pero de generar el binario para otra arquitectura, ay que especificarla o no funcionará.
+## Introducción
 
-Por ejemplo, para ARM y x86 pueden listarse las posibilidades existentes con el siguiente comando:
+Rust permite generar el programa ejecutable para distintas plataformas; pero, como indica su [documentación](https://rust-lang.github.io/rustup/cross-compilation.html#cross-compilation), es necesario instalar software adicional.
+
+Al crear el archivo ejecutable para una plataforma específica, debe indicase el objetivo con el comando `cargo build --target`. Por ejemplo, para ARM y x86 pueden listarse las posibilidades existentes con el siguiente [comando](https://doc.rust-lang.org/rustc/targets/built-in.html):
 
 ```bash
-$rustc --print target-list | grep -E 'arm-|x86_'
+$ rustc --print target-list | grep -E 'arm-|x86_'
 arm-linux-androideabi
 arm-unknown-linux-gnueabi
 arm-unknown-linux-gnueabihf
@@ -22,10 +24,23 @@ x86_64-unknown-linux-musl
 ...
 ```
 
-Se ha probado a crear un programa en un sistema operativo y llevarlo a otro distinto en el siguiente [repositorio de github](https://github.com/CarlosAMolina/rust/tree/master/cross-compilation) y se ha abordado la tarea de diferentes modos:
+En este apartado, comentaré cómo generé un archivo ejecutable desde unas plataformas a otras.
 
-- De Arch Linux a Debian: se utilizó una imagen Docker para crear el binario desde Arch Linux al sistema operativo Debian.
-- De Ubuntu a MacOS: hubo que instalar un proyecto adicional en Ubuntu para conseguir la compilación.
+## Proceso
 
-Como vemos, generar un binario de Rust de una arquitectura a otra, no es un proceso inmediato, sino que hay que realizar unos pasos previos.
+En [este repositorio de GitHub](https://github.com/CarlosAMolina/rust/tree/master/cross-compilation) se creó un pequeño programa para compilarlo a distintas plataformas, en su archivo README pueden verse más detalles.
+
+Comento dos maneras distintas en que se abordó este proceso.
+
+### De Arch Linux a Debian
+
+Desde un sistema Arch Linux se compiló el programa para ser utilizado en Debian, el proceso consistió en utilizar una imagen Docker que compilara el archivo ejecutable para la plataforma destino.
+
+### De Ubuntu a MacOS
+
+En el caso de compilar el ejecutable para MacOs desde Ubuntu, hubo que instalar un proyecto de GitHub adicional, los pasos se describen en [este artículo](https://wapl.es/rust/2019/02/17/rust-cross-compile-linux-to-macos.html).
+
+## Conclusiones
+
+En esta sección se ha comentado de manera breve diferentes modos de compilar el programa para una plataforma distinta a la del host anfitrión. Lo que ha querido resaltarse es que, crear un archivo ejecutable con Rust de una arquitectura a otra, no es un proceso inmediato, sino que hay que realizar unos pasos previos como instalar software adicional.
 
