@@ -2,13 +2,6 @@
 
 ## Contenidos
 
-- [Introducción](#introducción)
-- [Espacio en disco](#espacio-en-disco)
-- [Tiempo de ejecución](#tiempo-de-ejecución)
-- [Memoria](#memoria)
-- [CPU](#cpu)
-- [Links de este tutorial](#links-de-este-tutorial)
-
 ## Introducción
 
 En este apartado se mostrarán los resultados de comparar Rust con otros lenguaje de programación. El objetivo es mostrar un resumen inicial y, en los siguientes capítulos ir obteniendo estas conclusiones paso a paso y analizarlas en mayor profundidad.
@@ -87,6 +80,12 @@ Trabajamos con los mismos archivos de logs que al comparar el tiempo de ejecuci�
 ![](metrics-cpu-python.png)
 
 > CPU Python
+
+## Otros aspectos
+
+Para terminar, comentamos algunos aspectos a tener en cuenta al trabajar con Rust:
+
+- Tiempo de compilación. Trabajar con lenguajes compilados añade un tiempo de espera cada vez que queramos probar el programa; mientras que, en lenguajes interpretados como Python evitamos esta espera.
 
 ## Links de este tutorial
 
