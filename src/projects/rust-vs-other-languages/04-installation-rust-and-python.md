@@ -130,4 +130,4 @@ Versiones Python, web oficial:
 ## Links de este tutorial
 
 - [Página principal](introduction.html)
-- [Siguiente apartado. Instalación Rust y Python](05-code-rust-vs-python.html)
+- [Siguiente apartado. Comparar código Rust y Python](05-compare-code.html)
