@@ -10,11 +10,11 @@ Para ello, primero es necesario encontrar una herramienta capaz de medir la memo
 
 A la hora de seleccionar el software con el que medir la memoria utilizada por nuestro programa, hay que tener en cuenta que estamos ante un programa por línea de comandos que se ejecuta en nuestro propio equipo; esta característica descarta, por ejemplo, programas que realicen pruebas de estrés enviando peticiones en lugar de lanzar el programa a analizar.
 
-Lo primero que probé fue trabajar con los comandos `top` y `htop`, pero no fueron opciones válidas ya que, al medir el ejecutable de Rust (puede filtrarse el proceso por el nombre `nginx_logs`), se muestra un uso de 0% de memoria. En el caso de Python (filtramos el proceso por el nombre `python`), si se mostraría valores para la memoria utilizada, pero viendo que con Rust no es una opción válida, es mejor buscar otra alternativa.
+Lo primero que probé fue a trabajar con los comandos `top` y `htop`, pero no fueron opciones válidas ya que, al medir el ejecutable de Rust (puede filtrarse el proceso por el nombre `nginx_logs`), se muestra un uso de 0% de memoria. En el caso de Python (filtramos el proceso por el nombre `python`), sí se muestran valores para la memoria utilizada, pero viendo que con Rust no es una opción válida, es mejor buscar otra alternativa.
 
 Tampoco es recomendable usar el comando `ps` para medir la memoria. Puede verse [en este link](https://stackoverflow.com/questions/131303/how-can-i-measure-the-actual-memory-usage-of-an-application-or-process), que, entre otros aspectos, indica la cantidad de memoria reservada, no la cantidad real utilizada.
 
-Finalmente utilicé [Valgrind](https://valgrind.org/docs/manual/ms-manual.html) para realizar estas tres mediciones:
+Finalmente, utilicé [Valgrind](https://valgrind.org/docs/manual/ms-manual.html) para realizar estas tres mediciones:
 
 - Opción heap: mide la memoria reservada con funciones como malloc, calloc, realloc, memalign, new, new[] y similares, pero no por llamadas del sistema de bajo nivel como mmap, mremap y brk.
 - Opción heap y stack: mide la memoria heap y stack.
@@ -34,7 +34,7 @@ Para verificar la versión instalada:
 
 ```bash
 $ valgrind --version
-valgrind-3.19.0
+valgrind-3.20.0
 ```
 
 Respecto a visualizar los resultados de manera gráfica, utilizaremos unos scripts propios, aunque también existe el programa [massif-visualizer](https://apps.kde.org/es/massif-visualizer/). Si quisiéramos instalar `massif-visualizer`, puede utilizarse el enlace anterior o los repositorios oficiales de nuestra distribución, ejemplo en Arch Linux:
@@ -47,7 +47,7 @@ sudo pacman -S massif-visualizer
 
 En el proyecto nginx-logs que descargamos previamente, tenemos un [script](https://github.com/CarlosAMolina/nginx-logs/blob/develop/measure/measure/run-and-measure-memory) que se encarga de realizar las mediciones con Valgrind automáticamente.
 
-Este script realizará tres ejecuciones del programa en Rust y otras tres en Python analizando con Valgrind y guardando los archivos con las mediciones, también realiza acciones como eliminar los archivos creados por el programa para que cada ejecución no se vea afectada por la anterior.
+Este script realizará tres ejecuciones del programa en Rust y otras tres en Python, estando estas ejecuciones analizadas con Valgrind, y guardará los archivos con las mediciones; también realiza acciones como eliminar los archivos creados por el programa para que cada ejecución no se vea afectada por la anterior.
 
 Primero, los logs a analizar hemos de copiarlos en `/tmp/logs`, que es la ruta que el script mandará que analice Valgrind:
 
@@ -55,23 +55,23 @@ Primero, los logs a analizar hemos de copiarlos en `/tmp/logs`, que es la ruta q
 cp -r ~/Software/poc-rust/logs /tmp/
 ```
 
-Procedemos con las mediciones:
+Procedemos con las mediciones, para no afectar a los resultados, he cerramos el resto de programas que tenía ejecutándose:
 
 ```bash
 cd ~/Software/nginx-logs/measure/measure
 ./run-and-measure-memory
 ```
 
-Los archivos de resultados se guardarán en la carpeta `~/Software/nginx-logs/measure/measure/results/`.
+Al utilizar Valgrind, la ejecución requiere más tiempo. Los archivos de resultados se guardarán en la carpeta `~/Software/nginx-logs/measure/measure/results/`.
 
 ## Representación gráfica de las mediciones
 
 Ahora queda representar gráficamente los archivos que hemos creado en `~/Software/nginx-logs/measure/measure/results/`.
 
-La manera más sencilla es utilizar `massif-visualizer`, por ejemplo:
+Si quisiéramos ver gráficamente las mediciones que se han guardado en un archivo, la manera más sencilla es utilizar `massif-visualizer`, por ejemplo:
 
 ```bash
-massif-visualizer results/massif.out.2931.rust.heap-only
+massif-visualizer results/massif.out.measure-1.rust.heap-only
 ```
 
 En lugar de utilizar `massif-visualizer`, nosotros crearemos las gráficas de resultados utilizando unos scripts propios que permiten mayor personalización. Cambiamos nuestro directorio de trabajo:
@@ -88,13 +88,11 @@ source ~/Software/nginx-logs/env/bin/activate
 pip install -r requirements.txt
 ```
 
-Creamos las gráficas:
+Ya podemos crear las gráficas:
 
 ```bash
 python src/plot_results.py
 ```
-
-Este programa generará errores al no encontrar los archivos de mediciones, debemos modificar el nombre de estos archivos en el script `src/plog_results.py`.
 
 Cuando finalice, tendremos archivos `.png` con las gráficas en la ruta ` ~/Software/nginx-logs/measure/plot/src/results/`.
 
