@@ -20,9 +20,15 @@ Finalmente utilicé [Valgrind](https://valgrind.org/docs/manual/ms-manual.html) 
 - Opción heap y stack: mide la memoria heap y stack.
 - Opción pages as heap (lo llamo `page level`): para medir memoria heap, memoria stack, llamadas del sistema de bajo nivel, tamaño del código, datos y segmentos BSS. Esto es lo que suelen medir herramientas como top.
 
-## Resultados
+## Instalación Valgrind
 
-Medir memoria. Resultados
+TODO
+
+## Ejecutar medición
+
+TODO
+
+## Resultados
 
 He tenido que medir menos archivos con respecto al inicio de este tutorial para reducir un poco el tiempo de medición y evitar un mensaje de warning que mostraba Valgrind con respecto a la configuración de medición. Los archivos analizados ocupan 25 MB (al descomprimirlos ocupan 109 MB), han sido los siguientes:
 
@@ -43,7 +49,6 @@ Indicar que:
 
 - El programa desarrollado analiza los archivos en orden de mayor número a menor, es decir, empieza por `access.log.9.gz`, luego `access.log.8.gz` y por último `access.log.1` y `access.log`.
 - Cuando se mide con Valgrind, el programa tarda más, por lo que el eje horizontal de tiempo no representa lo que tardaría el programa en realidad.
-
 
 Los resultados han sido los siguientes.
 
@@ -72,7 +77,6 @@ Los resultados han sido los siguientes.
 ![](metrics-memory-massif-python-add_stacks.png)
 
 > Memoria heap y stack Python
-
 
 - Page level
   - Rust: los valores aumentan a cerca de 5 MB, presenta un comportamiento casi constante.
