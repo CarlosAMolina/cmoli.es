@@ -1,22 +1,30 @@
-Para medir la memoria, no puede utilzarse los comandos `top` y `htop`, ya que para el binario de Rust, el proceso muestra 0% de memoria. (TODO verificar esto, a ver si aplica para top htop y también para ps, y ver si aplica también para python).
+# Comparar memoria
 
-Tampoco es recomendable usar el comando `ps` para medir la memoria, puede verse [en este link](https://stackoverflow.com/questions/131303/how-can-i-measure-the-actual-memory-usage-of-an-application-or-process).
+## Introducción
+
+Pasamos a medir el uso de memoria por parte del programa al convertir los archivos de logs a csv.
+
+Para ello, primero es necesario encontrar una herramienta capaz de medir la memoria.
 
 ## Herramienta elegida
 
-Finalmente utilicé Valgrind (https://valgrind.org/docs/manual/ms-manual.html), permite hacer estas 3 mediciones:
+A la hora de seleccionar el software con el que medir la memoria utilizada por nuestro programa, hay que tener en cuenta que estamos ante un programa por línea de comandos que se ejecuta en nuestro propio equipo; esta característica descarta, por ejemplo, programas que realicen pruebas de estrés enviando peticiones en lugar de lanzar el programa a analizar.
+
+Lo primero que probé fue trabajar con los comandos `top` y `htop`, pero no fueron opciones válidas ya que, al medir el ejecutable de Rust (puede filtrarse el proceso por el nombre `nginx_logs`), se muestra un uso de 0% de memoria. En el caso de Python (filtramos el proceso por el nombre `python`), si se mostraría valores para la memoria utilizada, pero viendo que con Rust no es una opción válida, es mejor buscar otra alternativa.
+
+Tampoco es recomendable usar el comando `ps` para medir la memoria. Puede verse [en este link](https://stackoverflow.com/questions/131303/how-can-i-measure-the-actual-memory-usage-of-an-application-or-process), que, entre otros aspectos, indica la cantidad de memoria reservada, no la cantidad real utilizada.
+
+Finalmente utilicé [Valgrind](https://valgrind.org/docs/manual/ms-manual.html) para realizar estas tres mediciones:
 
 - Opción heap: mide la memoria reservada con funciones como malloc, calloc, realloc, memalign, new, new[] y similares, pero no por llamadas del sistema de bajo nivel como mmap, mremap y brk.
 - Opción heap y stack: mide la memoria heap y stack.
 - Opción pages as heap (lo llamo `page level`): para medir memoria heap, memoria stack, llamadas del sistema de bajo nivel, tamaño del código, datos y segmentos BSS. Esto es lo que suelen medir herramientas como top.
 
-He utilizado Valgrind porque el código que desarrollé es una herramienta por línea de comandos y Valgrind se ajusta a la perfección.
-
 ## Resultados
 
 Medir memoria. Resultados
 
-He tenido que medir menos archivos con respecto al inciio de este tutorial para reducir un poco el tiempo de medición y evitar un mensaje de warning que mostraba Valgrind con respecto a la configuración de medición. Los archivos analizados ocupan 25 MB (al descomprimirlos ocupan 109 MB), han sido los siguientes:
+He tenido que medir menos archivos con respecto al inicio de este tutorial para reducir un poco el tiempo de medición y evitar un mensaje de warning que mostraba Valgrind con respecto a la configuración de medición. Los archivos analizados ocupan 25 MB (al descomprimirlos ocupan 109 MB), han sido los siguientes:
 
 ```bash
 12M access.log
