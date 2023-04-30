@@ -62,7 +62,7 @@ Si comparamos los archivos resultantes de `cargo build` y `cargo build --release
 ```bash
 $ ls -lh target/debug/nginx-logs-generator
 8,6M target/debug/nginx-logs-generator
-[x@arch nginx-logs-generator]$ ls -lh target/release/nginx-logs-generator
+$ ls -lh target/release/nginx-logs-generator
 4,3M target/release/nginx-logs-generator
 ```
 
@@ -81,20 +81,31 @@ Usage
 
 ### Crear archivos de logs
 
-Para obtener logs que analizar, crearemos en la ruta `~/Software/poc-rust/logs/` los siguiente archivos de logs:
-
-- access.log.2.gz, 110 MiB (1.4 GiB sin comprimir).
-- access.log.1, 477 MiB.
-- access.log, 954 MiB.
-
-Con el siguiente comando, indicamos la ruta de destino (el programa creará la carpeta llamada `logs`), y el tamaño de los archivos (en Gigabytes):
+Para obtener logs que analizar, con el siguiente comando indicamos la ruta de destino (el programa creará la carpeta llamada `logs`), y el tamaño de los archivos (en Gigabytes):
 
 ```bash
 cd ~/Software/poc-rust/nginx-logs-generator/nginx-logs-generator
-./target/release/nginx-logs-generator ~/Software/poc-rust 1.5 0.5 1
+./target/release/nginx-logs-generator ~/Software/poc-rust 0.012 0.011 0.0074 0.012 0.011 0.017 0.013 0.0092 0.0074 0.012
 ```
 
-En total creamos 3.5 Gigabytes de datos por lo que puede tardar un poco. 
+De este modo, hemos creado en la ruta `~/Software/poc-rust/logs/` los siguiente archivos de logs:
+
+```bash
+$ ls -lh ~/Software/poc-rust/logs
+total 26M
+-rw-r--r-- 1 x x  12M abr 30 18:55 access.log
+-rw-r--r-- 1 x x 7,1M abr 30 18:55 access.log.1
+-rw-r--r-- 1 x x 692K abr 30 18:55 access.log.2.gz
+-rw-r--r-- 1 x x 976K abr 30 18:55 access.log.3.gz
+-rw-r--r-- 1 x x 1,3M abr 30 18:55 access.log.4.gz
+-rw-r--r-- 1 x x 827K abr 30 18:55 access.log.5.gz
+-rw-r--r-- 1 x x 902K abr 30 18:55 access.log.6.gz
+-rw-r--r-- 1 x x 557K abr 30 18:55 access.log.7.gz
+-rw-r--r-- 1 x x 826K abr 30 18:55 access.log.8.gz
+-rw-r--r-- 1 x x 902K abr 30 18:55 access.log.9.gz
+```
+
+En total creamos 26MB de datos, sin comprimir son 107MB.
 
 Ya con esto, volvemos a nuestra ruta principal de trabajo:
 
