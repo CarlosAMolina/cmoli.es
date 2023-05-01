@@ -50,7 +50,9 @@ Como curiosidad, se han añadido las dos últimas columnas donde vemos que, en R
 
 ## Memoria
 
-La memoria utilizada en el procesado de los archivos de logs ha sido:
+Se han realizado 3 mediciones para cada programa, el uso de memoria heap, uso de memoria heap y stack, y uso de toda la memoria (lo llamo page level); se explican estas opciones más detalladamente en el apartado dedicado al estudio de la memoria utilizada.
+
+Rust presenta un menor consumo que Python, el comentario de las gráficas puede verse en el apartado del análisis de la memoria. Los resultados han sido:
 
 - Heap
 
