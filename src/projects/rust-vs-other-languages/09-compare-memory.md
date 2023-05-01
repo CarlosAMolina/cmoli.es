@@ -62,11 +62,21 @@ cd ~/Software/nginx-logs/measure/measure
 ./run-and-measure-memory
 ```
 
-Al utilizar Valgrind, la ejecución requiere más tiempo. Los archivos de resultados se guardarán en la carpeta `~/Software/nginx-logs/measure/measure/results/`.
+Los archivos de resultados se guardarán en la carpeta `~/Software/nginx-logs/measure/measure/results/`.
+
+Hay que tener en cuenta que, al utilizar Valgrind, la ejecución requiere más tiempo. Por ejemplo, la ejecución que más tarda es con Python con la opción de medición pages level, necesitando sobre 1h y 40min.
 
 ## Representación gráfica de las mediciones
 
 Ahora queda representar gráficamente los archivos que hemos creado en `~/Software/nginx-logs/measure/measure/results/`.
+
+Pueden utilizarse las mediciones que obtuve, las adjunté al proyecto `nginx-logs` que hemos ido utilizando:
+
+```bash
+cd ~/Software/nginx-logs/measure/measure/results
+tar xvf valgrind-measure-python-3-11.tar.gz
+mv valgrind-measure-python-3-11/* .
+```
 
 Si quisiéramos ver gráficamente las mediciones que se han guardado en un archivo, la manera más sencilla es utilizar `massif-visualizer`, por ejemplo:
 
@@ -76,29 +86,29 @@ massif-visualizer results/massif.out.measure-1.rust.heap-only
 
 Esta herramienta no es solamente la manera más rápida de representar los resultados, sino que permite analizarlos observando las funciones invocadas.
 
-En lugar de utilizar `massif-visualizer`, nosotros crearemos las gráficas de resultados utilizando unos scripts propios que permiten mayor personalización. Cambiamos nuestro directorio de trabajo:
+En lugar de utilizar `massif-visualizer`, al igual que hicimos al representar las mediciones del tiempo de ejecución, trabajaremos con los scripts disponibles en el proyecto `nginx-logs`, ya que permiten mayor personalización. Cambiamos nuestro directorio de trabajo:
 
 ```bash
 cd ~/Software/nginx-logs/measure/plot/
 ```
 
-Al ser un script en Python que utiliza librerías como `matplotlib`, instalamos los requisitos:
+Activamos el entrono virtual que creamos anteriormente y que tiene instaladas las librerías externas necesarias:
 
 ```bash
-python -m venv ~/Software/nginx-logs/env
 source ~/Software/nginx-logs/env/bin/activate
-pip install -r requirements.txt
 ```
 
-Ya podemos crear las gráficas:
+Generamos las gráficas con:
 
 ```bash
-python src/plot_results.py
+python src/plot_results.py memory
 ```
 
-Cuando finalice, tendremos archivos `.png` con las gráficas en la ruta ` ~/Software/nginx-logs/measure/plot/src/results/`.
+En la ruta ` ~/Software/nginx-logs/measure/plot/src/results/` tendremos las gráficas en formato `.png`.
 
 ## Resultados
+
+El eje temporal es distinto al que obtuvimos al comparar el tiempo de ejecución porque el uso de Valgrind incrementa el tiempo del programa.
 
 He tenido que medir menos archivos con respecto al inicio de este tutorial para reducir un poco el tiempo de medición y evitar un mensaje de warning que mostraba Valgrind con respecto a la configuración de medición. Los archivos analizados ocupan 25 MB (al descomprimirlos ocupan 109 MB), han sido los siguientes:
 
