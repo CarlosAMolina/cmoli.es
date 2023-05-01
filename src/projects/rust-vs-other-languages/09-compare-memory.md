@@ -108,10 +108,10 @@ En la ruta ` ~/Software/nginx-logs/measure/plot/src/results/` tendremos las grá
 
 ## Resultados
 
-Los resultados han sido los siguientes.
+Los resultados del uso de memoria han sido los siguientes.
 
 - Heap
-  - Rust necesita cerca de 100 kB la mayor parte del tiempo y luego baja a cerca de 26 kB. La parte de los 100 kB corresponde al análisis de los archivos comprimidos en `gz` y la bajada se produce porque ya no descomprime archivos (analiza `access.log.1` y `access.log`).
+  - Rust necesita cerca de 100 kB la mayor parte del tiempo y al final baja su consumo sobre 26 kB. La parte de los 100 kB corresponde al análisis de los archivos comprimidos en `gz` y la bajada se produce porque ya no descomprime archivos (analiza `access.log.1` y `access.log`).
   - Python está en el orden de MB, se mantiene cerca de 2 MB al analizar archivos comprimidos en `.gz` y luego presenta picos al analizar archivos de logs que no están comprimidos, siendo el pico más alto de casi 26 MB.
 
 ![](metrics-memory-massif-rust-heap-only.png)
@@ -124,7 +124,7 @@ Los resultados han sido los siguientes.
 
 - Heap y stack
 
-  - Rust y Python: comportamiento similar que al medir solo `heap` (presenta la misma gráfica) aunque con unos valores de unos pocos kB más.
+  - Tato en Rust y Python, el comportamiento es similar que al medir solo `heap` (presenta la misma gráfica) aunque con unos valores de unos pocos kB más.
 
 - Heap y stack
 
@@ -137,8 +137,8 @@ Los resultados han sido los siguientes.
 > Memoria heap y stack Python
 
 - Page level
-  - Rust: los valores aumentan a cerca de 5 MB, presenta un comportamiento casi constante.
-  - Python: la mayor parte del tiempo está entre 22 MB y 30 MB hasta que se producen los picos comentados antes por analizar los dos archivos no comprimidos, siendo el mayor pico de 52 MB.
+  - En Rust, los valores aumentan a cerca de 5.2 MB, presenta un comportamiento casi constante.
+  - Sobre Python, la mayor parte del tiempo está entre 22 MB y 30 MB hasta que se producen los picos comentados antes por analizar los dos archivos no comprimidos, siendo el mayor pico de 51.5 MB.
 
 ![](metrics-memory-massif-rust-add-pages-as-heap.png)
 
