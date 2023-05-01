@@ -124,7 +124,7 @@ Veremos el resumen del tiempo requerido más adelante.
 
 Para trabajar con expresiones regulares, debemos cambiar algunos archivos.
 
-Primero, modificamos el archivo `Cargo.toml`, dentro del apartado `[dependencies]`, añadimos:
+Primero, modificamos el archivo `Cargo.toml`, dentro del apartado `[dependencies]`, descomentamos:
 
 ```bash
 lazy_static = "1.4.0"
