@@ -19,9 +19,9 @@ Rust     | 11.8MB | alpine:3.17.3            | Imagen de un sistema capaz de lan
 Rust     | 4.5MB  | -                        | Tamaño de archivo ejecutable a utilizar en sistemas compatibles.
 Python   | 51.8MB | python:3.11.3-alpine3.17 | Tamaño del lenguaje para lanzar el programa.
 
-## Tiempo de ejecución
+## Archivos a analizar
 
-Estudiamos el tiempo necesario para convertir los siguientes ficheros de logs a un archivo csv:
+Los ficheros de logs que convertiremos a un archivo csv y así comparar las características de cada lenguaje como el tiempo de ejecución necesario y el uso de memoria y CPU, han sido:
 
 -  12M access.log
 - 7,1M access.log.1
@@ -36,7 +36,9 @@ Estudiamos el tiempo necesario para convertir los siguientes ficheros de logs a 
 
 El número total de líneas de logs a analizar es de 551.692.
 
-Se tiene lo esperado, Rust es mucho más rápido que Python:
+## Tiempo de ejecución
+
+Al procesar los archivos de logs antes indicados, se ha tenido lo esperado, Rust es mucho más rápido que Python:
 
 ![](execution-time.png)
 
@@ -48,7 +50,7 @@ Como curiosidad, se han añadido las dos últimas columnas donde vemos que, en R
 
 ## Memoria
 
-Trabajamos con los mismos archivos de logs que al comparar el tiempo de ejecución.
+La memoria utilizada en el procesado de los archivos de logs ha sido:
 
 - Heap
 
@@ -82,6 +84,8 @@ Trabajamos con los mismos archivos de logs que al comparar el tiempo de ejecuci�
 
 ## CPU
 
+Respecto al uso de CPU para convertir los archivos de logs, se tiene:
+
 ![](metrics-cpu-rust.png)
 
 > CPU Rust
@@ -89,6 +93,8 @@ Trabajamos con los mismos archivos de logs que al comparar el tiempo de ejecuci�
 ![](metrics-cpu-python.png)
 
 > CPU Python
+
+Comentar que, el método empleado para medir el uso de CPU no es demasiado correcto, como se explica con mayor detalle en su apartado. Pese a ello, ha servido para obtener estas gráficas y comparar los lenguajes.
 
 ## Compilación multiplataforma
 
