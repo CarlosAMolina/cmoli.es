@@ -8,17 +8,19 @@ Para ello, primero es necesario encontrar una herramienta capaz de medir la memo
 
 ## Herramienta elegida
 
-A la hora de seleccionar el software con el que medir la memoria utilizada por nuestro programa, hay que tener en cuenta que estamos ante un programa por línea de comandos que se ejecuta en nuestro propio equipo; esta característica descarta, por ejemplo, programas que realicen pruebas de estrés enviando peticiones en lugar de lanzar el programa a analizar.
+A la hora de seleccionar el software con el que medir la memoria utilizada por nuestro programa, hay que tener en cuenta que estamos ante un programa por línea de comandos que se ejecuta en nuestro propio equipo; esta característica descarta, por ejemplo, herramientas que realicen pruebas de estrés enviando peticiones en lugar de lanzar el programa a analizar.
 
 Lo primero que probé fue a trabajar con los comandos `top` y `htop`, pero no fueron opciones válidas ya que, al medir el ejecutable de Rust (puede filtrarse el proceso por el nombre `nginx_logs`), se muestra un uso de 0% de memoria. En el caso de Python (filtramos el proceso por el nombre `python`), sí se muestran valores para la memoria utilizada, pero viendo que con Rust no es una opción válida, es mejor buscar otra alternativa.
 
 Tampoco es recomendable usar el comando `ps` para medir la memoria. Puede verse [en este link](https://stackoverflow.com/questions/131303/how-can-i-measure-the-actual-memory-usage-of-an-application-or-process), que, entre otros aspectos, indica la cantidad de memoria reservada, no la cantidad real utilizada.
 
-Finalmente, utilicé [Valgrind](https://valgrind.org/docs/manual/ms-manual.html) para realizar estas tres mediciones:
+Finalmente, utilicé [Valgrind](https://valgrind.org/docs/manual/ms-manual.html), con su opción [Massif](https://valgrind.org/docs/manual/ms-manual.html) para realizar estas tres mediciones:
 
-- Opción heap: mide la memoria reservada con funciones como malloc, calloc, realloc, memalign, new, new[] y similares, pero no por llamadas del sistema de bajo nivel como mmap, mremap y brk.
-- Opción heap y stack: mide la memoria heap y stack.
-- Opción pages as heap (lo llamo `page level`): para medir memoria heap, memoria stack, llamadas del sistema de bajo nivel, tamaño del código, datos y segmentos BSS. Esto es lo que suelen medir herramientas como top.
+- Heap: mide la memoria reservada con funciones como malloc, calloc, realloc, memalign, new, new[] y similares, pero no por llamadas del sistema de bajo nivel como mmap, mremap y brk.
+- Heap y stack: mide la memoria heap y stack.
+- Page level: para medir toda la memoria utilizada por el programa (memoria heap, memoria stack, llamadas del sistema de bajo nivel, tamaño del código, datos y segmentos BSS). Esto es lo que suelen medir herramientas como top.
+
+Massif, a demás de poder dar estas mediciones, también permite conocer qué partes del programa trabajan con la memoria.
 
 ## Instalación Valgrind
 
@@ -48,6 +50,8 @@ sudo pacman -S massif-visualizer
 En el proyecto nginx-logs que descargamos previamente, tenemos un [script](https://github.com/CarlosAMolina/nginx-logs/blob/develop/measure/measure/run-and-measure-memory) que se encarga de realizar las mediciones con Valgrind automáticamente.
 
 Este script realizará tres ejecuciones del programa en Rust y otras tres en Python, estando estas ejecuciones analizadas con Valgrind, y guardará los archivos con las mediciones; también realiza acciones como eliminar los archivos creados por el programa para que cada ejecución no se vea afectada por la anterior.
+
+Utilizamos Valgrind con su opción Massif y elegimos como unidad de tiempo milisegundos. Por defecto, la unidad de tiempo en Massif son las instrucciones ejecutadas, como puede verse en su documentación, pero hemos cambiado esto; otra opción disponible para la unidad de tiempo es usar el número de bytes reservados y liberados en la heap y stack.
 
 Primero, los logs a analizar hemos de copiarlos en `/tmp/logs`, que es la ruta que el script mandará que analice Valgrind:
 
@@ -84,7 +88,7 @@ Si quisiéramos ver gráficamente las mediciones que se han guardado en un archi
 massif-visualizer results/massif.out.measure-1.rust.heap-only
 ```
 
-Esta herramienta no es solamente la manera más rápida de representar los resultados, sino que permite analizarlos observando las funciones invocadas.
+Esta herramienta no es solamente la manera más rápida de representar los resultados, sino que permite analizarlos observando qué partes del código han gestionado la memoria.
 
 En lugar de utilizar `massif-visualizer`, al igual que hicimos al representar las mediciones del tiempo de ejecución, trabajaremos con los scripts disponibles en el proyecto `nginx-logs`, ya que permiten mayor personalización. Cambiamos nuestro directorio de trabajo:
 
@@ -123,10 +127,7 @@ Los resultados del uso de memoria han sido los siguientes.
 > Memoria heap Python
 
 - Heap y stack
-
   - Tanto en Rust y Python, el comportamiento es similar que al medir solo `heap` (presenta la misma gráfica) aunque con unos valores de unos pocos kB más.
-
-- Heap y stack
 
 ![](metrics-memory-massif-rust-add_stacks.png)
 
