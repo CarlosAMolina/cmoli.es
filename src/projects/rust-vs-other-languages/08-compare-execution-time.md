@@ -155,6 +155,32 @@ Siendo la media con Python de 274.736s (4min y 36.736s).
 
 Como era de esperar, todos los logs han sido parseados correctamente y los archivos `.csv` generados con Python son iguales, tienen el mismo hash (el hash del archivo generado pro Python y Rust sí es distinto).
 
+## Representación gráfica de las mediciones
+
+Pasamos a mostrar gráficamente las mediciones creadas en `~/Software/nginx-logs/measure/measure/results/`.
+
+La representación se realiza con el proyecto `nginx-logs`, el cual tiene unos scripts en Python para esta función. La ruta con la que trabajar es:
+
+```bash
+cd ~/Software/nginx-logs/measure/plot/
+```
+
+Al ser un script en Python que utiliza librerías como `matplotlib`, instalamos los requisitos:
+
+```bash
+python -m venv ~/Software/nginx-logs/env
+source ~/Software/nginx-logs/env/bin/activate
+pip install -r requirements.txt
+```
+
+Ya podemos crear las gráficas:
+
+```bash
+python src/plot_results.py time
+```
+
+Cuando finalice, tendremos archivos `.png` con las gráficas en la ruta ` ~/Software/nginx-logs/measure/plot/src/results/`.
+
 ## Comentario de los resultados
 
 El tamaño del archivo `result.csv` generado es de 2.7G tanto en Rust como en Python.
