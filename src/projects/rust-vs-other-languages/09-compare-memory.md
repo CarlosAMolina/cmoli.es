@@ -74,6 +74,8 @@ Si quisiéramos ver gráficamente las mediciones que se han guardado en un archi
 massif-visualizer results/massif.out.measure-1.rust.heap-only
 ```
 
+Esta herramienta no es solamente la manera más rápida de representar los resultados, sino que permite analizarlos observando las funciones invocadas.
+
 En lugar de utilizar `massif-visualizer`, nosotros crearemos las gráficas de resultados utilizando unos scripts propios que permiten mayor personalización. Cambiamos nuestro directorio de trabajo:
 
 ```bash
