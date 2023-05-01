@@ -108,27 +108,7 @@ En la ruta ` ~/Software/nginx-logs/measure/plot/src/results/` tendremos las grá
 
 ## Resultados
 
-El eje temporal es distinto al que obtuvimos al comparar el tiempo de ejecución porque el uso de Valgrind incrementa el tiempo del programa.
-
-He tenido que medir menos archivos con respecto al inicio de este tutorial para reducir un poco el tiempo de medición y evitar un mensaje de warning que mostraba Valgrind con respecto a la configuración de medición. Los archivos analizados ocupan 25 MB (al descomprimirlos ocupan 109 MB), han sido los siguientes:
-
-```bash
-12M access.log
-7.5M access.log.1
-612K access.log.2.gz
-824K access.log.3.gz
-1,1M access.log.4.gz
-700K access.log.5.gz
-776K access.log.6.gz
-496K access.log.7.gz
-700K access.log.8.gz
-776K access.log.9.gz
-```
-
-Indicar que:
-
-- El programa desarrollado analiza los archivos en orden de mayor número a menor, es decir, empieza por `access.log.9.gz`, luego `access.log.8.gz` y por último `access.log.1` y `access.log`.
-- Cuando se mide con Valgrind, el programa tarda más, por lo que el eje horizontal de tiempo no representa lo que tardaría el programa en realidad.
+Como se ve en las gráficas, el eje temporal es mayor al que obtuvimos al comparar el tiempo de ejecución. Esto se debe a que el uso de Valgrind incrementa el tiempo del programa; es decir, el eje temporal conseguido en este apartado no representa lo que tardaría el programa en realidad.
 
 Los resultados han sido los siguientes.
 
