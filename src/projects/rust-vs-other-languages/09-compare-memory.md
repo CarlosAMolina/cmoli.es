@@ -64,7 +64,7 @@ cd ~/Software/nginx-logs/measure/measure
 
 Los archivos de resultados se guardarán en la carpeta `~/Software/nginx-logs/measure/measure/results/`.
 
-Hay que tener en cuenta que, al utilizar Valgrind, la ejecución requiere más tiempo. Por ejemplo, la ejecución que más tarda es con Python con la opción de medición pages level, necesitando sobre 1h y 40min.
+Hay que tener en cuenta que, al utilizar Valgrind, la ejecución del programa necesita más tiempo. Por ejemplo, el caso que más tiempo requiere es medir la versión Python analizando el uso de memoria heap y stack, necesitando sobre 1h y 30min.
 
 ## Representación gráfica de las mediciones
 
