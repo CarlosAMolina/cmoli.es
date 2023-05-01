@@ -1,6 +1,10 @@
 ## TOC
 Add toc to all files.
 
+## Developed program
+
+Add image with logs and with csv file to show the result.
+
 ## Resumen resultados
 
 ### Execution time
