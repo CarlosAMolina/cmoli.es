@@ -210,10 +210,10 @@ Las mediciones de este apartado, y su valor medio, han sido:
 
 Descripción                                            | Ejecución 1 | Ejecución 2 | Ejecución 3 | Ejecución 4 | Media
 -------------------------------------------------------|-------------|-------------|-------------|-------------|---------
-Rust opción más rápida (búsqueda por índice, no regex) | 0.721s      | 0.579s      | 0.577s      | 0.575s      | TODO
-Python opción más rápida (regex match, una sola regex) | 9.792s      | 9.736s      | 9.728s      | 9.682s      | TODO
-Rust regex más rápida (regex find e índices)           | 1.413s      | 1.413s      | 1.414s      | 1.409s      | TODO
-Rust regex más lenta (regex captures, una sola regex)  | 12.213s     | 12.119s     | 12.147s     | 11.998s     | TODO
+Rust opción más rápida (búsqueda por índice, no regex) | 0.721s      | 0.579s      | 0.577s      | 0.575s      | 0.613
+Python opción más rápida (regex match, una sola regex) | 9.792s      | 9.736s      | 9.728s      | 9.682s      | 9.734
+Rust regex más rápida (regex find e índices)           | 1.413s      | 1.413s      | 1.414s      | 1.409s      | 1.412
+Rust regex más lenta (regex captures, una sola regex)  | 12.213s     | 12.119s     | 12.147s     | 11.998s     | 12.119
 
 Si lo representamos en una gráfica:
 
