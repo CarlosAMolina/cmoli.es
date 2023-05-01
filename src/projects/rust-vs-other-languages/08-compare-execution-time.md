@@ -4,15 +4,9 @@
 
 En este apartado veremos el tiempo que requiere cada programa para procesar los logs creados anteriormente.
 
-Recordemos que, el tamaño de los archivos con logs es:
-
-- access.log.2.gz, 110 MiB (1.4 GiB sin comprimir).
-- access.log.1, 477 MiB.
-- access.log, 954 MiB.
-
 ## Consideraciones iniciales
 
-Empezamos comentando algunos puntos que se tuvieron en cuenta al escribir el programa, para que realizara sus funciones lo mas rápido posible.
+Empezamos comentando algunos puntos que se tuvieron en cuenta al desarrollar el programa, para que realizara sus funciones lo mas rápido posible.
 
 En el caso de Rust, algunas consideraciones fueron:
 
@@ -44,11 +38,11 @@ Los resultados con Rust son:
 $ cd ~/Software/rust/regex/performance-logs/
 $ cargo build --release
 $ ./target/release/performance
-Time elapsed with match: 1.878929ms
-Time elapsed with find: 8.992845ms
-Time elapsed with captures: 36.62146ms
-Time elapsed with no regex: 1.174077ms
-Time elapsed with no regex one loop: 1.206302ms
+Time elapsed with match: 1.887184ms
+Time elapsed with find: 6.531472ms
+Time elapsed with captures: 32.598417ms
+Time elapsed with no regex: 1.179403ms
+Time elapsed with no regex one loop: 1.219159ms
 ```
 
 Para cada resultado, se ha utilizado:
@@ -66,11 +60,11 @@ Con Python, tenemos:
 ```bash
 $ cd ~/Software/python/regex/performance-logs/
 $ python src/main.py
-Time elapsed match: 51.8112699996891ms
-Time elapsed search: 51.94285400011722ms
-Time elapsed match groups: 51.19512799956283ms
-Time elapsed search groups: 51.559934000124485ms
-Time elapsed without regex: 70.69803299964406ms
+Time elapsed match: 48.98829100011426ms
+Time elapsed search: 49.03245400009837ms
+Time elapsed match groups: 48.159387999930914ms
+Time elapsed search groups: 48.585519999960525ms
+Time elapsed without regex: 50.20641400005843ms
 ```
 
 Para estos resultados se ha utilizado:
@@ -95,29 +89,32 @@ $ ./target/release/nginx_logs ~/Software/poc-rust/logs/
 Checking: /home/x/Software/poc-rust/logs/
 File with logs as csv: /home/x/Software/poc-rust/logs/result.csv
 File with not parsed logs: /home/x/Software/poc-rust/logs/error.txt
+Init file: /home/x/Software/poc-rust/logs/access.log.9.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.8.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.7.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.6.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.5.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.4.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.3.gz
 Init file: /home/x/Software/poc-rust/logs/access.log.2.gz
 Init file: /home/x/Software/poc-rust/logs/access.log.1
 Init file: /home/x/Software/poc-rust/logs/access.log
-Time elapsed: 29.436084606s
+Time elapsed: 720.718476ms
 ```
 
-El archivo `result.csv` generado ocupa 2.7G, y el archivo `error.txt` con logs no parseados está vacío por lo que todos han sido procesados correctamente.
+El archivo `result.csv` generado ocupa 103M, y el archivo `error.txt` con logs no parseados está vacío por lo que todos han sido procesados correctamente.
 
 Ejecutaremos el programa varias veces; para que resultados anteriores no interfieran, borramos los archivos de resultados creados:
 
 ```bash
-rm error.txt result.csv
+rm ~/Software/poc-rust/logs/error.txt ~/Software/poc-rust/logs/result.csv
 ```
 
 De este modo, en todas las ejecuciones se creará un archivo nuevo sin tener en cuenta uno ya existe.
 
-Volvemos a repetir los comandos anteriores; los tiempos de ejecución han sido:
+Volvemos a repetir los comandos anteriores varias veces para tener datos que representar gráficamente y comparar con Python.
 
-Descripción                                            | Ejecución 1 | Ejecución 2 | Ejecución 3 | Ejecución 4 | Media
--------------------------------------------------------|-------------|-------------|-------------|-------------|--------
-Rust opción más rápida (búsqueda por índice, no regex) | 29.436s     | 30.227s     | 33.716s     | 30.339s     | 30.929s
-
-Como vemos, los tiempos de ejecución tienen de media: 30.929s.
+Veremos el resumen del tiempo requerido más adelante.
 
 En todas las ejecuciones, el archivo `result.csv` es idéntico, todos tienen el mismo hash.
 
@@ -128,30 +125,30 @@ Al igual que con Rust, lanzamos nuestro parseador sin tener ningún otro program
 ```bash
 $ cd ~/Software/nginx-logs/python/
 $ python src/main.py ~/Software/poc-rust/logs
-Checking: /home/x/Software/poc-rust/logs/
+Checking: /home/x/Software/poc-rust/logs
 File with logs as csv: /home/x/Software/poc-rust/logs/result.csv
 File with not parsed logs: /home/x/Software/poc-rust/logs/error.txt
+Init file: /home/x/Software/poc-rust/logs/access.log.9.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.8.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.7.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.6.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.5.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.4.gz
+Init file: /home/x/Software/poc-rust/logs/access.log.3.gz
 Init file: /home/x/Software/poc-rust/logs/access.log.2.gz
 Init file: /home/x/Software/poc-rust/logs/access.log.1
 Init file: /home/x/Software/poc-rust/logs/access.log
-Time elapsed: 271.78013042500015s
+Time elapsed: 9.791666581000072s
 ```
 
 Eliminamos archivos generados para que no afecten a próximas ejecuciones y repetimos las medidas 4 veces mas:
 
 ```bash
-rm error.txt result.csv
+rm ~/Software/poc-rust/logs/error.txt ~/Software/poc-rust/logs/result.csv
 rm -rf src/__pycache__
 ```
 
-Los resultados fueron (los añado en una nueva línea siguiendo la tabla anterior):
-
-Descripción                                            | Ejecución 1 | Ejecución 2 | Ejecución 3 | Ejecución 4 | Media
--------------------------------------------------------|-------------|-------------|-------------|-------------|---------
-Rust opción más rápida (búsqueda por índice, no regex) | 29.436s     | 30.227s     | 33.716s     | 30.339s     | 30.929s
-Python opción más rápida (regex match, una sola regex) | 271.780s    | 275.314s    | 274.713s    | 277.136s    | 274.736s
-
-Siendo la media con Python de 274.736s (4min y 36.736s).
+Los resultados los comentamos a continuación.
 
 Como era de esperar, todos los logs han sido parseados correctamente y los archivos `.csv` generados con Python son iguales, tienen el mismo hash (el hash del archivo generado pro Python y Rust sí es distinto).
 
@@ -217,28 +214,16 @@ use lazy_static::lazy_static;
 use regex::Regex;
 ```
 
-Y comentamos la función `get_log` utilizada actualmente y descomentamos la función `get_log` que emplea expresiones regulares, tenemos dos opciones, una con el método `find` y la otra con `captures`.
+Y comentamos la función `get_log` utilizada actualmente y descomentamos la función `get_log` que emplea expresiones regulares, tenemos dos opciones, una con el método `find` y la otra con `captures`. Recordemos que, de utilizar expresiones regulares, el método `find` era la mejor más rápida Rust y el método `captures` el más lento, pero aun así mejores que en Python cuando comparamos expresiones regulares al inicio de este apartado.
 
-Con `find`, la mejor opción en Rust de utilizar expresiones regulares, los resultados son:
-
-Descripción                                            | Ejecución 1 | Ejecución 2 | Ejecución 3 | Ejecución 4 | Media
--------------------------------------------------------|-------------|-------------|-------------|-------------|---------
-Rust opción más rápida (búsqueda por índice, no regex) | 29.436s     | 30.227s     | 33.716s     | 30.339s     | 30.929s
-Python opción más rápida (regex match, una sola regex) | 271.780s    | 275.314s    | 274.713s    | 277.136s    | 274.736s
-Rust regex más rápida (regex find e índices)           | 43.857s     | 44.913s     | 43.606s     | 49.675s     | 45.513s
-
-Obteniendo un tiempo medio de 45.513s.
-
-De utilizar el método `captures`, el cual era la opción con resultados más lentos en Rust, pero aun así mejores que en Python cuando comparamos expresiones regulares al inicio de este apartado, los resultados han sido:
+Para cada método, compilamos el programa y repetimos las mediciones como al inicio de este apartado. Los valores de las mediciones se mostrarán en una tabla resumen a continuación.
 
 Descripción                                            | Ejecución 1 | Ejecución 2 | Ejecución 3 | Ejecución 4 | Media
 -------------------------------------------------------|-------------|-------------|-------------|-------------|---------
-Rust opción más rápida (búsqueda por índice, no regex) | 29.436s     | 30.227s     | 33.716s     | 30.339s     | 30.929s
-Python opción más rápida (regex match, una sola regex) | 271.780s    | 275.314s    | 274.713s    | 277.136s    | 274.736s
-Rust regex más rápida (regex find e índices)           | 43.857s     | 44.913s     | 43.606s     | 49.675s     | 45.513s
-Rust regex más lenta (regex captures, una sola regex)  | 348.511s    | 337.282s    | 340.437s    | 346.087s    | 343.079s
-
-Es decir, una media de 343.079s (5min y 43.079s).
+Rust opción más rápida (búsqueda por índice, no regex) | 0.721s      | 0.579s      | 0.577s      | 0.575s      | TODO
+Python opción más rápida (regex match, una sola regex) | 9.792s      | 9.736s      | 9.728s      | 9.682s      | TODO
+Rust regex más rápida (regex find e índices)           | 1.413s      | 1.413s      | 1.414s      | 1.409s      | TODO
+Rust regex más lenta (regex captures, una sola regex)  | 12.213s     | 12.119s     | 12.147s     | 11.998s     | TODO
 
 Puede leerse más sobre esta pérdida de velocidad en Rust respecto a Python en este hilo de [Reddit](https://www.reddit.com/r/rust/comments/5zit0e/regex_captures_slow_compared_to_python/).
 
