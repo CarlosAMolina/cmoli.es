@@ -124,7 +124,7 @@ Los resultados del uso de memoria han sido los siguientes.
 
 - Heap y stack
 
-  - Tato en Rust y Python, el comportamiento es similar que al medir solo `heap` (presenta la misma gráfica) aunque con unos valores de unos pocos kB más.
+  - Tanto en Rust y Python, el comportamiento es similar que al medir solo `heap` (presenta la misma gráfica) aunque con unos valores de unos pocos kB más.
 
 - Heap y stack
 
@@ -148,7 +148,9 @@ Los resultados del uso de memoria han sido los siguientes.
 
 > Memoria page level Python
 
-Se observa que el consumo de memoria es mayor al descomprimir que al leer los archivos descomprimidos; aunque esto depende del lenguaje, Rust consume más memoria al descomprimir y Python al leer archivos no comprimidos; será por cómo están implementadas las librerías que he utilizado o cómo he creado yo el código.
+Como comentarios finales de estos resultados, Rust presenta un menor consumo que Python.
+
+También, hay diferencias entre estos lenguajes al analizar la memoria heap y stack. Rust tiene mayor consumo al analizar archivos que debe descomprimir, que al trabajar con aquellos que no están comprimidos; pero en el caso de Python, los picos de memoria se producen al trabajar con los archivo no comprimidos.
 
 Como se aprecia en las gráficas, el eje temporal es mayor al que obtuvimos al comparar el tiempo de ejecución. Esto se debe a que el uso de Valgrind incrementa el tiempo del programa; es decir, el eje temporal conseguido en este apartado no representa lo que tardaría el programa en realidad.
 
