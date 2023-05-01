@@ -108,8 +108,6 @@ En la ruta ` ~/Software/nginx-logs/measure/plot/src/results/` tendremos las grá
 
 ## Resultados
 
-Como se ve en las gráficas, el eje temporal es mayor al que obtuvimos al comparar el tiempo de ejecución. Esto se debe a que el uso de Valgrind incrementa el tiempo del programa; es decir, el eje temporal conseguido en este apartado no representa lo que tardaría el programa en realidad.
-
 Los resultados han sido los siguientes.
 
 - Heap
@@ -151,6 +149,8 @@ Los resultados han sido los siguientes.
 > Memoria page level Python
 
 Se observa que el consumo de memoria es mayor al descomprimir que al leer los archivos descomprimidos; aunque esto depende del lenguaje, Rust consume más memoria al descomprimir y Python al leer archivos no comprimidos; será por cómo están implementadas las librerías que he utilizado o cómo he creado yo el código.
+
+Como se aprecia en las gráficas, el eje temporal es mayor al que obtuvimos al comparar el tiempo de ejecución. Esto se debe a que el uso de Valgrind incrementa el tiempo del programa; es decir, el eje temporal conseguido en este apartado no representa lo que tardaría el programa en realidad.
 
 ## Links de este tutorial
 
