@@ -6,6 +6,11 @@
 
 En este apartado se mostrarán los resultados de comparar Rust con otros lenguaje de programación. El objetivo es mostrar un resumen inicial y, en los siguientes capítulos ir obteniendo estas conclusiones paso a paso y analizarlas en mayor profundidad.
 
+Las versiones empleadas han sido:
+
+- Rust: 1.69.0
+- Python: 3.11.3
+
 ## Espacio en disco
 
 Para conocer el tamaño necesario se utiliza Docker para crear el entorno que trabaje con el programa.
