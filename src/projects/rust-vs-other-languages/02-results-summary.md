@@ -101,7 +101,7 @@ Rust presenta un menor consumo que Python, el comentario de las gráficas puede 
 
 ## CPU
 
-Respecto al uso de CPU para convertir los archivos de logs, se tiene:
+Respecto al uso de CPU para convertir los archivos de logs, se tiene que Rust usa como máximo cerca del 55%, mientras que Python llega a sobrepasar el 100%:
 
 ![](metrics-cpu-rust.png)
 
