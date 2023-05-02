@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - TODO
 ### Added
-- Toc to the project Rust Analysis.
+- Toc to the project Rust VS other languages.
+- Add more sections to the project Rust VS other languages.
 
 ## [0.14.0] - 2023-03-10
 ### Fix
