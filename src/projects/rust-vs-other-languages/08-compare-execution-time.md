@@ -108,17 +108,13 @@ Time elapsed: 720.718476ms
 
 El archivo `result.csv` generado ocupa 103M, y el archivo `error.txt` con logs no parseados está vacío por lo que todos han sido procesados correctamente.
 
-Ejecutaremos el programa varias veces; para que resultados anteriores no interfieran, borramos los archivos de resultados creados:
+Ejecutaremos el programa varias veces, borrando antes de cada proceso los archivos de resultados creados para que la escritura de nuevos archivos no se vea afectada por algunos ya existentes:
 
 ```bash
 rm ~/Software/poc-rust/logs/error.txt ~/Software/poc-rust/logs/result.csv
 ```
 
-De este modo, en todas las ejecuciones se creará un archivo nuevo sin tener en cuenta uno ya existe.
-
-Volvemos a repetir los comandos anteriores varias veces para tener datos que representar gráficamente y comparar con Python.
-
-Veremos el resumen del tiempo requerido más adelante.
+Veremos el resumen del tiempo requerido en cada ejecución más adelante.
 
 ### Opciones con expresiones regulares
 
@@ -138,9 +134,9 @@ use lazy_static::lazy_static;
 use regex::Regex;
 ```
 
-También, en este archivo comentamos la función `get_log` utilizada actualmente y descomentamos la función `get_log` que emplea expresiones regulares, tenemos dos opciones, una con el método `find` y la otra con `captures`. Recordemos que, de utilizar expresiones regulares, el método `find` era la opción más rápida en Rust y el método `captures` el más lento, pero aun así mejores que en Python cuando comparamos expresiones regulares al inicio de este apartado.
+También, en este archivo comentamos la función `get_log` utilizada actualmente y descomentamos la función `get_log` que emplea expresiones regulares, tenemos dos opciones, una con el método `find` y la otra con `captures`. Recordemos que, de utilizar expresiones regulares, entre los métodos que nos da cada parte de log, el método `find` era la opción más rápida en Rust y el método `captures` el más lento, pero aun así mejores que en Python cuando comparamos expresiones regulares al inicio de este apartado.
 
-Para cada método, compilamos el programa y repetimos las mediciones como al inicio de este apartado. Los valores de las mediciones se mostrarán en una tabla resumen más adelante.
+Para cada método, compilamos el programa y repetimos las mediciones como hicimos antes. Los valores de las mediciones se mostrarán en una tabla resumen más adelante.
 
 ## Python
 
@@ -165,7 +161,7 @@ Init file: /home/x/Software/poc-rust/logs/access.log
 Time elapsed: 9.791666581000072s
 ```
 
-Eliminamos archivos generados para que no afecten a próximas ejecuciones y repetimos las medidas 4 veces mas:
+Eliminamos archivos generados para que no afecten a próximas ejecuciones y repetimos las medidas tres veces mas:
 
 ```bash
 rm ~/Software/poc-rust/logs/error.txt ~/Software/poc-rust/logs/result.csv
@@ -176,9 +172,11 @@ Los resultados los comentamos a continuación.
 
 ## Representación gráfica de las mediciones
 
-Pasamos a mostrar gráficamente las mediciones creadas en `~/Software/nginx-logs/measure/measure/results/`.
+La representación se realiza con el proyecto `nginx-logs`, el cual tiene unos scripts en Python para esta función.
 
-La representación se realiza con el proyecto `nginx-logs`, el cual tiene unos scripts en Python para esta función. La ruta con la que trabajar es:
+En el archivo `~/Software/nginx-logs/measure/measure/results/execution-time.csv` están registradas las medidas conseguidas hasta ahora, pasamos a representarlas gráficamente.
+
+La ruta con la que trabajar es:
 
 ```bash
 cd ~/Software/nginx-logs/measure/plot/
@@ -221,7 +219,7 @@ Si lo representamos en una gráfica:
 
 > Media tiempo de ejecución
 
-Hemos visto que Rust es mucho mas rápido que Python, necesitando 30.930s el primer lenguaje y 274.736s (4min y 36.736s) Python, como puede verse en las dos primeras columnas de esta gráfica:
+Hemos visto que Rust es mucho mas rápido que Python, necesitando 0.613s el primer lenguaje y 9.734s Python, como puede verse en las dos primeras columnas de esta gráfica:
 
 Para Rust, el mejor tiempo se obtiene sin utilizar expresiones regulares, se buscan caracteres que indican el fin de cada elemento del log; en cambio, con Python el modo empleado es la función `match` con una sola expresión regular que detecta todas las partes del log.
 
@@ -235,11 +233,11 @@ Es verdad que, cuando estudiamos el modo más rápido de parsear logs, Rust era 
 
 Puede leerse más sobre esta pérdida de velocidad en Rust respecto a Python en este hilo de [Reddit](https://www.reddit.com/r/rust/comments/5zit0e/regex_captures_slow_compared_to_python/).
 
-Como conclusión, anteriormente vimos que la opción mas rápida de Rust fue 30.930s y en Python 4min y 36.736s. Con expresiones regulares, Rust puede hacer el análisis en 45.513s, el cual es mejor que Python, pero de utilizar el método de la expresión regular que da los resultados más lentos, se tiene un programa de menor velocidad que en Python, requiriendo 5min y 43.079s.
+Vemos que, con expresiones regulares, Rust puede hacer el análisis en 1.412s, el cual es mejor que Python, pero de utilizar el método de la expresión regular que da los resultados más lentos, se tiene un programa de menor velocidad que en Python, requiriendo 12.119s.
 
 ### Archivo csv generado
 
-El tamaño del archivo `result.csv` creados es de 2.7G tanto en Rust (con todos sus métodos) como en Python.
+El tamaño del archivo `result.csv` creado es de 103M tanto en Rust (con todos sus métodos) como en Python.
 
 Todos los archivos de resultados tiene el mismo contenido, entre el generado por Rust y Python solo se diferencia en el salto de línea empleado en cada archivo:
 
