@@ -8,8 +8,8 @@
   - [Configurar programa que generará logs](#configurar-programa-que-generará-logs)
   - [Crear archivos de logs](#crear-archivos-de-logs)
 - [Programa para convertir logs a csv](#programa-para-convertir-logs-a-csv)
-  - [Configurar versión en Python](#configurar-versión-en-python)
   - [Configurar versión en Rust](#configurar-versión-en-rust)
+  - [Configurar versión en Python](#configurar-versión-en-python)
 - [Recursos](#recursos)
 - [Links de este tutorial](#links-de-este-tutorial)
 
@@ -167,35 +167,13 @@ cd ~/Software/poc-rust
 El programa que utilizaremos para convertir nuestros archivos de logs a csv puede descargarse con el siguiente comando:
 
 ```bash
+cd ~/Software
 git clone https://github.com/CarlosAMolina/nginx-logs
-cd nginx-logs
 ```
-
-### Configurar versión en Python
-
-Para trabajar con la versión Python del programa, solamente hay que acceder a la carpeta con el código, no es necesario instalar ninguna librería externa.
-
-Ejecutando el programa con el argumento `-h` obtenemos un texto de ayuda:
-
-```bash
-$ cd python
-$ python src/main.py -h
-usage: main.py [-h] pathname
-
-Export Nginx logs to a csv file.
-
-positional arguments:
-  pathname    path to a folder with the log files or to an specific file
-
-options:
-  -h, --help  show this help message and exit
-```
-
-Con esto, observamos que el programa puede lanzarse.
 
 ### Configurar versión en Rust
 
-Al igual que hemos hecho con la versión Python de este programa, para Rust accedemos a la carpeta con el código en este lenguaje y lo ejecutamos, en este caso sin utilizar ningún argumento. Se mostrará con un error que no se ha proporcionado el argumento pathname, y un texto de ayuda.
+Comenzamos verificando que es posible trabajar con la versión Rust del programa. Para ello, accedemos a la carpeta con el código en este lenguaje y lo ejecutamos; si ha funcionado bien, se mostrará un mensaje de error indicando que no se ha proporcionado el argumento pathname, y un texto de ayuda.
 
 ```bash
 $ cd ~/Software/poc-rust/nginx-logs/rust
@@ -219,6 +197,28 @@ Por último, creamos el ejecutable de este programa, como hemos explicado anteri
 ```bash
 cargo build --release
 ```
+
+### Configurar versión en Python
+
+Para trabajar con la versión Python del programa, solamente hay que acceder a la carpeta con el código, no es necesario instalar ninguna librería externa.
+
+Ejecutando el programa con el argumento `-h` obtenemos un texto de ayuda:
+
+```bash
+$ cd ~/Software/poc-rust/nginx-logs/python
+$ python src/main.py -h
+usage: main.py [-h] pathname
+
+Export Nginx logs to a csv file.
+
+positional arguments:
+  pathname    path to a folder with the log files or to an specific file
+
+options:
+  -h, --help  show this help message and exit
+```
+
+Con esto, observamos que el programa puede lanzarse.
 
 ## Recursos
 
