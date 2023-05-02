@@ -29,7 +29,7 @@ Para realizar nuestro viaje al lenguaje Rust, deberemos seguir en orden los sigu
 - [Introducción al programa desarrollado](01-developed-program.html)
 - [Resumen de los resultados](02-results-summary.html)
 - [Especificaciones del equipo](03-host-specifications.html)
-- [Instalación Rust y Python](04-installation-rust-and-python.html)
+- [Instalación Rust y Python](04-install-rust-and-python.html)
 - [Comparar código Rust y Python](05-compare-code.html)
 - [Configurar los proyectos](06-setup-projects.html)
 - [Comparar espacio en disco](07-compare-size.html)

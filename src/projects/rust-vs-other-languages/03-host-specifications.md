@@ -73,6 +73,6 @@ Mostrar datos del Kernel:
 
 ## Links de este tutorial
 
-- [Siguiente apartado. Instalación Rust y Python](04-installation-rust-and-python.html)
+- [Siguiente apartado. Instalación Rust y Python](04-install-rust-and-python.html)
 - [Página principal](introduction.html)
 
