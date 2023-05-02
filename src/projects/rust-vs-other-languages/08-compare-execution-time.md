@@ -1,5 +1,22 @@
 # Comparar tiempo de ejecución
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Consideraciones iniciales](#consideraciones-iniciales)
+  - [Obtener partes del log](#obtener-partes-del-log)
+- [Rust](#rust)
+  - [Opción mas rápida](#opción-mas-rápida)
+  - [Opciones con expresiones regulares](#opciones-con-expresiones-regulares)
+- [Python](#python)
+- [Representación gráfica de las mediciones](#representación-gráfica-de-las-mediciones)
+- [Resultados](#resultados)
+  - [Tiempos de ejecución](#tiempos-de-ejecución)
+  - [Python más rápido que Rust](#python-más-rápido-que-rust)
+  - [Archivo csv generado](#archivo-csv-generado)
+- [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
+
 ## Introducción
 
 En este apartado veremos el tiempo que requiere cada programa para procesar los logs creados anteriormente.
@@ -248,6 +265,42 @@ $ meld ~/Software/poc-rust/logs/results/result-python.csv ~/Software/poc-rust/lo
 ![](results-file-difference.png)
 
 > Diferencia entre archivo csv generado por Rust y Python
+
+## Recursos
+
+Pruebas de velocidad al parsear logs:
+
+- Rust:
+
+  <https://github.com/CarlosAMolina/rust/blob/master/regex/performance-logs/src/main.rs>
+
+- Python:
+
+  <https://github.com/CarlosAMolina/python/blob/master/regex/performance-logs/src/main.py>
+
+Python documentación Regex:
+
+<https://docs.python.org/3/library/re.html#re.search>
+
+Python función re.compile:
+
+<https://docs.python.org/3/library/re.html#re.compile>
+
+Rust crate `lazy loading`:
+
+<https://docs.rs/regex/1.5.4/regex/index.html#example-avoid-compiling-the-same-regex-in-a-loop>
+
+Rust documentación Regex:
+
+<https://docs.rs/regex/latest/>
+
+Rust método `BufWriter`:
+
+<https://doc.rust-lang.org/std/io/struct.BufWriter.html>
+
+Rust pérdida de velocidad respecto a Python al usar Regex:
+
+<https://www.reddit.com/r/rust/comments/5zit0e/regex_captures_slow_compared_to_python/>
 
 ## Links de este tutorial
 
