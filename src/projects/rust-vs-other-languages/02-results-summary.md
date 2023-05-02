@@ -29,10 +29,10 @@ Python   | 51.8MB | python:3.11.3-alpine3.17 | Tamaño del lenguaje para lanzar 
 Los ficheros de logs que convertiremos a un archivo csv y así comparar las características de cada lenguaje como el tiempo de ejecución necesario y el uso de memoria y CPU, han sido:
 
 -  12M access.log
-- 7,1M access.log.1
+- 7.1M access.log.1
 - 692K access.log.2.gz
 - 976K access.log.3.gz
-- 1,3M access.log.4.gz
+- 1.3M access.log.4.gz
 - 827K access.log.5.gz
 - 902K access.log.6.gz
 - 557K access.log.7.gz
