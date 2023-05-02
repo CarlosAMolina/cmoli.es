@@ -1,5 +1,15 @@
 # Compilación multiplataforma
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Proceso](#proceso)
+  - [De Arch Linux a Debian](#de-arch-linux-a-debian)
+  - [De Ubuntu a MacOS](#de-ubuntu-a-macos)
+- [Conclusiones](#conclusiones)
+- [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
+
 ## Introducción
 
 Rust permite generar el programa ejecutable para distintas plataformas; pero, como indica su [documentación](https://rust-lang.github.io/rustup/cross-compilation.html#cross-compilation), es necesario instalar software adicional.
@@ -43,6 +53,24 @@ En el caso de compilar el ejecutable para MacOs desde Ubuntu, hubo que instalar 
 ## Conclusiones
 
 En esta sección se ha comentado de manera breve diferentes modos de compilar el programa para una plataforma distinta a la del host anfitrión. Lo que ha querido resaltarse es que, crear un archivo ejecutable con Rust de una arquitectura a otra, no es un proceso inmediato, sino que hay que realizar unos pasos previos como instalar software adicional.
+
+## Recursos
+
+Compilación de para MacOs desde Ubuntu:
+
+<https://wapl.es/rust/2019/02/17/rust-cross-compile-linux-to-macos.html>
+
+Proyecto propio sobre cómo compilar Rust para otras plataformas:
+
+<https://github.com/CarlosAMolina/rust/tree/master/cross-compilation>
+
+Rust documentación compilación multiplataforma:
+
+<https://rust-lang.github.io/rustup/cross-compilation.html#cross-compilation>
+
+Rust plataformas para compilación multiplataforma:
+
+>https://doc.rust-lang.org/rustc/targets/built-in.html>
 
 ## Links de este tutorial
 
