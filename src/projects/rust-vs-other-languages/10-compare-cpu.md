@@ -8,7 +8,7 @@ He buscado un programa que pudiera darme esta información, pero finalmente he u
 
 ## Herramienta elegida
 
-Para obtener el uso de CPU creé un [script en bash](https://github.com/CarlosAMolina/nginx-logs/blob/develop/measure/measure/measure-cpu) que guarda el resultado del comando `ps` en un archivo, muestro una parte:
+Para obtener el uso de CPU creé un [script en bash](https://github.com/CarlosAMolina/nginx-logs/blob/main/measure/measure/measure-cpu) que guarda el resultado del comando `ps` en un archivo, muestro una parte:
 
 ```bash
 ps_columns=cpuid,%cpu,%mem

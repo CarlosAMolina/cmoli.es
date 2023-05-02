@@ -47,7 +47,7 @@ sudo pacman -S massif-visualizer
 
 ## Ejecutar medición
 
-En el proyecto nginx-logs que descargamos previamente, tenemos un [script](https://github.com/CarlosAMolina/nginx-logs/blob/develop/measure/measure/run-and-measure-memory) que se encarga de realizar las mediciones con Valgrind automáticamente.
+En el proyecto nginx-logs que descargamos previamente, tenemos un [script](https://github.com/CarlosAMolina/nginx-logs/blob/main/measure/measure/run-and-measure-memory) que se encarga de realizar las mediciones con Valgrind automáticamente.
 
 Este script realizará tres ejecuciones del programa en Rust y otras tres en Python, estando estas ejecuciones analizadas con Valgrind, y guardará los archivos con las mediciones; también realiza acciones como eliminar los archivos creados por el programa para que cada ejecución no se vea afectada por la anterior.
 

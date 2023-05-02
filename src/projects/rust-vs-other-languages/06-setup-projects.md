@@ -159,12 +159,6 @@ git clone https://github.com/CarlosAMolina/nginx-logs
 cd nginx-logs
 ```
 
-Actualmente, la última versión está en la rama develop, por lo que cambiamos a ella:
-
-```bash
-git checkout develop
-```
-
 ### Configurar versión en Python
 
 Para trabajar con la versión Python del programa, solamente hay que acceder a la carpeta con el código, no es necesario instalar ninguna librería externa.

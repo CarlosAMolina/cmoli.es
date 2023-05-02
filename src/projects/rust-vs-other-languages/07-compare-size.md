@@ -29,7 +29,7 @@ Las imágenes Docker son las correspondientes a las versiones de los lenguajes q
 
 ### Trabajar con las imágenes Docker
 
-En el [proyecto](https://github.com/carlosamolina/nginx-logs/tree/develop) que transforma logs de Nginx a csv, hay disponibles unos scripts en bash con los comandos necesarios para trabajar con Docker.
+En el [proyecto](https://github.com/CarlosAMolina/nginx-logs/) que transforma logs de Nginx a csv, hay disponibles unos scripts en bash con los comandos necesarios para trabajar con Docker.
 
 #### Rust
 
