@@ -1,5 +1,15 @@
 # Comparar CPU
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Herramienta elegida](#herramienta-elegida)
+- [Ejecutar medición](#ejecutar-medición)
+- [Representación gráfica de las mediciones](#representación-gráfica-de-las-mediciones)
+- [Resultados](#resultados)
+- [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
+
 ## Introducción
 
 Otro aspecto a analizar de nuestro programa es el porcentaje de uso que realiza de CPU.
@@ -126,6 +136,12 @@ CPU_ID CPU% TIME
 3 96.3 11:35:57.286123093
 ...
 ```
+
+## Recursos 
+
+Script en proyecto nginx-logs para medir memoria:
+
+<https://github.com/CarlosAMolina/nginx-logs/blob/main/measure/measure/measure-cpu>
 
 ## Links de este tutorial
 
