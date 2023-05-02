@@ -2,6 +2,21 @@
 
 ## Contenidos
 
+- [Introducción](#introducción)
+- [Instalación](#instalación)
+  - [Instalación Rust](#instalación-rust)
+    - [Instalación Rust por primera vez en el equipo](#instalación-rust-por-primera-vez-en-el-equipo)
+    - [Actualizar la versión de Rust](#actualizar-la-versión-de-rust)
+  - [Instalación Python](#instalación-python)
+    - [Instalación Python por primera vez en el equipo](#instalación-python-por-primera-vez-en-el-equipo)
+    - [Instalar una versión diferente de Python](#instalar-una-versión-diferente-de-python)
+  - [Comprobar la instalación](#comprobar-la-instalación)
+- [Editor de Código](#editor-de-código)
+  - [Editor de código para Rust](#editor-de-código-para-rust)
+  - [Editor de código para Python](#editor-de-código-para-python)
+- [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
+
 ## Introducción
 
 Como el programa desarrollado está escrito en Rust y Python, lo primero que necesitamos es instalar estos lenguajes de programación en nuestro equipo.
@@ -115,9 +130,17 @@ Instalación Python:
 
 <https://realpython.com/installing-python/>
 
+- Instalar una versión distinta:
+
+  <https://cmoli.es/wiki/python/python.html#de-manera-manual>
+
 Instalación Rust, web oficial:
 
 <https://www.rust-lang.org/tools/install>
+
+Python 3.11. Mejora en velocidad:
+
+<https://docs.python.org/3.11/whatsnew/3.11.html#faster-cpython>
 
 Verificar instalación Rust y crear proyecto de prueba:
 
