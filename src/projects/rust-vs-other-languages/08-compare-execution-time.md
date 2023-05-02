@@ -268,6 +268,10 @@ $ meld ~/Software/poc-rust/logs/results/result-python.csv ~/Software/poc-rust/lo
 
 ## Recursos
 
+Meld:
+
+<https://meldmerge.org/>
+
 Pruebas de velocidad al parsear logs:
 
 - Rust:

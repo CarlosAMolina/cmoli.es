@@ -56,7 +56,7 @@ En esta sección se ha comentado de manera breve diferentes modos de compilar el
 
 ## Recursos
 
-Compilación de para MacOs desde Ubuntu:
+Compilación de para MacOS desde Ubuntu:
 
 <https://wapl.es/rust/2019/02/17/rust-cross-compile-linux-to-macos.html>
 
@@ -70,7 +70,7 @@ Rust documentación compilación multiplataforma:
 
 Rust plataformas para compilación multiplataforma:
 
->https://doc.rust-lang.org/rustc/targets/built-in.html>
+<https://doc.rust-lang.org/rustc/targets/built-in.html>
 
 ## Links de este tutorial
 
