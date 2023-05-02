@@ -1,5 +1,16 @@
 # Comparar memoria
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Herramienta elegida](#herramienta-elegida)
+- [Instalación Valgrind](#instalación-valgrind)
+- [Ejecutar medición](#ejecutar-medición)
+- [Representación gráfica de las mediciones](#representación-gráfica-de-las-mediciones)
+- [Resultados](#resultados)
+- [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
+
 ## Introducción
 
 Pasamos a medir el uso de memoria por parte del programa al convertir los archivos de logs a csv.
@@ -154,6 +165,32 @@ Como comentarios finales de estos resultados, Rust presenta un menor consumo que
 También, hay diferencias entre estos lenguajes al analizar la memoria heap y stack. Rust tiene mayor consumo al analizar archivos que debe descomprimir, que al trabajar con aquellos que no están comprimidos; pero en el caso de Python, los picos de memoria se producen al trabajar con los archivo no comprimidos.
 
 Como se aprecia en las gráficas, el eje temporal es mayor al que obtuvimos al comparar el tiempo de ejecución. Esto se debe a que el uso de Valgrind incrementa el tiempo del programa; es decir, el eje temporal conseguido en este apartado no representa lo que tardaría el programa en realidad.
+
+## Recursos
+
+Comando ps no es recomendable para medir memoria:
+
+<https://stackoverflow.com/questions/131303/how-can-i-measure-the-actual-memory-usage-of-an-application-or-process>
+
+Massif documentación:
+
+<https://valgrind.org/docs/manual/ms-manual.html>
+
+Massif visualizer:
+
+<https://apps.kde.org/es/massif-visualizer/>
+
+Script en proyecto nginx-logs para medir memoria:
+
+<https://github.com/CarlosAMolina/nginx-logs/blob/main/measure/measure/run-and-measure-memory>
+
+Valgrind descarga:
+
+<https://valgrind.org/downloads/>
+
+Valgrind documentación:
+
+<https://valgrind.org/docs/manual/ms-manual.html>
 
 ## Links de este tutorial
 
