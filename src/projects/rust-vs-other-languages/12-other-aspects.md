@@ -1,5 +1,11 @@
 # Otros aspectos
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Tiempo de compilación](#tiempo-de-compilación)
+- [Links de este tutorial](#links-de-este-tutorial)
+
 ## Introducción
 
 Quería añadir este apartado para destacar algunos puntos al trabajar con Rust.
