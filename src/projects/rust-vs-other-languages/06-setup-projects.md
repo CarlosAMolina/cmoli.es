@@ -1,5 +1,17 @@
 # Configurar los proyectos
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Crear carpeta de trabajo](#crear-carpeta-de-trabajo)
+- [Obtener archivos de logs](#obtener-archivos-de-logs)
+  - [Configurar programa que generará logs](#configurar-programa-que-generará-logs)
+  - [Crear archivos de logs](#crear-archivos-de-logs)
+- [Programa para convertir logs a csv](#programa-para-convertir-logs-a-csv)
+  - [Configurar versión en Python](#configurar-versión-en-python)
+  - [Configurar versión en Rust](#configurar-versión-en-rust)
+- [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
 
 ## Introducción
 
@@ -81,7 +93,7 @@ Usage
 
 ### Crear archivos de logs
 
-Para obtener logs que analizar, con el siguiente comando indicamos la ruta de destino (el programa creará la carpeta llamada `logs`), y el tamaño de los archivos (en Gigabytes):
+Para obtener logs que analizar, con el siguiente comando indicamos la ruta de destino (el programa creará la carpeta llamada `logs`), y el tamaño de los archivos (en Gigabytes), el orden de los archivos indicados es empezar por el de mayor número (ejemplo, el que será access.log.9.gz) y terminar con los tamaños correspondientes a access.log.1 y acess.log:
 
 ```bash
 cd ~/Software/poc-rust/nginx-logs-generator/nginx-logs-generator
@@ -142,7 +154,7 @@ $ wc *
    551692  11585116 112000811 total
 ```
 
-Como se ve, hay un total de 551.692 líneas de logs a analizar.
+Como se ve, hay un total de 551.692 líneas de logs a convertir a csv.
 
 Ya con esto, volvemos a nuestra ruta principal de trabajo:
 
