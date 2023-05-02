@@ -239,9 +239,15 @@ Vemos que, con expresiones regulares, Rust puede hacer el análisis en 1.412s, e
 
 El tamaño del archivo `result.csv` creado es de 103M tanto en Rust (con todos sus métodos) como en Python.
 
-Todos los archivos de resultados tiene el mismo contenido, entre el generado por Rust y Python solo se diferencia en el salto de línea empleado en cada archivo:
+Todos los archivos de resultados tienen el mismo contenido. Entre el generado por Rust y Python, la única diferencia es el salto de línea empleado en cada archivo, puede verse con el programa [meld](https://meldmerge.org/) ejecutando el siguiente comando (se ha cambiado el nombre de los archivos de resultados y movido a la carpeta `results`):
 
-TODO add meld image
+```bash
+$ meld ~/Software/poc-rust/logs/results/result-python.csv ~/Software/poc-rust/logs/results/result-rust-by-index.csv
+```
+
+![](results-file-difference.png)
+
+> Diferencia entre archivo csv generado por Rust y Python
 
 ## Links de este tutorial
 

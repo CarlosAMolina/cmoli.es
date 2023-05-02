@@ -11,6 +11,18 @@
 
 El programa que estudiaremos transforma los archivos de logs de un servidor Nginx en un único archivo `csv`. De este modo, es mas fácil su análisis al poder separar su contenido en columnas, filtrar valores, etc.
 
+Por ejemplo, un archivo con este contenido:
+
+![](file-logs.png)
+
+> Archivo logs
+
+Será convertido a:
+
+![](file-csv.png)
+
+> Archivo csv
+
 El código del programa está disponible en el siguiente [enlace](https://github.com/CarlosAMolina/nginx-logs).
 
 ## Partes
