@@ -2,6 +2,13 @@
 
 ## Contenidos
 
+- [Introducción](#introducción)
+- [Características](#características)
+- [Versiones de Software](#versiones-de-software)
+- [Comandos utilizados](#comandos-utilizados)
+- [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
+
 ## Introducción
 
 Para tener una idea de los resultados que se conseguirían dependiendo del equipo utilizado, a continuación muestro las características del ordenador con el que he trabajado. Así podéis saber si en vuestro equipo de mejores especificaciones obtendríais unos resultados más eficientes que los dados en los apartados de este proyecto.
@@ -29,17 +36,23 @@ Para tener una idea de los resultados que se conseguirían dependiendo del equip
 - Sistema operativo: Arch Linux
 - Kernel:
   - Nombre: Linux
-  - Release: 6.1.6-arch1-1
-  - Versión: #1 SMP PREEMPT_DYNAMIC Sat, 14 Jan 2023 13:09:35 +0000
+  - Release: 6.2.13-arch1-1
+  - Versión: #1 SMP PREEMPT_DYNAMIC Wed, 26 Apr 2023 20:50:14 +0000
 
 ## Versiones de Software
 
+Las versiones analizadas de Rust y Python han sido:
+
 - Rust: rustc 1.69.0 (84c898d65 2023-04-16)
-- Python: Python 3.11.3
+- Python: 3.11.3
+
+También, se ha utilizado Docker:
+
+- Docker: 23.0.4, build f480fb1e37
 
 ## Comandos utilizados
 
-Para obtener las anteriores características, los comandos utilizados han sido los siguientes:
+Para obtener algunas de las anteriores características, los comandos utilizados han sido los siguientes:
 
 - CPU: `lscpu`.
 - Memoria: `top`.
