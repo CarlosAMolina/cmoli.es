@@ -1,5 +1,18 @@
 # Comparar espacio en disco
 
+## Contenidos
+
+- [Introducción](#introducción)
+- [Configuración](#configuración)
+- [Proceso](#proceso)
+  - [Elegir imágenes Docker](#elegir-imágenes-docker)
+  - [Trabajar con las imágenes Docker](#trabajar-con-las-imágenes-docker)
+    - [Rust](#rust)
+    - [Python](#python)
+- [Comparación tamaños y conclusiones](#comparación-tamaños-y-conclusiones)
+- [Recursos](#recursos)
+- [Links de este tutorial](#links-de-este-tutorial)
+
 ## Introducción
 
 Gracias a que Rust crea un ejecutable del programa, puede utilizarse en otro equipo que no tenga Rust instalado, siempre que el archivo ejecutable sea compatible. En cambio, con Python es necesario tener instalado este lenguaje en el equipo donde lanzar el programa.
@@ -138,6 +151,28 @@ Python   | 51.8MB | python:3.11.3-alpine3.17 | Tamaño del lenguaje para lanzar 
 Si no tenemos en cuenta el tamaño para compilar y crear el archivo ejecutable, Rust es mejor opción que Python ya que, podemos trabajar con el ejecutable directamente en un sistema compatible necesitando solamente 4.5MB o, si el sistema no fuera compatible con el ejecutable, este podría utilizarse gracias a la imagen Alpine, requiriendo 11.8MB.
 
 En cambio, si pensamos en el espacio para crear el ejecutable, en Rust nos iríamos a 1.45GB de tamaño, lo que es una peor opción que los 51.8MB de Python.
+
+## Recursos
+
+Docker Engine:
+
+<https://docs.docker.com/engine/install/#other-linux-distros>
+
+Docker imágenes:
+
+<https://hub.docker.com>
+
+Docker modo rootless:
+
+<https://docs.docker.com/engine/security/rootless/>
+
+Docker opción multi-stage:
+
+<https://docs.docker.com/build/building/multi-stage/>
+
+Programa para convertir logs a csv:
+
+<https://github.com/CarlosAMolina/nginx-logs>
 
 ## Links de este tutorial
 
