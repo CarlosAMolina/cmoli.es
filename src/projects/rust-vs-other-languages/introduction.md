@@ -11,16 +11,16 @@
 
 Lo primero, quisiera agradecer a Carlos León su ayuda al guiarme con los aparatados de este proyecto.
 
-Para analizar el lenguaje Rust, haremos un laboratorio donde estudiar el comportamiento de un programa escrito en Rust y compararlo con otos lenguajes de programación.
+Para analizar el lenguaje Rust, haremos un laboratorio donde estudiar el comportamiento de un programa escrito en Rust y compararlo con su versión en Python.
 
-Los puntos analizados son:
+Los principales puntos analizados son:
 
-- Similitudes y diferencias en el código (Rust vs Python).
-- Espacio en disco (Rust vs Python).
-- Tiempo de ejecución (Rust vs Python).
-- Memoria (Rust vs Python).
-- CPU (Rust vs Python).
-- Multiplataforma (Rust vs Go).
+- Similitudes y diferencias en el código.
+- Espacio en disco.
+- Tiempo de ejecución.
+- Memoria.
+- CPU.
+- Compilación multiplataforma.
 
 ## Apartados
 
