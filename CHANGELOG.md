@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Test folder to the web content.
 
+### Changed
+- Error pages improved for mobile devices.
+
 ## [0.15.0] - 2023-05-02
 ### Added
 - Toc to the project Rust VS other languages.
