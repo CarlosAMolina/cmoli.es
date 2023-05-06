@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.15.1] - 2023-05-06
+### Added
+- Test folder to the web content.
+
 ## [0.15.0] - 2023-05-02
 ### Added
 - Toc to the project Rust VS other languages.
