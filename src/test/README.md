@@ -1,0 +1,1 @@
+Git ignores this folder.
