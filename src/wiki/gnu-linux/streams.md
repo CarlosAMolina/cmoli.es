@@ -9,7 +9,7 @@ Los streams se representan como `file descriptors`.
 Los 3 streams estándar son:
 
 Standard stream | Nombre          | File descriptor
----------------------------------------------------
+----------------|-----------------|----------------
 stdin           | Standard Input  | 0
 stdout          | Standard Output | 1
 stderr          | Standard Error  | 2
