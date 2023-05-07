@@ -14,15 +14,19 @@ stdin           | Standard Input  | 0
 stdout          | Standard Output | 1
 stderr          | Standard Error  | 2
 
+Respecto `stderr`, hay que tener en cuenta que no se usa solo para mensajes de error. Por ejemplo, en el lenguaje de programación Rust, las librerías de logging utilizar `stderr` como salida por defecto; Rust por ejemplo usa `stdout` con `println!`.
+
 ## Redirección
 
-Ejemplo redirigir errores a un archivo:
+Ejemplo redirigir stderr a un archivo:
 
 ```bash
-./program 2> errors.txt
+./program 2> logs.txt
 ```
 
 ## Recursos
+
+Introducción:
 
 <https://www.putorius.net/linux-io-file-descriptors-and-redirection.html>
 
