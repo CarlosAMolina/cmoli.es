@@ -27,7 +27,13 @@ sudo pacman -S neovim
 
 ## Configuración
 
-La configuración de Neovim se realiza en el siguiente archivo:
+Primero, debemos saber qué archivo de configuración se utiliza. Para ello, en Neovim lanzamos el siguiente comando:
+
+```bash
+:echo stdpath("config")
+```
+
+Ya con esto, conocemos el archivo de configuración con el que trabajar:
 
 ```bash
 vi ~/.config/nvim/init.vim
