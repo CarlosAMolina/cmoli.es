@@ -107,8 +107,8 @@ docker image rm -f $(docker image ls -q)
 Cambiamos el directorio de trabajo y creamos la imagen Docker con los archivos necesarios y el volumen en el que guardar los logs a analizar:
 
 ```bash
-$ cd  ~/Software/nginx-logs/python/
-$ ./run-docker -b
+cd  ~/Software/nginx-logs/python/
+./run-docker -b
 ```
 
 Los pasos para crear la imagen pueden verse en el archivo Dockerfile del anterior directorio.

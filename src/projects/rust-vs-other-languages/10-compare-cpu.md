@@ -59,7 +59,7 @@ Una vez las medidas han terminado, hay que modificar los archivos.
 
 Para las mediciones de Python, cambiamos el nombre de los archivos resultado al formato `metrics-cpu-python-measure-1.txt`, cambiando el número final por el número de la medida, del 1 al 3.
 
-Respecto a Rust, debido a que con el comando `ps` no siempre se tienen resultados porque el uso de CPU aparece en muchas ocasiones como 0%, el script que ejecutamos ha generado un total de 30 archivos de mediciones para que elijamos los que pueden aportar valor para una representación gráfica. Una vez elegimos tres archivos de medida, eliminamos las filas iniciales con medición 0% y cambiamos el nombre de los archivos, estos siguen la forma `metrics-cpu-nginx_logs-20230502-112147.txt`, los modificamos a `metrics-cpu-rust-measure-1.txt`, de nuevo, siendo el número del final el identificador de cada medición.
+Respecto a Rust, debido a que con el comando `ps` no siempre se tienen resultados porque el uso de CPU aparece en muchas ocasiones como 0%, el script que ejecutamos ha generado un total de 30 archivos de mediciones para que elijamos los que pueden aportar valor para una representación gráfica. Una vez que hemos seleccionado tres archivos de medida, eliminamos las filas iniciales con medición 0% y cambiamos el nombre de los archivos, estos siguen la forma `metrics-cpu-nginx_logs-20230502-112147.txt`, los modificamos a `metrics-cpu-rust-measure-1.txt`, de nuevo, siendo el número del final el identificador de cada medición.
 
 ## Representación gráfica de las mediciones
 
@@ -73,7 +73,7 @@ tar xf cpu-measure.tar.gz
 mv cpu-measure/* .
 ```
 
-Recordemos que, utilizamos librerías externas de Python como `matplotlib`, por lo que activamos el entorno virtual con las librerías instaladas que creamos al representar los resultados de medir la memoria:
+Recordemos que, utilizamos librerías externas de Python como `matplotlib`, por lo que activamos el entorno virtual con las librerías instaladas que creamos al representar los resultados de medir el tiempo de ejecución:
 
 ```bash
 source ~/Software/nginx-logs/env/bin/activate
@@ -137,7 +137,7 @@ CPU_ID CPU% TIME
 ...
 ```
 
-## Recursos 
+## Recursos
 
 Script en proyecto nginx-logs para medir memoria:
 

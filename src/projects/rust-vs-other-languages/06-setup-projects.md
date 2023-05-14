@@ -167,7 +167,7 @@ cd ~/Software/poc-rust
 El programa que utilizaremos para convertir nuestros archivos de logs a csv puede descargarse con el siguiente comando:
 
 ```bash
-cd ~/Software
+cd ~/Software/poc-rust
 git clone https://github.com/CarlosAMolina/nginx-logs
 ```
 

@@ -107,7 +107,7 @@ En lugar de utilizar `massif-visualizer`, al igual que hicimos al representar la
 cd ~/Software/nginx-logs/measure/plot/
 ```
 
-Activamos el entrono virtual que creamos anteriormente y que tiene instaladas las librerías externas necesarias:
+Activamos el entrono virtual que creamos anteriormente al analizar el tiempo de ejecución, y que tiene instaladas las librerías externas necesarias:
 
 ```bash
 source ~/Software/nginx-logs/env/bin/activate
@@ -127,7 +127,7 @@ Los resultados del uso de memoria han sido los siguientes.
 
 - Heap
   - Rust necesita cerca de 100 kB la mayor parte del tiempo y al final baja su consumo sobre 26 kB. La parte de los 100 kB corresponde al análisis de los archivos comprimidos en `gz` y la bajada se produce porque ya no descomprime archivos (analiza `access.log.1` y `access.log`).
-  - Python está en el orden de MB, se mantiene cerca de 2 MB al analizar archivos comprimidos en `.gz` y luego presenta picos al analizar archivos de logs que no están comprimidos, siendo el pico más alto de casi 26 MB.
+  - Python está en el orden de MB, se mantiene cerca de 2 MB al analizar archivos comprimidos en `.gz` y luego presenta picos al analizar archivos de logs que no están comprimidos, siendo el pico más alto de poco más de 26 MB.
 
 ![](metrics-memory-massif-rust-heap-only.png)
 
@@ -168,7 +168,7 @@ Como se aprecia en las gráficas, el eje temporal es mayor al que obtuvimos al c
 
 ## Recursos
 
-Comando ps no es recomendable para medir memoria:
+Comando `ps` no es recomendable para medir memoria:
 
 <https://stackoverflow.com/questions/131303/how-can-i-measure-the-actual-memory-usage-of-an-application-or-process>
 
@@ -176,7 +176,7 @@ Massif documentación:
 
 <https://valgrind.org/docs/manual/ms-manual.html>
 
-Massif visualizer:
+Massif Visualizer:
 
 <https://apps.kde.org/es/massif-visualizer/>
 

@@ -236,7 +236,7 @@ Si lo representamos en una gráfica:
 
 > Media tiempo de ejecución
 
-Hemos visto que Rust es mucho mas rápido que Python, necesitando 0.613s el primer lenguaje y 9.734s Python, como puede verse en las dos primeras columnas de esta gráfica:
+Las dos primeras columnas de la gráfica muestran que Rust es mucho mas rápido que Python, necesitando 0.613s el primer lenguaje y 9.734s Python.
 
 Para Rust, el mejor tiempo se obtiene sin utilizar expresiones regulares, se buscan caracteres que indican el fin de cada elemento del log; en cambio, con Python el modo empleado es la función `match` con una sola expresión regular que detecta todas las partes del log.
 
@@ -246,7 +246,7 @@ En la imagen anterior, se han añadido las dos últimas columnas para conocer qu
 
 Como vimos al inicio de este apartado, en Rust se tienen mejores tiempos de no utilizar expresiones regulares, pero como curiosidad, si el programa las utilizara, puede llegar a tardar más tiempo que Python.
 
-Es verdad que, cuando estudiamos el modo más rápido de parsear logs, Rust era más rápido que Python con expresiones regulares, pero porque analizamos el mismo log (aunque se analizó una gran cantidad de veces), de trabajar con los archivos de logs anteriores, hemos visto que, con el método `captures` se tiene un programa más lento que su versión en Python.
+Es verdad que, cuando estudiamos el modo más rápido de parsear logs, Rust era más rápido que Python con expresiones regulares, pero porque analizamos el mismo log (aunque se analizó una gran cantidad de veces); de trabajar con los archivos de logs anteriores, hemos visto que, con el método `captures` se tiene un programa más lento que su versión en Python.
 
 Puede leerse más sobre esta pérdida de velocidad en Rust respecto a Python en este hilo de [Reddit](https://www.reddit.com/r/rust/comments/5zit0e/regex_captures_slow_compared_to_python/).
 
@@ -286,7 +286,7 @@ Python documentación Regex:
 
 <https://docs.python.org/3/library/re.html#re.search>
 
-Python función re.compile:
+Python función `re.compile`:
 
 <https://docs.python.org/3/library/re.html#re.compile>
 

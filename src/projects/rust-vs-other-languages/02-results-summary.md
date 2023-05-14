@@ -14,7 +14,7 @@
 
 ## Introducción
 
-En este apartado se mostrarán los resultados de comparar Rust con otros lenguaje de programación. El objetivo es mostrar un resumen inicial y, en los siguientes capítulos ir obteniendo estas conclusiones paso a paso y analizarlas en mayor profundidad.
+En este apartado se mostrarán los resultados de comparar Rust con otro lenguaje de programación. El objetivo es tener un resumen inicial y, en los siguientes capítulos ir obteniendo estas conclusiones paso a paso y analizarlas en mayor profundidad.
 
 Las versiones empleadas han sido:
 
@@ -23,7 +23,7 @@ Las versiones empleadas han sido:
 
 ## Espacio en disco
 
-Para conocer el tamaño necesario se utiliza Docker para crear el entorno que trabaje con el programa.
+Para conocer el tamaño necesario se utiliza Docker ya que, permite crear el entorno que trabaje con el programa.
 
 Comparando la versión Rust del programa con su versión en Python, los resultados son los siguientes:
 
@@ -115,7 +115,7 @@ Comentar que, el método empleado para medir el uso de CPU no es demasiado corre
 
 ## Compilación multiplataforma
 
-Solamente indicar que, pese a ser posible en Rust crear el archivo ejecutable para distintas plataformas, es un proceso no inmediato ya que requiere pasos previos como la instalación de software adicional.
+Solamente indicar que, aunque es posible en Rust crear el archivo ejecutable para distintas plataformas, es un proceso no inmediato ya que requiere pasos previos como la instalación de software adicional.
 
 ## Otros aspectos
 

@@ -139,7 +139,7 @@ def get_args_parsed():
     return parser.parse_args()
 ```
 
-En este caso, la librería `argparse` genera el mensaje de ayuda, no es necesario que lo escribamos como sí tuvimos que hacer en Rust, solo hemos tenido que especificar una descripción del programa y del argumento `pathname`. El mensaje de ayuda será prácticamente igual al que definimos antes en la función help() del código Rust, lo veremos en futuros apartados al ejecutar el programa.
+En este caso, la librería `argparse` genera el mensaje de ayuda, no es necesario que lo escribamos como sí tuvimos que hacer en Rust, solo hemos tenido que especificar una descripción del programa y del argumento `pathname`. El mensaje de ayuda será prácticamente igual al que definimos antes en la función `help()` del código Rust, lo veremos en futuros apartados al ejecutar el programa.
 
 ### Ordenar archivos de logs a analizar
 
@@ -147,7 +147,7 @@ Una vez se conoce la ruta con los archivos a analizar, deben ordenarse desde el 
 
 ### Modificar logs
 
-Al leer los logs, debe separarse con comas cada parte (dirección IP, paths solicitados, códigos de respuesta, etc) para generar el archivo .csv final.
+Al leer los logs, debe separarse con comas cada parte (dirección IP, paths solicitados, códigos de respuesta, etc) para generar el archivo `csv` final.
 
 ### Programa principal
 
