@@ -139,7 +139,21 @@ El certificado caduca cada 90 días, el motivo está explicado en [su sitio web]
 
 De haber creado el certificado manualmente (con la opción `--manual`), no podrá ser renovado con los métodos indicados a continuación, hay que repetir el mismo proceso que se realizó para crear el certificado. Esto viene indicado en el siguiente [link](https://github.com/certbot/certbot/issues/7489#issuecomment-548971511).
 
+Para [ver los dominios que tenemos configurados](https://stackoverflow.com/questions/59206631/how-can-i-see-all-domains-in-my-ssl-certificate-made-by-certbot), leemos la línea `Domains` que muestra el siguiente comando:
+
+```bash
+sudo certbot certificates
+```
+
+Procedemos con su renovación [de este modo](https://github.com/certbot/certbot/issues/7489#issuecomment-548971511), nos guiará sobre unas acciones a realizar, donde deberemos especificar los dominios a renovar:
+
+```bash
+sudo certbot certonly --manual
+```
+
 ###### Renovación del certificado manualmente
+
+Esta opción puede utilizarse si no hemos creado el certificado manualmente; de haberlo creado manualmente, leer el apartado correspondiente para proceder con la renovación.
 
 Simplemente ejecutamos:
 
