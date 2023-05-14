@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.15.4] - 2023-05-14
+### Added
+- Project Rust VS other languages: final words section and improve text.
 
 ## [0.15.3] - 2023-05-13
 ### Added
