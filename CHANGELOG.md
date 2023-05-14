@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.15.4] - 2023-05-14
 ### Added
 - Project Rust VS other languages: final words section and improve text.
+- Wiki Nginx: commands to renew the certificate.
 
 ## [0.15.3] - 2023-05-13
 ### Added
