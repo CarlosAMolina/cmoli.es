@@ -18,4 +18,5 @@ Como vimos en anteriores apartados, es verdad que Rust ofrece la orden `cargo bu
 
 ## Links de este tutorial
 
+- [Palabras finales](13-final-words.html)
 - [Página principal](introduction.html)

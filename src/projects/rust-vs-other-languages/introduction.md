@@ -38,4 +38,5 @@ Para realizar nuestro viaje al lenguaje Rust, deberemos seguir en orden los sigu
 - [Comparar CPU](10-compare-cpu.html)
 - [Compilación multiplataforma](11-cross-compilation.html)
 - [Otros aspectos](12-other-aspects.html)
+- [Palabras finales](13-final-words.html)
 
