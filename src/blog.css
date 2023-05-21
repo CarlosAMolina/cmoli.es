@@ -31,7 +31,7 @@ body {
   background-color: var(--BACKGROUND-COLOR);
   line-height: 1.5;
   font-size: var(--FONT-SIZE);
-  font-family: Mono;
+  font-family: var(--FONT-FAMILY);
   width: 90%;
   max-width: 1000px;
   margin: 0 auto;

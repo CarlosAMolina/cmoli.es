@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Wiki Nginx: add restart the server to apply the certificate renewal.
 
+### Changed
+- CSS: set font-family to the main page.
+
 ## [0.15.4] - 2023-05-14
 ### Added
 - Project Rust VS other languages: final words section and improve text.
