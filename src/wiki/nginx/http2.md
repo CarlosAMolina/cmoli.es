@@ -151,6 +151,8 @@ Procedemos con su renovación [de este modo](https://github.com/certbot/certbot/
 sudo certbot certonly --manual
 ```
 
+Tras esto, debemos reiniciar el servidor Nginx.
+
 ###### Renovación del certificado manualmente
 
 Esta opción puede utilizarse si no hemos creado el certificado manualmente; de haberlo creado manualmente, leer el apartado correspondiente para proceder con la renovación.
