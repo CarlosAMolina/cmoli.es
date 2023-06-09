@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.16.0] - 2023-06-09
+### Added
+- Wiki Database.
+
 ## [0.15.5] - 2023-05-21
 ### Added
 - Wiki Nginx: add restart the server to apply the certificate renewal.
