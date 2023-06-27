@@ -33,6 +33,8 @@ create-web-content:
 	/bin/bash $(SCRIPT_SET_MEDIA_CONTENT) \
 		$(DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT) \
 		$(MEDIA_CONTENT_PATHNAME)
+	/bin/bash clone-tools-to-docker-volume \
+		$(DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT)
 
 create-web-server:
 	make -f makefile-nginx \
