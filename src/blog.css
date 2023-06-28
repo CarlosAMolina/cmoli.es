@@ -27,21 +27,6 @@ tr:hover {
   background-color: Teal;
 }
 
-body {
-  background-color: var(--BACKGROUND-COLOR);
-  line-height: 1.5;
-  font-size: var(--FONT-SIZE);
-  font-family: var(--FONT-FAMILY);
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-  color:#eaeaea;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: var(--YELLOW-COLOR);
-}
-
 ul {
   list-style-image: linear-gradient(var(--YELLOW-COLOR), var(--YELLOW-COLOR));
 }

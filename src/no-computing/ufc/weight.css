@@ -1,29 +1,5 @@
 @import url("../../blog.css");
 
-button {
-  color: #fff;
-  background-color: #4CAF50;
-  font-size: var(--FONT-SIZE);
-  padding: 8px 30px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-}
-
-button:hover {
-  background-color: #3e8e41;
-  color: white;
-}
-
-input[type=number] {
-  background-color: var(--INPUT-BACKGROUND-COLOR);
-  padding: 4px 1px;
-  border: solid var(--YELLOW-COLOR);
-  border-radius: 5px;
-  width: 10em;
-}
-
 input[type="radio"]{
   appearance: none;
   border-radius: 50%;

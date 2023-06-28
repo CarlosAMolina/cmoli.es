@@ -1,5 +1,6 @@
 :root {
   --BACKGROUND-COLOR: #1a1a1a;
+  --BUTTON-COLOR: #4caf50;
   --FONT-SIZE: 16px;
   --FONT-FAMILY: sans-serif;
   --GREEN-COLOR: #30ec30;
@@ -8,3 +9,41 @@
   --YELLOW-COLOR: #b5e853;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: var(--YELLOW-COLOR);
+}
+
+body {
+  background-color: var(--BACKGROUND-COLOR);
+  line-height: 1.5;
+  font-size: var(--FONT-SIZE);
+  font-family: var(--FONT-FAMILY);
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  color:#eaeaea;
+}
+
+button {
+  color: #fff;
+  background-color: var(--BUTTON-COLOR);
+  font-size: var(--FONT-SIZE);
+  padding: 8px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #3e8e41;
+  color: white;
+}
+
+input[type=number] {
+  background-color: var(--INPUT-BACKGROUND-COLOR);
+  padding: 4px 1px;
+  border: solid var(--YELLOW-COLOR);
+  border-radius: 5px;
+  width: 10em;
+}
