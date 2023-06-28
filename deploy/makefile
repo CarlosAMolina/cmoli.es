@@ -1,5 +1,6 @@
 ROOT_PATHNAME=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 SCRIPT_CONVERT_MD_TO_HTML_PATHNAME=$(ROOT_PATHNAME)/convert-md-to-html-for-files
+SCRIPT_CLONE_TOOLS_PATHNAME=$(ROOT_PATHNAME)/clone-tools-to-docker-volume
 SCRIPT_MODIFY_HTML_FILES=$(ROOT_PATHNAME)/modify-html
 SCRIPT_OPEN_HTML_PATHNAME=$(ROOT_PATHNAME)/open-html
 SCRIPT_SET_MEDIA_CONTENT=$(ROOT_PATHNAME)/set-media-content-to-docker-volume
@@ -33,7 +34,7 @@ create-web-content:
 	/bin/bash $(SCRIPT_SET_MEDIA_CONTENT) \
 		$(DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT) \
 		$(MEDIA_CONTENT_PATHNAME)
-	/bin/bash clone-tools-to-docker-volume \
+	/bin/bash $(SCRIPT_CLONE_TOOLS_PATHNAME) \
 		$(DOCKER_VOLUME_NAME_NGINX_WEB_CONTENT)
 
 create-web-server:
