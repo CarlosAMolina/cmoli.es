@@ -50,12 +50,12 @@ class TestCommandGenerator(unittest.TestCase):
             "convert-md-to-html",
             "/tmp/cmoli.es/html/ssh.md",
             "/tmp/cmoli.es/html/ssh.html",
-            "../blog.css",
+            "../common-sections.css",
             "pandoc-config/template.html",
             "pandoc-config/metadata.yml",
         )
         result = main.CommandGenerator(
-            css_file_pathname="../blog.css",
+            css_file_pathname="../common-sections.css",
             filename_to_convert="ssh.md",
             output_dir_pathname="/tmp/cmoli.es/html",
             pandoc_metadata_file_pathname="pandoc-config/metadata.yml",

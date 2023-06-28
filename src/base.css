@@ -13,17 +13,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--YELLOW-COLOR);
 }
 
-body {
-  background-color: var(--BACKGROUND-COLOR);
-  line-height: 1.5;
-  font-size: var(--FONT-SIZE);
-  font-family: var(--FONT-FAMILY);
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-  color:#eaeaea;
-}
-
 button {
   color: #fff;
   background-color: var(--BUTTON-COLOR);
