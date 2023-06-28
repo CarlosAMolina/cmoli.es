@@ -7,6 +7,6 @@ volume_tools_pathname=$volume_web_content_pathname/tools/
 echo "[ÐEBUG] Init clone tools in $volume_tools_pathname"
 cd $volume_tools_pathname
 rm -rf open-urls
-git clone --depth=1 --branch=main git@github.com:CarlosAMolina/open-urls
+git clone --depth=1 --branch=main https://github.com/CarlosAMolina/open-urls
 rm -rf open-urls/.git
 
