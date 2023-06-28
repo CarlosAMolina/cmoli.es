@@ -17,7 +17,7 @@ button:hover {
 }
 
 input[type=number] {
-  background-color: #EEE5E4;
+  background-color: var(--INPUT-BACKGROUND-COLOR);
   padding: 4px 1px;
   border: solid var(--YELLOW-COLOR);
   border-radius: 5px;
