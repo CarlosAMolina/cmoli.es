@@ -11,6 +11,7 @@
     - [Errores corrección ortográfica](#errores-corrección-ortográfica)
       - [No encuentra archivo](#no-encuentra-archivo)
 - [Plugins](#plugins)
+- [Comandos útiles](#comandos-útiles)
 - [Referencias](#referencias)
 
 ## Introducción Neovim
@@ -81,6 +82,14 @@ ln -s .vim .nvim
 ## Plugins
 
 Ver [plugins](plugins.html).
+
+## Comandos útiles
+
+- Control + 6: cambiar entre 2 archivos (el actual y el anterior).
+- Control + o: volver al anterior archivo que se abrió.
+- Control + i: volver al siguiente archivo que se abrió.
+- `:jumps`: histórico de archivos abiertos. Se utilizará este orden al pulsar `control o` y `control + i`.
+- Control + d: mientras escribes un comando, esta opción muestra lista de comandos disponibles.
 
 ## Referencias
 
