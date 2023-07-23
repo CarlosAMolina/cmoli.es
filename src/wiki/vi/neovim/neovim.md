@@ -90,6 +90,7 @@ Ver [plugins](plugins.html).
 - Control + i: volver al siguiente archivo que se abrió.
 - `:jumps`: histórico de archivos abiertos. Se utilizará este orden al pulsar `control o` y `control + i`.
 - Control + d: mientras escribes un comando, esta opción muestra lista de comandos disponibles.
+- `%`: ejecutado sobre un elemento de apertura o cierre (ejemplo, `{`, tags html como `div`, etc) lleva a su correspondiente cierre o apertura, respectivamente.
 
 ## Referencias
 
