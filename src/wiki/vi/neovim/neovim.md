@@ -92,6 +92,7 @@ Ver [plugins](plugins.html).
 - Control + d: mientras escribes un comando, esta opción muestra lista de comandos disponibles.
 - `%`: ejecutado sobre un elemento de apertura o cierre (ejemplo, `{`, tags html como `div`, etc) lleva a su correspondiente cierre o apertura, respectivamente.
 - `c`: como `d` pero tras cortar accedes a modo `insert` respectando la indentación.
+- `dap`: eliminar párrafo.
 
 ## Referencias
 
