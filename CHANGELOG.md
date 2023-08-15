@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [TODO] - TODO
 ### Added
 - Vim: useful commands section.
+- Gnu-linux, Arch Linux: add Windows to the GRUB menu.
 
 ## [0.17.0] - 2023-06-29
 ### Added

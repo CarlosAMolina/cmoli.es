@@ -62,31 +62,7 @@ pacstrap -K /mnt base linux linux-firmware
 
 ## Configure the system
 
-Note. With the following method, only Arch will appear in GRUB.
-
-```bash
-# fstab
-genfstab /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
-ln -sf /usr/share/zoneinfo/Europe/Madrid /etc/localtime
-hwclock --systohc
-echo "es_ES.UTF-8 UTF-8" >> /etc/locale.gen
-locale-gen
-echo "LANG=es_ES.UTF-8" > /etc/locale.conf
-echo "KEYMAP=es" > /etc/vconsole.conf
-echo "hpPC" > /etc/hostname
-mkinitcpio -P # run only if /etc/mkinitcpio.d/linux.preset does not exist
-passwd
-pacman -S grub efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch
-pacman -S intel-ucode
-grub-mkconfig -o /boot/grub/grub.cfg
-exit
-umount -R /mnt
-shutdown -h now
-```
-
-Extract the usb before start the system again.
+See [system configuration](system-configuration.html).
 
 ## Start session
 
