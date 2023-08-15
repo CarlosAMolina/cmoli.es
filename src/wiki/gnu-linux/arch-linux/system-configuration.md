@@ -83,7 +83,9 @@ Finalmente, generamos el archivo con la configuración que detecte Windows:
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-Tras reiniciar equipo, puede elegirse en el menú GRUB el sistema operativo a utilizar; de elegir Windows, el menú GRUB no volverá a aparece la próxima vez que iniciemos el equipo, en el siguiente apartado vemos como solucionar esto.
+Tras reiniciar el equipo, aparecerá el menú GRUB donde seleccionar el sistema operativo a utilizar.
+
+De elegir el sistema operativo Windows, es posible que el menú GRUB ya no aparezca la próxima vez que iniciemos el equipo; de ocurrir esto, en el siguiente apartado vemos cómo solucionarlo.
 
 Recursos utilizados:
 
@@ -92,7 +94,7 @@ Recursos utilizados:
 
 ## Evitar que Windows modifique el menú GRUB
 
-Si iniciamos Windows, perderemos el menú de GRUB que permite elegir qué sistema operativo iniciar; para evitar esto, primero buscamos el número tras `Boot` asignado a Windows:
+Si iniciamos Windows, seguramente perderemos el menú GRUB que permite elegir qué sistema operativo iniciar; para evitar esto, primero buscamos el número tras `Boot` asignado a Windows:
 
 ```bash
 sudo efibootmgr
