@@ -6,6 +6,7 @@
   - [Introducción](#introducción)
   - [Configuración manual](#configuración-manual)
   - [Configuración automática con DHCP](#configuración-automática-con-dhcp)
+- [Reiniciar interfaz](#reiniciar-interfaz)
 - [Recursos](#recursos)
 
 ## Configurar interfaces
@@ -103,6 +104,12 @@ sudo systemctl enable systemd-networkd
 ```
 
 Pueden verse los servicios iniciados con `sudo systemctl --type=service`.
+
+## Reiniciar interfaz
+
+```bash
+sudo ifconfig wlp3s0 down && sudo ifconfig wlp3s0 up
+```
 
 ## Recursos
 
