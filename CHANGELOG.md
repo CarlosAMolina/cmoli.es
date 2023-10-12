@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   - Network: add restart interface.
 ### Changed
 - Main menu: move UFC to the tools section.
+- USB Linux: move sections.
 
 ## [0.17.0] - 2023-06-29
 ### Added

@@ -5,12 +5,12 @@
 - [Introduction](#introduction)
 - [Work with an USB manually](#work-with-an-usb-manually)
   - [Mount an USB manually](#mount-an-usb-manually)
-    - [Mount an USB manually with sudo](#mount-an-usb-manually-with-sudo)
     - [Mount an USB manually without sudo](#mount-an-usb-manually-without-sudo)
+    - [Mount an USB manually with sudo](#mount-an-usb-manually-with-sudo)
   - [Disconnect an USB manually](#disconnect-an-usb-manually)
     - [Unmount an USB manually](#unmount-an-usb-manually)
-    - [Unmount an USB manually with sudo](#unmount-an-usb-manually-with-sudo)
     - [Unmount an USB manually without sudo](#unmount-an-usb-manually-without-sudo)
+    - [Unmount an USB manually with sudo](#unmount-an-usb-manually-with-sudo)
     - [Eject an USB manually](#eject-an-usb-manually)
     - [Power off an USB manually](#power-off-an-usb-manually)
 - [Automate work with an USB](#automate-work-with-an-usb)
@@ -61,6 +61,15 @@ In this example, the USB is `/dev/sdc` and the part with the data is `/dev/sdc1`
 
 In order to access de USB data, I have to mount `/dev/sdc1`.
 
+#### Mount an USB manually without sudo
+
+To avoid run sudo commands, we can use the `udisksctl` command, but this won't allow us to set the target path where the device will be mounted:
+
+```bash
+udisksctl mount -b /dev/sdb1
+# Mounted /dev/sdb1 at /run/media/USER/12345abc-1234-12aa-1a1a-abcdefghijkl
+```
+
 #### Mount an USB manually with sudo
 
 To mount an USB in a specific path, for example in `/media/usb`, the `sudo mount` command is required:
@@ -76,15 +85,6 @@ ls /media/usb/
 # test.txt
 ```
 
-#### Mount an USB manually without sudo
-
-To avoid run sudo commands, we can use the `udisksctl` command, but this won't allow us to set the target path where the device will be mounted:
-
-```bash
-udisksctl mount -b /dev/sdb1
-# Mounted /dev/sdb1 at /run/media/USER/12345abc-1234-12aa-1a1a-abcdefghijkl
-```
-
 ### Disconnect an USB manually
 
 To disconnect an USB, three steps are required:
@@ -94,6 +94,15 @@ To disconnect an USB, three steps are required:
 - Power off.
 
 #### Unmount an USB manually
+
+#### Unmount an USB manually without sudo
+
+This can be done with:
+
+```bash
+udisksctl unmount -b /dev/sdb1
+# Unmounted /dev/sdb1.
+```
 
 #### Unmount an USB manually with sudo
 
@@ -118,15 +127,6 @@ ls /media/usb/
 ```
 
 Now the USB can be ejected.
-
-#### Unmount an USB manually without sudo
-
-This can be done with:
-
-```bash
-udisksctl unmount -b /dev/sdb1
-# Unmounted /dev/sdb1.
-```
 
 #### Eject an USB manually
 
