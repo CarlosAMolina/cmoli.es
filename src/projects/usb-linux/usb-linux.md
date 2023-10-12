@@ -9,8 +9,9 @@
     - [Mount an USB manually with sudo](#mount-an-usb-manually-with-sudo)
   - [Disconnect an USB manually](#disconnect-an-usb-manually)
     - [Unmount an USB manually](#unmount-an-usb-manually)
-    - [Unmount an USB manually without sudo](#unmount-an-usb-manually-without-sudo)
-    - [Unmount an USB manually with sudo](#unmount-an-usb-manually-with-sudo)
+      - [Unmount an USB manually without sudo](#unmount-an-usb-manually-without-sudo)
+      - [Unmount an USB manually with sudo](#unmount-an-usb-manually-with-sudo)
+      - [Check unmount an USB manually](#check-unmount-an-usb-manually)
     - [Eject an USB manually](#eject-an-usb-manually)
     - [Power off an USB manually](#power-off-an-usb-manually)
 - [Automate work with an USB](#automate-work-with-an-usb)
@@ -95,7 +96,7 @@ To disconnect an USB, three steps are required:
 
 #### Unmount an USB manually
 
-#### Unmount an USB manually without sudo
+##### Unmount an USB manually without sudo
 
 This can be done with:
 
@@ -104,7 +105,7 @@ udisksctl unmount -b /dev/sdb1
 # Unmounted /dev/sdb1.
 ```
 
-#### Unmount an USB manually with sudo
+##### Unmount an USB manually with sudo
 
 We can unmount the part with the USB data (`/dev/sdc1`) or the folder where the USB was mounted (`/media/usb`):
 
@@ -112,6 +113,8 @@ We can unmount the part with the USB data (`/dev/sdc1`) or the folder where the 
 sudo umount /dev/sdc1
 # sudo umount /media/usb # This is valid too.
 ```
+
+##### Check unmount an USB manually
 
 If we check the `/dev` path, all the devices mentioned previously will appear:
 
