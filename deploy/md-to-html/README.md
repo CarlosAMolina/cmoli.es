@@ -107,4 +107,4 @@ Example:
 
 #### Why to save the results to .txt files instead of in memory
 
-This allow to separate the responsability of each part of the process.
+This allow to separate the responsibility of each part of the process.
