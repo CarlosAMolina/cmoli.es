@@ -3,6 +3,7 @@
 ## Contenidos
 
 - [Arch Linux](arch-linux/arch-linux.html)
+- [Directories](directories.html)
 - [Network](network.html)
 - [Partitions](partitions.html)
 - [Streams](streams.html)

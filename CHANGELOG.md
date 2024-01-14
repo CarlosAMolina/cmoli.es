@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   - Arch Linux:
     - Add Windows OS to the GRUB menu.
     - Update errors.
+  - Directories.
   - Network: add restart interface.
 ### Changed
 - Main menu: move UFC to the tools section.
