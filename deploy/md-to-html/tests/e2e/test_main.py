@@ -35,9 +35,32 @@ class TestDirectoryAnalyzer(unittest.TestCase):
                 pass
 
 
+class TestFunctions(unittest.TestCase):
+    def setUp(self):
+        script_dir = pathlib.Path(__file__).parent.absolute()
+        tests_dir = script_dir.parent
+        self.pathname_to_analyze = str(
+            pathlib.PurePath(tests_dir, "files", "fake-project")
+        )
+
+    def test_export_to_file_the_md_pathnames_to_convert(self):
+        result_file_pathname = "/tmp/input.txt"
+        main.export_to_file_the_md_pathnames_to_convert(
+            pathname_to_analyze=self.pathname_to_analyze,
+            result_file_pathname=result_file_pathname,
+        )
+        with open(result_file_pathname, "r") as f:
+            result = f.read()
+        expected_result = "{}\n{}\n".format(
+            f"{self.pathname_to_analyze}/foo.md",
+            f"{self.pathname_to_analyze}/folder-1/bar.md",
+        )
+        self.assertEqual(expected_result, result)
+
+
 class TestRun(unittest.TestCase):
     def setUp(self):
-        self.maxDiff = None # Show complete diff when test fails.
+        self.maxDiff = None  # Show complete diff when test fails.
         script_dir = pathlib.Path(__file__).parent.absolute()
         tests_dir = script_dir.parent
         self.pathname_to_analyze = "/tmp/cmoli.es/html"
@@ -63,6 +86,7 @@ class TestRun(unittest.TestCase):
         with open(result_file_pathname, "r") as f:
             result = f.read()
         expected_result = "{}\n{}\n".format(
-        "/bin/sh convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html style.css pandoc-config/template.html pandoc-config/metadata.yml",
-        "/bin/sh convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html ../style.css pandoc-config/template.html pandoc-config/metadata.yml")
+            "/bin/sh convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html style.css pandoc-config/template.html pandoc-config/metadata.yml",
+            "/bin/sh convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html ../style.css pandoc-config/template.html pandoc-config/metadata.yml",
+        )
         self.assertEqual(expected_result, result)

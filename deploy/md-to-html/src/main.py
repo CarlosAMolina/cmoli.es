@@ -16,14 +16,14 @@ class Logger:
         return logger
 
     @property
-    def _console_handler(self): 
+    def _console_handler(self):
         c_handler = logging.StreamHandler(sys.stdout)
         c_format = logging.Formatter(self._log_format, datefmt=self._date_format)
         c_handler.setFormatter(c_format)
         return c_handler
 
     @property
-    def _file_handler(self): 
+    def _file_handler(self):
         f_handler = logging.FileHandler(filename=self._log_file_pathname, mode="w")
         f_format = logging.Formatter(self._log_format, datefmt=self._date_format)
         f_handler.setFormatter(f_format)
@@ -34,15 +34,16 @@ class Logger:
         current_dir_pathname = pathlib.Path(__file__).parent.absolute()
         result = current_dir_pathname.joinpath("file.log")
         result = str(result)
-        return result 
+        return result
 
     @property
     def _log_format(self) -> str:
-        return '%(asctime)s - %(levelname)s - %(message)s'
+        return "%(asctime)s - %(levelname)s - %(message)s"
 
     @property
     def _date_format(self) -> str:
-        return '%Y-%m-%d %H:%M:%S'
+        return "%Y-%m-%d %H:%M:%S"
+
 
 logger = Logger().logger
 
@@ -138,7 +139,9 @@ class CommandGenerator:
         )
         self._output_dir_pathname = output_dir_pathname
         self._pandoc_metadata_file_pathname = pandoc_metadata_file_pathname
-        self._pandoc_script_convert_md_to_html_file_pathname = pandoc_script_convert_md_to_html_file_pathname
+        self._pandoc_script_convert_md_to_html_file_pathname = (
+            pandoc_script_convert_md_to_html_file_pathname
+        )
         self._pandoc_template_file_pathname = pandoc_template_file_pathname
 
     @property
@@ -182,6 +185,19 @@ def get_path_substract_common_parts(
     path_1: pathlib.PurePath, path_2: pathlib.PurePath
 ) -> pathlib.PurePath:
     return path_1.relative_to(path_2)
+
+
+# TODO add to run()
+def export_to_file_the_md_pathnames_to_convert(
+    pathname_to_analyze: str,
+    result_file_pathname: str,
+):
+    logger.debug(f"Init export file {result_file_pathname}")
+    with open(result_file_pathname, "w") as f:
+        for md_pathname in DirectoryAnalyzer().get_md_pathnames(pathname_to_analyze):
+            logger.debug(f"Detected .md file: {md_pathname}")
+            f.write(md_pathname)
+            f.write("\n")
 
 
 def run(
@@ -230,4 +246,3 @@ if __name__ == "__main__":
         args.pathname_to_analyze,
         args.result_file_pathname,
     )
-
