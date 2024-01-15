@@ -39,21 +39,42 @@ class TestFunctions(unittest.TestCase):
     def setUp(self):
         script_dir = pathlib.Path(__file__).parent.absolute()
         tests_dir = script_dir.parent
-        self.pathname_to_analyze = str(
-            pathlib.PurePath(tests_dir, "files", "fake-project")
+        self.test_files_path = pathlib.PurePath(tests_dir, "files")
+        self.test_fake_project_pathname = str(
+            self.test_files_path.joinpath("fake-project")
+        )
+        self.test_md_pathnames_to_convert_file_pathname = str(
+            self.test_files_path.joinpath("pathnames-to-convert.txt")
         )
 
     def test_export_to_file_the_md_pathnames_to_convert(self):
         result_file_pathname = "/tmp/input.txt"
         main.export_to_file_the_md_pathnames_to_convert(
-            pathname_to_analyze=self.pathname_to_analyze,
+            pathname_to_analyze=self.test_fake_project_pathname,
             result_file_pathname=result_file_pathname,
         )
         with open(result_file_pathname, "r") as f:
             result = f.read()
         expected_result = "{}\n{}\n".format(
-            f"{self.pathname_to_analyze}/foo.md",
-            f"{self.pathname_to_analyze}/folder-1/bar.md",
+            f"{self.test_fake_project_pathname}/foo.md",
+            f"{self.test_fake_project_pathname}/folder-1/bar.md",
+        )
+        self.assertEqual(expected_result, result)
+
+    def test_export_to_file_the_html_pathnames_converted(self):
+        result_file_pathname = "/tmp/output.txt"
+        output_dir_pathname = "/tmp/html"
+        main.export_to_file_the_html_pathnames_converted(
+            output_dir_pathname=output_dir_pathname,
+            pathname_file_md_pathnames_to_convert=self.test_md_pathnames_to_convert_file_pathname,
+            pathname_analized="/home/files",
+            result_file_pathname=result_file_pathname,
+        )
+        with open(result_file_pathname, "r") as f:
+            result = f.read()
+        expected_result = "{}\n{}\n".format(
+            f"{output_dir_pathname}/foo.html",
+            f"{output_dir_pathname}/folder-1/bar.html",
         )
         self.assertEqual(expected_result, result)
 

@@ -200,6 +200,36 @@ def export_to_file_the_md_pathnames_to_convert(
             f.write("\n")
 
 
+def export_to_file_the_html_pathnames_converted(
+    output_dir_pathname: str,
+    pathname_analized: str,
+    pathname_file_md_pathnames_to_convert: str,
+    result_file_pathname: str,
+):
+    logger.debug(f"Init export file {result_file_pathname}")
+    with open(pathname_file_md_pathnames_to_convert, "r") as f_to_read, open(
+        result_file_pathname, "w"
+    ) as f_to_write:
+        for pathname_to_convert in f_to_read.read().splitlines():
+            logger.debug(f"Pathname to convert: {pathname_to_convert}")
+            path_to_convert = pathlib.PurePath(pathname_to_convert)
+            path_to_convert_without_analized_path = get_path_substract_common_parts(
+                path_to_convert, pathlib.PurePath(pathname_analized)
+            )
+            filename_to_convert = path_to_convert.name
+            filename_converted = FilenameWithExtension(filename_to_convert).html
+            path_converted_without_analized_path = (
+                path_to_convert_without_analized_path.with_name(filename_converted)
+            )
+            path_converted = pathlib.PurePath(output_dir_pathname).joinpath(
+                path_converted_without_analized_path,
+            )
+            pathname_converted = str(path_converted)
+            logger.debug(f"Pathname converted: {pathname_converted}")
+            f_to_write.write(pathname_converted)
+            f_to_write.write("\n")
+
+
 def run(
     css_pathname: str,
     pandoc_metadata_file_pathname: str,
