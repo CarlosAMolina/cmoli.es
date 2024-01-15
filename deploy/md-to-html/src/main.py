@@ -204,11 +204,11 @@ def export_to_file_the_md_pathnames_to_convert(
 def export_to_file_the_html_pathnames_converted(
     output_directory_pathname: str,
     analized_directory_pathname: str,
-    pathname_file_md_pathnames_to_convert: str,
+    md_pathnames_to_convert_file_pathname: str,
     result_file_pathname: str,
 ):
     logger.debug(f"Init export file {result_file_pathname}")
-    with open(pathname_file_md_pathnames_to_convert, "r") as f_to_read, open(
+    with open(md_pathnames_to_convert_file_pathname, "r") as f_to_read, open(
         result_file_pathname, "w"
     ) as f_to_write:
         for file_to_convert_pathname in f_to_read.read().splitlines():
