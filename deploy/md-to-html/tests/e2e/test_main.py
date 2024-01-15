@@ -63,9 +63,9 @@ class TestFunctions(unittest.TestCase):
 
     def test_export_to_file_the_html_pathnames_converted(self):
         result_file_pathname = "/tmp/output.txt"
-        output_dir_pathname = "/tmp/html"
+        output_directory_pathname = "/tmp/html"
         main.export_to_file_the_html_pathnames_converted(
-            output_dir_pathname=output_dir_pathname,
+            output_directory_pathname=output_directory_pathname,
             pathname_file_md_pathnames_to_convert=self.test_md_pathnames_to_convert_file_pathname,
             pathname_analized="/home/files",
             result_file_pathname=result_file_pathname,
@@ -73,8 +73,8 @@ class TestFunctions(unittest.TestCase):
         with open(result_file_pathname, "r") as f:
             result = f.read()
         expected_result = "{}\n{}\n".format(
-            f"{output_dir_pathname}/foo.html",
-            f"{output_dir_pathname}/folder-1/bar.html",
+            f"{output_directory_pathname}/foo.html",
+            f"{output_directory_pathname}/folder-1/bar.html",
         )
         self.assertEqual(expected_result, result)
 

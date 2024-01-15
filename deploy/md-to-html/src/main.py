@@ -128,7 +128,7 @@ class CommandGenerator:
         self,
         css_file_pathname: str,
         filename_to_convert: str,
-        output_dir_pathname: str,
+        output_directory_pathname: str,
         pandoc_metadata_file_pathname: str,
         pandoc_script_convert_md_to_html_file_pathname: str,
         pandoc_template_file_pathname: str,
@@ -137,7 +137,7 @@ class CommandGenerator:
         self._filename_with_extension_to_convert = FilenameWithExtension(
             filename_to_convert
         )
-        self._output_dir_pathname = output_dir_pathname
+        self._output_directory_pathname = output_directory_pathname
         self._pandoc_metadata_file_pathname = pandoc_metadata_file_pathname
         self._pandoc_script_convert_md_to_html_file_pathname = (
             pandoc_script_convert_md_to_html_file_pathname
@@ -158,13 +158,14 @@ class CommandGenerator:
     @property
     def _file_to_convert_pathname(self) -> str:
         return "{}/{}".format(
-            self._output_dir_pathname, self._filename_with_extension_to_convert.md
+            self._output_directory_pathname, self._filename_with_extension_to_convert.md
         )
 
     @property
     def _file_converted_pathname(self) -> str:
         return "{}/{}".format(
-            self._output_dir_pathname, self._filename_with_extension_to_convert.html
+            self._output_directory_pathname,
+            self._filename_with_extension_to_convert.html,
         )
 
 
@@ -201,7 +202,7 @@ def export_to_file_the_md_pathnames_to_convert(
 
 
 def export_to_file_the_html_pathnames_converted(
-    output_dir_pathname: str,
+    output_directory_pathname: str,
     pathname_analized: str,
     pathname_file_md_pathnames_to_convert: str,
     result_file_pathname: str,
@@ -213,7 +214,9 @@ def export_to_file_the_html_pathnames_converted(
         for pathname_to_convert in f_to_read.read().splitlines():
             logger.debug(f"Pathname to convert: {pathname_to_convert}")
             pathname_converted = get_converted_pathname(
-                output_dir_pathname, pathname_analized, pathname_to_convert
+                pathname_analized,
+                pathname_to_convert,
+                output_directory_pathname,
             )
             logger.debug(f"Pathname converted: {pathname_converted}")
             f_to_write.write(pathname_converted)
@@ -221,20 +224,20 @@ def export_to_file_the_html_pathnames_converted(
 
 
 def get_converted_pathname(
-    output_dir_pathname: str,
-    pathname_analized: str,
-    pathname_to_convert: str,
+    analized_directory_pathname: str,
+    file_to_convert_pathname: str,
+    output_directory_pathname: str,
 ) -> str:
-    path_to_convert = pathlib.PurePath(pathname_to_convert)
+    path_to_convert = pathlib.PurePath(file_to_convert_pathname)
     path_to_convert_without_analized_path = get_path_substract_common_parts(
-        path_to_convert, pathlib.PurePath(pathname_analized)
+        path_to_convert, pathlib.PurePath(analized_directory_pathname)
     )
     filename_to_convert = path_to_convert.name
     filename_converted = FilenameWithExtension(filename_to_convert).html
     path_converted_without_analized_path = (
         path_to_convert_without_analized_path.with_name(filename_converted)
     )
-    path_converted = pathlib.PurePath(output_dir_pathname).joinpath(
+    path_converted = pathlib.PurePath(output_directory_pathname).joinpath(
         path_converted_without_analized_path,
     )
     pathname_converted = str(path_converted)
@@ -267,7 +270,7 @@ def run(
             command = CommandGenerator(
                 css_file_pathname=css_relative_pathname,
                 filename_to_convert=pathname_file_to_convert,
-                output_dir_pathname=pathname_to_analyze,
+                output_directory_pathname=pathname_to_analyze,
                 pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,
                 pandoc_script_convert_md_to_html_file_pathname=pandoc_script_convert_md_to_html_file_pathname,
                 pandoc_template_file_pathname=pandoc_template_file_pathname,
