@@ -211,11 +211,11 @@ def export_to_file_the_html_pathnames_converted(
     with open(pathname_file_md_pathnames_to_convert, "r") as f_to_read, open(
         result_file_pathname, "w"
     ) as f_to_write:
-        for pathname_to_convert in f_to_read.read().splitlines():
-            logger.debug(f"Pathname to convert: {pathname_to_convert}")
+        for file_to_convert_pathname in f_to_read.read().splitlines():
+            logger.debug(f"Pathname to convert: {file_to_convert_pathname}")
             pathname_converted = get_converted_pathname(
                 analized_directory_pathname,
-                pathname_to_convert,
+                file_to_convert_pathname,
                 output_directory_pathname,
             )
             logger.debug(f"Pathname converted: {pathname_converted}")
