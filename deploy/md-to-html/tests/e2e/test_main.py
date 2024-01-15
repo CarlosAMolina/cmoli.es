@@ -65,9 +65,9 @@ class TestFunctions(unittest.TestCase):
         result_file_pathname = "/tmp/output.txt"
         output_directory_pathname = "/tmp/html"
         main.export_to_file_the_html_pathnames_converted(
-            output_directory_pathname=output_directory_pathname,
-            md_pathnames_to_convert_file_pathname=self.test_md_pathnames_to_convert_file_pathname,
             analized_directory_pathname="/home/files",
+            md_pathnames_to_convert_file_pathname=self.test_md_pathnames_to_convert_file_pathname,
+            output_directory_pathname=output_directory_pathname,
             result_file_pathname=result_file_pathname,
         )
         with open(result_file_pathname, "r") as f:

@@ -203,9 +203,9 @@ def export_to_file_the_md_pathnames_to_convert(
 
 # TODO add to run()
 def export_to_file_the_html_pathnames_converted(
-    output_directory_pathname: str,
     analized_directory_pathname: str,
     md_pathnames_to_convert_file_pathname: str,
+    output_directory_pathname: str,
     result_file_pathname: str,
 ):
     logger.debug(f"Init export file {result_file_pathname}")
