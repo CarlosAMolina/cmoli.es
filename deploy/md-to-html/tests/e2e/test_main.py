@@ -78,6 +78,14 @@ class TestFunctions(unittest.TestCase):
         )
         self.assertEqual(expected_result, result)
 
+    def test_get_convered_pathname(self):
+        result = main.get_converted_pathname(
+            analized_directory_pathname="/home/files",
+            file_to_convert_pathname="/home/files/folder/foo.html",
+            output_directory_pathname="/tmp/html",
+        )
+        self.assertEqual("/tmp/html/folder/foo.html", result)
+
 
 class TestRun(unittest.TestCase):
     def setUp(self):
