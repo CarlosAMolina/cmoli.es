@@ -214,7 +214,7 @@ def export_to_file_the_html_pathnames_converted(
     ) as f_to_write:
         for file_to_convert_pathname in f_to_read.read().splitlines():
             logger.debug(f"Pathname to convert: {file_to_convert_pathname}")
-            pathname_converted = get_converted_pathname(
+            pathname_converted = get_pathname_converted(
                 analized_directory_pathname,
                 file_to_convert_pathname,
                 output_directory_pathname,
@@ -224,7 +224,7 @@ def export_to_file_the_html_pathnames_converted(
             f_to_write.write("\n")
 
 
-def get_converted_pathname(
+def get_pathname_converted(
     analized_directory_pathname: str,
     file_to_convert_pathname: str,
     output_directory_pathname: str,
