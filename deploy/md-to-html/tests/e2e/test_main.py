@@ -78,6 +78,7 @@ class TestFunctions(unittest.TestCase):
         )
         self.assertEqual(expected_result, result)
 
+    # TODO move to unit test folder
     def test_get_convered_pathname(self):
         result = main.get_pathname_converted(
             analized_directory_pathname="/home/files",
@@ -85,6 +86,22 @@ class TestFunctions(unittest.TestCase):
             output_directory_pathname="/tmp/html",
         )
         self.assertEqual("/tmp/html/folder/foo.html", result)
+
+    def test_export_to_file_the_css_relative_pathnames(self):
+        pathname_to_analyze = "/home"
+        result_file_pathname = "/tmp/output-css.txt"
+        main.export_to_file_the_css_relative_pathnames(
+            css_pathname=f"{pathname_to_analyze}/style.css",
+            md_pathnames_to_convert_file_pathname=self.test_md_pathnames_to_convert_file_pathname,
+            result_file_pathname=result_file_pathname,
+        )
+        with open(result_file_pathname, "r") as f:
+            result = f.read()
+        expected_result = "{}\n{}\n".format(
+            "../style.css",
+            "../../style.css",
+        )
+        self.assertEqual(expected_result, result)
 
 
 class TestRun(unittest.TestCase):

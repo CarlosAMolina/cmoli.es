@@ -245,6 +245,31 @@ def get_pathname_converted(
     return pathname_converted
 
 
+# TODO add to run()
+def export_to_file_the_css_relative_pathnames(
+    css_pathname: str,
+    md_pathnames_to_convert_file_pathname: str,
+    result_file_pathname: str,
+):
+    logger.debug(f"Init export file {result_file_pathname}")
+    css_path = pathlib.PurePath(css_pathname)
+    css_path_detector = CssPathDetector(css_path)
+    with open(md_pathnames_to_convert_file_pathname, "r") as f_to_read, open(
+        result_file_pathname, "w"
+    ) as f_to_write:
+        for file_to_convert_pathname in f_to_read.read().splitlines():
+            logger.debug(f"Pathname to convert: {file_to_convert_pathname}")
+            file_to_convert_path = pathlib.PurePath(file_to_convert_pathname)
+            css_relative_pathname = (
+                css_path_detector.get_css_relative_pathname_from_file_path(
+                    file_to_convert_path
+                )
+            )
+            logger.debug(f"Css relative pathname: {css_relative_pathname}")
+            f_to_write.write(css_relative_pathname)
+            f_to_write.write("\n")
+
+
 def run(
     css_pathname: str,
     pandoc_metadata_file_pathname: str,
