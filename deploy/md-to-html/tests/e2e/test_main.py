@@ -111,7 +111,7 @@ class TestRun(unittest.TestCase):
         pandoc_metadata_file_pathname = "pandoc-config/metadata.yml"
         pandoc_script_convert_md_to_html_file_pathname = "convert-md-to-html"
         pandoc_template_file_pathname = "pandoc-config/template.html"
-        result_file_pathname = "/tmp/md-to-html"
+        result_file_pathname = "/tmp/md-to-html"  # name of the created script
         main.run(
             css_pathname=css_pathname,
             pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,

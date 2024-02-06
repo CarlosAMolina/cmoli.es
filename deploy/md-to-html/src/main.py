@@ -188,7 +188,6 @@ def get_path_substract_common_parts(
     return path_1.relative_to(path_2)
 
 
-# TODO add to run()
 def export_to_file_the_md_pathnames_to_convert(
     pathname_to_analyze: str,
     result_file_pathname: str,
@@ -201,7 +200,6 @@ def export_to_file_the_md_pathnames_to_convert(
             f.write("\n")
 
 
-# TODO add to run()
 def export_to_file_the_html_pathnames_converted(
     analized_directory_pathname: str,
     md_pathnames_to_convert_file_pathname: str,
@@ -245,7 +243,6 @@ def get_pathname_converted(
     return pathname_converted
 
 
-# TODO add to run()
 def export_to_file_the_css_relative_pathnames(
     css_pathname: str,
     md_pathnames_to_convert_file_pathname: str,
@@ -270,6 +267,39 @@ def export_to_file_the_css_relative_pathnames(
             f_to_write.write("\n")
 
 
+def export_to_file_the_script_combine_files(
+    pandoc_metadata_file_pathname: str,
+    pandoc_script_convert_md_to_html_file_pathname: str,
+    pandoc_template_file_pathname: str,
+    md_pathnames_to_convert_file_pathname: str,
+    md_pathnames_converted_file_pathname: str,
+    css_relative_pathnames_file_pathname: str,
+    result_file_pathname: str,
+):
+    with open(md_pathnames_to_convert_file_pathname) as to_convert_file, open(
+        md_pathnames_converted_file_pathname
+    ) as converted_file, open(css_relative_pathnames_file_pathname) as css_file, open(
+        result_file_pathname, "w"
+    ) as script_file:
+        to_convert_lines = to_convert_file.read().splitlines()
+        converted_lines = converted_file.read().splitlines()
+        css_lines = css_file.read().splitlines()
+        assert len(to_convert_lines) == len(converted_lines) == len(css_lines)
+        for file_to_convert_pathname, file_converted_pathname, css_file_pathname in zip(
+            to_convert_lines, converted_lines, css_lines
+        ):
+            command = "/bin/sh {} {} {} {} {} {}".format(
+                pandoc_script_convert_md_to_html_file_pathname,
+                file_to_convert_pathname,
+                file_converted_pathname,
+                css_file_pathname,
+                pandoc_template_file_pathname,
+                pandoc_metadata_file_pathname,
+            )
+            script_file.write(command)
+            script_file.write("\n")
+
+
 def run(
     css_pathname: str,
     pandoc_metadata_file_pathname: str,
@@ -279,12 +309,44 @@ def run(
     result_file_pathname: str,
 ):
     logger.debug(f"Init export file {result_file_pathname}")
+
+    # TODO move constants to config.py
+    md_pathnames_to_convert_file_pathname = "/tmp/path-names-to-convert.txt"
+    md_pathnames_converted_file_pathname = "/tmp/path-names-converted.txt"
+    css_relative_pathnames_file_pathname = "/tmp/css-relative-pathnames.txt"
+    export_to_file_the_md_pathnames_to_convert(
+        pathname_to_analyze, md_pathnames_to_convert_file_pathname
+    )
+
+    export_to_file_the_html_pathnames_converted(
+        pathname_to_analyze,
+        md_pathnames_to_convert_file_pathname,
+        output_directory_pathname="/tmp/cmoli.es/html",
+        result_file_pathname=md_pathnames_converted_file_pathname,
+    )
+    export_to_file_the_css_relative_pathnames(
+        css_pathname,
+        md_pathnames_to_convert_file_pathname,
+        result_file_pathname=css_relative_pathnames_file_pathname,
+    )
+    export_to_file_the_script_combine_files(
+        pandoc_metadata_file_pathname,
+        pandoc_script_convert_md_to_html_file_pathname,
+        pandoc_template_file_pathname,
+        md_pathnames_to_convert_file_pathname,
+        md_pathnames_converted_file_pathname,
+        css_relative_pathnames_file_pathname,
+        f"{result_file_pathname}-new",
+    )
+
+    # TODO rm
     css_path = pathlib.PurePath(css_pathname)
     css_path_detector = CssPathDetector(css_path)
     with open(result_file_pathname, "w") as f:
         for md_pathname in DirectoryAnalyzer().get_md_pathnames(pathname_to_analyze):
             logger.debug(f"Detected .md file: {md_pathname}")
             md_path = pathlib.PurePath(md_pathname)
+
             css_relative_pathname = (
                 css_path_detector.get_css_relative_pathname_from_file_path(md_path)
             )
