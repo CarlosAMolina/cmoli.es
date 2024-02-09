@@ -296,6 +296,7 @@ def export_to_file_the_script_combine_files(
                 pandoc_template_file_pathname,
                 pandoc_metadata_file_pathname,
             )
+            logger.debug(f"Command: {command}")
             script_file.write(command)
             script_file.write("\n")
 
