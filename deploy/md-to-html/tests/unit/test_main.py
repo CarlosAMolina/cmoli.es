@@ -20,9 +20,6 @@ class TestFilenameWithExtension(unittest.TestCase):
     def test_html(self):
         self.assertEqual("foo.html", self.filename_with_extension.html)
 
-    def test_md(self):
-        self.assertEqual("foo.md", self.filename_with_extension.md)
-
 
 class TestFunctions(unittest.TestCase):
     def test_get_convered_pathname(self):

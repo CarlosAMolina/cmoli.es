@@ -26,11 +26,6 @@ class FilenameWithExtension:
     def _get_filename_with_extension(self, extension: str) -> str:
         return str(pathlib.PurePath(self._filename).with_suffix(extension))
 
-    # TODO rm?
-    @property
-    def md(self) -> str:
-        return self._get_filename_with_extension(".md")
-
 
 def os_walk_exception_handler(exception_instance):
     raise exception_instance
