@@ -4,6 +4,11 @@ import unittest
 
 from src import main
 
+# TODO remove generated files when the tests ends:
+# ```
+# tp /tmp/md-to-html* /tmp/css-relative-pathnames.txt  /tmp/cmoli.es/ /tmp/input.txt /tmp/output* /tmp/path-names-*
+# ```
+
 
 class TestDirectoryAnalyzer(unittest.TestCase):
     def setUp(self):
