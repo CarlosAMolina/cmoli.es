@@ -12,15 +12,6 @@ class TestFilenameExtensionDetector(unittest.TestCase):
         self.assertFalse(main.FilenameExtensionDetector.is_md("foo.html"))
 
 
-class TestFilenameWithExtension(unittest.TestCase):
-    def setUp(self):
-        filename = "foo.md"
-        self.filename_with_extension = main.FilenameWithExtension(filename)
-
-    def test_html(self):
-        self.assertEqual("foo.html", self.filename_with_extension.html)
-
-
 class TestFunctions(unittest.TestCase):
     def test_get_convered_pathname(self):
         result = main.get_pathname_converted(
@@ -29,6 +20,12 @@ class TestFunctions(unittest.TestCase):
             output_directory_pathname="/tmp/html",
         )
         self.assertEqual("/tmp/html/folder/foo.html", result)
+
+    def test_get_filename_set_extension(self):
+        filename = "foo.md"
+        result = main.get_filename_set_extension(filename, ".html")
+        self.assertEqual("foo.html", result)
+        self.assertTrue(isinstance(result, str))
 
 
 class TestCssPathDetector(unittest.TestCase):

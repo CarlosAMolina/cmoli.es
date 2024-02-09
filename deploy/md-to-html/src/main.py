@@ -15,18 +15,6 @@ class FilenameExtensionDetector:
         return pathlib.PurePath(filename).suffix == ".md"
 
 
-class FilenameWithExtension:
-    def __init__(self, filename: str):
-        self._filename = filename
-
-    @property
-    def html(self) -> str:
-        return self._get_filename_with_extension(".html")
-
-    def _get_filename_with_extension(self, extension: str) -> str:
-        return str(pathlib.PurePath(self._filename).with_suffix(extension))
-
-
 def os_walk_exception_handler(exception_instance):
     raise exception_instance
 
@@ -143,7 +131,7 @@ def get_pathname_converted(
         path_to_convert, pathlib.PurePath(analized_directory_pathname)
     )
     filename_to_convert = path_to_convert.name
-    filename_converted = FilenameWithExtension(filename_to_convert).html
+    filename_converted = get_filename_set_extension(filename_to_convert, ".html")
     path_converted_without_analized_path = (
         path_to_convert_without_analized_path.with_name(filename_converted)
     )
@@ -152,6 +140,10 @@ def get_pathname_converted(
     )
     pathname_converted = str(path_converted)
     return pathname_converted
+
+
+def get_filename_set_extension(filename: str, extension: str) -> str:
+    return pathlib.PurePath(filename).with_suffix(extension).name
 
 
 def export_to_file_the_css_relative_pathnames(
