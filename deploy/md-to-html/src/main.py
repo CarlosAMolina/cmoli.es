@@ -65,6 +65,7 @@ class FilenameWithExtension:
     def _get_filename_with_extension(self, extension: str) -> str:
         return str(pathlib.PurePath(self._filename).with_suffix(extension))
 
+    # TODO rm?
     @property
     def md(self) -> str:
         return self._get_filename_with_extension(".md")
@@ -121,52 +122,6 @@ class CssPathDetector:
     @property
     def _css_filename(self) -> str:
         return self._css_path.name
-
-
-class CommandGenerator:
-    def __init__(
-        self,
-        css_file_pathname: str,
-        filename_to_convert: str,
-        output_directory_pathname: str,
-        pandoc_metadata_file_pathname: str,
-        pandoc_script_convert_md_to_html_file_pathname: str,
-        pandoc_template_file_pathname: str,
-    ):
-        self._css_file_pathname = css_file_pathname
-        self._filename_with_extension_to_convert = FilenameWithExtension(
-            filename_to_convert
-        )
-        self._output_directory_pathname = output_directory_pathname
-        self._pandoc_metadata_file_pathname = pandoc_metadata_file_pathname
-        self._pandoc_script_convert_md_to_html_file_pathname = (
-            pandoc_script_convert_md_to_html_file_pathname
-        )
-        self._pandoc_template_file_pathname = pandoc_template_file_pathname
-
-    @property
-    def command(self) -> str:
-        return "/bin/sh {} {} {} {} {} {}".format(
-            self._pandoc_script_convert_md_to_html_file_pathname,
-            self._file_to_convert_pathname,
-            self._file_converted_pathname,
-            self._css_file_pathname,
-            self._pandoc_template_file_pathname,
-            self._pandoc_metadata_file_pathname,
-        )
-
-    @property
-    def _file_to_convert_pathname(self) -> str:
-        return "{}/{}".format(
-            self._output_directory_pathname, self._filename_with_extension_to_convert.md
-        )
-
-    @property
-    def _file_converted_pathname(self) -> str:
-        return "{}/{}".format(
-            self._output_directory_pathname,
-            self._filename_with_extension_to_convert.html,
-        )
 
 
 def get_parser():
@@ -337,36 +292,8 @@ def run(
         md_pathnames_to_convert_file_pathname,
         md_pathnames_converted_file_pathname,
         css_relative_pathnames_file_pathname,
-        f"{result_file_pathname}-new",
+        f"{result_file_pathname}",
     )
-
-    # TODO rm
-    css_path = pathlib.PurePath(css_pathname)
-    css_path_detector = CssPathDetector(css_path)
-    with open(result_file_pathname, "w") as f:
-        for md_pathname in DirectoryAnalyzer().get_md_pathnames(pathname_to_analyze):
-            logger.debug(f"Detected .md file: {md_pathname}")
-            md_path = pathlib.PurePath(md_pathname)
-
-            css_relative_pathname = (
-                css_path_detector.get_css_relative_pathname_from_file_path(md_path)
-            )
-            pathname_file_to_convert = str(
-                get_path_substract_common_parts(
-                    md_path, pathlib.PurePath(pathname_to_analyze)
-                )
-            )
-            command = CommandGenerator(
-                css_file_pathname=css_relative_pathname,
-                filename_to_convert=pathname_file_to_convert,
-                output_directory_pathname=pathname_to_analyze,
-                pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,
-                pandoc_script_convert_md_to_html_file_pathname=pandoc_script_convert_md_to_html_file_pathname,
-                pandoc_template_file_pathname=pandoc_template_file_pathname,
-            ).command
-            logger.debug(f"Command: {command}")
-            f.write(command)
-            f.write("\n")
 
 
 if __name__ == "__main__":
