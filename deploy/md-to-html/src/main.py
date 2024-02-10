@@ -104,7 +104,7 @@ class CssPathDetector:
         return self._css_path.name
 
 
-def get_parser():
+def get_argument_parser():
     parser = argparse.ArgumentParser(
         description="Create script to convert .md files to .html"
     )
@@ -282,7 +282,7 @@ def run(
 
 
 if __name__ == "__main__":
-    args = get_parser().parse_args()
+    args = get_argument_parser().parse_args()
     run(
         args.css_pathname,
         args.pandoc_metadata_file_pathname,
