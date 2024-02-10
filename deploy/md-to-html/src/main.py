@@ -215,6 +215,7 @@ def run(
     md_pathnames_to_convert_file_pathname = "/tmp/path-names-to-convert.txt"
     md_pathnames_converted_file_pathname = "/tmp/path-names-converted.txt"
     css_relative_pathnames_file_pathname = "/tmp/css-relative-pathnames.txt"
+    output_directory_pathname = pathname_to_analyze
     export_to_file_the_md_pathnames_to_convert(
         pathname_to_analyze, md_pathnames_to_convert_file_pathname
     )
@@ -222,7 +223,7 @@ def run(
     export_to_file_the_html_pathnames_converted(
         pathname_to_analyze,
         md_pathnames_to_convert_file_pathname,
-        output_directory_pathname="/tmp/cmoli.es/html",
+        output_directory_pathname=output_directory_pathname,
         result_file_pathname=md_pathnames_converted_file_pathname,
     )
     export_to_file_the_css_relative_pathnames(
