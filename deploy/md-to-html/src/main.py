@@ -216,10 +216,10 @@ def run(
     md_pathnames_converted_file_pathname = "/tmp/path-names-converted.txt"
     css_relative_pathnames_file_pathname = "/tmp/css-relative-pathnames.txt"
     output_directory_pathname = pathname_to_analyze
+
     export_to_file_the_md_pathnames_to_convert(
         pathname_to_analyze, md_pathnames_to_convert_file_pathname
     )
-
     export_to_file_the_html_pathnames_converted(
         pathname_to_analyze,
         md_pathnames_to_convert_file_pathname,
