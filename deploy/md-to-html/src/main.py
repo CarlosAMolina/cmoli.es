@@ -74,7 +74,7 @@ def get_parser():
     parser.add_argument("pandoc_script_convert_md_to_html_file_pathname", type=str)
     parser.add_argument("pandoc_template_file_pathname", type=str)
     parser.add_argument("pathname_to_analyze", type=str)
-    parser.add_argument("result_file_pathname", type=str)
+    parser.add_argument("script_to_create_pathname", type=str)
     return parser
 
 
@@ -207,9 +207,9 @@ def run(
     pandoc_script_convert_md_to_html_file_pathname: str,
     pandoc_template_file_pathname: str,
     pathname_to_analyze: str,
-    result_file_pathname: str,
+    script_to_create_pathname: str,
 ):
-    logger.debug(f"Init export file {result_file_pathname}")
+    logger.debug(f"Init export file {script_to_create_pathname}")
 
     # TODO move constants to config.py
     md_pathnames_to_convert_file_pathname = "/tmp/path-names-to-convert.txt"
@@ -238,7 +238,7 @@ def run(
         md_pathnames_to_convert_file_pathname,
         md_pathnames_converted_file_pathname,
         css_relative_pathnames_file_pathname,
-        result_file_pathname,
+        script_to_create_pathname,
     )
 
 
@@ -250,5 +250,5 @@ if __name__ == "__main__":
         args.pandoc_script_convert_md_to_html_file_pathname,
         args.pandoc_template_file_pathname,
         args.pathname_to_analyze,
-        args.result_file_pathname,
+        args.script_to_create_pathname,
     )

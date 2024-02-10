@@ -116,16 +116,16 @@ class TestRun(unittest.TestCase):
         pandoc_metadata_file_pathname = "pandoc-config/metadata.yml"
         pandoc_script_convert_md_to_html_file_pathname = "convert-md-to-html"
         pandoc_template_file_pathname = "pandoc-config/template.html"
-        result_file_pathname = "/tmp/md-to-html"  # name of the created script
+        script_to_create_pathname = "/tmp/md-to-html"
         main.run(
             css_pathname=css_pathname,
             pandoc_metadata_file_pathname=pandoc_metadata_file_pathname,
             pandoc_script_convert_md_to_html_file_pathname=pandoc_script_convert_md_to_html_file_pathname,
             pandoc_template_file_pathname=pandoc_template_file_pathname,
             pathname_to_analyze=self.pathname_to_analyze,
-            result_file_pathname=result_file_pathname,
+            script_to_create_pathname=script_to_create_pathname,
         )
-        with open(result_file_pathname, "r") as f:
+        with open(script_to_create_pathname, "r") as f:
             result = f.read()
         expected_result = "{}\n{}\n".format(
             "/bin/sh convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html style.css pandoc-config/template.html pandoc-config/metadata.yml",
