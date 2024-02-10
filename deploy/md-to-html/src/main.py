@@ -9,20 +9,19 @@ from .logger import Logger
 logger = Logger().logger
 
 
-def os_walk_exception_handler(exception_instance):
-    raise exception_instance
-
-
 class DirectoryAnalyzer:
     def get_md_pathnames(self, pathname: str) -> tp.Iterator[str]:
         logger.debug(f"Init checking {pathname}")
         for (dir_pathname, dirnames, filenames) in os.walk(
-            pathname, onerror=os_walk_exception_handler
+            pathname, onerror=self._os_walk_exception_handler
         ):
             # print(dir_pathname, dirnames, filenames)
             for filename in filenames:
                 if self._is_md_file(filename):
                     yield str(pathlib.PurePath(dir_pathname, filename))
+
+    def _os_walk_exception_handler(self, exception_instance):
+        raise exception_instance
 
     @staticmethod
     def _is_md_file(filename: str) -> bool:
