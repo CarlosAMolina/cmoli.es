@@ -9,12 +9,6 @@ from .logger import Logger
 logger = Logger().logger
 
 
-class FilenameExtensionDetector:
-    @staticmethod
-    def is_md(filename: str) -> bool:
-        return pathlib.PurePath(filename).suffix == ".md"
-
-
 def os_walk_exception_handler(exception_instance):
     raise exception_instance
 
@@ -27,8 +21,12 @@ class DirectoryAnalyzer:
         ):
             # print(dir_pathname, dirnames, filenames)
             for filename in filenames:
-                if FilenameExtensionDetector.is_md(filename):
+                if self._is_md_file(filename):
                     yield str(pathlib.PurePath(dir_pathname, filename))
+
+    @staticmethod
+    def _is_md_file(filename: str) -> bool:
+        return pathlib.PurePath(filename).suffix == ".md"
 
 
 class CssPathDetector:

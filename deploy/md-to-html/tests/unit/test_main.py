@@ -4,12 +4,12 @@ import unittest
 from src import main
 
 
-class TestFilenameExtensionDetector(unittest.TestCase):
-    def test_is_md_is_true(self):
-        self.assertTrue(main.FilenameExtensionDetector.is_md("foo.md"))
+class TestDirectoryAnalyzer(unittest.TestCase):
+    def test_is_md_file_is_true(self):
+        self.assertTrue(main.DirectoryAnalyzer._is_md_file("foo.md"))
 
-    def test_is_md_is_false(self):
-        self.assertFalse(main.FilenameExtensionDetector.is_md("foo.html"))
+    def test_is_md_file_is_false(self):
+        self.assertFalse(main.DirectoryAnalyzer._is_md_file("foo.html"))
 
 
 class TestFunctions(unittest.TestCase):
