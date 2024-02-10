@@ -238,7 +238,7 @@ def run(
         md_pathnames_to_convert_file_pathname,
         md_pathnames_converted_file_pathname,
         css_relative_pathnames_file_pathname,
-        f"{result_file_pathname}",
+        result_file_pathname,
     )
 
 
