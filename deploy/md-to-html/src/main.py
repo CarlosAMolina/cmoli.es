@@ -25,7 +25,7 @@ class DirectoryAnalyzer:
 
     @staticmethod
     def _is_md_file(filename: str) -> bool:
-        return pathlib.PurePath(filename).suffix.lower() == ".md"
+        return pathlib.PurePath(filename).suffix.lower().strip() == ".md"
 
 
 class CssPathDetector:
