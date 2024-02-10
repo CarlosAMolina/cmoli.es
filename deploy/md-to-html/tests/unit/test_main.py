@@ -8,6 +8,9 @@ class TestDirectoryAnalyzer(unittest.TestCase):
     def test_is_md_file_is_true(self):
         self.assertTrue(main.DirectoryAnalyzer._is_md_file("foo.md"))
 
+    def test_is_md_file_is_true_if_upper_case_extension(self):
+        self.assertTrue(main.DirectoryAnalyzer._is_md_file("foo.MD"))
+
     def test_is_md_file_is_false(self):
         self.assertFalse(main.DirectoryAnalyzer._is_md_file("foo.html"))
 
