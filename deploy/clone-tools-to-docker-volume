@@ -9,4 +9,7 @@ cd $volume_tools_pathname
 rm -rf open-urls
 git clone --depth=1 --branch=main https://github.com/CarlosAMolina/open-urls
 rm -rf open-urls/.git
+rm -rf job-check-lambda-name
+git clone --depth=1 --branch=main https://github.com/CarlosAMolina/job-check-lambda-name
+rm -rf job-check-lambda-name/.git
 
