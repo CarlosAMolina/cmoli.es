@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - Update errors.
   - Directories.
   - Network: add restart interface.
+- New sections:
+  - Job: tools for my daily work.
 ### Changed
 - Main menu: move UFC to the tools section.
 - USB Linux: move sections.
