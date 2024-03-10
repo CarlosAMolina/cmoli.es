@@ -6,13 +6,17 @@ volume_web_content_pathname=$(/bin/bash get-docker-volume-pathname "${volume_nam
 volume_tools_pathname=$volume_web_content_pathname/tools/
 echo "[DEBUG] Init clone tools in $volume_tools_pathname"
 cd $volume_tools_pathname
-rm -rf open-urls
-git clone --depth=1 --branch=main https://github.com/CarlosAMolina/open-urls
-rm -rf open-urls/.git
-rm -rf job-check-lambda-name
-git clone --depth=1 --branch=main https://github.com/CarlosAMolina/job-check-lambda-name
-rm -rf job-check-lambda-name/.git
-rm -rf job-modify-issue-name
-git clone --depth=1 --branch=main https://github.com/CarlosAMolina/job-modify-issue-name
-rm -rf job-modify-issue-name/.git
 
+manage_tool() {
+  tool=$1
+  echo "[DEBUG] Init tool ${tool}"
+  rm -rf ${tool}
+  git clone --depth=1 --branch=main https://github.com/CarlosAMolina/${tool}
+  rm -rf ${tool}/.git
+}
+
+github_names=("open-urls" "job-check-lambda-name" "job-modify-issue-name")
+for name in ${github_names[@]};
+do
+  manage_tool ${name}
+done
