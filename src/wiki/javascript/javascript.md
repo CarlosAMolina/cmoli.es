@@ -11,5 +11,5 @@ Solution, we can open the html using a server like [http-server](https://www.npm
 ```bash
 npm install http-server --save-dev
 ./node_modules/http-server/bin/http-server
-http://127.0.0.1:8080
+firefox http://127.0.0.1:8080
 ```
