@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - Update errors.
   - Directories.
   - Network: add restart interface.
+- JavaScript wiki section.
 - New sections:
   - Job: tools for my daily work.
 ### Changed
