@@ -1,7 +1,6 @@
 Nota. Palabras en mayúsculas precedidas por el símbolo $ indica que deben sustituirse por el valor deseado. Ejm: $USER_NAME
 
 ## Contenidos
-
 - [Configuración inicial](#configuración-inicial)
 - [Crear repositorio remoto desde un repositorio local](#crear-repositorio-remoto-desde-un-repositorio-local)
 - [Cambiar nombre de un repositorio](#cambiar-nombre-de-un-repositorio)
@@ -9,6 +8,7 @@ Nota. Palabras en mayúsculas precedidas por el símbolo $ indica que deben sust
 - [Staging area](#staging-area)
 - [Volver a un commit anterior](#volver-a-un-commit-anterior)
 - [Comandos git](#comandos-git)
+  - [cat-file](#cat-file)
 - [Continous integration](#continous-integration)
 - [SSH](#ssh)
   - [Consideraciones](#consideraciones)
