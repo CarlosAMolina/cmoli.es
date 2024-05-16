@@ -7,14 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [TODO] - TODO
 ### Added
-- Vim: useful commands section.
-- Gnu-linux:
-  - Arch Linux:
-    - Add Windows OS to the GRUB menu.
-    - Update errors.
-  - Directories.
-  - Network: add restart interface.
-- JavaScript wiki section.
+- Wiki:
+  - Vim: useful commands section.
+  - Git: git commands section.
+  - Gnu-linux:
+    - Arch Linux:
+      - Add Windows OS to the GRUB menu.
+      - Update errors.
+    - Directories.
+    - Network: add restart interface.
+  - JavaScript wiki section.
 - New sections:
   - Job: tools for my daily work.
 ### Changed
