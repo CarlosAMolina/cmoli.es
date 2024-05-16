@@ -8,6 +8,7 @@ Nota. Palabras en mayúsculas precedidas por el símbolo $ indica que deben sust
   - [GitLab](#gitlab)
 - [Staging area](#staging-area)
 - [Volver a un commit anterior](#volver-a-un-commit-anterior)
+- [Comandos git](#comandos-git)
 - [Continous integration](#continous-integration)
 - [SSH](#ssh)
   - [Consideraciones](#consideraciones)
@@ -94,6 +95,15 @@ git reset --hard HEAD
 # A un commit específico.
 git reset --hard $COMMIT_ID
 ```
+
+## Comandos git
+
+### cat-file
+
+Permite obtener información de un commit hash. Algunos ejemplos de qué permite:
+
+- Obtener la rama a la que pertenece el commit.
+- Analizar los archivos actuales en ese commit y ver su contenido. Por ejemplo con esto podríamos ver el contenido de archivos eliminados.
 
 ## Continous integration
 
