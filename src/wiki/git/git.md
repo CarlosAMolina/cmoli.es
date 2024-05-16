@@ -105,6 +105,55 @@ Permite obtener información de un commit hash. Algunos ejemplos de qué permite
 - Obtener la rama a la que pertenece el commit.
 - Analizar los archivos actuales en ese commit y ver su contenido. Por ejemplo con esto podríamos ver el contenido de archivos eliminados.
 
+A continuación, vamos a ver un ejemplo con explicaciones teóricas.
+
+Si ejecutamos el comandos sobre un commit, tenemos:
+
+```bash
+$ git cat-file -p b1a7bea
+tree 30c0e0197d84a0772d1cb5c0aeb881799bdbd928
+parent 6be153f69922aaa141b64880304186f9f3b98b5a
+author CarlosAMolina <15368012+CarlosAMolina@users.noreply.github.com> 1715834028 +0200
+committer CarlosAMolina <15368012+CarlosAMolina@users.noreply.github.com> 1715834028 +0200
+
+Update wiki git
+```
+
+La información mostrada es:
+
+- tree: `tree` indica que se trata de una carpeta.
+- parent: id del commit padre al analizado.
+
+Si analizamos `tree` tenemos los archivos y carpetas en ese commit:
+
+```bash
+$ git cat-file -p 30c0e01
+100644 blob 777be3e2e2b6e8aabd6e817a7e1588b54fe0380a    .gitignore
+100644 blob a347037c1839ae4f34a9e3399748fbcdcb2d3de4    CHANGELOG.md
+100644 blob b3fbee3f989b71ea85a1d5922c4bebf31fc439d1    LICENSE
+100644 blob de6d9dea4245ee0e6ec5365011f7b3d69d945b9f    README.md
+040000 tree 8437ea087b6b9727c278e3814e346c1f5737022d    deploy
+040000 tree 87ea3d4f0df06354806cb126b8dbf39d87e10aaa    src
+```
+
+El término `blob` indica que se trata de un archivo.
+
+Cada commit de git contiene todos los archivos y carpetas en ese momento.
+
+Los 2 primeros caracteres mostrados en el hash de los archivos indica donde se encuentran estos archivo en `.git`. Por ejemplo, para `f7c5a4e5545b761005adc08da8b1efd1499de336` tenemos el archivo:
+
+```bash
+.git/objects/f7/c5a4e5545b761005adc08da8b1efd1499de336
+```
+
+Si vemos su contenido, será incomprensible, pero podemos verlo con:
+
+```bash
+git cat-file -p f7c5a4e5545b761005adc08da8b1efd1499de336
+```
+
+Sobre las carpetas con el nombre de los 2 primeros caracteres del hash, he visto que en proyectos con pocos commits, en `.git/object` hay carpetas por cada hash, pero en más grandes no, tal vez se vayan eliminando con el tiempo.
+
 ## Continous integration
 
 Ver runner en una máquina:
