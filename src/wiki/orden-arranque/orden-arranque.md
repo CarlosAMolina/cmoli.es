@@ -28,3 +28,9 @@ Puede configurarse el orden de arranque en:
 
 - Opción 1. Boot Menu (F9)
 - Opción 2. BIOS Setup (F10). Advanzed > Boot Options > UEFI Boot Order.
+
+## MacBook Pro (15 pulgadas, mediados de 2012)
+
+[Ejemplo imagen](https://support.apple.com/es-es/HT201300). Buscar, Identificador del modelo: MacBookPro9,1.
+
+Mantener presionada la tecla opción (tecla `alt` abajo a la izquierda) y encender el portátil ([enlace explicación](https://support.apple.com/es-es/guide/mac-help/mchlp1034/14.0/mac/14.0)).
