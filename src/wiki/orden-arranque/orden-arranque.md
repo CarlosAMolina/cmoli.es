@@ -15,3 +15,16 @@ Para acceder al menú donde cambiar el orden de arranque, durante el inicio del 
 Para acceder al menú donde cambiar el orden de arranque, durante el inicio del PC, pulsar la tecla `F10`.
 
 Acceder a System Configuration > Boot Options > UEFI Boot Order: OS boot Manager. Pulsar tecla enter para que aparezca lista donde seleccionar sistema operativo.
+
+## HP ZBook 14u G6
+
+[Ejemplo imagen](https://support.hp.com/mx-es/document/c06337099)
+
+Para acceder al menú donde cambiar el orden de arranque, durante el inicio del PC, pulsar la tecla `esc` (tecla escape, situada arriba a la izquierda del teclado) ([link explicación](https://tecnobits.com/como-iniciar-la-bios-en-un-hp-zbook/)). Importante, no mantener presionada la tecla, sino pulsarla con toques breves y repetidos hasta que aparezca el menú donde cambiar la configuración.
+
+Nota. Si aparece el menú GRUB en lugar de Bios, escribir `fwsetup` ([Link](https://askubuntu.com/questions/318796/when-trying-to-enter-bios-gnu-grub-screen-appears)), pulsar enter y esperar a que aparezca el Startup Menú con varias opciones.
+
+Puede configurarse el orden de arranque en:
+
+- Opción 1. Boot Menu (F9)
+- Opción 2. BIOS Setup (F10). Advanzed > Boot Options > UEFI Boot Order.
