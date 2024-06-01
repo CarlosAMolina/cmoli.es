@@ -13,6 +13,7 @@
     - [Coc comandos gestión extensiones](#coc-comandos-gestión-extensiones)
       - [Instalar extensiones con Coc](#instalar-extensiones-con-coc)
       - [Mostrar extensiones instaladas](#mostrar-extensiones-instaladas)
+      - [Actualizar extensiones instaladas](#actualizar-extensiones-instaladas)
       - [Desinstalar extensiones con Coc](#desinstalar-extensiones-con-coc)
   - [Configuración](#configuración)
     - [Reducir updatetime](#reducir-updatetime)
@@ -113,6 +114,14 @@ El siguiente ejemplo instala `coc-pyright`:
 ```bash
 :CocList extensions
 ```
+
+##### Actualizar extensiones instaladas
+
+```bash
+:CocUpdate
+```
+
+Con el comando anterior pueden solucionarse errores de tipo `Unhandled exception` que ocurran con coc.
 
 ##### Desinstalar extensiones con Coc
 

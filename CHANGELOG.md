@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [TODO] - TODO
 ### Added
 - Wiki:
-  - Vim: useful commands section.
+  - Vim: useful commands section, coc.
   - Git: git commands section.
   - Gnu-linux:
     - Arch Linux:
