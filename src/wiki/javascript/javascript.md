@@ -1,3 +1,44 @@
+## Configure the project development environment
+
+### eslint
+
+#### Install and configuration
+
+In the main path of the project run the following command and answer the questions:
+
+```bash
+npm init @eslint/config
+```
+
+A file like `.eslintrc.json` or `eslint.config.js` has been created.
+
+#### Work with eslint
+
+Show help:
+
+```bash
+npx eslint --help
+```
+
+Run eslint over all files to show problems in the code:
+
+```bash
+npx eslint .
+```
+
+Avoid using `npx` and use `npm instead`. Modify `package.jon` file:
+
+```json
+   "scripts": {
+     "lint": "eslint .",
+```
+
+Run using npm:
+
+```bash
+npm run lint
+```
+
 ## Modules
 
 ### Open js code with modules in the browser
