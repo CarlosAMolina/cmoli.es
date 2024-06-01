@@ -2,7 +2,9 @@
 
 ### eslint
 
-#### Install and configuration
+Shows information like unused variables, syntax errors, etc.
+
+#### Install eslint
 
 In the main path of the project run the following command and answer the questions:
 
@@ -26,11 +28,13 @@ Run eslint over all files to show problems in the code:
 npx eslint .
 ```
 
-Avoid using `npx` and use `npm instead`. Modify `package.jon` file:
+Avoid using `npx` and use `npm` instead. Modify `package.jon` file:
 
 ```json
    "scripts": {
+     ...
      "lint": "eslint .",
+     ...
 ```
 
 Run using npm:
@@ -38,6 +42,30 @@ Run using npm:
 ```bash
 npm run lint
 ```
+
+### prettier
+
+It does style check and auto-formatting.
+
+#### Install prettier
+
+```bash
+npm install --save-dev --save-exact prettier
+```
+
+- `--save-dev`: save an specific version in `package.json`.
+
+#### Work with prettier
+
+To run with `npm`. Modify `package.jon` file:
+
+```json
+   "scripts": {
+     ...
+     "format": "prettier . --write",
+     ...
+```
+
 
 ## Modules
 
