@@ -34,3 +34,7 @@ Puede configurarse el orden de arranque en:
 [Ejemplo imagen](https://support.apple.com/es-es/HT201300). Buscar, Identificador del modelo: MacBookPro9,1.
 
 Mantener presionada la tecla opción (tecla `alt` abajo a la izquierda) y encender el portátil ([enlace explicación](https://support.apple.com/es-es/guide/mac-help/mchlp1034/14.0/mac/14.0)).
+
+### GRUB
+
+Si en lugar de la pantalla de configuración de la BIOS accedemos a la pantalla de GRUB, salimos de ella escribiendo `exit` y pulsando enter y durante el arranque, accedemos a la configuración de la BIOS pulsando la tecla F10 (no sé si es necesario que esté presionada/activa la tecla `fn`).
