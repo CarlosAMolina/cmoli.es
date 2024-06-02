@@ -38,3 +38,12 @@ Mantener presionada la tecla opción (tecla `alt` abajo a la izquierda) y encend
 ### GRUB
 
 Si en lugar de la pantalla de configuración de la BIOS accedemos a la pantalla de GRUB, salimos de ella escribiendo `exit` y pulsando enter y durante el arranque, accedemos a la configuración de la BIOS pulsando la tecla F10 (no sé si es necesario que esté presionada/activa la tecla `fn`).
+
+## Secure boot request
+
+Si tras cambiar las opciones de arranque, al iniciar el equipo aparece un mensaje indicando:
+
+> A request has been made to change this system's secure boot configuration wich may affect the secure boot keys and/or may disable secure boot.
+> Please type in and enter the below number fo authorization
+
+Lo que debemos hacer es escribir el número que aparece y pulsar enter.
