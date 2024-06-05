@@ -1,12 +1,17 @@
 Nota. Palabras en mayúsculas precedidas por el símbolo $ indica que deben sustituirse por el valor deseado. Ejm: $USER_NAME
 
 ## Contenidos
+
 - [Configuración inicial](#configuración-inicial)
 - [Crear repositorio remoto desde un repositorio local](#crear-repositorio-remoto-desde-un-repositorio-local)
 - [Cambiar nombre de un repositorio](#cambiar-nombre-de-un-repositorio)
   - [GitLab](#gitlab)
 - [Staging area](#staging-area)
 - [Volver a un commit anterior](#volver-a-un-commit-anterior)
+- [Branches](#branches)
+  - [Common ancestor](#common-ancestor)
+  - [Merge](#merge)
+    - [Por qué a veces aparece mensaje de merge y otras no](#por-qué-a-veces-aparece-mensaje-de-merge-y-otras-no)
 - [Comandos git](#comandos-git)
   - [cat-file](#cat-file)
 - [Continous integration](#continous-integration)
@@ -95,6 +100,20 @@ git reset --hard HEAD
 # A un commit específico.
 git reset --hard $COMMIT_ID
 ```
+
+## Branches
+
+### Common ancestor
+
+El `common ancestor` de dos ramas es el commit más reciente que tienen en común ([link](https://www.freecodecamp.org/news/the-definitive-guide-to-git-merge/)).
+
+Un `common ancestor` `A` es mejor que otro `B` si `A` es más actual, es decir, si `B` es un `ancestor` de `A`. El `best common ancestor` es el `common ancestor` que no tenga otros `ancestor` mejores que él. [Link documentación](https://git-scm.com/docs/git-merge-base).
+
+### Merge
+
+#### Por qué a veces aparece mensaje de merge y otras no
+
+Cuando hacemos merge, en caso de que el último commit de una rama sea el best common ancestor de la otra, no habrá un commit message de `Mergeo branch X into Y` porque git únicamente tuvo que hacer un fast forward, no combinó archivos. Esta es la diferencia entre `fast forward merge` y `3 way merge`.
 
 ## Comandos git
 
