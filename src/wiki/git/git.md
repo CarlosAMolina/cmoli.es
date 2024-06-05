@@ -100,6 +100,16 @@ git reset --hard HEAD
 # A un commit específico.
 git reset --hard $COMMIT_ID
 ```
+## Commit
+
+### Parent commit
+
+Como se indica [en este link](https://stackoverflow.com/questions/38239521/what-is-the-parent-of-a-git-commit-how-can-there-be-more-than-one-parent-to-a-g#38239664), el commit padres es el commit (o los commits) en que se basan el commit actual:
+
+- Cuando generas un commit, el commit actual es el padre del nuevo que se genera.
+- Cuando mergeas dos commits (mergeo no de tipo fast forward), se genera un nuevo commit cuyos padres son los dos anteriores. Pueden verse con `git log --oneline --graph --parents`.
+
+
 
 ## Branches
 
@@ -107,9 +117,16 @@ git reset --hard $COMMIT_ID
 
 El `common ancestor` de dos ramas es el commit más reciente que tienen en común ([link](https://www.freecodecamp.org/news/the-definitive-guide-to-git-merge/)).
 
-Un `common ancestor` `A` es mejor que otro `B` si `A` es más actual, es decir, si `B` es un `ancestor` de `A`. El `best common ancestor` es el `common ancestor` que no tenga otros `ancestor` mejores que él. [Link documentación](https://git-scm.com/docs/git-merge-base).
+Un `common ancestor` `B` es mejor que otro `A` si `B` es más reciente, es decir, si `A` es un `ancestor` de `B`. El `best common ancestor` es el `common ancestor` que no tenga otros `ancestor` mejores que él. Al `best common ancestor` también se le llama `merge base`. [Link documentación](https://git-scm.com/docs/git-merge-base).
+
+Hay situaciones en que haya varios `merge base` (ver ejemplos en la [documentación](https://git-scm.com/docs/git-merge-base#_discussion)).
 
 ### Merge
+
+#### Target vs source brach
+
+- Target: la rama en la que te encuentras.
+- Source: la rama que indicas en el comando `git merge <branch>`.
 
 #### Por qué a veces aparece mensaje de merge y otras no
 
