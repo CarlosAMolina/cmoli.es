@@ -43,6 +43,8 @@ a {
 }
 .side-large {
   border: #96c3f1 1px solid;
+  border-left-width: 0px;
+  border-right-width: 0px;
   text-align: center;
   text-transform: uppercase;
   color: #e3e3e3;

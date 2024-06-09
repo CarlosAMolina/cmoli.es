@@ -21,7 +21,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - New sections:
   - Job: tools for my daily work.
 ### Changed
-- Main menu: move UFC to the tools section.
+- Main menu:
+  - Move UFC to the tools section.
+  - Improve border size.
 - USB Linux: move sections.
 
 ## [0.17.0] - 2023-06-29
