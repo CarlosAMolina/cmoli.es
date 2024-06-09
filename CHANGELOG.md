@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - Network: add restart interface.
   - JavaScript wiki section.
   - `Orden de arranque`: add.
+  - Python: install.
 - New sections:
   - Job: tools for my daily work.
 ### Changed
