@@ -7,6 +7,7 @@
   - [Arch Linux](#arch-linux)
 - [Configuración](#configuración)
   - [Copiar entre instancias](#copiar-entre-instancias)
+    - [Copiar en Wayland](#copiar-en-wayland)
   - [Corrección ortográfica](#corrección-ortográfica)
     - [Errores corrección ortográfica](#errores-corrección-ortográfica)
       - [No encuentra archivo](#no-encuentra-archivo)
@@ -46,6 +47,16 @@ Para poder copiar entre diferentes instancias de Neovim utilizando `yy` y `pp`, 
 
 ```bash
 set clipboard+=unnamedplus
+```
+
+#### Copiar en Wayland
+
+En Wayland puede ser necesario instalar `wl-clipboard`. Dicho [en este link](https://stackoverflow.com/questions/61379318/how-to-copy-from-vim-to-system-clipboard-using-wayland-and-without-compiled-vim).
+
+Ejemplo Ubuntu:
+
+```bash
+sudo apt install wl-clipboard
 ```
 
 ### Corrección ortográfica
