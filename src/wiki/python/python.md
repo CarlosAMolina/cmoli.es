@@ -13,6 +13,7 @@
 - [pipenv: pip y entornos virtuales](#pipenv-pip-y-entornos-virtuales)
 - [Special methods](#special-methods)
 - [Versión de python](#versión-de-python)
+  - [Utilizando repositorios de nuestra distribución](utilizando-repositorios-de-nuestra-distribución)
   - [De manera manual](#de-manera-manual)
   - [pyenv](#pyenv)
 
@@ -123,6 +124,10 @@ Ver [special methods](special-methods.html).
 ## Versión de python
 
 Podemos instalar diferentes versiones de Python en nuestro equipo, de manera manual o mediante un gestor de versiones.
+
+### Utilizando repositorios de nuestra distribución
+
+<https://www.linuxcapable.com/how-to-install-python-3-11-on-ubuntu-linux/>
 
 ### De manera manual
 
