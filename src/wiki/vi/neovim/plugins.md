@@ -25,6 +25,7 @@
     - [Mostrar comandos disponibles](#mostrar-comandos-disponibles)
 - [pyright](#pyright)
   - [Configurar Pyright](#configurar-pyright)
+    - [Pyright configurations](#pyright-configurations)
     - [Realizar imports desde otros proyectos](#realizar-imports-desde-otros-proyectos)
 - [rust-analyzer](#rust-analyzer)
 - [nvim-tree](#nvim-tree)
@@ -231,6 +232,20 @@ Para programar en el lenguaje Python, utilizo el plugin `pyright`, puede instala
 Ahora, al editar un archivo de Python, recibiremos ayuda de `pyright`.
 
 ### Configurar Pyright
+
+#### Pyright configurations
+
+Las configuraciones disponibles están describas [en la página del proyecto](https://github.com/fannheyward/coc-pyright?tab=readme-ov-file#configurations).
+
+Pueden añadirse ejecutando en neovim `:CocConfig`, se abrirá el archivo de configuración `.config/nvim/coc-settings.jon` donde podemos escribir por ejemplo:
+
+```json
+{
+    "pyright.inlayHints.functionReturnTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+    "pyright.inlayHints.parameterTypes": false
+}
+```
 
 #### Realizar imports desde otros proyectos
 
