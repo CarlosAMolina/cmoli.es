@@ -97,7 +97,9 @@ ssh-add ~/.ssh/id_ed255190
 
 [Referencia](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-## Crear repositorio remoto desde un repositorio local
+## Resolución casos comunes en git
+
+### Crear repositorio remoto desde un repositorio local
 
 <https://docs.gitlab.com/ee/gitlab-basics/create-project.html>
 
@@ -113,9 +115,9 @@ Paso 2. Hacer push. Ejm:
 git push --set-upstream https://$DOMINIO/$USER/$REPOSITORY_NAME.git master
 ```
 
-## Cambiar nombre de un repositorio
+### Cambiar nombre de un repositorio
 
-### GitLab
+#### GitLab
 
 <https://docs.gitlab.com/ee/user/project/settings/>
 
