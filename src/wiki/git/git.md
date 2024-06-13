@@ -70,7 +70,7 @@ Ir a configuración del repositorio: https://domain/user/project/edit
 
 Advanced settings > Rename repository: cambiar project name y path.
 
-## Teoría
+## Términos
 
 ### Staging area
 
@@ -94,29 +94,18 @@ git commit -m "$MENSAJE_PARA_EL_COMMIT"
 
 <img src="https://git-scm.com/images/about/index1@2x.png" alt="" width="300">
 
-## Volver a un commit anterior
+### Commit
 
-<https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit/4114122>
-
-```bash
-# Al último commit.
-git reset --hard HEAD
-
-# A un commit específico.
-git reset --hard $COMMIT_ID
-```
-## Commit
-
-### Parent commit
+#### Parent commit
 
 Como se indica [en este link](https://stackoverflow.com/questions/38239521/what-is-the-parent-of-a-git-commit-how-can-there-be-more-than-one-parent-to-a-g#38239664), el commit padre es el commit (o los commits) en que se basan el commit actual:
 
 - Cuando generas un commit, el commit actual es el padre del nuevo que se genera.
 - Cuando mergeas dos commits (mergeo no de tipo fast forward), se genera un nuevo commit cuyos padres son los dos anteriores. Pueden verse con `git log --oneline --graph --parents`.
 
-## Branches
+### Branches
 
-### Common ancestor
+#### Common ancestor
 
 El `common ancestor` de dos ramas es el commit más reciente que tienen en común ([link](https://www.freecodecamp.org/news/the-definitive-guide-to-git-merge/)).
 
@@ -134,6 +123,18 @@ Hay situaciones en que haya varios `merge base` (ver ejemplos en la [documentaci
 #### Por qué a veces aparece mensaje de merge y otras no
 
 Cuando hacemos merge, en caso de que el último commit de una rama sea el best common ancestor de la otra, no habrá un commit message de `Mergeo branch X into Y` porque git únicamente tuvo que hacer un fast forward, no combinó archivos. Esta es la diferencia entre `fast forward merge` y `3 way merge`.
+
+## Volver a un commit anterior
+
+<https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit/4114122>
+
+```bash
+# Al último commit.
+git reset --hard HEAD
+
+# A un commit específico.
+git reset --hard $COMMIT_ID
+```
 
 ## Comandos git
 
