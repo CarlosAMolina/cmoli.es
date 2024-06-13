@@ -249,7 +249,7 @@ Ir a configuración del repositorio: https://domain/user/project/edit
 
 Advanced settings > Rename repository: cambiar project name y path.
 
-## Continous integration
+### Continous integration
 
 Ver runner en una máquina:
 
