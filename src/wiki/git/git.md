@@ -26,7 +26,9 @@ Nota. Palabras en mayúsculas precedidas por el símbolo $ indica que deben sust
 - [OSINT](#osint)
   - [Email de quién realizó el commit](#email-de-quién-realizó-el-commit)
 
-## Configuración inicial
+## Configuración
+
+### Configuración inicial
 
 ```bash
 git config --global user.name "$USER_NAME"
@@ -43,6 +45,57 @@ git -c http.sslVerify false
 ```bash
 git -c http.sslVerify=False
 ```
+
+### SSH
+
+El protocolo SSH nos permite ejecutar los comandos de git en el servidor remoto sin tener que indicar nuestro usuario y contraseña.
+
+Los pasos para realizar la configuración pueden consultarse en los siguientes enlaces:
+
+<https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh>
+
+<https://docs.gitlab.com/ee/ssh/>
+
+#### Consideraciones
+
+Para poder utilizar el protocolo SSH y no introducir nuestras credenciales, el repositorio con el que estemos trabajando debe haberse descargado del siguiente modo:
+
+```bash
+git clone git@$SERVIDOR:$USUARO/$REPOSITORIO
+# Ejm: git clone git@github.com:CarlosAMolina/cmoli.es
+```
+
+#### Errores SSH
+
+##### Error authentication failed
+
+En caso de tener error de autenticación al utilizar los comandos de git, puede ser debido a tener activado el doble factor de autenticación; en este caso, hay que utilizar como credenciales un token.
+
+Los pasos para tener este token están explicado en el siguiente enlace:
+
+<https://mycyberuniverse.com/how-fix-fatal-authentication-failed-for-https-github-com.html>
+
+##### Error push permission denied
+
+Si al hacer `push` recibimos el siguiente error:
+
+```bash
+ERROR: Permission to URL_REPO.git denied to USER.
+fatal: No se pudo leer del repositorio remoto.
+
+Por favor asegúrate de que tengas los permisos de acceso correctos
+y que el repositorio exista.
+```
+
+Puede ser que nuestro equipo tenga distintos usuarios de git y no estemos utilizando la configuración del usuario con permisos para escribir en el repositorio.
+
+Para solucionarlo, importamos al ssh-agent la clave SSH privada correspondiente al repositorio, por ejemplo:
+
+```bash
+ssh-add ~/.ssh/id_ed255190
+```
+
+[Referencia](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 ## Crear repositorio remoto desde un repositorio local
 
@@ -201,57 +254,6 @@ Ver runner en una máquina:
 ```bash
 ps -ef | grep runner
 ```
-
-## SSH
-
-El protocolo SSH nos permite ejecutar los comandos de git en el servidor remoto sin tener que indicar nuestro usuario y contraseña.
-
-Los pasos para realizar la configuración pueden consultarse en los siguientes enlaces:
-
-<https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh>
-
-<https://docs.gitlab.com/ee/ssh/>
-
-### Consideraciones
-
-Para poder utilizar el protocolo SSH y no introducir nuestras credenciales, el repositorio con el que estemos trabajando debe haberse descargado del siguiente modo:
-
-```bash
-git clone git@$SERVIDOR:$USUARO/$REPOSITORIO
-# Ejm: git clone git@github.com:CarlosAMolina/cmoli.es
-```
-
-### Errores SSH
-
-#### Error authentication failed
-
-En caso de tener error de autenticación al utilizar los comandos de git, puede ser debido a tener activado el doble factor de autenticación; en este caso, hay que utilizar como credenciales un token.
-
-Los pasos para tener este token están explicado en el siguiente enlace:
-
-<https://mycyberuniverse.com/how-fix-fatal-authentication-failed-for-https-github-com.html>
-
-#### Error push permission denied
-
-Si al hacer `push` recibimos el siguiente error:
-
-```bash
-ERROR: Permission to URL_REPO.git denied to USER.
-fatal: No se pudo leer del repositorio remoto.
-
-Por favor asegúrate de que tengas los permisos de acceso correctos
-y que el repositorio exista.
-```
-
-Puede ser que nuestro equipo tenga distintos usuarios de git y no estemos utilizando la configuración del usuario con permisos para escribir en el repositorio.
-
-Para solucionarlo, importamos al ssh-agent la clave SSH privada correspondiente al repositorio, por ejemplo:
-
-```bash
-ssh-add ~/.ssh/id_ed255190
-```
-
-[Referencia](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
 ## OSINT
 
