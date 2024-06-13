@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   - Move UFC to the tools section.
   - Improve border size.
 - USB Linux: move sections.
+- Wiki: git sections
 
 ## [0.17.0] - 2023-06-29
 ### Added
