@@ -109,7 +109,7 @@ git reset --hard $COMMIT_ID
 
 ### Parent commit
 
-Como se indica [en este link](https://stackoverflow.com/questions/38239521/what-is-the-parent-of-a-git-commit-how-can-there-be-more-than-one-parent-to-a-g#38239664), el commit padres es el commit (o los commits) en que se basan el commit actual:
+Como se indica [en este link](https://stackoverflow.com/questions/38239521/what-is-the-parent-of-a-git-commit-how-can-there-be-more-than-one-parent-to-a-g#38239664), el commit padre es el commit (o los commits) en que se basan el commit actual:
 
 - Cuando generas un commit, el commit actual es el padre del nuevo que se genera.
 - Cuando mergeas dos commits (mergeo no de tipo fast forward), se genera un nuevo commit cuyos padres son los dos anteriores. Pueden verse con `git log --oneline --graph --parents`.
