@@ -97,34 +97,6 @@ ssh-add ~/.ssh/id_ed255190
 
 [Referencia](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-## Resolución casos comunes en git
-
-### Crear repositorio remoto desde un repositorio local
-
-<https://docs.gitlab.com/ee/gitlab-basics/create-project.html>
-
-<https://georgik.rocks/common-mistake-when-creating-new-git-repo>
-
-<https://docs.gitlab.com/ee/api/namespaces.html>
-
-Paso 1. Hacer un commit local para crear el branch master. Este aparece en .git/config como [branch "master"].
-
-Paso 2. Hacer push. Ejm:
-
-```bash
-git push --set-upstream https://$DOMINIO/$USER/$REPOSITORY_NAME.git master
-```
-
-### Cambiar nombre de un repositorio
-
-#### GitLab
-
-<https://docs.gitlab.com/ee/user/project/settings/>
-
-Ir a configuración del repositorio: https://domain/user/project/edit
-
-Advanced settings > Rename repository: cambiar project name y path.
-
 ## Términos
 
 ### Staging area
@@ -248,6 +220,34 @@ git cat-file -p f7c5a4e5545b761005adc08da8b1efd1499de336
 ```
 
 Sobre las carpetas con el nombre de los 2 primeros caracteres del hash, he visto que en proyectos con pocos commits, en `.git/object` hay carpetas por cada hash, pero en más grandes no, tal vez se vayan eliminando con el tiempo.
+
+## Resolución casos comunes en git
+
+### Crear repositorio remoto desde un repositorio local
+
+<https://docs.gitlab.com/ee/gitlab-basics/create-project.html>
+
+<https://georgik.rocks/common-mistake-when-creating-new-git-repo>
+
+<https://docs.gitlab.com/ee/api/namespaces.html>
+
+Paso 1. Hacer un commit local para crear el branch master. Este aparece en .git/config como [branch "master"].
+
+Paso 2. Hacer push. Ejm:
+
+```bash
+git push --set-upstream https://$DOMINIO/$USER/$REPOSITORY_NAME.git master
+```
+
+### Cambiar nombre de un repositorio
+
+#### GitLab
+
+<https://docs.gitlab.com/ee/user/project/settings/>
+
+Ir a configuración del repositorio: https://domain/user/project/edit
+
+Advanced settings > Rename repository: cambiar project name y path.
 
 ## Continous integration
 
