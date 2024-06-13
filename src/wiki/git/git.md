@@ -70,7 +70,9 @@ Ir a configuración del repositorio: https://domain/user/project/edit
 
 Advanced settings > Rename repository: cambiar project name y path.
 
-## Staging area
+## Teoría
+
+### Staging area
 
 <https://git-scm.com/about/staging-area>
 
