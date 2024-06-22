@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [TODO] - TODO
 ### Added
 - Wiki:
+  - Firefox add-on: add web-ext tool.
   - Git: git commands section.
   - Gnu-linux:
     - Arch Linux:

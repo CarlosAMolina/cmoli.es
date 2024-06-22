@@ -1,6 +1,7 @@
 ## Contenidos
 
 - [Instalar add-on](#instalar-add-on)
+- [Desarrollar add-on](#desarrollar-add-on)
 - [Archivos](#archivos)
   - [manifest.json](#manifest.json)
   - [icons](#icons)
@@ -13,6 +14,12 @@
 Acceder en la barra de URLs del navegador Web a `about:debugging` > `Este Firefox` y elegir `Cargar complemento temporal...`, tras esto, seleccionar cualquier archivo de la carpeta del proyecto del add-on.
 
 Aparecerá la extensión en la sección `Extensiones temporales`. Para recargar cambios, click en `Recargar`.
+
+## Desarrollar add-on
+
+Herramientas que ayudan al desarrollo:
+
+- [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/)
 
 ## Archivos
 
