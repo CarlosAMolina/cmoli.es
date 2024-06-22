@@ -8,7 +8,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [TODO] - TODO
 ### Added
 - Wiki:
-  - Vim: useful commands section, coc, wayland.
   - Git: git commands section.
   - Gnu-linux:
     - Arch Linux:
@@ -17,8 +16,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - Directories.
     - Network: add restart interface.
   - JavaScript wiki section.
-  - `Orden de arranque`: add.
+  - Orden de arranque.
   - Python: install.
+  - Vim: useful commands section, coc, wayland.
 - New sections:
   - Job: tools for my daily work.
 ### Changed
