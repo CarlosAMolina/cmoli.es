@@ -2,6 +2,8 @@
 
 - [Instalar add-on](#instalar-add-on)
 - [Desarrollar add-on](#desarrollar-add-on)
+  - [web-ext](#web-ext)
+    - [Ejecutar extensión en navegador y recargar automáticamente con cada cambio](#ejecutar-extensión-en-navegador-y-recargar-automáticamente-con-cada-cambio)
 - [Archivos](#archivos)
   - [manifest.json](#manifest.json)
   - [icons](#icons)
@@ -19,7 +21,16 @@ Aparecerá la extensión en la sección `Extensiones temporales`. Para recargar 
 
 Herramientas que ayudan al desarrollo:
 
-- [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/)
+### web-ext
+
+[Enlace a documentación](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/).
+
+#### Ejecutar extensión en navegador y recargar automáticamente con cada cambio
+
+```bash
+# cd path donde se encuentre el archivo manifest.json
+web-ext run
+```
 
 ## Archivos
 
