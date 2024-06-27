@@ -29,6 +29,10 @@ Puede configurarse el orden de arranque en:
 - Opción 1. Boot Menu (F9)
 - Opción 2. BIOS Setup (F10). Advanzed > Boot Options > UEFI Boot Order.
 
+### Instalar sistema operativo
+
+El Secure Boot debe estar desactivado, se hace desde el menú de la BIOS.
+
 ## MacBook Pro (15 pulgadas, mediados de 2012)
 
 [Ejemplo imagen](https://support.apple.com/es-es/HT201300). Buscar, Identificador del modelo: MacBookPro9,1.
