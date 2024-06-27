@@ -3,6 +3,7 @@
 ## Contenidos
 
 - [Arch Linux](arch-linux/arch-linux.html)
+- [Debian](debian.html)
 - [Directories](directories.html)
 - [Network](network.html)
 - [Partitions](partitions.html)
