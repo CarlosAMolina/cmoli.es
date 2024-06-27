@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   - Orden de arranque.
   - Python: install.
   - Vim: useful commands section, coc, wayland.
+  - Windows: activate.
 - New sections:
   - Job: tools for my daily work.
 ### Changed
