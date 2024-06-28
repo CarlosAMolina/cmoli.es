@@ -18,7 +18,17 @@ Modificar el siguiente archivo:
 sudo vi /etc/systemd/logind.conf
 ```
 
-Cambiar `#HandleLidSwitch=suspend` por `#HandleLidSwitch=ignore`.
+Cambiar:
+
+```bash
+#HandleLidSwitch=suspend
+```
+
+por:
+
+```bash
+HandleLidSwitch=ignore
+```
 
 Tras esto, ejecutar:
 
