@@ -28,7 +28,7 @@ control + shift + p
 
 En el cuadro que se abre, escribir `install package` y elegir (hacer click) `Package Control: Install Package`
 
-Esperar a que aparezca otro cuadro, escribir `spanish` y elegir `Language - Spanish`.
+Esperar a que aparezca otro cuadro, escribir `spanish` y elegir `Language - Spanish` (seleccionarlo con las teclas de dirección del teclado y pulsar enter).
 
 En los siguientes pasos se descomprimirá este paquete para obtener la carpeta `Language - Spanish`, por lo que, una alternativa a obtener la carpeta utilizando el paquete, es descargarla directamente desde GitHub:
 
