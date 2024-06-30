@@ -1,4 +1,4 @@
-# Debian
+#Debian
 
 ## Instalación
 
@@ -53,3 +53,6 @@ Si devuelve `false`, ejecutar:
 ```bash
 xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch -n -t bool -s true
 ```
+
+Si con esto no funciona, configurar `Settings > Power Manager` como se indica en [este enlace](https://forums.debian.net/viewtopic.php?p=797844&sid=665a361d8ec3c3d83177811f881adb08#p797844). Lee el enlace para aplicar todos los cambios, uno de los cambios es:
+- System > On battery y Pluggen id: Laptop Lid = Switch off display.
