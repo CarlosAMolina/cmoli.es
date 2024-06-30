@@ -12,6 +12,8 @@ Crear usb bootable:
 
 ## Evitar suspensión al cerrar tapa del portátil
 
+Los primeros pasos, como indican estos links (<https://unix.stackexchange.com/questions/563729/looking-for-the-settings-that-causes-debian-to-suspend-when-laptop-lid-is-closed>, <https://github.com/systemd/systemd/issues/11638>, <https://superuser.com/questions/1605504/etc-systemd-logind-conf-is-being-ignored>) son:
+
 Modificar el siguiente archivo:
 
 ```bash
@@ -40,8 +42,14 @@ Tras esto, ejecutar:
 sudo service systemd-logind restart
 ```
 
-### Resouces
-<https://unix.stackexchange.com/questions/563729/looking-for-the-settings-that-causes-debian-to-suspend-when-laptop-lid-is-closed>
-<https://github.com/systemd/systemd/issues/11638>
-<https://superuser.com/questions/1605504/etc-systemd-logind-conf-is-being-ignored>
+Tras esto, seguimos lo explicado en [este enlace](https://docs.xfce.org/xfce/xfce4-power-manager/faq#how_can_i_make_logind_handle_button_events_instead_of_xfce4-power-manager) obtenido de [este enlace](https://forum.xfce.org/viewtopic.php?id=14016), el siguiente comando debe dar el valor `true`:
 
+```bash
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch
+```
+
+Si devuelve `false`, ejecutar:
+
+```bash
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/logind-handle-lid-switch -n -t bool -s true
+```
