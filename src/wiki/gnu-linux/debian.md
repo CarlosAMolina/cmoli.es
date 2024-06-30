@@ -22,12 +22,16 @@ Cambiar:
 
 ```bash
 #HandleLidSwitch=suspend
+#HandleLidSwitchExternalPower=suspend
+#HandleLidSwitchDocked=suspend
 ```
 
 por:
 
 ```bash
 HandleLidSwitch=ignore
+HandleLidSwitchExternalPower=ignore
+HandleLidSwitchDocked=ignore
 ```
 
 Tras esto, ejecutar:
@@ -36,5 +40,8 @@ Tras esto, ejecutar:
 sudo service systemd-logind restart
 ```
 
-[Link](https://unix.stackexchange.com/questions/563729/looking-for-the-settings-that-causes-debian-to-suspend-when-laptop-lid-is-closed)
+### Resouces
+<https://unix.stackexchange.com/questions/563729/looking-for-the-settings-that-causes-debian-to-suspend-when-laptop-lid-is-closed>
+<https://github.com/systemd/systemd/issues/11638>
+<https://superuser.com/questions/1605504/etc-systemd-logind-conf-is-being-ignored>
 
