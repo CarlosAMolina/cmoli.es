@@ -154,6 +154,46 @@ Hay situaciones en que haya varios `merge base` (ver ejemplos en la [documentaci
 
 Cuando hacemos merge, en caso de que el último commit de una rama sea el best common ancestor de la otra, no habrá un commit message de `Mergeo branch X into Y` porque git únicamente tuvo que hacer un fast forward, no combinó archivos. Esta es la diferencia entre `fast forward merge` y `3 way merge`.
 
+### Rebase
+
+#### Introducción rebase
+
+Este comando actualiza el commit origen del que sale la rama.
+
+Por ejemplo, tenemos dos ramas, `foo` y `bar`, `foo` tiene los commits B y C, y `bar` tiene los commits D y E; ambas ramas salen del commit A:
+
+```bash
+A - B - C
+ \- D - E
+```
+
+Si estamos en la rama `foo` y aplicamos `rebase`, su primer commit B saldrá de E en lugar de A:
+
+```bash
+         /- B - C
+A - D - E
+```
+
+Es decir, desplaza los commits de una rama al final de los de otra rama.
+
+#### Pasos que ejecuta rebase
+
+Para explicarlo, `current_branch` es nuestra rama y `target_branch` la rama que traemos a la nuestra.
+
+Cuanto ejecutamos `git rebase $target_brach`:
+
+1 - Hace checkout del último commit de target_branch. Es decir, no estamos en nuestra rama, sino en la otra.
+2 - Aplica cada uno de los commits de current_branch.
+3 - Vuelve a current_branch y actualiza current_branch al actual commit SHA.
+
+#### Ventajas rebase
+
+Permite mergear haciendo merge de tipo fast forward, por lo que no aparecerá un commit de merge y tendremos un git log lineal, lo que es más limpio a la hora de ver el histórico y es mas fácil comparar nuestros cambios con respecto a la versión actual de la otra rama.
+
+#### Inconvenientes rebase
+
+Rebase altera el historial de la rama de git, por lo que para hacer push a origin hay que utilizar la opción `force`. Por esto rebase debe usarse en ramas que solo utilicemos nosotros.
+
 ## Volver a un commit anterior
 
 <https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit/4114122>
