@@ -124,6 +124,19 @@ git commit -m "$MENSAJE_PARA_EL_COMMIT"
 
 <img src="https://git-scm.com/images/about/index1@2x.png" alt="" width="300">
 
+### HEAD
+
+HEAD apunta a la rama a la que hemos hecho `checkout`.
+
+Si vemos el contenido del archivo HEAD, este es una referencia a la rama. Esa referencia es simplemente un commit. Ejemplo:
+
+```bash
+$ cat .git/HEAD
+ref: refs/heads/main
+$ cat .git/refs/heads/main
+ccadc23a11e42a1877c883d59180304fa17ba506
+```
+
 ### Commit
 
 #### Parent commit
@@ -132,6 +145,12 @@ Como se indica [en este link](https://stackoverflow.com/questions/38239521/what-
 
 - Cuando generas un commit, el commit actual es el padre del nuevo que se genera.
 - Cuando mergeas dos commits (mergeo no de tipo fast forward), se genera un nuevo commit cuyos padres son los dos anteriores. Pueden verse con `git log --oneline --graph --parents`.
+
+### Git reflog
+
+El comando `git reflog` muestra los cambios de HEAD (commits, cambios de rama, etc).
+
+Lo que muestra este comando, está en `cat .git/logs/HEAD`.
 
 ### Branches
 
