@@ -213,6 +213,10 @@ Permite mergear haciendo merge de tipo fast forward, por lo que no aparecerá un
 
 Rebase altera el historial de la rama de git, por lo que para hacer push a origin hay que utilizar la opción `force`. Por esto rebase debe usarse en ramas que solo utilicemos nosotros.
 
+### Cherry pick
+
+Permite traer un commit específico a nuestra rama.
+
 ## Volver a un commit anterior
 
 <https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit/4114122>
@@ -338,20 +342,9 @@ e06f35d (HEAD -> foo) HEAD@{3}: commit (initial): Initial commit
 
 Gracias a que tenemos el commit en el que se añadió el archivo, podemos reconstruir todo el repositorio en ese punto y recuperar el archivo.
 
-Podemos recuperar el archivo de varias maneras.
+Podemos recuperar el archivo de varias formas.
 
-Una opción sencilla es mergear el commit donde se creó el archivo:
-
-```bash
-$ git merge 8ce060e
-Actualizando e06f35d..8ce060e
-Fast-forward
- hello.md | 1 +
- 1 file changed, 1 insertion(+)
- create mode 100644 hello.md
-```
-
-Otra manera es acceder al contenido del archivo:
+Una manera es acceder al contenido del archivo:
 
 ```bash
 $ git cat-file -p 8ce060e
@@ -367,6 +360,27 @@ $ git cat-file -p fae6fd945e413c7b0d7d8129db4749b3bfa1362a
 $ git cat-file -p 45b983be36b73c0788dc9cbcb76cbb80fc7bb057
 hi
 $ git cat-file -p 45b983be36b73c0788dc9cbcb76cbb80fc7bb057 > hello.md
+```
+
+Pero una opción mas sencilla es mergear el commit donde se creó el archivo:
+
+```bash
+$ git merge 8ce060e
+Actualizando e06f35d..8ce060e
+Fast-forward
+ hello.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.md
+```
+
+Esto puede tener un inconveniente; como mergeamos todo el historial de git, podemos traer más cambios de los deseados en caso de que haya distintos commits entre las ramas. Por tanto, la opción más sencilla y segura es usar cherry-pick:
+
+```bash
+$ git cherry-pick 8ce060e
+[foo 7f22d82] Add file
+ Date: Sun Jul 14 20:28:47 2024 +0200
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.md
 ```
 
 ### Continous integration
