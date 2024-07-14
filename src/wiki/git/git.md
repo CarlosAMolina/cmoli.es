@@ -311,6 +311,64 @@ Ir a configuración del repositorio: https://domain/user/project/edit
 
 Advanced settings > Rename repository: cambiar project name y path.
 
+### Recuperar un archivo de una rama eliminada
+
+Supongamos que hemos creado una rama nueva `bar`, comiteamos un archivo en ella y tras cambiar de rama hemos borrado la rama `bar` sin haber hecho push a origin:
+
+```bash
+$ git branch --show-current
+foo
+$ git checkout -b bar
+$ echo hi > hello.md
+$ ga .
+$ gc "Add file"
+$ git checkout foo
+$ git branch -D bar
+```
+
+El primero paso para recuperar el archivo es utilizar `reflog`:
+
+```bash
+$ git reflog
+e06f35d (HEAD -> foo) HEAD@{0}: checkout: moving from bar to foo
+8ce060e HEAD@{1}: commit: Add file
+e06f35d (HEAD -> foo) HEAD@{2}: checkout: moving from foo to bar
+e06f35d (HEAD -> foo) HEAD@{3}: commit (initial): Initial commit
+```
+
+Gracias a que tenemos el commit en el que se añadió el archivo, podemos reconstruir todo el repositorio en ese punto y recuperar el archivo.
+
+Podemos recuperar el archivo de varias maneras.
+
+Una opción sencilla es mergear el commit donde se creó el archivo:
+
+```bash
+$ git merge 8ce060e
+Actualizando e06f35d..8ce060e
+Fast-forward
+ hello.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.md
+```
+
+Otra manera es acceder al contenido del archivo:
+
+```bash
+$ git cat-file -p 8ce060e
+tree fae6fd945e413c7b0d7d8129db4749b3bfa1362a
+parent e06f35ddf158dbc6acdf313f27dc11358605b212
+author CarlosAMolina <15368012+CarlosAMolina@users.noreply.github.com> 1720981727 +0200
+committer CarlosAMolina <15368012+CarlosAMolina@users.noreply.github.com> 1720981727 +0200
+
+Add file
+$ git cat-file -p fae6fd945e413c7b0d7d8129db4749b3bfa1362a
+100644 blob 9daeafb9864cf43055ae93beb0afd6c7d144bfa4    README.md
+100644 blob 45b983be36b73c0788dc9cbcb76cbb80fc7bb057    hello.md
+$ git cat-file -p 45b983be36b73c0788dc9cbcb76cbb80fc7bb057
+hi
+$ git cat-file -p 45b983be36b73c0788dc9cbcb76cbb80fc7bb057 > hello.md
+```
+
 ### Continous integration
 
 Ver runner en una máquina:
