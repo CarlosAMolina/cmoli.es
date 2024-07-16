@@ -237,7 +237,7 @@ Ahora, al editar un archivo de Python, recibiremos ayuda de `pyright`.
 
 Las configuraciones disponibles están describas [en la página del proyecto](https://github.com/fannheyward/coc-pyright?tab=readme-ov-file#configurations).
 
-Pueden añadirse ejecutando en neovim `:CocConfig`, se abrirá el archivo de configuración `.config/nvim/coc-settings.jon` donde podemos escribir por ejemplo:
+Pueden añadirse ejecutando en neovim `:CocConfig`, se abrirá el archivo de configuración `.config/nvim/coc-settings.json` donde podemos escribir por ejemplo:
 
 ```json
 {
