@@ -13,7 +13,7 @@
 - [pipenv: pip y entornos virtuales](#pipenv-pip-y-entornos-virtuales)
 - [Special methods](#special-methods)
 - [Versión de python](#versión-de-python)
-  - [Utilizando repositorios de nuestra distribución](utilizando-repositorios-de-nuestra-distribución)
+  - [Utilizando repositorios de nuestra distribución](#utilizando-repositorios-de-nuestra-distribución)
   - [De manera manual](#de-manera-manual)
   - [pyenv](#pyenv)
 
