@@ -162,49 +162,6 @@ Un `common ancestor` `B` es mejor que otro `A` si `B` es más reciente, es decir
 
 Hay situaciones en que haya varios `merge base` (ver ejemplos en la [documentación](https://git-scm.com/docs/git-merge-base#_discussion)).
 
-### Remote
-
-Remote es otro repositorio de git con el mismo proyecto que el que estamos desarrollando. Es como una copia de nuestro repo en otro lugar; este lugar puede ser el servidor de GitHub, una carpeta en nuestro PC, etc.
-
-#### Configurar remote
-
-Comando:
-
-```bash
-git remote add <name_remote> <uri>
-```
-
-En la siguiente sección veremos las convenciones para el nombre a dar a `name_remote`.
-
-Ejemplo de crear y configurar un remote en otra carpeta de nuestro ordenador.
-
-```bash
-# Crear repositorio remoto.
-$ cd /tmp/
-$ mkdir remote-git
-$ cd remote-git
-$ git init
-Inicializado repositorio Git vacío en /tmp/remote-git/.git/
-# Crear repositorio que se conectará al remoto.
-$ cd /tmp/
-$ mkdir local-git
-$ cd local-git/
-$ git init
-Inicializado repositorio Git vacío en /tmp/local-git/.git/
-$ git remote add origin ../remote-git
-# Comprobar repositorio remoto
-[x@arch local-git]$ git remote -v
-origin  ../remote-git (fetch)
-origin  ../remote-git (push)
-```
-
-#### Convención nombres para remote
-
-El `source fo truth` es el repositorio padre, las convenciones al darle un nombre son:
-
-- Si remote es el repositorio del proyecto, el repositorio remoto se le llama `origin`.
-- Si remote es mi fork de otro poryecto, `origin` es el fork que hemos hecho y `upstream` es el repositorio original.
-
 ### Merge
 
 #### Target vs source brach
@@ -259,6 +216,49 @@ Rebase altera el historial de la rama de git, por lo que para hacer push a origi
 ### Cherry pick
 
 Permite traer un commit específico a nuestra rama.
+
+### Remote
+
+Remote es otro repositorio de git con el mismo proyecto que el que estamos desarrollando. Es como una copia de nuestro repo en otro lugar; este lugar puede ser el servidor de GitHub, una carpeta en nuestro PC, etc.
+
+#### Configurar remote
+
+Comando:
+
+```bash
+git remote add <name_remote> <uri>
+```
+
+En la siguiente sección veremos las convenciones para el nombre a dar a `name_remote`.
+
+Ejemplo de crear y configurar un remote en otra carpeta de nuestro ordenador.
+
+```bash
+# Crear repositorio remoto.
+$ cd /tmp/
+$ mkdir remote-git
+$ cd remote-git
+$ git init
+Inicializado repositorio Git vacío en /tmp/remote-git/.git/
+# Crear repositorio que se conectará al remoto.
+$ cd /tmp/
+$ mkdir local-git
+$ cd local-git/
+$ git init
+Inicializado repositorio Git vacío en /tmp/local-git/.git/
+$ git remote add origin ../remote-git
+# Comprobar repositorio remoto
+[x@arch local-git]$ git remote -v
+origin  ../remote-git (fetch)
+origin  ../remote-git (push)
+```
+
+#### Convención nombres para remote
+
+El `source fo truth` es el repositorio padre, las convenciones al darle un nombre son:
+
+- Si remote es el repositorio del proyecto, el repositorio remoto se le llama `origin`.
+- Si remote es mi fork de otro poryecto, `origin` es el fork que hemos hecho y `upstream` es el repositorio original.
 
 ## Volver a un commit anterior
 
