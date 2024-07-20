@@ -321,6 +321,43 @@ Sirve para añadir nuestros commits en el repositorio remoto.
 
 Al igual que `pull`, hay que añadir tracking info (explicado en la sección sobre `pull`); puede que git haga esto automáticamente.
 
+### Stash
+
+Stash es una pila, una zona especial de git, para guardar archivos temporales.
+
+Para que todos los cambios desde HEAD se guarden en stash, ejecutamos:
+
+```bash
+git stash
+```
+
+Podemos dar un mensaje a stash:
+
+```bash
+git stash -m "<message>"
+```
+
+Mostrar cuántos índices en stash tenemos actualmente en la pila:
+
+```bash
+git stash list
+```
+
+Mostrar información del stash:
+
+```bash
+git stash show [--index <index>]
+```
+
+Para recuperar lo que hay ne stash:
+
+```bash
+# Recuperar el más actual.
+git stash pop
+# Recuperar uno específico.
+git stash pop --index <index>
+```
+
 ## Volver a un commit anterior
 
 <https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit/4114122>
