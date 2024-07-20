@@ -308,6 +308,13 @@ Imagina que en remote tenemos una rama llamada `foo` y en local también hay una
 git branch --set-upstream-to=origin/<origin_branch_name> <local_branch_name>
 ```
 
+Hay varias opciones para la configuración del tracking info:
+
+```bash
+git branch -vv
+git status -sb
+```
+
 ## Volver a un commit anterior
 
 <https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit/4114122>
