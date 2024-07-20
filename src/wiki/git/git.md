@@ -175,6 +175,20 @@ Cuando hacemos merge, en caso de que el último commit de una rama sea el best c
 
 ### Rebase
 
+#### Comandos para ejecutar rebase
+
+Podemos indicarlo cada vez que hagamos pull:
+
+```bash
+git pull --rebase
+```
+
+Otra opción es guardarlo en la configuración y de este modo se hará rebase automáticamente cada vez que hagamos `git pull`:
+
+```bash
+git config --global pull.rebase true.
+```
+
 #### Introducción rebase
 
 Este comando actualiza el commit origen del que sale la rama.
