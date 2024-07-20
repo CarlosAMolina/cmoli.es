@@ -358,7 +358,7 @@ git stash pop
 git stash pop --index <index>
 ```
 
-## Volver a un commit anterior
+### Volver a un commit anterior
 
 <https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit/4114122>
 
@@ -369,8 +369,6 @@ git reset --hard HEAD
 # A un commit específico.
 git reset --hard $COMMIT_ID
 ```
-
-## Comandos git
 
 ### cat-file
 
