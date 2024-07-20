@@ -358,7 +358,15 @@ git stash pop
 git stash pop --index <index>
 ```
 
-### Volver a un commit anterior
+### reset
+
+#### Deshacer el último commit manteniendo los archivos modificados
+
+```bash
+git reset --soft HEAD~1
+```
+
+#### Volver a un commit anterior
 
 <https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit/4114122>
 
