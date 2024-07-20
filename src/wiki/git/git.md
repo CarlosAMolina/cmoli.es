@@ -315,6 +315,12 @@ git branch -vv
 git status -sb
 ```
 
+### Push
+
+Sirve para añadir nuestros commits en el repositorio remoto.
+
+Al igual que `pull`, hay que añadir tracking info (explicado en la sección sobre `pull`); puede que git haga esto automáticamente.
+
 ## Volver a un commit anterior
 
 <https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit/4114122>
@@ -326,12 +332,6 @@ git reset --hard HEAD
 # A un commit específico.
 git reset --hard $COMMIT_ID
 ```
-
-### Push
-
-Sirve para añadir nuestros commits en el repositorio remoto.
-
-Al igual que `pull`, hay que añadir tracking info (explicado en la sección sobre `pull`); puede que git haga esto automáticamente.
 
 ## Comandos git
 
