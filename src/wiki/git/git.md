@@ -358,6 +358,10 @@ git stash pop
 git stash pop --index <index>
 ```
 
+### squash / squashing
+
+Permite unir varios commits en uno.
+
 ### reset
 
 #### Deshacer el último commit manteniendo los archivos modificados
