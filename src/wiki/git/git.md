@@ -260,6 +260,40 @@ El `source fo truth` es el repositorio padre, las convenciones al darle un nombr
 - Si remote es el repositorio del proyecto, el repositorio remoto se le llama `origin`.
 - Si remote es mi fork de otro poryecto, `origin` es el fork que hemos hecho y `upstream` es el repositorio original.
 
+### Fetch
+
+El comando `git fecth` actualiza los cambios de los repositorios remotos.
+
+Es decir, actualiza lo que tenemos en las ramas que empiezan por `origin/`, pueden verse con el comando `git branch --all` o en la carepta `.git/refs/remotes/origin/`; pero no actualiza las ramas en las que hemos hecho checkout. Por tanto, después de hacer `git fetch` hay que hacer merge para tener los últimos cambios en nuestras ramas.
+
+```bash
+git fetch
+# Si origin tiene commits que no hemos mergeado en nuestra rama, no aparecerán al hacer:
+git log
+# En cambio podemos ver que origin sí tiene más commits.
+git log origin/main
+# Se soluciona mergeando estos commits.
+git merge origin/main
+```
+
+En lugar de hacer `git fecth` y `git merge`, puede usarse `git pull`.
+
+### Pull
+
+Para hacer `git fecth` y `git merge` de una rama.
+
+```bash
+git pull <remote> <branch>
+```
+
+#### Añadir tracking information
+
+Imagina que en remote tenemos una rama llamada `foo` y en local también hay una rama llamada `foo`. Al ejecutar `git pull`, git no tiene relacionadas ambas ramas; para poder ejecutarla, hay que indicar esta relación con:
+
+```bash
+git branch --set-upstream-to=origin/<origin_branch_name> <local_branch_name>
+```
+
 ## Volver a un commit anterior
 
 <https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit/4114122>
