@@ -320,6 +320,12 @@ git reset --hard HEAD
 git reset --hard $COMMIT_ID
 ```
 
+### Push
+
+Sirve para añadir nuestros commits en el repositorio remoto.
+
+Al igual que `pull`, hay que añadir tracking info (explicado en la sección sobre `pull`); puede que git haga esto automáticamente.
+
 ## Comandos git
 
 ### cat-file
