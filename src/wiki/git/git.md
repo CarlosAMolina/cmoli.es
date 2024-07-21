@@ -238,7 +238,9 @@ Permite mergear haciendo merge de tipo fast forward, por lo que no aparecerá un
 
 #### Inconvenientes rebase
 
-Rebase altera el historial de la rama de git, por lo que para hacer push a origin hay que utilizar la opción `force`. Por esto rebase debe usarse en ramas que solo utilicemos nosotros.
+- Inconveniente al hacer push. Rebase altera el historial de la rama de git, por lo que para hacer push a origin hay que utilizar la opción `force`. Por esto rebase debe usarse en ramas que solo utilicemos nosotros.
+- Inconveniente perder historial de git al resolver conflictos. Cuando resolvemos conflictos con rebase, como con rebase modificamos el commit conflictivo y hacemos commit de la modificación, en `git log` puede que perdamos el commit en el que se introdujo el conflicto que hemos resuelto (creo que esto ocurre si el commit conflictivo es el más actual), por lo que la única manera de saber qué código daba conflicto es con `git reflog`.
+- Inconveniente de tener que solucionar el mismo conflicto varias veces. Cuando solucionamos un conflicto, si nuestros cambios no están en remote, el conflicto puede aparecer repetidamente aunque lo hallamos solucionado. Esto se evita con `rerere
 
 #### Implicaciones de rebase
 
