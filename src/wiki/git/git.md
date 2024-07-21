@@ -162,6 +162,31 @@ Un `common ancestor` `B` es mejor que otro `A` si `B` es más reciente, es decir
 
 Hay situaciones en que haya varios `merge base` (ver ejemplos en la [documentación](https://git-scm.com/docs/git-merge-base#_discussion)).
 
+### Conflictos
+
+Ocurren cuando distintas ramas han editado la misma línea de código e intentamos unir una rama en otra.
+
+Puede abortarse el merge con:
+
+```bash
+git merge --abort
+```
+
+Tras resolver el conflicto, puedes ver de qué rama viene cada archivo con:
+
+```bash
+git log --graph --oneline
+```
+
+#### Qué se muestra como HEAD en un conflicto
+
+En un conflicto, se muestra entre `<<<<<<< HEAD` y `=======` los cambios de una rama y desde `=======` hasta `>>>>>>> <commit_id_de_la_otra_rama>` los cambios de la otra rama.
+
+Qué rama es HEAD depende del si hacemos merge o rebase:
+
+- En un merge: HEAD es nuestra rama y la otra rama es la que estamos mergeando en la nuestra.
+- En un rebase: HEAD es la otra rama que juntamos con la nuestra, y lo que se muestra como la otra rama es en realidad nuestra rama. Esto es por cómo funciona rebase, como se explicó en su sección, al ahcer rebase, primero se hace checkout a la otra rama.
+
 ### Merge
 
 #### Funcionamiento merge
@@ -248,31 +273,6 @@ El hecho de que rebase primero haga checkout a la otra rama afecta a:
 
 - Imagina que hay un conflicto, si escribes `git status` puede que no se muestren los archivos que has modificado en tu rama con respecto a la otra, ya que ahora la referencia es la otra rama.
 - Ver apartado de conflictos para más implicaciones.
-
-### Conflictos
-
-Ocurren cuando distintas ramas han editado la misma línea de código e intentamos unir una rama en otra.
-
-Puede abortarse el merge con:
-
-```bash
-git merge --abort
-```
-
-Tras resolver el conflicto, puedes ver de qué rama viene cada archivo con:
-
-```bash
-git log --graph --oneline
-```
-
-#### Qué se muestra como HEAD en un conflicto
-
-En un conflicto, se muestra entre `<<<<<<< HEAD` y `=======` los cambios de una rama y desde `=======` hasta `>>>>>>> <commit_id_de_la_otra_rama>` los cambios de la otra rama.
-
-Qué rama es HEAD depende del si hacemos merge o rebase:
-
-- En un merge: HEAD es nuestra rama y la otra rama es la que estamos mergeando en la nuestra.
-- En un rebase: HEAD es la otra rama que juntamos con la nuestra, y lo que se muestra como la otra rama es en realidad nuestra rama. Esto es por cómo funciona rebase, como se explicó en su sección, al ahcer rebase, primero se hace checkout a la otra rama.
 
 ### Cherry pick
 
