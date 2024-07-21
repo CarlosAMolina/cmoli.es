@@ -227,6 +227,38 @@ Permite mergear haciendo merge de tipo fast forward, por lo que no aparecerá un
 
 Rebase altera el historial de la rama de git, por lo que para hacer push a origin hay que utilizar la opción `force`. Por esto rebase debe usarse en ramas que solo utilicemos nosotros.
 
+#### Implicaciones de rebase
+
+El hecho de que rebase primero haga checkout a la otra rama afecta a:
+
+- Imagina que hay un conflicto, si escribes `git status` puede que no se muestren los archivos que has modificado en tu rama con respecto a la otra, ya que ahora la referencia es la otra rama.
+- Ver apartado de conflictos para más implicaciones.
+
+### Conflictos
+
+Ocurren cuando distintas ramas han editado la misma línea de código e intentamos unir una rama en otra.
+
+Puede abortarse el merge con:
+
+```bash
+git merge --abort
+```
+
+Tras resolver el conflicto, puedes ver de qué rama viene cada archivo con:
+
+```bash
+git log --graph --oneline
+```
+
+#### Qué se muestra como HEAD en un conflicto
+
+En un conflicto, se muestra entre `<<<<<<< HEAD` y `=======` los cambios de una rama y desde `=======` hasta `>>>>>>> <commit_id_de_la_otra_rama>` los cambios de la otra rama.
+
+Qué rama es HEAD depende del si hacemos merge o rebase:
+
+- En un merge: HEAD es nuestra rama y la otra rama es la que estamos mergeando en la nuestra.
+- En un rebase: HEAD es la otra rama que juntamos con la nuestra, y lo que se muestra como la otra rama es en realidad nuestra rama. Esto es por cómo funciona rebase, como se explicó en su sección, al ahcer rebase, primero se hace checkout a la otra rama.
+
 ### Cherry pick
 
 Permite traer un commit específico a nuestra rama.
