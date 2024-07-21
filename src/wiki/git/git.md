@@ -2,32 +2,7 @@ Nota. Palabras en mayúsculas precedidas por el símbolo $ indica que deben sust
 
 ## Contenidos
 
-- [Configuración](#configuración)
-  - [Configuración inicial](#configuración-inicial)
-  - [SSH](#ssh)
-    - [Consideraciones](#consideraciones)
-    - [Errores SSH](#errores-ssh)
-      - [Error authentication failed](#error-authentication-failed)
-      - [Error push permission denied](#error-push-permission-denied)
-- [Términos](#términos)
-  - [Staging area](#staging-area)
-  - [Commit](#commit)
-    - [Parent commit](#parent-commit)
-  - [Branches](#branches)
-    - [Common ancestor](#common-ancestor)
-  - [Merge](#merge)
-    - [Target vs source brach](#target-vs-source-brach)
-    - [Por qué a veces aparece mensaje de merge y otras no](#por-qué-a-veces-aparece-mensaje-de-merge-y-otras-no)
-- [Volver a un commit anterior](#volver-a-un-commit-anterior)
-- [Comandos git](#comandos-git)
-  - [cat-file](#cat-file)
-- [Resolución casos comunes en git](#resolución-casos-comunes-en-git)
-  - [Crear repositorio remoto desde un repositorio local](#crear-repositorio-remoto-desde-un-repositorio-local)
-  - [Cambiar nombre de un repositorio](#cambiar-nombre-de-un-repositorio)
-    - [GitLab](#gitlab)
-  - [Continous integration](#continous-integration)
-- [OSINT](#osint)
-  - [Email de quién realizó el commit](#email-de-quién-realizó-el-commit)
+TODO
 
 ## Configuración
 
