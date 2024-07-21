@@ -49,6 +49,15 @@ git -c http.sslVerify false
 git -c http.sslVerify=False
 ```
 
+### Mostrar configuración de un repositorio
+
+Hay varias opciones para ver la configuración del repositorio actual:
+
+```bash
+git config --list --local
+cat .git/config
+```
+
 ### SSH
 
 El protocolo SSH nos permite ejecutar los comandos de git en el servidor remoto sin tener que indicar nuestro usuario y contraseña.
