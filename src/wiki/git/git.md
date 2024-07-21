@@ -152,7 +152,38 @@ Mostrar los commits que han modificado un archivo o varios archivos:
 git log -p <file_name_1> <file_name_2>
 ```
 
-### Git reflog
+### bisect
+
+Se utiliza para buscar el commit donde un error actual funcionaba bien.
+
+Para ello, marcaremos un commit ID como en el que existe el bug y otro commit ID como el commit donde no existe el bug; no es necesario que sean exactamente los commits done el bug apareció inicialmente y donde dejó de aparecer, puesto que esto es lo que vamos a buscar gracias a `bisect`.
+
+Tras marcar estos dos puntos, git nos llevará sobre los commits entre estos dos puntos haciendo una búsqueda binaria; de modo que marcaremos si en cada commmit existe el bug o no.
+
+Para utilizarlo:
+
+```bash
+# Iniciamos bisect.
+git bisect start
+# Marcamos el commit actual como referencia de commit donde existe el bug.
+git bisect bad
+# Marcamos otro commit como referencia de un commit donde el código funcionaba bien, no había bug.
+git bisect good <commit>
+# git comienza la búsqueda binaria.
+# Tras encontrar el commit erróneo, terminamos bisect con el siguiente comando.
+git bisect reset
+```
+
+Hasta ahora hemos ejecutado bisect manualmente, se puede automatiza así:
+
+```bash
+git bisect start
+git bisect bad
+git bisect good <commit>
+git bisect run <cmd> # Por ejemplo, ejecutar en un test: git bisect run ./node_modules/.bin/vitest --run
+```
+
+### git reflog
 
 El comando `git reflog` muestra los cambios de HEAD (commits, cambios de rama, etc).
 
