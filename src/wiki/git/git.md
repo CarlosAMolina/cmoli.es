@@ -175,18 +175,6 @@ Hay situaciones en que haya varios `merge base` (ver ejemplos en la [documentaci
 
 Ocurren cuando distintas ramas han editado la misma línea de código e intentamos unir una rama en otra.
 
-Puede abortarse el merge con:
-
-```bash
-git merge --abort
-```
-
-Tras resolver el conflicto, puedes ver de qué rama viene cada archivo con:
-
-```bash
-git log --graph --oneline
-```
-
 #### Qué se muestra como HEAD en un conflicto
 
 En un conflicto, se muestra entre `<<<<<<< HEAD` y `=======` los cambios de una rama y desde `=======` hasta `>>>>>>> <commit_id_de_la_otra_rama>` los cambios de la otra rama.
@@ -195,6 +183,22 @@ Qué rama es HEAD depende del si hacemos merge o rebase:
 
 - En un merge: HEAD es nuestra rama y la otra rama es la que estamos mergeando en la nuestra.
 - En un rebase: HEAD es la otra rama que juntamos con la nuestra, y lo que se muestra como la otra rama es en realidad nuestra rama. Esto es por cómo funciona rebase, como se explicó en su sección, al ahcer rebase, primero se hace checkout a la otra rama.
+
+#### Resolver un conflicto
+
+Puede abortarse el merge con:
+
+```bash
+git merge --abort
+```
+
+#### Obtener información tras resolver un conflicto
+
+Tras resolver el conflicto, puedes ver de qué rama viene cada archivo con:
+
+```bash
+git log --graph --oneline
+```
 
 ### Merge
 
