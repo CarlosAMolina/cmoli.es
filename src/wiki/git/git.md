@@ -234,7 +234,7 @@ Imagina que ocurre esta situación:
 1. En remoto se hacen commits nuevos (que no causan conflicto con nuestra rama actual).
 1. Cada vez que hagamos pull, habrá un commit extra de merge porque los históricos de git son distintos en local y en remoto (no hicimos push).
 
-### Rebase
+### rebase
 
 #### Comandos para ejecutar rebase
 
@@ -296,6 +296,33 @@ El hecho de que rebase primero haga checkout a la otra rama afecta a:
 
 - Imagina que hay un conflicto, si escribes `git status` puede que no se muestren los archivos que has modificado en tu rama con respecto a la otra, ya que ahora la referencia es la otra rama.
 - Ver apartado de conflictos para más implicaciones.
+
+#### rebase interactivo
+
+Permite diversas opciones como editar mensajes de git, squasing, etc.
+
+ Comando:
+
+```bash
+git rebase -i <commit-ish>
+```
+
+`commit-ish` es algo parecido a un commit como por ejemplo el ID de un commit, un commit como referencia a otro usando HEAD~<número-de-commits>.
+
+Con `HEAD~<número>` indicamos los commits desde HEAD sobre los que actuar. Ejemplo: HEAD~1 actúa sobre el último commit.
+
+Ejemplo de rebase interactivo:
+
+```bash
+# Vamos a hacer squash sobre los 3 últimos commits.
+git rebase -i HEAD~3
+# Se abrirá un apantalla donde indicar cómo configurar el rebase.
+# Para hacer squash de los 3 últimos commits ponemos `pick` en el más viejo y `s` en el resto.
+pick 576b5fd <message de HEAD~1>
+s 9398088 <message de HEAD~2>
+# Guardamos; en vim es con `:x`.
+# Tras esto, aparecerá una ventana donde escribir el mensaje a usar en el commit.
+```
 
 ### rerere
 
