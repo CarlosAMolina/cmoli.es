@@ -682,3 +682,10 @@ https://api.github.com/repos/$USER/$REPOSITORY_NAME/git/commits/$COMMIT_ID
 ```
 
 Nota. Es posible configurar que se oculte el mail de quien realizó el commit, pero los commits realizados antes de esta configuración seguirán mostrando el email (<https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address>).
+
+## Referencias
+
+Frontend Masters. Everything You'll Need to Know About Git:
+
+- [Curso](https://frontendmasters.com/courses/everything-git)
+- [Diapositivas](https://theprimeagen.github.io/fem-git/)
