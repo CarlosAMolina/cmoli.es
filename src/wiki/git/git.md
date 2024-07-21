@@ -130,6 +130,28 @@ Como se indica [en este link](https://stackoverflow.com/questions/38239521/what-
 - Cuando generas un commit, el commit actual es el padre del nuevo que se genera.
 - Cuando mergeas dos commits (mergeo no de tipo fast forward), se genera un nuevo commit cuyos padres son los dos anteriores. Pueden verse con `git log --oneline --graph --parents`.
 
+### git log
+
+Muestra el historial de los commits de la rama actual del repositorio de git.
+
+#### Argumentos útiles
+
+- `-p`: añade el diff del commit.
+
+#### Buscar en el histórico de git
+
+Para buscar una expresión regular en los mensajes de los commits:
+
+```bash
+git log --grep "<term>"
+```
+
+Mostrar los commits que han modificado un archivo o varios archivos:
+
+```bash
+git log -p <file_name_1> <file_name_2>
+```
+
 ### Git reflog
 
 El comando `git reflog` muestra los cambios de HEAD (commits, cambios de rama, etc).
