@@ -164,6 +164,10 @@ Hay situaciones en que haya varios `merge base` (ver ejemplos en la [documentaci
 
 ### Merge
 
+#### Funcionamiento merge
+
+Merge trabaja a partir del best common ancestor.
+
 #### Target vs source brach
 
 - Target: la rama en la que te encuentras.
