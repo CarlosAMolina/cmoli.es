@@ -173,6 +173,15 @@ Hay situaciones en que haya varios `merge base` (ver ejemplos en la [documentaci
 
 Cuando hacemos merge, en caso de que el último commit de una rama sea el best common ancestor de la otra, no habrá un commit message de `Mergeo branch X into Y` porque git únicamente tuvo que hacer un fast forward, no combinó archivos. Esta es la diferencia entre `fast forward merge` y `3 way merge`.
 
+##### Mensaje de merge constante
+
+Imagina que ocurre esta situación:
+
+1. Haces `git pull` y hay conflicto.
+1. En tu rama local, resuelves el conflicto pero no haces push.
+1. En remoto se hacen commits nuevos (que no causan conflicto con nuestra rama actual).
+1. Cada vez que hagamos pull, habrá un commit extra de merge porque los históricos de git son distintos en local y en remoto (no hicimos push).
+
 ### Rebase
 
 #### Comandos para ejecutar rebase
