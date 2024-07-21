@@ -186,6 +186,16 @@ Qué rama es HEAD depende del si hacemos merge o rebase:
 
 #### Resolver un conflicto
 
+Para quedarme en un conflicto con el archivo de una rama o de otra, ejecutamos el siguiente comando utilizando `--ours`o `--theirs`, hay que tener en cuenta que el significado cambia:
+
+- ours: en merge es mi rama y en rebase es la otra rama.
+- theirs: en merge es la otra rama y en rebase es mi rama inicial.
+
+```bash
+git checkout --ours <file_name>
+git checkout --theirs <file_name>
+```
+
 Puede abortarse el merge con:
 
 ```bash
