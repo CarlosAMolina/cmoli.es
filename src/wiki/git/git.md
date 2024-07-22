@@ -108,6 +108,10 @@ git commit -m "$MENSAJE_PARA_EL_COMMIT"
 
 <img src="https://git-scm.com/images/about/index1@2x.png" alt="" width="300">
 
+### commit-ish
+
+`commit-ish` es algo parecido a un commit como por ejemplo el ID de un commit, un commit como referencia a otro usando HEAD~<número-de-commits>.
+
 ### HEAD
 
 HEAD apunta a la rama a la que hemos hecho `checkout`.
@@ -335,8 +339,6 @@ Permite diversas opciones como editar mensajes de git, squasing, etc.
 git rebase -i <commit-ish>
 ```
 
-`commit-ish` es algo parecido a un commit como por ejemplo el ID de un commit, un commit como referencia a otro usando HEAD~<número-de-commits>.
-
 Con `HEAD~<número>` indicamos los commits desde HEAD sobre los que actuar. Ejemplo: HEAD~1 actúa sobre el último commit.
 
 Ejemplo de rebase interactivo:
@@ -522,6 +524,18 @@ git reset --hard HEAD
 # A un commit específico.
 git reset --hard $COMMIT_ID
 ```
+
+### revert
+
+```bash
+git revert <commit-ish>
+```
+
+#### revert vs restore
+
+Con `restore` modificamos un archivo, obteniendo su versión de un commit anterior.
+
+Con `revert` hacemos un commit en el que deshacemos los cambios de otro commit.
 
 ### cat-file
 
