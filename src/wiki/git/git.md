@@ -505,6 +505,18 @@ git stash pop --index <index>
 
 Permite unir varios commits en uno.
 
+### revert
+
+```bash
+git revert <commit-ish>
+```
+
+#### revert vs restore
+
+Con `restore` modificamos un archivo, obteniendo su versión de un commit anterior.
+
+Con `revert` hacemos un commit en el que deshacemos los cambios de otro commit.
+
 ### reset
 
 #### Deshacer el último commit manteniendo los archivos modificados
@@ -524,18 +536,6 @@ git reset --hard HEAD
 # A un commit específico.
 git reset --hard $COMMIT_ID
 ```
-
-### revert
-
-```bash
-git revert <commit-ish>
-```
-
-#### revert vs restore
-
-Con `restore` modificamos un archivo, obteniendo su versión de un commit anterior.
-
-Con `revert` hacemos un commit en el que deshacemos los cambios de otro commit.
 
 ### cat-file
 
