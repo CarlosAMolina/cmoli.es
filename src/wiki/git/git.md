@@ -519,6 +519,11 @@ Con `revert` hacemos un commit en el que deshacemos los cambios de otro commit.
 
 ### reset
 
+Soft vs hard:
+
+- soft: ir hacia atrás a un commit y mantener los cambios en el working tree y el index.
+- hard: elimina totalmente los cambios en el working tree y el index.
+
 #### Deshacer el último commit manteniendo los archivos modificados
 
 ```bash
