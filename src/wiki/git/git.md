@@ -86,7 +86,7 @@ ssh-add ~/.ssh/id_ed255190
 
 ## Términos
 
-### Staging area
+### Staging area o index
 
 <https://git-scm.com/about/staging-area>
 
