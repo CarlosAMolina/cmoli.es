@@ -542,6 +542,54 @@ git reset --hard HEAD
 git reset --hard $COMMIT_ID
 ```
 
+### worktree
+
+Cuando ejecutamos `git init`, creamos el `main working tree`.
+
+Al hablar de `worktree`, nos referimos a un `linked working tree`; el cual es un tree como el `main working tree` pero simplificado donde `.git` en lugar de ser una copia de la carpeta `.git` del repositorio original, `.git` es un archivo, una referencia a la carpeta `.git` original.
+
+Si estamos trabajando en una rama y tenemos que cambiar a otra, lo normal es que tengamos que utilizar `stash`, o hacer commit y `push` para luego continuar con nuestro trabajo; es decir, debemos realizar alguna acción. Gracias a worktree podemos trabajar con otra rama dejando la actual tal como está, se crea un directorio como una copia de nuestro proyecto.
+
+Cambiar a un worktree es algo rápido, lo que puede llevar más tiempo es que tengamos que llevar a cabo acciones de configuración como por ejemplo crear un entorno virtual de python e instalar dependencias, instalar dependencias de npm, o compilar un proyecto de rust.
+
+#### comandos worktree
+
+Añadir un worktree:
+
+```bash
+git worktree add <path_donde_crearlo>
+```
+
+Se usará el `basename` del path (lo que hay tras el último `/`) para crear una rama.
+
+Ejemplo:
+
+```bash
+git worktree add ../foo-bar
+# En la ruta ../foo-bar se crea el work-tree y la rama `foo-bar`
+```
+
+Mostrar worktrees:
+
+```bash
+git worktree list
+```
+
+Eliminar worktree:
+
+- Opción 1:
+
+```bash
+git worktree remove ../<basename>
+```
+
+- Opción 2:
+
+```bash
+rm -rf <carpeta_del_worktree>
+git worktree prune
+```
+
 ### cat-file
 
 Permite obtener información de un commit hash. Algunos ejemplos de qué permite:
