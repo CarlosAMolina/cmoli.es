@@ -590,6 +590,46 @@ rm -rf <carpeta_del_worktree>
 git worktree prune
 ```
 
+### tags
+
+Un tag es un punto inmutable en el histórico de git. Puede pensarse como un branch que no puede editarse, solo borrarse (en un branch puedes realizar acciones como por ejemplo commits).
+
+Crear un tag:
+
+```bash
+git tag <name>
+```
+
+Borrar un tag:
+
+```bash
+git tag -d <name>
+```
+
+Listar tags:
+
+```bash
+git tag
+```
+
+Cambiar a un tag:
+
+```bash
+git checkout <tagname>
+```
+
+Push:
+
+```bash
+git push --tags
+```
+
+Pull:
+
+```bash
+git pull --tags
+```
+
 ### cat-file
 
 Permite obtener información de un commit hash. Algunos ejemplos de qué permite:
