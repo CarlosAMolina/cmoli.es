@@ -662,7 +662,7 @@ Un tag es un punto inmutable en el histórico de git.
 
 Hay dos tipos:
 - lightweight tag: es un puntero a un commit específico, es como una rama que no cambia, que no puede editarse, solo borrarse (en un branch puedes realizar acciones como por ejemplo commits).
-- annotated tag: se almacenan como objetos completos en la base de datos de git. Son checksummed, contienen el nombre de quien a creado la tag, el meail, fecha y un mensaje. También ofrecen otras opciones como firmarlos gon GPG.
+- annotated tag: se almacenan como objetos completos en la base de datos de git. Son checksummed, contienen el nombre de quien a creado la tag, el email, fecha y un mensaje. También ofrecen otras opciones como firmarlos gon GPG.
 
 Crear un tag:
 
