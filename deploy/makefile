@@ -1,4 +1,5 @@
 ROOT_PATHNAME=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+MAIN_PROJECT_ROOT_PATHNAME=$(ROOT_PATHNAME)/..
 SCRIPT_CONVERT_MD_TO_HTML_PATHNAME=$(ROOT_PATHNAME)/convert-md-to-html-for-files
 SCRIPT_CLONE_TOOLS_PATHNAME=$(ROOT_PATHNAME)/clone-tools-to-docker-volume
 SCRIPT_MODIFY_HTML_FILES=$(ROOT_PATHNAME)/modify-html
@@ -19,6 +20,9 @@ assert-required-file-updated-and-update-branch:
 
 activate-docker-if-not-active:
 	/bin/bash activate-docker-service-if-not-active
+
+clone-wiki-content:
+	/bin/bash $(ROOT_PATHNAME)/wiki/clone-wiki-content $(MAIN_PROJECT_ROOT_PATHNAME)
 
 create-web-content:
 	/bin/bash remove-volumes \
@@ -60,6 +64,7 @@ stop-containers:
 	    stop-if-running
 
 test: assert-required-file-updated-and-update-branch \
+	clone-wiki-content \
 	activate-docker-if-not-active \
 	stop-containers \
 	create-web-content \
@@ -67,6 +72,7 @@ test: assert-required-file-updated-and-update-branch \
 	show-web
 
 deploy: assert-required-file-updated-and-update-branch \
+	clone-wiki-content \
 	activate-docker-if-not-active \
 	stop-containers \
 	create-web-content
