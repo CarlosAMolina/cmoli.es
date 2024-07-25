@@ -656,6 +656,10 @@ git worktree prune
 
 ### tags
 
+[Referencia](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
+
+Hay dos tipos, `lightweight` y `annotated`; el segundo guarda más información.
+
 Un tag es un punto inmutable en el histórico de git. Puede pensarse como un branch que no puede editarse, solo borrarse (en un branch puedes realizar acciones como por ejemplo commits).
 
 Crear un tag:
