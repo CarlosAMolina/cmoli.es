@@ -1,3 +1,0 @@
-## Contenidos
-
-- [Osint](osint.html)
