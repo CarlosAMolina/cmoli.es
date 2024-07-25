@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [TODO] - TODO
 ### Added
+- New sections:
+  - Job: tools for my daily work.
 - Wiki:
   - Debian.
   - Firefox add-on: add web-ext tool.
@@ -22,8 +24,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   - Python: install.
   - Vim: useful commands section, coc, wayland.
   - Windows: activate.
-- New sections:
-  - Job: tools for my daily work.
 ### Changed
 - Main menu:
   - Move UFC to the tools section.
