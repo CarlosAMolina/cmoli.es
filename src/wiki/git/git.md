@@ -658,23 +658,28 @@ git worktree prune
 
 [Referencia](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
 
-Hay dos tipos, `lightweight` y `annotated`; el segundo guarda más información.
+Un tag es un punto inmutable en el histórico de git.
 
-Un tag es un punto inmutable en el histórico de git. Puede pensarse como un branch que no puede editarse, solo borrarse (en un branch puedes realizar acciones como por ejemplo commits).
+Hay dos tipos:
+- lightweight tag: es un puntero a un commit específico, es como una rama que no cambia, que no puede editarse, solo borrarse (en un branch puedes realizar acciones como por ejemplo commits).
+- annotated tag: se almacenan como objetos completos en la base de datos de git. Son checksummed, contienen el nombre de quien a creado la tag, el meail, fecha y un mensaje. También ofrecen otras opciones como firmarlos gon GPG.
 
 Crear un tag:
 
 ```bash
-git tag <name>
+# annotated. Utilizar `-a`. Puede usarse la opción `-m` para dar tambień un mensaje:
+git tag -a <tagname>
+# lightweight. No utilizar las opciones `-a`, `-s`, o `-m`, solo el tag name:
+git tag <tagname>
 ```
 
 Borrar un tag:
 
 ```bash
 # Tag local.
-git tag -d <name>
+git tag -d <tagname>
 # Tag remoto.
-git push --delete origin <name>
+git push --delete origin <tagname>
 ```
 
 Listar tags:
@@ -704,6 +709,9 @@ git pull --tags
 Push:
 
 ```bash
+# Un tag específico:
+git push origin <tagname>
+# Todas las tags.
 git push --tags
 ```
 
