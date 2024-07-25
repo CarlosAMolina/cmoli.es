@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Wiki:
   - Debian.
   - Firefox add-on: add web-ext tool.
-  - Git: git commands section.
+  - Git: git new commands.
   - Gnu-linux:
     - Arch Linux:
       - Add Windows OS to the GRUB menu.
@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   - Python: install.
   - Vim: useful commands section, coc, wayland.
   - Windows: activate.
+
 ### Changed
 - Main menu:
   - Move UFC to the tools section.
