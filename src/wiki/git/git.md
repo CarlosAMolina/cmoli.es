@@ -667,7 +667,10 @@ git tag <name>
 Borrar un tag:
 
 ```bash
+# Tag local.
 git tag -d <name>
+# Tag remoto.
+git push --delete origin <name>
 ```
 
 Listar tags:
@@ -682,16 +685,22 @@ Cambiar a un tag:
 git checkout <tagname>
 ```
 
-Push:
+Fetch:
 
 ```bash
-git push --tags
+git fetch --tags
 ```
 
 Pull:
 
 ```bash
 git pull --tags
+```
+
+Push:
+
+```bash
+git push --tags
 ```
 
 ### cat-file
