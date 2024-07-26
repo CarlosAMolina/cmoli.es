@@ -21,9 +21,7 @@ a {
   grid-gap: 20px;
 }
 .group {
-  border-radius: 5px;
   padding: 10px;
-  border: 2px solid var(--TAG-A-COLOR);
 }
 .group h2 {
   margin-top: 0;
@@ -31,3 +29,8 @@ a {
   border-bottom: 1px dotted var(--TAG-A-COLOR);
 }
 
+@media screen and (max-width: 930px) {
+  .container {
+    grid-gap: 0px;
+  }
+}
