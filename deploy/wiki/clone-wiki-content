@@ -5,7 +5,7 @@ set -e # Exit if any command fails.
 main_project_pathname=$1
 
 wiki_repository_name=wiki
-wiki_content_pathname=$main_project_pathname/src/$wiki_repository_name
+wiki_content_pathname=$main_project_pathname/src/$wiki_repository_name/content
 if [ -d ${wiki_content_pathname} ]; then
   echo "[DEBUG] Deleting old wiki content pathname ${wiki_content_pathname}"
   rm -rf ${wiki_content_pathname}
