@@ -2,5 +2,6 @@ env
 __pycache__
 /src/felices-fiestas/src/movie.mp4
 /src/test
+/src/wiki/content
 /deploy/md-to-html/src/file.log
 .*swp
