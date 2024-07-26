@@ -24,11 +24,11 @@ a {
 .group {
   border-radius: 5px;
   padding: 10px;
-  background-color: var(--BACKGROUND-COLOR);
-  border: 2px solid rgb(79, 185, 227);
+  border: 2px solid var(--TAG-A-COLOR);
 }
 .group h2 {
   margin-top: 0;
   margin-bottom: 10px;
+  border-bottom: 1px dotted var(--TAG-A-COLOR);
 }
 
