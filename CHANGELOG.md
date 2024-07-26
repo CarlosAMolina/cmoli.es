@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.20.0] - 2024-07-26
+### Add
+- Wiki index page.
+
 ## [0.19.0] - 2024-07-25
 ### Changed
 - Deploy: wiki files are downloaded from a different repository.
