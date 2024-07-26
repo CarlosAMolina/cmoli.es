@@ -18,10 +18,8 @@ a {
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
-}
-.group {
-  padding: 10px;
+  column-gap: 20px;
+  row-gap: 20px;
 }
 .group h2 {
   margin-top: 0;
@@ -31,6 +29,6 @@ a {
 
 @media screen and (max-width: 930px) {
   .container {
-    grid-gap: 0px;
+    row-gap: 10px;
   }
 }
