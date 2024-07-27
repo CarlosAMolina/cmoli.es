@@ -1,0 +1,17 @@
+body {
+  width: 90%;
+  max-width: 900px;
+  margin: 2em auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 20px;
+}
+
+.image {
+  border-radius: 5px;
+  padding: 10px;
+  border: 2px solid rgb(79, 185, 227);
+}
