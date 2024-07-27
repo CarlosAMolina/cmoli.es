@@ -1,13 +1,8 @@
-@import url("../base.css");
+@import url("../index.css");
 
 body {
   background-color: var(--BACKGROUND-COLOR);
   font-family: var(--FONT-FAMILY);
-}
-
-/* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element */
-.side-icon-color {
-  filter: invert(100%) sepia(1%) saturate(720%) hue-rotate(27deg) brightness(118%) contrast(78%);
 }
 
 .container {
