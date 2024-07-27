@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Projects</title>
+    <style>
+      body {
+        width: 90%;
+        max-width: 900px;
+        margin: 2em auto;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        gap: 20px;
+      }
+
+      .image {
+        border-radius: 5px;
+        padding: 10px;
+        border: 2px solid rgb(79, 185, 227);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="image">
+          <img src="../icons/firefox.svg" alt="Firefox Logo"/>
+      </div>
+      <div>
+        <h2>Check Iframe</h2>
+        <p>Extensión para Firefox que muestra los iframes en la página web visitada.</p>
+      </div>
+      <div class="image">
+          <img src="../icons/python.svg" alt="Python Logo"/>
+      </div>
+      <div>
+        <h2>Requests Custom</h2>
+        <p>Paquete de Python para configurar rápidamente la librería `requests`.</p>
+      </div>
+    </div>
+  </body>
+</html>
