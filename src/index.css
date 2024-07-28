@@ -66,12 +66,8 @@ a {
   width: 1rem;
   position: relative;
 }
-.side-icon-color {
-  color: #e3e3e3;
-}
 /* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
   color: #e3e3e3;
-  TODO rename to side-icon-color and deprecate current side-icon-color
 */
 .side-icon-color-filter {
   filter: invert(100%) sepia(1%) saturate(720%) hue-rotate(27deg) brightness(118%) contrast(78%);
