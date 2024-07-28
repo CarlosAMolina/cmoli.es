@@ -6,14 +6,19 @@ body {
   font-family: var(--FONT-FAMILY);
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 20px;
+.description {
+  margin-top: 0px;
+}
+
+.projectTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
 .image {
-  border-radius: 5px;
-  padding: 10px;
-  border: 2px solid rgb(79, 185, 227);
+  height: 1.5rem;
+  width: 1.5rem;
+  min-width: 1.5rem;
 }
