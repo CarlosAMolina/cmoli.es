@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - Use svg files instead of code.
+- Refactor extract common css code.
 
 ## [0.20.0] - 2024-07-26
 ### Add
