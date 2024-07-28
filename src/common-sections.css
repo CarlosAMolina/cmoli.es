@@ -8,7 +8,7 @@ body {
   width: 90%;
   max-width: 1000px;
   margin: 0 auto;
-  color:#eaeaea;
+  color: var(--WHITE-COLOR);
 }
 
 table {
@@ -63,7 +63,7 @@ div.sourceCode {
 
 /* Not inline code */
 code.sourceCode {
-  color:#eaeaea;
+  color: var(--WHITE-COLOR);
 }
 
 code {
