@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Projects index page.
 
 ### Changed
+- Rename wiki index files.
 - Change some svg code, use svg files instead.
 - Refactor extract common css code.
 
