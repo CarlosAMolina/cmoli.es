@@ -5,12 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [TODO] - TODO
+## [0.21.0] - 2024-07-28
 ### Add
 - Projects index page.
 
 ### Changed
-- Use svg files instead of code.
+- Change some svg code, use svg files instead.
 - Refactor extract common css code.
 
 ## [0.20.0] - 2024-07-26
