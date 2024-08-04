@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Change
 - Projects index title language.
+- Refactor extract common css code.
 
 ## [0.21.0] - 2024-07-28
 ### Add
