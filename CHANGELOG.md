@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Blog index page.
 
 ### Change
-- Project index title language.
+- Projects index title language.
 
 ## [0.21.0] - 2024-07-28
 ### Add
