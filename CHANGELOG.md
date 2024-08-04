@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [TODO] - TODO
+## [0.22.0] - 2024-08-04
 ### Add
 - Blog index page.
 
