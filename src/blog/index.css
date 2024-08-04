@@ -1,13 +1,4 @@
-@import url("../common-sections.css");
-
-h2:hover, h2:focus {
-  text-decoration: underline;
-}
-
-h2 a {
-  color: var(--YELLOW-COLOR);
-  text-decoration: none;
-}
+@import url("../common-index-inner.css");
 
 .post-date {
   display: block;
