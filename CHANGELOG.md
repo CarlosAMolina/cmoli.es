@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.22.0] - 2024-08-04
 ### Add
 - Blog index page.
+- Herramientas index page.
 - Videos index page.
 
 ### Change
