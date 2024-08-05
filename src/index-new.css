@@ -83,14 +83,12 @@ a {
 }
 .menu {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--GREY-COLOR);
-}
-.menu-tabs {
-  display: flex;
+  column-gap: 20px;
   flex-direction: row;
   justify-content: flex-start;
-  column-gap: 20px;
+}
+.menu-icons {
+  margin-left: auto;
 }
