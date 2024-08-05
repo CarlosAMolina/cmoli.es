@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [TODO] - TODO
+### Change
+- Refactor extract common css code.
+
 ## [0.22.1] - 2024-08-05
 ### Fix
 - Rust svg logo. Firefox resizes it correctly but other browsers such as Chrome do not.
