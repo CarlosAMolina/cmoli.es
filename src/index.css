@@ -44,3 +44,13 @@ a {
 .icon-social-network-color-filter {
   filter: invert(11%) sepia(92%) saturate(7411%) hue-rotate(286deg) brightness(109%) contrast(114%);
 }
+@media screen and (max-width: 930px) {
+  .menu {
+    flex-direction: column;
+    align-items: unset;
+    row-gap: 1rem;
+  }
+  .menu-icons {
+    margin-left: unset;
+  }
+}
