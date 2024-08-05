@@ -21,9 +21,6 @@ a {
   font-size: var(--FONT-SIZE);
 }
 
-.section-social-network {
-  display: flex;
-}
 .icon-social-network {
   height: 32px;
   width: 32px;
