@@ -1,8 +1,17 @@
 @import url("base.css");
 
+/* TODO
+ * refactor. extract to common file for all files
+ */
 body {
   background-color: var(--BACKGROUND-COLOR);
+  line-height: 1.5;
+  font-size: var(--FONT-SIZE);
   font-family: var(--FONT-FAMILY);
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: var(--WHITE-COLOR);
 }
 
 a {
@@ -12,68 +21,26 @@ a {
   font-size: var(--FONT-SIZE);
 }
 
-.section-social-network {
+.menu {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid var(--GREY-COLOR);
+  column-gap: 1.5rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.menu-icons {
+  margin-left: auto;
 }
 .icon-social-network {
-  height: 32px;
-  width: 32px;
-  margin: 10px;
+  width: 2rem;
+  min-width: 2rem;
 }
 /* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
   color: #c700ff;
 */
 .icon-social-network-color-filter {
   filter: invert(11%) sepia(92%) saturate(7411%) hue-rotate(286deg) brightness(109%) contrast(114%);
-}
-.flex-row {
-    display: flex;
-}
-.side {
-  flex: 0 0 300px;
-}
-.content {
-  flex: 1 auto;
-}
-.main {
-  width: 100%;
-  max-width: 100%;
-  text-align: center;
-}
-.side-border {
-  border: #96c3f1 1px solid;
-}
-.side-large {
-  border: #96c3f1 1px solid;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #e3e3e3;
-}
-.side-paragraph {
-  border-bottom: 1px #4a4b50 dotted;
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: left;
-}
-.side-icon {
-  display: inline-block;
-  top: 0.15rem;
-  height: 1rem;
-  width: 1rem;
-  position: relative;
-}
-/* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
-  color: #e3e3e3;
-*/
-.side-icon-color-filter {
-  filter: invert(100%) sepia(1%) saturate(720%) hue-rotate(27deg) brightness(118%) contrast(78%);
-}
-@media screen and (max-width: 930px) {
-  .flex-row {
-      flex-direction: column;
-  }
 }
