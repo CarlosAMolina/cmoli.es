@@ -85,3 +85,9 @@ a {
       flex-direction: column;
   }
 }
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 20px;
+}
