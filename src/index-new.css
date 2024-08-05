@@ -84,7 +84,13 @@ a {
 .menu {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--GREY-COLOR);
+}
+.menu-tabs {
+  display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   column-gap: 20px;
-  align-items: center;
 }
