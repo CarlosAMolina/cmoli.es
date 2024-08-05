@@ -28,6 +28,8 @@ a {
   column-gap: 1.5rem;
   flex-direction: row;
   justify-content: flex-start;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 .menu-icons {
   margin-left: auto;
