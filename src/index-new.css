@@ -22,9 +22,8 @@ a {
 }
 
 .icon-social-network {
-  height: 32px;
-  width: 32px;
-  margin-top: 10px;
+  width: 2rem;
+  min-width: 2rem;
 }
 /* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
   color: #c700ff;
@@ -87,4 +86,5 @@ a {
   flex-direction: row;
   justify-content: flex-start;
   column-gap: 20px;
+  align-items: center;
 }
