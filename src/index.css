@@ -39,7 +39,8 @@ a {
   min-width: 2rem;
 }
 /* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
-  color: #c700ff;
+ * Convert a hexadecimal color code to a CSS filter: https://codepen.io/sosuke/pen/Pjoqqp
+ * Purple color: #c700ff;
 */
 .icon-social-network-color-filter {
   filter: invert(11%) sepia(92%) saturate(7411%) hue-rotate(286deg) brightness(109%) contrast(114%);
