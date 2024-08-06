@@ -1,12 +1,5 @@
-/*TODO move common code to common css files (example: `a` tag)*/
 @import url("../common-sections.css");
 
-a {
-  text-decoration: none;
-  color: var(--TAG-A-COLOR);
-  text-shadow: 0 0 5px rgba(104,182,255,0.5);
-  font-size: var(--FONT-SIZE);
-}
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
