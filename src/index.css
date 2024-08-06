@@ -24,13 +24,6 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-a {
-  color: var(--BLUE-COLOR);
-  text-decoration: none;
-}
-a:hover, a:focus {
-  text-decoration: underline;
-}
 .menu-icons {
   margin-left: auto;
 }
