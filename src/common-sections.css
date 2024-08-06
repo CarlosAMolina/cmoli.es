@@ -42,6 +42,7 @@ ul {
   list-style-image: linear-gradient(var(--YELLOW-COLOR), var(--YELLOW-COLOR));
 }
 
+/* TODO rm*/
 a {
   color: var(--TAG-A-COLOR);
 }
