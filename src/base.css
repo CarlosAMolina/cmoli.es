@@ -12,7 +12,7 @@
   /* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
    * Convert a hexadecimal color code to a CSS filter: https://codepen.io/sosuke/pen/Pjoqqp
   */
-  --PURPLE-COLOR-FILTER: invert(11%) sepia(92%) saturate(7411%) hue-rotate(286deg) brightness(109%) contrast(114%);
+  --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
 }
 
 h1, h2, h3, h4, h5, h6 {

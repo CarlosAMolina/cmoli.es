@@ -39,7 +39,7 @@ a {
   min-width: 2rem;
 }
 .icon-social-network-color-filter {
-  filter: var(--PURPLE-COLOR-FILTER);
+  filter: var(--WHITE-COLOR-FILTER);
 }
 @media screen and (max-width: 930px) {
   .menu {
