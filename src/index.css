@@ -43,7 +43,7 @@ a {
  * Purple color: #c700ff;
 */
 .icon-social-network-color-filter {
-  filter: invert(11%) sepia(92%) saturate(7411%) hue-rotate(286deg) brightness(109%) contrast(114%);
+  filter: var(--ICON-SOCIAL-NETWORK-COLOR-FILTER);
 }
 @media screen and (max-width: 930px) {
   .menu {

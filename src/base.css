@@ -9,6 +9,7 @@
   --TAG-A-COLOR: #63c0f5;
   --YELLOW-COLOR: #b5e853;
   --WHITE-COLOR: #eaeaea;
+  --ICON-SOCIAL-NETWORK-COLOR-FILTER: invert(11%) sepia(92%) saturate(7411%) hue-rotate(286deg) brightness(109%) contrast(114%);
 }
 
 h1, h2, h3, h4, h5, h6 {
