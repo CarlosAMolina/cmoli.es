@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Change
 - Icon color to white.
 - Refactor extract common css code.
+- Improve css rules.
 
 ## [0.23.0] - 2024-08-05
 ### Change
