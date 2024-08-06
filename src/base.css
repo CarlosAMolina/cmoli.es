@@ -9,6 +9,9 @@
   --TAG-A-COLOR: #63c0f5;
   --YELLOW-COLOR: #b5e853;
   --WHITE-COLOR: #eaeaea;
+  /* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
+   * Convert a hexadecimal color code to a CSS filter: https://codepen.io/sosuke/pen/Pjoqqp
+  */
   --PURPLE-COLOR-FILTER: invert(11%) sepia(92%) saturate(7411%) hue-rotate(286deg) brightness(109%) contrast(114%);
 }
 
