@@ -7,8 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [TODO] - TODO
 ### Change
-- Menu tag `a` color to white.
-- Icon color to white.
+- Tag `a` css.
+- Menu icon color to white.
 - Refactor extract common css code.
 - Improve css rules.
 
