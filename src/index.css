@@ -38,10 +38,11 @@ a {
   width: 2rem;
   min-width: 2rem;
 }
-.icon-social-network-color-filter {
+/* https://stackoverflow.com/questions/558721/css-classes-subclasses*/
+.icon-social-network img {
   filter: var(--WHITE-COLOR-FILTER);
 }
-.icon-social-network-color-filter:hover {
+.icon-social-network img:hover {
   filter: var(--GREY-COLOR-FILTER);
 }
 @media screen and (max-width: 930px) {
