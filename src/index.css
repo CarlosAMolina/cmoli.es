@@ -43,7 +43,7 @@ a {
  * Purple color: #c700ff;
 */
 .icon-social-network-color-filter {
-  filter: var(--ICON-SOCIAL-NETWORK-COLOR-FILTER);
+  filter: var(--PURPLE-COLOR-FILTER);
 }
 @media screen and (max-width: 930px) {
   .menu {
