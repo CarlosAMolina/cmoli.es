@@ -14,13 +14,6 @@ body {
   color: var(--WHITE-COLOR);
 }
 
-a {
-  text-decoration: none;
-  color: var(--TAG-A-COLOR);
-  text-shadow: 0 0 5px rgba(104,182,255,0.5);
-  font-size: var(--FONT-SIZE);
-}
-
 .menu {
   display: flex;
   align-items: center;
@@ -30,6 +23,13 @@ a {
   justify-content: flex-start;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+.menu a {
+  text-decoration: none;
+  color: var(--WHITE-COLOR);
+}
+.menu a:hover, .menu a:focus {
+  color: var(--GREY-COLOR);
 }
 .menu-icons {
   margin-left: auto;
