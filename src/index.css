@@ -41,6 +41,9 @@ a {
 .icon-social-network-color-filter {
   filter: var(--WHITE-COLOR-FILTER);
 }
+.icon-social-network-color-filter:hover {
+  filter: var(--GREY-COLOR-FILTER);
+}
 @media screen and (max-width: 930px) {
   .menu {
     flex-direction: column;
