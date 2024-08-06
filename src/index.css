@@ -25,8 +25,8 @@ body {
   padding-bottom: 20px;
 }
 .menu a {
-  text-decoration: none;
   color: var(--WHITE-COLOR);
+  text-decoration: none;
 }
 .menu a:hover, .menu a:focus {
   color: var(--GREY-COLOR);
