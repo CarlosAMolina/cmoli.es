@@ -24,11 +24,11 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-.menu a {
+a {
   color: var(--WHITE-COLOR);
   text-decoration: none;
 }
-.menu a:hover, .menu a:focus {
+a:hover, a:focus {
   color: var(--GREY-COLOR);
 }
 .menu-icons {
