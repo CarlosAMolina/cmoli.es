@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [TODO] - TODO
+### Change
+- Icon color to white.
+- Refactor extract common css code.
+
 ## [0.23.0] - 2024-08-05
 ### Change
 - Main index page shape.
