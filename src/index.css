@@ -25,11 +25,11 @@ body {
   padding-bottom: 20px;
 }
 a {
-  color: var(--WHITE-COLOR);
+  color: var(--BLUE-COLOR);
   text-decoration: none;
 }
 a:hover, a:focus {
-  color: var(--GREY-COLOR);
+  text-decoration: underline;
 }
 .menu-icons {
   margin-left: auto;
