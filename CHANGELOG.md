@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Refactor extract common css code.
 - Improve css rules.
 - Change some svg code, use svg files instead.
+- Simplify arguments of the scripts to convert Markdown to HTML.
 
 ## [0.23.0] - 2024-08-05
 ### Change
