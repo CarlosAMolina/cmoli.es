@@ -6,7 +6,7 @@ from src import main
 
 # TODO remove generated files when the tests ends:
 # ```
-# tp /tmp/md-to-html* /tmp/css-relative-pathnames.txt  /tmp/cmoli.es/ /tmp/input.txt /tmp/output* /tmp/path-names-*
+# ./drop-files-created-by-the-tests
 # ```
 
 
@@ -113,19 +113,17 @@ class TestRun(unittest.TestCase):
 
     def test_run(self):
         css_pathname = str(pathlib.PurePath(self.pathname_to_analyze, "style.css"))
-        pandoc_script_convert_md_to_html_file_pathname = "convert-md-to-html"
         volume_name_pandoc = "tmp"
         script_to_create_pathname=f"/{volume_name_pandoc}/run-on-files-convert-md-to-html"
         main.run(
             css_pathname=css_pathname,
-            pandoc_script_convert_md_to_html_file_pathname=pandoc_script_convert_md_to_html_file_pathname,
             pathname_to_analyze=self.pathname_to_analyze,
             volume_name_pandoc=volume_name_pandoc,
         )
         with open(script_to_create_pathname, "r") as f:
             result = f.read()
         expected_result = "{}\n{}\n".format(
-            "/bin/sh convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html style.css tmp",
-            "/bin/sh convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html ../style.css tmp",
+            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html style.css tmp",
+            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html ../style.css tmp",
         )
         self.assertEqual(expected_result, result)
