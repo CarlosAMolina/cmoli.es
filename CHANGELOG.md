@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Menu icon color to white.
 - Refactor extract common css code.
 - Improve css rules.
+- Change some svg code, use svg files instead.
 
 ## [0.23.0] - 2024-08-05
 ### Change
