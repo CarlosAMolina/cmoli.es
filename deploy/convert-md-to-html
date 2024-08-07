@@ -8,7 +8,7 @@ pandoc_template_pathname=${volume_name_pandoc}/pandoc-config/template.html
 pandoc_metadata_pathname=${volume_name_pandoc}/pandoc-config/metadata.yml
 
 pandoc \
-    --css="${css_directory_relative_path_name}" \
+    --variable root_relative_path_name="${css_directory_relative_path_name}" \
     --standalone \
     --template="${pandoc_template_pathname}" \
     -t html \
