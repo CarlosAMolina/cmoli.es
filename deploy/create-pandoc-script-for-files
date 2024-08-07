@@ -6,6 +6,5 @@ volume_name_pandoc=$2
 echo "[DEBUG] Init create pandoc script"
 python \
 	/${volume_name_pandoc}/md-to-html/src/main.py \
-	/${volume_name_nginx_web_content}/common-sections.css \
 	/${volume_name_nginx_web_content} \
 	/${volume_name_pandoc}

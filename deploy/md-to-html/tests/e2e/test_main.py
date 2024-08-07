@@ -112,18 +112,16 @@ class TestRun(unittest.TestCase):
         dir_util.copy_tree(pathname_with_files_to_analyze, self.pathname_to_analyze)
 
     def test_run(self):
-        css_pathname = str(pathlib.PurePath(self.pathname_to_analyze, "style.css"))
         volume_name_pandoc = "tmp"
         script_to_create_pathname=f"/{volume_name_pandoc}/run-on-files-convert-md-to-html"
         main.run(
-            css_pathname=css_pathname,
             pathname_to_analyze=self.pathname_to_analyze,
             volume_name_pandoc=volume_name_pandoc,
         )
         with open(script_to_create_pathname, "r") as f:
             result = f.read()
         expected_result = "{}\n{}\n".format(
-            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html style.css tmp",
-            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html ../style.css tmp",
+            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html common-sections.css tmp",
+            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html ../common-sections.css tmp",
         )
         self.assertEqual(expected_result, result)

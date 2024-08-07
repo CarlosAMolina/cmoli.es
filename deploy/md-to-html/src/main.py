@@ -10,7 +10,6 @@ def get_argument_parser():
     parser = argparse.ArgumentParser(
         description="Create script to convert .md files to .html"
     )
-    parser.add_argument("css_pathname", type=str)
     parser.add_argument("pathname_to_analyze", type=str)
     parser.add_argument("volume_name_pandoc", type=str)
     return parser
@@ -59,10 +58,10 @@ logger = Logger().logger
 
 
 def run(
-    css_pathname: str,
     pathname_to_analyze: str,
     volume_name_pandoc: str,
 ):
+    css_pathname = str(pathlib.PurePath('/', pathname_to_analyze, "common-sections.css"))
     script_to_create_pathname=f"/{volume_name_pandoc}/run-on-files-convert-md-to-html"
     pandoc_script_convert_md_to_html_file_pathname = f"/{volume_name_pandoc}/convert-md-to-html"
     logger.debug(f"Init export file {script_to_create_pathname}")
@@ -275,7 +274,6 @@ def get_filename_set_extension(filename: str, extension: str) -> str:
 if __name__ == "__main__":
     args = get_argument_parser().parse_args()
     run(
-        args.css_pathname,
         args.pathname_to_analyze,
         args.volume_name_pandoc,
     )
