@@ -201,7 +201,7 @@ class CssPathDetector:
         css_pathname_without_filename = self._css_path.parent
         file_pathname_without_filename = file_path.parent
         return (
-            self._css_filename
+            "."
             if css_pathname_without_filename == file_pathname_without_filename
             else self._get_css_relative_pathname_when_files_with_different_paths(
                 css_pathname_without_filename,
@@ -219,13 +219,8 @@ class CssPathDetector:
         )
         folders_between_files = str(folders_between_files_path).split("/")
         relative_pathnames = [".." for _ in folders_between_files]
-        relative_pathname = "/".join(relative_pathnames)
-        result = "{}/{}".format(relative_pathname, self._css_filename)
+        result = "/".join(relative_pathnames)
         return result
-
-    @property
-    def _css_filename(self) -> str:
-        return self._css_path.name
 
 
 def get_path_substract_common_parts(

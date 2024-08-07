@@ -94,8 +94,8 @@ class TestFunctions(unittest.TestCase):
         with open(result_file_pathname, "r") as f:
             result = f.read()
         expected_result = "{}\n{}\n".format(
-            "../style.css",
-            "../../style.css",
+            "..",
+            "../..",
         )
         self.assertEqual(expected_result, result)
 
@@ -121,7 +121,7 @@ class TestRun(unittest.TestCase):
         with open(script_to_create_pathname, "r") as f:
             result = f.read()
         expected_result = "{}\n{}\n".format(
-            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html common-sections.css tmp",
-            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html ../common-sections.css tmp",
+            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html . tmp",
+            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html .. tmp",
         )
         self.assertEqual(expected_result, result)

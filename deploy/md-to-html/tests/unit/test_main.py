@@ -40,7 +40,7 @@ class TestCssPathDetector(unittest.TestCase):
         html_path = pathlib.PurePath("/foo/bar/folder_1/folder_2/index.html")
         css_path_detector = main.CssPathDetector(css_path)
         self.assertEqual(
-            "../../foo.css",
+            "../..",
             css_path_detector.get_css_relative_pathname_from_file_path(html_path),
         )
 
@@ -49,6 +49,6 @@ class TestCssPathDetector(unittest.TestCase):
         html_path = pathlib.PurePath("/foo/bar/index.html")
         css_path_detector = main.CssPathDetector(css_path)
         self.assertEqual(
-            "foo.css",
+            ".",
             css_path_detector.get_css_relative_pathname_from_file_path(html_path),
         )
