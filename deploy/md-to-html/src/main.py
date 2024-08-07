@@ -11,11 +11,10 @@ def get_argument_parser():
         description="Create script to convert .md files to .html"
     )
     parser.add_argument("css_pathname", type=str)
-    parser.add_argument("pandoc_metadata_file_pathname", type=str)
     parser.add_argument("pandoc_script_convert_md_to_html_file_pathname", type=str)
-    parser.add_argument("pandoc_template_file_pathname", type=str)
     parser.add_argument("pathname_to_analyze", type=str)
     parser.add_argument("script_to_create_pathname", type=str)
+    parser.add_argument("volume_name_pandoc", type=str)
     return parser
 
 
@@ -63,11 +62,10 @@ logger = Logger().logger
 
 def run(
     css_pathname: str,
-    pandoc_metadata_file_pathname: str,
     pandoc_script_convert_md_to_html_file_pathname: str,
-    pandoc_template_file_pathname: str,
     pathname_to_analyze: str,
     script_to_create_pathname: str,
+    volume_name_pandoc: str,
 ):
     logger.debug(f"Init export file {script_to_create_pathname}")
     # TODO move constants to config.py
@@ -90,13 +88,12 @@ def run(
         result_file_pathname=css_relative_pathnames_file_pathname,
     )
     export_to_file_the_script_combine_files(
-        pandoc_metadata_file_pathname,
         pandoc_script_convert_md_to_html_file_pathname,
-        pandoc_template_file_pathname,
         md_pathnames_to_convert_file_pathname,
         md_pathnames_converted_file_pathname,
         css_relative_pathnames_file_pathname,
         script_to_create_pathname,
+        volume_name_pandoc,
     )
 
 
@@ -147,13 +144,12 @@ def export_to_file_the_css_relative_pathnames(
 
 
 def export_to_file_the_script_combine_files(
-    pandoc_metadata_file_pathname: str,
     pandoc_script_convert_md_to_html_file_pathname: str,
-    pandoc_template_file_pathname: str,
     md_pathnames_to_convert_file_pathname: str,
     md_pathnames_converted_file_pathname: str,
     css_relative_pathnames_file_pathname: str,
     result_file_pathname: str,
+    volume_name_pandoc: str,
 ):
     with open(md_pathnames_to_convert_file_pathname) as to_convert_file, open(
         md_pathnames_converted_file_pathname
@@ -167,13 +163,12 @@ def export_to_file_the_script_combine_files(
         for file_to_convert_pathname, file_converted_pathname, css_file_pathname in zip(
             to_convert_lines, converted_lines, css_lines
         ):
-            command = "/bin/sh {} {} {} {} {} {}".format(
+            command = "/bin/sh {} {} {} {} {}".format(
                 pandoc_script_convert_md_to_html_file_pathname,
                 file_to_convert_pathname,
                 file_converted_pathname,
                 css_file_pathname,
-                pandoc_template_file_pathname,
-                pandoc_metadata_file_pathname,
+                volume_name_pandoc,
             )
             logger.debug(f"Command: {command}")
             script_file.write(command)
@@ -283,9 +278,8 @@ if __name__ == "__main__":
     args = get_argument_parser().parse_args()
     run(
         args.css_pathname,
-        args.pandoc_metadata_file_pathname,
         args.pandoc_script_convert_md_to_html_file_pathname,
-        args.pandoc_template_file_pathname,
         args.pathname_to_analyze,
         args.script_to_create_pathname,
+        args.volume_name_pandoc,
     )

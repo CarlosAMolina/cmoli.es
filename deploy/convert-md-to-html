@@ -3,8 +3,9 @@
 input_file_pathname=$1
 output_file_pathname=$2
 css_pathname=$3
-pandoc_template_pathname=$4
-pandoc_metadata_pathname=$5
+volume_name_pandoc=$4
+pandoc_template_pathname=${volume_name_pandoc}/pandoc-config/template.html
+pandoc_metadata_pathname=${volume_name_pandoc}/pandoc-config/metadata.yml
 
 pandoc \
     --css="${css_pathname}" \
