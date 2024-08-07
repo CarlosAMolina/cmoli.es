@@ -9,5 +9,4 @@ python \
 	/${volume_name_nginx_web_content}/common-sections.css \
 	/${volume_name_pandoc}/convert-md-to-html \
 	/${volume_name_nginx_web_content} \
-	/${volume_name_pandoc}/run-on-files-convert-md-to-html \
 	/${volume_name_pandoc}

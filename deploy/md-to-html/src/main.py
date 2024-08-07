@@ -13,7 +13,6 @@ def get_argument_parser():
     parser.add_argument("css_pathname", type=str)
     parser.add_argument("pandoc_script_convert_md_to_html_file_pathname", type=str)
     parser.add_argument("pathname_to_analyze", type=str)
-    parser.add_argument("script_to_create_pathname", type=str)
     parser.add_argument("volume_name_pandoc", type=str)
     return parser
 
@@ -64,9 +63,9 @@ def run(
     css_pathname: str,
     pandoc_script_convert_md_to_html_file_pathname: str,
     pathname_to_analyze: str,
-    script_to_create_pathname: str,
     volume_name_pandoc: str,
 ):
+    script_to_create_pathname=f"/{volume_name_pandoc}/run-on-files-convert-md-to-html"
     logger.debug(f"Init export file {script_to_create_pathname}")
     # TODO move constants to config.py
     md_pathnames_to_convert_file_pathname = "/tmp/path-names-to-convert.txt"
@@ -280,6 +279,5 @@ if __name__ == "__main__":
         args.css_pathname,
         args.pandoc_script_convert_md_to_html_file_pathname,
         args.pathname_to_analyze,
-        args.script_to_create_pathname,
         args.volume_name_pandoc,
     )
