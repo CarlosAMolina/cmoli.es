@@ -61,9 +61,9 @@ def run(
     pathname_to_analyze: str,
     pandoc_volume_path_name: str,
 ):
-    css_pathname = str(pathlib.PurePath('/', pathname_to_analyze, "common-sections.css"))
-    script_to_create_pathname = str(pathlib.PurePath("/", pandoc_volume_path_name, "run-on-files-convert-md-to-html"))
-    pandoc_script_convert_md_to_html_file_pathname = str(pathlib.PurePath("/", pandoc_volume_path_name, "convert-md-to-html"))
+    css_pathname = str(pathlib.PurePath(pathname_to_analyze, "common-sections.css"))
+    script_to_create_pathname = str(pathlib.PurePath(pandoc_volume_path_name, "run-on-files-convert-md-to-html"))
+    pandoc_script_convert_md_to_html_file_pathname = str(pathlib.PurePath(pandoc_volume_path_name, "convert-md-to-html"))
     logger.debug(f"Init export file {script_to_create_pathname}")
     # TODO move constants to config.py
     md_pathnames_to_convert_file_pathname = "/tmp/path-names-to-convert.txt"
