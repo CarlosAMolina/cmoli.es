@@ -36,19 +36,19 @@ class TestFunctions(unittest.TestCase):
 
 class TestRootPathDetector(unittest.TestCase):
     def test_get_root_relative_pathname_from_file_path(self):
-        css_path = pathlib.PurePath("/foo/bar")
+        nginx_web_content_path = pathlib.PurePath("/foo/bar")
         html_path = pathlib.PurePath("/foo/bar/folder_1/folder_2/index.html")
-        css_path_detector = main.RootPathDetector(css_path)
+        root_path_detector = main.RootPathDetector(nginx_web_content_path)
         self.assertEqual(
             "../..",
-            css_path_detector.get_root_relative_pathname_from_file_path(html_path),
+            root_path_detector.get_root_relative_pathname_from_file_path(html_path),
         )
 
     def test_get_root_relative_pathname_from_file_path_if_files_in_same_path(self):
-        css_path = pathlib.PurePath("/foo/bar")
+        nginx_web_content_path = pathlib.PurePath("/foo/bar")
         html_path = pathlib.PurePath("/foo/bar/index.html")
-        css_path_detector = main.RootPathDetector(css_path)
+        root_path_detector = main.RootPathDetector(nginx_web_content_path)
         self.assertEqual(
             ".",
-            css_path_detector.get_root_relative_pathname_from_file_path(html_path),
+            root_path_detector.get_root_relative_pathname_from_file_path(html_path),
         )
