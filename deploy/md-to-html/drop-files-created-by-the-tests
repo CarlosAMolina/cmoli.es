@@ -1,6 +1,6 @@
 cd /tmp
 rm -rf cmoli.es
-rm css-relative-pathnames.txt
+rm root-relative-pathnames.txt
 rm input.txt
 rm output-css.txt
 rm output.txt

@@ -67,7 +67,7 @@ def run(
     # TODO move constants to config.py
     md_pathnames_to_convert_file_pathname = "/tmp/path-names-to-convert.txt"
     md_pathnames_converted_file_pathname = "/tmp/path-names-converted.txt"
-    css_relative_pathnames_file_pathname = "/tmp/css-relative-pathnames.txt"
+    css_relative_pathnames_file_pathname = "/tmp/root-relative-pathnames.txt"
     output_directory_pathname = nginx_web_content_pathname
     export_to_file_the_md_pathnames_to_convert(
         nginx_web_content_pathname, md_pathnames_to_convert_file_pathname
