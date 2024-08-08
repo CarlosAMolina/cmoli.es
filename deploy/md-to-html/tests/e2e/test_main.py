@@ -85,7 +85,7 @@ class TestFunctions(unittest.TestCase):
 
     def test_export_to_file_the_root_relative_pathnames(self):
         nginx_web_content_pathname = "/home"
-        result_file_pathname = "/tmp/output-css.txt"
+        result_file_pathname = "/tmp/output-relative.txt"
         main.export_to_file_the_root_relative_pathnames(
             nginx_web_content_pathname=nginx_web_content_pathname,
             md_pathnames_to_convert_file_pathname=self.test_md_pathnames_to_convert_file_pathname,
