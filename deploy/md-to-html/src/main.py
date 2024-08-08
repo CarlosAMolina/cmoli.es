@@ -122,7 +122,7 @@ def export_to_file_the_css_relative_pathnames(
 ):
     logger.debug(f"Init export file {result_file_pathname}")
     nginx_web_content_path = pathlib.PurePath(nginx_web_content_pathname)
-    root_path_detector = CssPathDetector(nginx_web_content_path)
+    root_path_detector = RootPathDetector(nginx_web_content_path)
     with open(md_pathnames_to_convert_file_pathname, "r") as f_to_read, open(
         result_file_pathname, "w"
     ) as f_to_write:
@@ -190,7 +190,7 @@ class DirectoryAnalyzer:
         return pathlib.PurePath(filename).suffix.lower().strip() == ".md"
 
 
-class CssPathDetector:
+class RootPathDetector:
     def __init__(self, css_path: pathlib.PurePath):
         self._css_path = css_path
 
