@@ -1,6 +1,6 @@
 ROOT_PATHNAME=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 MAIN_PROJECT_ROOT_PATHNAME=$(ROOT_PATHNAME)/..
-SCRIPT_CONVERT_MD_TO_HTML_PATHNAME=$(ROOT_PATHNAME)/convert-md-to-html-for-files
+SCRIPT_CONVERT_MD_TO_HTML_PATHNAME=$(ROOT_PATHNAME)/md-to-html/convert-md-to-html-for-files
 SCRIPT_CLONE_TOOLS_PATHNAME=$(ROOT_PATHNAME)/clone-tools-to-docker-volume
 SCRIPT_MODIFY_HTML_FILES=$(ROOT_PATHNAME)/modify-html
 SCRIPT_OPEN_HTML_PATHNAME=$(ROOT_PATHNAME)/open-html

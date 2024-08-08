@@ -27,6 +27,7 @@ echo "[DEBUG] Init make script executable"
 chmod +x ${script_pathname}
 
 echo "[DEBUG] Init makefile-convert-md-to-html-for-files"
+# This script is called out of the md-to-html folder, we need to `cd` to it.
 cd md-to-html
 make -f makefile-convert-md-to-html-for-files \
 	run \
