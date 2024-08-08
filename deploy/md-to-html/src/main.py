@@ -10,8 +10,8 @@ def get_argument_parser():
     parser = argparse.ArgumentParser(
         description="Create script to convert .md files to .html"
     )
-    parser.add_argument("pathname_to_analyze", type=str)
-    parser.add_argument("pandoc_volume_path_name", type=str)
+    parser.add_argument("nginx_web_content_pathname", type=str)
+    parser.add_argument("pandoc_volume_pathname", type=str)
     return parser
 
 
@@ -58,23 +58,23 @@ logger = Logger().logger
 
 
 def run(
-    pathname_to_analyze: str,
-    pandoc_volume_path_name: str,
+    nginx_web_content_pathname: str,
+    pandoc_volume_pathname: str,
 ):
-    css_pathname = str(pathlib.PurePath(pathname_to_analyze, "common-sections.css"))
-    script_to_create_pathname = str(pathlib.PurePath(pandoc_volume_path_name, "run-on-files-convert-md-to-html"))
-    pandoc_script_convert_md_to_html_file_pathname = str(pathlib.PurePath(pandoc_volume_path_name, "convert-md-to-html"))
+    css_pathname = str(pathlib.PurePath(nginx_web_content_pathname, "common-sections.css"))
+    script_to_create_pathname = str(pathlib.PurePath(pandoc_volume_pathname, "run-on-files-convert-md-to-html"))
+    pandoc_script_convert_md_to_html_file_pathname = str(pathlib.PurePath(pandoc_volume_pathname, "convert-md-to-html"))
     logger.debug(f"Init export file {script_to_create_pathname}")
     # TODO move constants to config.py
     md_pathnames_to_convert_file_pathname = "/tmp/path-names-to-convert.txt"
     md_pathnames_converted_file_pathname = "/tmp/path-names-converted.txt"
     css_relative_pathnames_file_pathname = "/tmp/css-relative-pathnames.txt"
-    output_directory_pathname = pathname_to_analyze
+    output_directory_pathname = nginx_web_content_pathname
     export_to_file_the_md_pathnames_to_convert(
-        pathname_to_analyze, md_pathnames_to_convert_file_pathname
+        nginx_web_content_pathname, md_pathnames_to_convert_file_pathname
     )
     export_to_file_the_html_pathnames_converted(
-        pathname_to_analyze,
+        nginx_web_content_pathname,
         md_pathnames_to_convert_file_pathname,
         output_directory_pathname=output_directory_pathname,
         result_file_pathname=md_pathnames_converted_file_pathname,
@@ -90,7 +90,7 @@ def run(
         md_pathnames_converted_file_pathname,
         css_relative_pathnames_file_pathname,
         script_to_create_pathname,
-        pandoc_volume_path_name,
+        pandoc_volume_pathname,
     )
 
 
@@ -146,7 +146,7 @@ def export_to_file_the_script_combine_files(
     md_pathnames_converted_file_pathname: str,
     css_relative_pathnames_file_pathname: str,
     result_file_pathname: str,
-    pandoc_volume_path_name: str,
+    pandoc_volume_pathname: str,
 ):
     with open(md_pathnames_to_convert_file_pathname) as to_convert_file, open(
         md_pathnames_converted_file_pathname
@@ -165,7 +165,7 @@ def export_to_file_the_script_combine_files(
                 file_to_convert_pathname,
                 file_converted_pathname,
                 css_file_pathname,
-                pandoc_volume_path_name,
+                pandoc_volume_pathname,
             )
             logger.debug(f"Command: {command}")
             script_file.write(command)
@@ -230,12 +230,12 @@ def get_path_substract_common_parts(
 
 
 def export_to_file_the_md_pathnames_to_convert(
-    pathname_to_analyze: str,
+    nginx_web_content_pathname: str,
     result_file_pathname: str,
 ):
     logger.debug(f"Init export file {result_file_pathname}")
     with open(result_file_pathname, "w") as f:
-        for md_pathname in DirectoryAnalyzer().get_md_pathnames(pathname_to_analyze):
+        for md_pathname in DirectoryAnalyzer().get_md_pathnames(nginx_web_content_pathname):
             logger.debug(f"Detected .md file: {md_pathname}")
             f.write(md_pathname)
             f.write("\n")
@@ -269,6 +269,6 @@ def get_filename_set_extension(filename: str, extension: str) -> str:
 if __name__ == "__main__":
     args = get_argument_parser().parse_args()
     run(
-        args.pathname_to_analyze,
-        args.pandoc_volume_path_name,
+        args.nginx_web_content_pathname,
+        args.pandoc_volume_pathname,
     )

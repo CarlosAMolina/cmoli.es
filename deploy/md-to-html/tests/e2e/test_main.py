@@ -14,7 +14,7 @@ class TestDirectoryAnalyzer(unittest.TestCase):
     def setUp(self):
         script_dir = pathlib.Path(__file__).parent.absolute()
         tests_dir = script_dir.parent
-        self.pathname_to_analyze = str(
+        self.nginx_web_content_pathname = str(
             pathlib.PurePath(tests_dir, "files", "fake-project")
         )
 
@@ -22,21 +22,21 @@ class TestDirectoryAnalyzer(unittest.TestCase):
         md_files = [
             pathname
             for pathname in main.DirectoryAnalyzer().get_md_pathnames(
-                self.pathname_to_analyze
+                self.nginx_web_content_pathname
             )
         ]
         self.assertEqual(
             [
-                str(pathlib.PurePath(self.pathname_to_analyze, "foo.md")),
-                str(pathlib.PurePath(self.pathname_to_analyze, "folder-1", "bar.md")),
+                str(pathlib.PurePath(self.nginx_web_content_pathname, "foo.md")),
+                str(pathlib.PurePath(self.nginx_web_content_pathname, "folder-1", "bar.md")),
             ],
             md_files,
         )
 
-    def test_exception_is_raised_if_pathname_to_analyze_does_not_exist(self):
-        pathname_to_analyze = "/foo/bar/asdf/foo/bar"
+    def test_exception_is_raised_if_nginx_web_content_pathname_does_not_exist(self):
+        nginx_web_content_pathname = "/foo/bar/asdf/foo/bar"
         with self.assertRaises(FileNotFoundError):
-            for _ in main.DirectoryAnalyzer().get_md_pathnames(pathname_to_analyze):
+            for _ in main.DirectoryAnalyzer().get_md_pathnames(nginx_web_content_pathname):
                 pass
 
 
@@ -55,7 +55,7 @@ class TestFunctions(unittest.TestCase):
     def test_export_to_file_the_md_pathnames_to_convert(self):
         result_file_pathname = "/tmp/input.txt"
         main.export_to_file_the_md_pathnames_to_convert(
-            pathname_to_analyze=self.test_fake_project_pathname,
+            nginx_web_content_pathname=self.test_fake_project_pathname,
             result_file_pathname=result_file_pathname,
         )
         with open(result_file_pathname, "r") as f:
@@ -84,10 +84,10 @@ class TestFunctions(unittest.TestCase):
         self.assertEqual(expected_result, result)
 
     def test_export_to_file_the_css_relative_pathnames(self):
-        pathname_to_analyze = "/home"
+        nginx_web_content_pathname = "/home"
         result_file_pathname = "/tmp/output-css.txt"
         main.export_to_file_the_css_relative_pathnames(
-            css_pathname=f"{pathname_to_analyze}/style.css",
+            css_pathname=f"{nginx_web_content_pathname}/style.css",
             md_pathnames_to_convert_file_pathname=self.test_md_pathnames_to_convert_file_pathname,
             result_file_pathname=result_file_pathname,
         )
@@ -105,18 +105,18 @@ class TestRun(unittest.TestCase):
         self.maxDiff = None  # Show complete diff when test fails.
         script_dir = pathlib.Path(__file__).parent.absolute()
         tests_dir = script_dir.parent
-        self.pathname_to_analyze = "/tmp/cmoli.es/html"
+        self.nginx_web_content_pathname = "/tmp/cmoli.es/html"
         pathname_with_files_to_analyze = str(
             pathlib.PurePath(tests_dir, "files", "fake-project")
         )
-        dir_util.copy_tree(pathname_with_files_to_analyze, self.pathname_to_analyze)
+        dir_util.copy_tree(pathname_with_files_to_analyze, self.nginx_web_content_pathname)
 
     def test_run(self):
-        pandoc_volume_path_name = "/tmp"
-        script_to_create_pathname=f"{pandoc_volume_path_name}/run-on-files-convert-md-to-html"
+        pandoc_volume_pathname = "/tmp"
+        script_to_create_pathname=f"{pandoc_volume_pathname}/run-on-files-convert-md-to-html"
         main.run(
-            pathname_to_analyze=self.pathname_to_analyze,
-            pandoc_volume_path_name=pandoc_volume_path_name,
+            nginx_web_content_pathname=self.nginx_web_content_pathname,
+            pandoc_volume_pathname=pandoc_volume_pathname,
         )
         with open(script_to_create_pathname, "r") as f:
             result = f.read()
