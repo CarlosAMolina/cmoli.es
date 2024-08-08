@@ -197,25 +197,24 @@ class CssPathDetector:
     def get_css_relative_pathname_from_file_path(
         self, file_path: pathlib.PurePath
     ) -> str:
-        css_pathname_without_filename = self._css_path
-        file_pathname_without_filename = file_path.parent
+        css_path_without_filename = self._css_path
+        file_path_without_filename = file_path.parent
         return (
             "."
-            if css_pathname_without_filename == file_pathname_without_filename
+            if css_path_without_filename == file_path_without_filename
             else self._get_css_relative_pathname_when_files_with_different_paths(
-                css_pathname_without_filename,
-                file_pathname_without_filename,
+                css_path_without_filename,
+                file_path_without_filename,
             )
         )
 
-    # TODO rename args: pathname -> path
     def _get_css_relative_pathname_when_files_with_different_paths(
         self,
-        css_pathname_without_filename: pathlib.PurePath,
-        file_pathname_without_filename: pathlib.PurePath,
+        css_path_without_filename: pathlib.PurePath,
+        file_path_without_filename: pathlib.PurePath,
     ) -> str:
         folders_between_files_path: pathlib.PurePath = (
-            file_pathname_without_filename.relative_to(css_pathname_without_filename)
+            file_path_without_filename.relative_to(css_path_without_filename)
         )
         folders_between_files = str(folders_between_files_path).split("/")
         relative_pathnames = [".." for _ in folders_between_files]
