@@ -31,6 +31,7 @@ run-container:
 		--mount type=volume,source=$(DOCKER_VOLUME_NGINX_WEB_CONTENT),target=/$(DOCKER_VOLUME_NGINX_WEB_CONTENT) \
 		$(DOCKER_CUSTOM_IMAGE_NAME)
 
+# TODO the `md-to-html` folder must only convert content, the responsability for copying web content must be outside this folder.
 copy-files-to-volumes:
 	#sudo /bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_PANDOC) $(DOCKER_VOLUME_NGINX_WEB_CONTENT)
 	cd .. && /bin/bash copy-files-to-docker-volumes $(DOCKER_VOLUME_NGINX_WEB_CONTENT) $(DOCKER_VOLUME_PANDOC)
