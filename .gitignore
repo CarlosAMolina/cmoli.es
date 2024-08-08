@@ -3,5 +3,5 @@ __pycache__
 /src/felices-fiestas/src/movie.mp4
 /src/test
 /src/wiki/content
-/deploy/create-pandoc-script-for-files/src/file.log
+/deploy/md-to-html/create-pandoc-script-for-files/src/file.log
 .*swp
