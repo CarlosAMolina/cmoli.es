@@ -197,13 +197,12 @@ class RootPathDetector:
     def get_root_relative_pathname_from_file_path(
         self, file_path: pathlib.PurePath
     ) -> str:
-        css_path_without_filename = self._css_path
         file_path_without_filename = file_path.parent
         return (
             "."
-            if css_path_without_filename == file_path_without_filename
+            if self._css_path == file_path_without_filename
             else self._get_root_relative_pathname_when_files_with_different_paths(
-                css_path_without_filename,
+                self._css_path,
                 file_path_without_filename,
             )
         )
