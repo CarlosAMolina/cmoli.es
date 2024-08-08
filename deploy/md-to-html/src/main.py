@@ -156,14 +156,14 @@ def export_to_file_the_script_combine_files(
         converted_lines = converted_file.read().splitlines()
         root_lines = root_file.read().splitlines()
         assert len(to_convert_lines) == len(converted_lines) == len(root_lines)
-        for file_to_convert_pathname, file_converted_pathname, root_file_pathname in zip(
+        for file_to_convert_pathname, file_converted_pathname, root_directory_relative_path_name in zip(
             to_convert_lines, converted_lines, root_lines
         ):
             command = "/bin/sh {} {} {} {} {}".format(
                 pandoc_script_convert_md_to_html_file_pathname,
                 file_to_convert_pathname,
                 file_converted_pathname,
-                root_file_pathname,
+                root_directory_relative_path_name,
                 pandoc_volume_pathname,
             )
             logger.debug(f"Command: {command}")
