@@ -130,7 +130,7 @@ def export_to_file_the_css_relative_pathnames(
             logger.debug(f"Pathname to convert: {file_to_convert_pathname}")
             file_to_convert_path = pathlib.PurePath(file_to_convert_pathname)
             root_relative_pathname = (
-                root_path_detector.get_css_relative_pathname_from_file_path(
+                root_path_detector.get_root_relative_pathname_from_file_path(
                     file_to_convert_path
                 )
             )
@@ -194,7 +194,7 @@ class RootPathDetector:
     def __init__(self, css_path: pathlib.PurePath):
         self._css_path = css_path
 
-    def get_css_relative_pathname_from_file_path(
+    def get_root_relative_pathname_from_file_path(
         self, file_path: pathlib.PurePath
     ) -> str:
         css_path_without_filename = self._css_path
