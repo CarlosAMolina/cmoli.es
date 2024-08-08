@@ -149,21 +149,21 @@ def export_to_file_the_script_combine_files(
 ):
     with open(md_pathnames_to_convert_file_pathname) as to_convert_file, open(
         md_pathnames_converted_file_pathname
-    ) as converted_file, open(root_relative_pathnames_file_pathname) as css_file, open(
+    ) as converted_file, open(root_relative_pathnames_file_pathname) as root_file, open(
         result_file_pathname, "w"
     ) as script_file:
         to_convert_lines = to_convert_file.read().splitlines()
         converted_lines = converted_file.read().splitlines()
-        css_lines = css_file.read().splitlines()
+        css_lines = root_file.read().splitlines()
         assert len(to_convert_lines) == len(converted_lines) == len(css_lines)
-        for file_to_convert_pathname, file_converted_pathname, css_file_pathname in zip(
+        for file_to_convert_pathname, file_converted_pathname, root_file_pathname in zip(
             to_convert_lines, converted_lines, css_lines
         ):
             command = "/bin/sh {} {} {} {} {}".format(
                 pandoc_script_convert_md_to_html_file_pathname,
                 file_to_convert_pathname,
                 file_converted_pathname,
-                css_file_pathname,
+                root_file_pathname,
                 pandoc_volume_pathname,
             )
             logger.debug(f"Command: {command}")
