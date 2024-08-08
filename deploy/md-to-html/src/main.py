@@ -191,8 +191,8 @@ class DirectoryAnalyzer:
 
 
 class RootPathDetector:
-    def __init__(self, css_path: pathlib.PurePath):
-        self._css_path = css_path
+    def __init__(self, nginx_web_content_path: pathlib.PurePath):
+        self._nginx_web_content_path = nginx_web_content_path
 
     def get_root_relative_pathname_from_file_path(
         self, file_path: pathlib.PurePath
@@ -200,7 +200,7 @@ class RootPathDetector:
         file_path_without_filename = file_path.parent
         return (
             "."
-            if self._css_path == file_path_without_filename
+            if self._nginx_web_content_path == file_path_without_filename
             else self._get_root_relative_pathname_when_file_with_different_path(
                 file_path_without_filename,
             )
@@ -211,7 +211,7 @@ class RootPathDetector:
         file_path_without_filename: pathlib.PurePath,
     ) -> str:
         folders_between_files_path: pathlib.PurePath = (
-            file_path_without_filename.relative_to(self._css_path)
+            file_path_without_filename.relative_to(self._nginx_web_content_path)
         )
         folders_between_files = str(folders_between_files_path).split("/")
         relative_pathnames = [".." for _ in folders_between_files]
