@@ -67,7 +67,7 @@ def run(
     # TODO move constants to config.py
     md_pathnames_to_convert_file_pathname = "/tmp/path-names-to-convert.txt"
     md_pathnames_converted_file_pathname = "/tmp/path-names-converted.txt"
-    css_relative_pathnames_file_pathname = "/tmp/root-relative-pathnames.txt"
+    root_relative_pathnames_file_pathname = "/tmp/root-relative-pathnames.txt"
     output_directory_pathname = nginx_web_content_pathname
     export_to_file_the_md_pathnames_to_convert(
         nginx_web_content_pathname, md_pathnames_to_convert_file_pathname
@@ -81,13 +81,13 @@ def run(
     export_to_file_the_root_relative_pathnames(
         nginx_web_content_pathname,
         md_pathnames_to_convert_file_pathname,
-        result_file_pathname=css_relative_pathnames_file_pathname,
+        result_file_pathname=root_relative_pathnames_file_pathname,
     )
     export_to_file_the_script_combine_files(
         pandoc_script_convert_md_to_html_file_pathname,
         md_pathnames_to_convert_file_pathname,
         md_pathnames_converted_file_pathname,
-        css_relative_pathnames_file_pathname,
+        root_relative_pathnames_file_pathname,
         script_to_create_pathname,
         pandoc_volume_pathname,
     )
@@ -143,13 +143,13 @@ def export_to_file_the_script_combine_files(
     pandoc_script_convert_md_to_html_file_pathname: str,
     md_pathnames_to_convert_file_pathname: str,
     md_pathnames_converted_file_pathname: str,
-    css_relative_pathnames_file_pathname: str,
+    root_relative_pathnames_file_pathname: str,
     result_file_pathname: str,
     pandoc_volume_pathname: str,
 ):
     with open(md_pathnames_to_convert_file_pathname) as to_convert_file, open(
         md_pathnames_converted_file_pathname
-    ) as converted_file, open(css_relative_pathnames_file_pathname) as css_file, open(
+    ) as converted_file, open(root_relative_pathnames_file_pathname) as css_file, open(
         result_file_pathname, "w"
     ) as script_file:
         to_convert_lines = to_convert_file.read().splitlines()
@@ -202,13 +202,13 @@ class RootPathDetector:
         return (
             "."
             if css_path_without_filename == file_path_without_filename
-            else self._get_css_relative_pathname_when_files_with_different_paths(
+            else self._get_root_relative_pathname_when_files_with_different_paths(
                 css_path_without_filename,
                 file_path_without_filename,
             )
         )
 
-    def _get_css_relative_pathname_when_files_with_different_paths(
+    def _get_root_relative_pathname_when_files_with_different_paths(
         self,
         css_path_without_filename: pathlib.PurePath,
         file_path_without_filename: pathlib.PurePath,
