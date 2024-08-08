@@ -11,7 +11,7 @@ def get_argument_parser():
         description="Create script to convert .md files to .html"
     )
     parser.add_argument("pathname_to_analyze", type=str)
-    parser.add_argument("volume_name_pandoc", type=str)
+    parser.add_argument("pandoc_volume_path_name", type=str)
     return parser
 
 
@@ -59,11 +59,11 @@ logger = Logger().logger
 
 def run(
     pathname_to_analyze: str,
-    volume_name_pandoc: str,
+    pandoc_volume_path_name: str,
 ):
     css_pathname = str(pathlib.PurePath('/', pathname_to_analyze, "common-sections.css"))
-    script_to_create_pathname = str(pathlib.PurePath("/", volume_name_pandoc, "run-on-files-convert-md-to-html"))
-    pandoc_script_convert_md_to_html_file_pathname = str(pathlib.PurePath("/", volume_name_pandoc, "convert-md-to-html"))
+    script_to_create_pathname = str(pathlib.PurePath("/", pandoc_volume_path_name, "run-on-files-convert-md-to-html"))
+    pandoc_script_convert_md_to_html_file_pathname = str(pathlib.PurePath("/", pandoc_volume_path_name, "convert-md-to-html"))
     logger.debug(f"Init export file {script_to_create_pathname}")
     # TODO move constants to config.py
     md_pathnames_to_convert_file_pathname = "/tmp/path-names-to-convert.txt"
@@ -90,7 +90,7 @@ def run(
         md_pathnames_converted_file_pathname,
         css_relative_pathnames_file_pathname,
         script_to_create_pathname,
-        volume_name_pandoc,
+        pandoc_volume_path_name,
     )
 
 
@@ -146,7 +146,7 @@ def export_to_file_the_script_combine_files(
     md_pathnames_converted_file_pathname: str,
     css_relative_pathnames_file_pathname: str,
     result_file_pathname: str,
-    volume_name_pandoc: str,
+    pandoc_volume_path_name: str,
 ):
     with open(md_pathnames_to_convert_file_pathname) as to_convert_file, open(
         md_pathnames_converted_file_pathname
@@ -165,7 +165,7 @@ def export_to_file_the_script_combine_files(
                 file_to_convert_pathname,
                 file_converted_pathname,
                 css_file_pathname,
-                volume_name_pandoc,
+                pandoc_volume_path_name,
             )
             logger.debug(f"Command: {command}")
             script_file.write(command)
@@ -270,5 +270,5 @@ if __name__ == "__main__":
     args = get_argument_parser().parse_args()
     run(
         args.pathname_to_analyze,
-        args.volume_name_pandoc,
+        args.pandoc_volume_path_name,
     )

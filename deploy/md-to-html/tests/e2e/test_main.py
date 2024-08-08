@@ -112,16 +112,16 @@ class TestRun(unittest.TestCase):
         dir_util.copy_tree(pathname_with_files_to_analyze, self.pathname_to_analyze)
 
     def test_run(self):
-        volume_name_pandoc = "tmp"
-        script_to_create_pathname=f"/{volume_name_pandoc}/run-on-files-convert-md-to-html"
+        pandoc_volume_path_name = "/tmp"
+        script_to_create_pathname=f"{pandoc_volume_path_name}/run-on-files-convert-md-to-html"
         main.run(
             pathname_to_analyze=self.pathname_to_analyze,
-            volume_name_pandoc=volume_name_pandoc,
+            pandoc_volume_path_name=pandoc_volume_path_name,
         )
         with open(script_to_create_pathname, "r") as f:
             result = f.read()
         expected_result = "{}\n{}\n".format(
-            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html . tmp",
-            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html .. tmp",
+            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/foo.md /tmp/cmoli.es/html/foo.html . /tmp",
+            "/bin/sh /tmp/convert-md-to-html /tmp/cmoli.es/html/folder-1/bar.md /tmp/cmoli.es/html/folder-1/bar.html .. /tmp",
         )
         self.assertEqual(expected_result, result)
