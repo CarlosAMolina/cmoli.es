@@ -202,18 +202,16 @@ class RootPathDetector:
             "."
             if self._css_path == file_path_without_filename
             else self._get_root_relative_pathname_when_file_with_different_path(
-                self._css_path,
                 file_path_without_filename,
             )
         )
 
     def _get_root_relative_pathname_when_file_with_different_path(
         self,
-        css_path_without_filename: pathlib.PurePath,
         file_path_without_filename: pathlib.PurePath,
     ) -> str:
         folders_between_files_path: pathlib.PurePath = (
-            file_path_without_filename.relative_to(css_path_without_filename)
+            file_path_without_filename.relative_to(self._css_path)
         )
         folders_between_files = str(folders_between_files_path).split("/")
         relative_pathnames = [".." for _ in folders_between_files]
