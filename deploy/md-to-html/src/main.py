@@ -201,13 +201,13 @@ class RootPathDetector:
         return (
             "."
             if self._css_path == file_path_without_filename
-            else self._get_root_relative_pathname_when_files_with_different_paths(
+            else self._get_root_relative_pathname_when_file_with_different_path(
                 self._css_path,
                 file_path_without_filename,
             )
         )
 
-    def _get_root_relative_pathname_when_files_with_different_paths(
+    def _get_root_relative_pathname_when_file_with_different_path(
         self,
         css_path_without_filename: pathlib.PurePath,
         file_path_without_filename: pathlib.PurePath,
