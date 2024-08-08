@@ -87,7 +87,7 @@ class TestFunctions(unittest.TestCase):
         nginx_web_content_pathname = "/home"
         result_file_pathname = "/tmp/output-css.txt"
         main.export_to_file_the_css_relative_pathnames(
-            css_pathname=f"{nginx_web_content_pathname}/style.css",
+            nginx_web_content_pathname=nginx_web_content_pathname,
             md_pathnames_to_convert_file_pathname=self.test_md_pathnames_to_convert_file_pathname,
             result_file_pathname=result_file_pathname,
         )

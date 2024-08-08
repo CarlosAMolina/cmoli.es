@@ -61,7 +61,6 @@ def run(
     nginx_web_content_pathname: str,
     pandoc_volume_pathname: str,
 ):
-    css_pathname = str(pathlib.PurePath(nginx_web_content_pathname, "common-sections.css"))
     script_to_create_pathname = str(pathlib.PurePath(pandoc_volume_pathname, "run-on-files-convert-md-to-html"))
     pandoc_script_convert_md_to_html_file_pathname = str(pathlib.PurePath(pandoc_volume_pathname, "convert-md-to-html"))
     logger.debug(f"Init export file {script_to_create_pathname}")
@@ -80,7 +79,7 @@ def run(
         result_file_pathname=md_pathnames_converted_file_pathname,
     )
     export_to_file_the_css_relative_pathnames(
-        css_pathname,
+        nginx_web_content_pathname,
         md_pathnames_to_convert_file_pathname,
         result_file_pathname=css_relative_pathnames_file_pathname,
     )
@@ -117,26 +116,26 @@ def export_to_file_the_html_pathnames_converted(
 
 
 def export_to_file_the_css_relative_pathnames(
-    css_pathname: str,
+    nginx_web_content_pathname: str,
     md_pathnames_to_convert_file_pathname: str,
     result_file_pathname: str,
 ):
     logger.debug(f"Init export file {result_file_pathname}")
-    css_path = pathlib.PurePath(css_pathname)
-    css_path_detector = CssPathDetector(css_path)
+    nginx_web_content_path = pathlib.PurePath(nginx_web_content_pathname)
+    root_path_detector = CssPathDetector(nginx_web_content_path)
     with open(md_pathnames_to_convert_file_pathname, "r") as f_to_read, open(
         result_file_pathname, "w"
     ) as f_to_write:
         for file_to_convert_pathname in f_to_read.read().splitlines():
             logger.debug(f"Pathname to convert: {file_to_convert_pathname}")
             file_to_convert_path = pathlib.PurePath(file_to_convert_pathname)
-            css_relative_pathname = (
-                css_path_detector.get_css_relative_pathname_from_file_path(
+            root_relative_pathname = (
+                root_path_detector.get_css_relative_pathname_from_file_path(
                     file_to_convert_path
                 )
             )
-            logger.debug(f"Css relative pathname: {css_relative_pathname}")
-            f_to_write.write(css_relative_pathname)
+            logger.debug(f"Root relative pathname: {root_relative_pathname}")
+            f_to_write.write(root_relative_pathname)
             f_to_write.write("\n")
 
 
@@ -198,7 +197,7 @@ class CssPathDetector:
     def get_css_relative_pathname_from_file_path(
         self, file_path: pathlib.PurePath
     ) -> str:
-        css_pathname_without_filename = self._css_path.parent
+        css_pathname_without_filename = self._css_path
         file_pathname_without_filename = file_path.parent
         return (
             "."
@@ -209,6 +208,7 @@ class CssPathDetector:
             )
         )
 
+    # TODO rename args: pathname -> path
     def _get_css_relative_pathname_when_files_with_different_paths(
         self,
         css_pathname_without_filename: pathlib.PurePath,

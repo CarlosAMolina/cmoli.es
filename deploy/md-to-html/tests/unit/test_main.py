@@ -36,7 +36,7 @@ class TestFunctions(unittest.TestCase):
 
 class TestCssPathDetector(unittest.TestCase):
     def test_get_css_relative_pathname_from_file_path(self):
-        css_path = pathlib.PurePath("/foo/bar/foo.css")
+        css_path = pathlib.PurePath("/foo/bar")
         html_path = pathlib.PurePath("/foo/bar/folder_1/folder_2/index.html")
         css_path_detector = main.CssPathDetector(css_path)
         self.assertEqual(
@@ -45,7 +45,7 @@ class TestCssPathDetector(unittest.TestCase):
         )
 
     def test_get_css_relative_pathname_from_file_path_if_files_in_same_path(self):
-        css_path = pathlib.PurePath("/foo/bar/foo.css")
+        css_path = pathlib.PurePath("/foo/bar")
         html_path = pathlib.PurePath("/foo/bar/index.html")
         css_path_detector = main.CssPathDetector(css_path)
         self.assertEqual(
