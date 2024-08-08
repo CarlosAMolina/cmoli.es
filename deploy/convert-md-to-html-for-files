@@ -27,8 +27,10 @@ echo "[DEBUG] Init make script executable"
 chmod +x ${script_pathname}
 
 echo "[DEBUG] Init makefile-convert-md-to-html-for-files"
+cd md-to-html
 make -f makefile-convert-md-to-html-for-files \
 	run \
 	DOCKER_IMAGE_NAME=${docker_pandoc_image_name} \
 	DOCKER_VOLUME_NGINX_WEB_CONTENT=${docker_volume_name_nginx_web_content} \
 	DOCKER_VOLUME_PANDOC=${docker_volume_name_pandoc}
+cd ..
