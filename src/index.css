@@ -41,7 +41,6 @@ body {
 @media screen and (max-width: 930px) {
   .menu {
     flex-direction: column;
-    align-items: unset;
     row-gap: 1rem;
   }
   .menu-icons {
