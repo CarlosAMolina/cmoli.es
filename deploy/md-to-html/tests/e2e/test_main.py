@@ -83,10 +83,10 @@ class TestFunctions(unittest.TestCase):
         )
         self.assertEqual(expected_result, result)
 
-    def test_export_to_file_the_css_relative_pathnames(self):
+    def test_export_to_file_the_root_relative_pathnames(self):
         nginx_web_content_pathname = "/home"
         result_file_pathname = "/tmp/output-css.txt"
-        main.export_to_file_the_css_relative_pathnames(
+        main.export_to_file_the_root_relative_pathnames(
             nginx_web_content_pathname=nginx_web_content_pathname,
             md_pathnames_to_convert_file_pathname=self.test_md_pathnames_to_convert_file_pathname,
             result_file_pathname=result_file_pathname,

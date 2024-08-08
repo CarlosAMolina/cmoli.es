@@ -78,7 +78,7 @@ def run(
         output_directory_pathname=output_directory_pathname,
         result_file_pathname=md_pathnames_converted_file_pathname,
     )
-    export_to_file_the_css_relative_pathnames(
+    export_to_file_the_root_relative_pathnames(
         nginx_web_content_pathname,
         md_pathnames_to_convert_file_pathname,
         result_file_pathname=css_relative_pathnames_file_pathname,
@@ -115,7 +115,7 @@ def export_to_file_the_html_pathnames_converted(
             f_to_write.write("\n")
 
 
-def export_to_file_the_css_relative_pathnames(
+def export_to_file_the_root_relative_pathnames(
     nginx_web_content_pathname: str,
     md_pathnames_to_convert_file_pathname: str,
     result_file_pathname: str,
