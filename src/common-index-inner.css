@@ -5,6 +5,6 @@ h2 a {
   text-decoration: none;
 }
 
-h2:hover, h2:focus {
+h2 a:hover, h2 a:focus {
   text-decoration: underline;
 }
