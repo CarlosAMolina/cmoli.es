@@ -88,15 +88,3 @@ img {
   justify-content: center;
   margin-top: 20px;
 }
-
-.icon-home {
-  height: 32px;
-  width: 32px;
-}
-
-.icon-home-color {
-  color: var(--GREEN-COLOR);
-}
-.icon-home-color-filter {
-  filter: var(--GREEN-COLOR-FILTER);
-}
