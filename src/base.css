@@ -87,6 +87,28 @@ color: var(--GREY-COLOR);
  border-left:1px dotted #666
 }
 
+/* Not inline code */
+div.sourceCode {
+  background:rgba(0,0,0,0.9);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:2px;
+  overflow-y:hidden;
+  padding-left:10px;
+}
+
+/* Not inline code */
+code.sourceCode {
+  color: var(--WHITE-COLOR);
+}
+
+code {
+  background: rgba(0,0,0,0.9);
+  padding: 0px 3px;
+  margin: 0px -3px;
+  color: #aa759f;
+  border-radius: 2px;
+}
+
 .svg-to-convert-color {
   filter: var(--WHITE-COLOR-FILTER);
 }
