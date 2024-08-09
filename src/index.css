@@ -27,7 +27,7 @@ body {
 .menu-icons {
   margin-left: auto;
 }
-.icon-social-network {
+.menu-icons img {
   width: 2rem;
   min-width: 2rem;
 }
