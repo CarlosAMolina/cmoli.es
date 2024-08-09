@@ -109,6 +109,10 @@ code {
   border-radius: 2px;
 }
 
+img {
+ max-width:100%
+}
+
 .flex-header {
   display: flex;
   justify-content: center;
