@@ -15,6 +15,7 @@
   */
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
   --GREY-COLOR-FILTER: invert(69%) sepia(0%) saturate(2%) hue-rotate(66deg) brightness(89%) contrast(95%);
+  --GREEN-COLOR-FILTER: invert(81%) sepia(42%) saturate(4152%) hue-rotate(66deg) brightness(101%) contrast(95%);
 }
 
 h1, h2, h3, h4, h5, h6 {
