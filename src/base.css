@@ -55,3 +55,8 @@ a:hover, a:focus {
 .svg-to-convert-color {
   filter: var(--WHITE-COLOR-FILTER);
 }
+.publication-date {
+  display: block;
+  margin-top: -.5rem;
+  color: var(--GREY-COLOR);
+}

@@ -1,7 +1,1 @@
 @import url("../common-index-inner.css");
-
-.publication-date {
-  display: block;
-  margin-top: -.5rem;
-  color: var(--GREY-COLOR);
-}
