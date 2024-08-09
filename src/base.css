@@ -81,7 +81,7 @@ ul {
 }
 
 blockquote {
- color:#aaa;
+color: var(--GREY-COLOR);
  padding-left:10px;
  border-left:1px dotted #666
 }
