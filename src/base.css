@@ -4,16 +4,17 @@
   --FONT-SIZE: 16px;
   --FONT-FAMILY: sans-serif;
   --GREEN-COLOR: #30ec30;
-  --GREY-COLOR: #9a9a9a;
+  --GREY-COLOR: #aaa;
   --INPUT-BACKGROUND-COLOR: #eee5e4;
   --BLUE-COLOR: #63c0f5;
   --YELLOW-COLOR: #b5e853;
   --WHITE-COLOR: #eaeaea;
   /* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
-   * Convert a hexadecimal color code to a CSS filter: https://codepen.io/sosuke/pen/Pjoqqp
+   * Convert a hexadecimal color code to a CSS filter:
+   * https://codepen.io/sosuke/pen/Pjoqqp
   */
   --GREEN-COLOR-FILTER: invert(81%) sepia(42%) saturate(4152%) hue-rotate(66deg) brightness(101%) contrast(95%);
-  --GREY-COLOR-FILTER: invert(69%) sepia(0%) saturate(2%) hue-rotate(66deg) brightness(89%) contrast(95%);
+  --GREY-COLOR-FILTER: invert(75%) sepia(0%) saturate(48%) hue-rotate(171deg) brightness(91%) contrast(90%);
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
 }
 
