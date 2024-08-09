@@ -54,6 +54,27 @@ a {
 a:hover, a:focus {
   text-decoration: underline;
 }
+table {
+  border-collapse: collapse;
+  margin: 20px;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+th, td {
+  border: 1px solid var(--GREEN-COLOR);
+  padding: 15px;
+}
+td {
+  text-align: center;
+}
+td:first-letter {
+  text-transform: uppercase;
+}
+tr:hover {
+  background-color: Teal;
+}
 
 .svg-to-convert-color {
   filter: var(--WHITE-COLOR-FILTER);
