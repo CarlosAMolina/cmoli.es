@@ -11,12 +11,6 @@ body {
   color: var(--WHITE-COLOR);
 }
 
-blockquote {
- color:#aaa;
- padding-left:10px;
- border-left:1px dotted #666
-}
-
 /* Not inline code */
 div.sourceCode {
   background:rgba(0,0,0,0.9);
