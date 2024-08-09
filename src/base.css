@@ -109,6 +109,12 @@ code {
   border-radius: 2px;
 }
 
+.flex-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .svg-to-convert-color {
   filter: var(--WHITE-COLOR-FILTER);
 }
