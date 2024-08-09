@@ -17,6 +17,6 @@
   min-width: 1.5rem;
 }
 
-.side-icon-color-filter {
+.svg-to-convert-color {
   filter: var(--WHITE-COLOR-FILTER);
 }
