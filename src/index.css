@@ -32,10 +32,10 @@ body {
   min-width: 2rem;
 }
 /* https://stackoverflow.com/questions/558721/css-classes-subclasses*/
-.icon-social-network {
+.svg-to-convert-color {
   filter: var(--WHITE-COLOR-FILTER);
 }
-.icon-social-network:hover {
+.svg-to-convert-color:hover {
   filter: var(--GREY-COLOR-FILTER);
 }
 @media screen and (max-width: 930px) {
