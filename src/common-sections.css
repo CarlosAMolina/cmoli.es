@@ -47,6 +47,10 @@ a {
   color: var(--TAG-A-COLOR);
 }
 
+h2 a {
+  color: var(--YELLOW-COLOR);
+}
+
 blockquote {
  color:#aaa;
  padding-left:10px;
