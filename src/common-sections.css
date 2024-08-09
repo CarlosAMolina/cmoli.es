@@ -42,10 +42,6 @@ ul {
   list-style-image: linear-gradient(var(--YELLOW-COLOR), var(--YELLOW-COLOR));
 }
 
-h2 a {
-  color: var(--YELLOW-COLOR);
-}
-
 blockquote {
  color:#aaa;
  padding-left:10px;

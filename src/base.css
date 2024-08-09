@@ -44,6 +44,9 @@ input[type=number] {
   border-radius: 5px;
   width: 10em;
 }
+h2 a {
+  color: var(--YELLOW-COLOR);
+}
 a {
   color: var(--BLUE-COLOR);
   text-decoration: none;
