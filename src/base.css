@@ -76,6 +76,10 @@ tr:hover {
   background-color: Teal;
 }
 
+ul {
+  list-style-image: linear-gradient(var(--YELLOW-COLOR), var(--YELLOW-COLOR));
+}
+
 .svg-to-convert-color {
   filter: var(--WHITE-COLOR-FILTER);
 }
