@@ -97,9 +97,6 @@ img {
 .icon-home-color {
   color: var(--GREEN-COLOR);
 }
-/* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
-  color: #30ec30;
-*/
 .icon-home-color-filter {
   filter: var(--GREEN-COLOR-FILTER);
 }
