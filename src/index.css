@@ -1,20 +1,6 @@
 @import url("base.css");
 
 /* TODO
- * refactor. extract to common file for all files
- */
-body {
-  background-color: var(--BACKGROUND-COLOR);
-  line-height: 1.5;
-  font-size: var(--FONT-SIZE);
-  font-family: var(--FONT-FAMILY);
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-  color: var(--WHITE-COLOR);
-}
-
-/* TODO
  * refactor. try to combine with flex-header (base.css)
  */
 .menu {

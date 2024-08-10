@@ -18,6 +18,17 @@
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
 }
 
+body {
+  background-color: var(--BACKGROUND-COLOR);
+  line-height: 1.5;
+  font-size: var(--FONT-SIZE);
+  font-family: var(--FONT-FAMILY);
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: var(--WHITE-COLOR);
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--YELLOW-COLOR);
 }
