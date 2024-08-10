@@ -20,7 +20,7 @@
   width: 2rem;
   min-width: 2rem;
 }
-.svg-to-convert-color:hover {
+.svg-color:hover {
   filter: var(--GREY-COLOR-FILTER);
 }
 @media screen and (max-width: 930px) {

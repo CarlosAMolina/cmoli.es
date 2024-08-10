@@ -124,13 +124,14 @@ img {
  max-width:100%
 }
 
+/*TODO rename*/
 .flex-header {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-.svg-to-convert-color {
+.svg-color {
   filter: var(--WHITE-COLOR-FILTER);
 }
 .publication-date {
