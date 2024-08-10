@@ -2,7 +2,7 @@
 
 body {
   all: unset;
-  background-color: #080809;
+  background-color: var(--BLACK-COLOR); /*TODO use same background as other pages*/
   text-align: center;
   max-height: 100vh;
   max-width: 100vw;
