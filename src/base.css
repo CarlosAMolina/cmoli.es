@@ -22,6 +22,7 @@
   --BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
   --BUTTON-COLOR: var(--GREEN-COLOR);
+  --ICON-HOME-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER);
   --TEXT-COLOR: var(--WHITE-COLOR);
   --TITLE-TEXT-COLOR: var(--YELLOW-COLOR);
 }
@@ -176,7 +177,7 @@ a img.svg-color:hover {
   margin-top: -.5rem;
 }
 .icon-home-color-filter {
-  filter: var(--LIGHT-GREEN-COLOR-FILTER);
+  filter: var(--ICON-HOME-COLOR-FILTER);
 }
 
 .hidden {
