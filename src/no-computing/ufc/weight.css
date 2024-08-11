@@ -1,8 +1,5 @@
 @import url("../../base.css");
 
-fieldset {
-  border: 1px solid var(--GREEN-COLOR);
-}
 
 fieldset legend {
   padding: 6px;
