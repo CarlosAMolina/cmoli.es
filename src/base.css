@@ -23,6 +23,7 @@
   --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
   --BUTTON-COLOR: var(--GREEN-COLOR);
   --ICON-HOME-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
+  --PUBLICATION-DATE-COLOR: var(--GREY-COLOR);
   --TEXT-COLOR: var(--WHITE-COLOR);
   --TITLE-TEXT-COLOR: var(--YELLOW-COLOR);
 }
@@ -172,7 +173,7 @@ a img.svg-color:hover {
   filter: var(--GREY-COLOR-FILTER);
 }
 .publication-date {
-  color: var(--GREY-COLOR);
+  color: var(--PUBLICATION-DATE-COLOR);
   display: block;
   margin-top: -.5rem;
 }
