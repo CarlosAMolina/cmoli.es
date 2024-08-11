@@ -131,6 +131,10 @@ img {
   justify-content: center;
   margin-top: 20px;
 }
+.menu-icons img {
+  width: 2rem;
+  min-width: 2rem;
+}
 
 .svg-color {
   filter: var(--WHITE-COLOR-FILTER);

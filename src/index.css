@@ -11,10 +11,6 @@
 .menu-icons {
   margin-left: auto;
 }
-.menu-icons img {
-  width: 2rem;
-  min-width: 2rem;
-}
 @media screen and (max-width: 930px) {
   .menu {
     flex-direction: column;
