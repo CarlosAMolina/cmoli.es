@@ -180,7 +180,7 @@ a img.svg-color:hover {
   display: none;
 }
 
-.no-hover{
+.background-color{
     background-color: var(--BACKGROUND-COLOR);
 }
 
