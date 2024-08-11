@@ -6,12 +6,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [TODO] - TODO
+### Add
+TODO.md file.
+
 ### Change
-- Change all svg code, use svg files instead.
 - Menu icon color to white.
-- Tag `a` CSS.
-- Refactor extract common CSS code.
 - Improve CSS and HTML: drop not required files, simplify code.
+- Refactor extract common CSS code.
+- Common tag `a` CSS for all files.
+- Change all svg code, use svg files instead.
 - Video page: use base css.
 - Convert Markdown to HTML:
   - Move scripts to one folder.
