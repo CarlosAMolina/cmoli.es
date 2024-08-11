@@ -33,6 +33,7 @@
   --INLINE-CODE-COLOR: var(--DARK-PURPLE-COLOR);
   --NOT-INLINE-CODE-COLOR: var(--TEXT-COLOR);
   --PUBLICATION-DATE-COLOR: var(--GREY-COLOR);
+  --BLOCKQUOTE-TEXT-COLOR: var(--GREY-COLOR);
   --TEXT-COLOR: var(--WHITE-COLOR);
   --TITLE-TEXT-COLOR: var(--YELLOW-COLOR);
 }
@@ -132,7 +133,7 @@ ul {
 }
 
 blockquote {
- color: var(--GREY-COLOR);
+ color: var(--BLOCKQUOTE-TEXT-COLOR);
  border-left:1px dotted #666;
  padding-left:10px;
 }
