@@ -28,6 +28,7 @@
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
+  --INLINE-CODE-COLOR: var(--DARK-PURPLE-COLOR);
   --PUBLICATION-DATE-COLOR: var(--GREY-COLOR);
   --TEXT-COLOR: var(--WHITE-COLOR);
   --TITLE-TEXT-COLOR: var(--YELLOW-COLOR);
@@ -152,7 +153,7 @@ code.sourceCode {
 code {
   background: var(--BACKGROUND-CODE-COLOR);
   border-radius: 2px;
-  color: var(--DARK-PURPLE-COLOR);
+  color: var(--INLINE-CODE-COLOR);
   margin: 0px -3px;
   padding: 0px 3px;
 }
