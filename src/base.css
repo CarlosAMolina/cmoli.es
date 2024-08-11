@@ -25,7 +25,7 @@
   --CODE-BACKGROUND-COLOR: var(--BLACK-COLOR);
   --PAGE-BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --INPUT-BACKGROUND-COLOR: var(--WHITE-COLOR);
-  --BORDER-NOT-INLINE-CODE-COLOR: var(--LIGTH-DARK-GREY-COLOR);
+  --NOT-INLINE-CODE-BORDER-COLOR: var(--LIGTH-DARK-GREY-COLOR);
   --BORDER-BLOCKQUOTE-COLOR: var(--GREY-COLOR);
   --BUTTON-COLOR: var(--GREEN-COLOR);
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
@@ -142,7 +142,7 @@ blockquote {
 /* Not inline code */
 div.sourceCode {
   background: var(--CODE-BACKGROUND-COLOR);
-  border:1px solid var(--BORDER-NOT-INLINE-CODE-COLOR);
+  border:1px solid var(--NOT-INLINE-CODE-BORDER-COLOR);
   border-radius:2px;
   overflow-y:hidden;
   padding-left:10px;
