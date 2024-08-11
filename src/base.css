@@ -39,6 +39,7 @@
   --TEXT-COLOR: var(--WHITE-COLOR);
   --BLOCKQUOTE-TEXT-COLOR: var(--GREY-COLOR);
   --BUTTON-TEXT-COLOR: var(--LIGHT-WHITE-COLOR);
+  --HYPERLINK-TEXT-COLOR: var(--BLUE-COLOR);
   --INLINE-CODE-TEXT-COLOR: var(--DARK-PURPLE-COLOR);
   --NOT-INLINE-CODE-TEXT-COLOR: var(--TEXT-COLOR);
   --PUBLICATION-DATE-TEXT-COLOR: var(--GREY-COLOR);
@@ -107,7 +108,7 @@ h2 a {
   color: var(--TITLE-TEXT-COLOR);
 }
 a {
-  color: var(--BLUE-COLOR);
+  color: var(--HYPERLINK-TEXT-COLOR);
   text-decoration: none;
 }
 a:hover, a:focus {
