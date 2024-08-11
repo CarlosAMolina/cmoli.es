@@ -5,6 +5,7 @@
   --BLUE-COLOR: #63c0f5;
   --DARK-GREY-COLOR: #1a1a1a;
   --LIGHT-GREEN-COLOR: #30ec30;
+  --GREEN-COLOR: #4caf50;
   --DARK-GREEN-COLOR: #3e8e41;
   --GREY-COLOR: #aaa;
   --WHITE-COLOR: #eaeaea;
@@ -20,7 +21,7 @@
   /* Elements colors. */
   --BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
-  --BUTTON-COLOR: #4caf50;
+  --BUTTON-COLOR: var(--GREEN-COLOR);
 }
 
 body {
