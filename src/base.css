@@ -33,6 +33,7 @@
   --INPUT-BORDER-COLOR: var(--YELLOW-COLOR);
   --RADIO-INPUT-BORDER-COLOR: var(--LIGHT-GREEN-COLOR);
   --CHECKED-RADIO-INPUT-BORDER-COLOR: var(--YELLOW-COLOR);
+  --TABLE-BORDER-COLOR: var(--LIGHT-GREEN-COLOR);
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
@@ -123,7 +124,7 @@ table.center {
   margin-right: auto;
 }
 th, td {
-  border: 1px solid var(--LIGHT-GREEN-COLOR);
+  border: 1px solid var(--TABLE-BORDER-COLOR);
   padding: 15px;
 }
 td {
