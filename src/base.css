@@ -23,6 +23,7 @@
   --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
   --BUTTON-COLOR: var(--GREEN-COLOR);
   --TEXT-COLOR: var(--WHITE-COLOR);
+  --TITLE-TEXT-COLOR: var(--YELLOW-COLOR);
 }
 
 body {
@@ -37,7 +38,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--YELLOW-COLOR);
+  color: var(--TITLE-TEXT-COLOR);
 }
 
 button {
