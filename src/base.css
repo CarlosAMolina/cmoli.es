@@ -23,6 +23,7 @@
   --GREY-COLOR-FILTER: invert(75%) sepia(0%) saturate(48%) hue-rotate(171deg) brightness(91%) contrast(90%);
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
   /* Elements colors. */
+  --LIST-SYMBOL-COLOR: var(--YELLOW-COLOR);
   --BUTTON-BACKGROUND-COLOR: var(--GREEN-COLOR);
   --HOVER-BUTTON-BACKGROUND-COLOR: var(--DARK-GREEN-COLOR);
   --CODE-BACKGROUND-COLOR: var(--BLACK-COLOR);
@@ -140,7 +141,7 @@ tr:hover {
 }
 
 ul {
-  list-style-image: linear-gradient(var(--YELLOW-COLOR), var(--YELLOW-COLOR));
+  list-style-image: linear-gradient(var(--LIST-SYMBOL-COLOR), var(--LIST-SYMBOL-COLOR));
 }
 
 blockquote {
