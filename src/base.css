@@ -4,6 +4,7 @@
   /* Basic colors. */
   --BLUE-COLOR: #63c0f5;
   --DARK-GREY-COLOR: #1a1a1a;
+  --BLACK-COLOR: #030303;
   --LIGHT-GREEN-COLOR: #30ec30;
   --GREEN-COLOR: #4caf50;
   --DARK-GREEN-COLOR: #3e8e41;
@@ -19,6 +20,7 @@
   --GREY-COLOR-FILTER: invert(75%) sepia(0%) saturate(48%) hue-rotate(171deg) brightness(91%) contrast(90%);
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
   /* Elements colors. */
+  --BACKGROUND-CODE-COLOR: var(--BLACK-COLOR);
   --BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
   --BUTTON-COLOR: var(--GREEN-COLOR);
@@ -147,7 +149,7 @@ code.sourceCode {
 
 /* TODO replace value with variable*/
 code {
-  background: rgba(0,0,0,0.9);
+  background: var(--BACKGROUND-CODE-COLOR);
   border-radius: 2px;
   color: #aa759f;
   margin: 0px -3px;
