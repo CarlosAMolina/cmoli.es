@@ -137,7 +137,6 @@ blockquote {
  padding-left:10px;
 }
 
-/* TODO replace value with variable*/
 /* Not inline code */
 div.sourceCode {
   background: var(--BACKGROUND-CODE-COLOR);
