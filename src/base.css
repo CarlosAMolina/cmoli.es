@@ -11,6 +11,7 @@
   --GREY-COLOR: #aaa;
   --WHITE-COLOR: #eaeaea;
   --LIGHT-WHITE-COLOR: #fff;
+  --DARK-PURPLE-COLOR: #aa759f;
   --YELLOW-COLOR: #b5e853;
   /* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
    * Convert a hexadecimal color code to a CSS filter:
@@ -151,7 +152,7 @@ code.sourceCode {
 code {
   background: var(--BACKGROUND-CODE-COLOR);
   border-radius: 2px;
-  color: #aa759f;
+  color: var(--DARK-PURPLE-COLOR);
   margin: 0px -3px;
   padding: 0px 3px;
 }
