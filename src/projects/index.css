@@ -1,9 +1,5 @@
 @import url("../base.css");
 
-.projectDescription {
-  margin-top: 0px;
-}
-
 .projectTitle {
   display: flex;
   flex-direction: row;
@@ -15,4 +11,8 @@
   height: 1.5rem;
   width: 1.5rem;
   min-width: 1.5rem;
+}
+
+.projectDescription {
+  margin-top: 0px;
 }
