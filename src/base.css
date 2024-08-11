@@ -133,6 +133,9 @@ img {
 .svg-color {
   filter: var(--WHITE-COLOR-FILTER);
 }
+.svg-color:hover {
+  filter: var(--GREY-COLOR-FILTER);
+}
 .publication-date {
   display: block;
   margin-top: -.5rem;

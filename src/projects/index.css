@@ -16,3 +16,7 @@
   width: 1.5rem;
   min-width: 1.5rem;
 }
+
+.svg-color:hover {
+  filter: var(--WHITE-COLOR-FILTER);
+}
