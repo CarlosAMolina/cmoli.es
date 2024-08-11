@@ -5,10 +5,10 @@
   --BLUE-COLOR: #63c0f5;
   --DARK-GREY-COLOR: #1a1a1a;
   --GREEN-COLOR: #30ec30;
-  --DARK-GREEN-COLOR: #fff;
   --DARK-DARK-GREEN-COLOR: #3e8e41;
   --GREY-COLOR: #aaa;
   --WHITE-COLOR: #eaeaea;
+  --LIGHT-WHITE-COLOR: #fff;
   --YELLOW-COLOR: #b5e853;
   /* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
    * Convert a hexadecimal color code to a CSS filter:
@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-  color: var(--DARK-GREEN-COLOR);
+  color: var(--LIGHT-WHITE-COLOR);
   background-color: var(--BUTTON-COLOR);
   font-size: var(--FONT-SIZE);
   padding: 8px 30px;
