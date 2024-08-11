@@ -135,7 +135,7 @@ img {
 .svg-color {
   filter: var(--WHITE-COLOR-FILTER);
 }
-.svg-color:hover {
+a img.svg-color:hover {
   filter: var(--GREY-COLOR-FILTER);
 }
 .publication-date {
