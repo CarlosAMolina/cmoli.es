@@ -28,13 +28,13 @@
 
 body {
   background-color: var(--BACKGROUND-COLOR);
-  line-height: 1.5;
-  font-size: var(--FONT-SIZE);
-  font-family: var(--FONT-FAMILY);
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
   color: var(--TEXT-COLOR);
+  font-family: var(--FONT-FAMILY);
+  font-size: var(--FONT-SIZE);
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 90%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,13 +42,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-  color: var(--LIGHT-WHITE-COLOR);
   background-color: var(--BUTTON-COLOR);
+  border: none;
+  border-radius: 5px;
+  color: var(--LIGHT-WHITE-COLOR);
+  cursor: pointer;
   font-size: var(--FONT-SIZE);
   padding: 8px 30px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
   text-align: center;
 }
 button:hover {
@@ -57,21 +57,21 @@ button:hover {
 
 input[type=number] {
   background-color: var(--BACKGROUND-INPUT-COLOR);
-  padding: 4px 1px;
-  border: solid var(--YELLOW-COLOR);
   border-radius: 5px;
+  border: solid var(--YELLOW-COLOR);
+  padding: 4px 1px;
   width: 10em;
 }
 input[type="radio"]{
   appearance: none;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
   border: 2px solid var(--LIGHT-GREEN-COLOR);
-  transition: 0.2s all linear;
+  border-radius: 50%;
+  height: 16px;
   margin-right: 5px;
   position: relative;
   top: 2px;
+  transition: 0.2s all linear;
+  width: 16px;
 }
 input[type="radio"]:checked {
   border: 6px solid var(--YELLOW-COLOR);
@@ -121,9 +121,9 @@ ul {
 }
 
 blockquote {
-color: var(--GREY-COLOR);
+ color: var(--GREY-COLOR);
+ border-left:1px dotted #666;
  padding-left:10px;
- border-left:1px dotted #666
 }
 
 /* TODO replace value with variable*/
@@ -144,10 +144,10 @@ code.sourceCode {
 /* TODO replace value with variable*/
 code {
   background: rgba(0,0,0,0.9);
-  padding: 0px 3px;
-  margin: 0px -3px;
-  color: #aa759f;
   border-radius: 2px;
+  color: #aa759f;
+  margin: 0px -3px;
+  padding: 0px 3px;
 }
 
 img {
@@ -160,8 +160,8 @@ img {
   margin-top: 20px;
 }
 .menu-icons img {
-  width: 2rem;
   min-width: 2rem;
+  width: 2rem;
 }
 
 .svg-color {
@@ -171,9 +171,9 @@ a img.svg-color:hover {
   filter: var(--GREY-COLOR-FILTER);
 }
 .publication-date {
+  color: var(--GREY-COLOR);
   display: block;
   margin-top: -.5rem;
-  color: var(--GREY-COLOR);
 }
 .icon-home-color-filter {
   filter: var(--LIGHT-GREEN-COLOR-FILTER);
@@ -184,6 +184,6 @@ a img.svg-color:hover {
 }
 
 .background-color{
-    background-color: var(--BACKGROUND-COLOR);
+  background-color: var(--BACKGROUND-COLOR);
 }
 
