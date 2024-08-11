@@ -26,6 +26,7 @@
   --BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
   --BORDER-NOT-INLINE-CODE-COLOR: var(--LIGTH-DARK-GREY-COLOR);
+  --BORDER-BLOCKQUOTE-COLOR: var(--GREY-COLOR);
   --BUTTON-COLOR: var(--GREEN-COLOR);
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
@@ -134,7 +135,7 @@ ul {
 
 blockquote {
  color: var(--BLOCKQUOTE-TEXT-COLOR);
- border-left:1px dotted #666;
+ border-left:1px dotted var(--BORDER-BLOCKQUOTE-COLOR);
  padding-left:10px;
 }
 
