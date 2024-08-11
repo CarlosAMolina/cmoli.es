@@ -33,7 +33,7 @@
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
   --TEXT-COLOR: var(--WHITE-COLOR);
   --INLINE-CODE-TEXT-COLOR: var(--DARK-PURPLE-COLOR);
-  --NOT-INLINE-CODE-COLOR: var(--TEXT-COLOR);
+  --NOT-INLINE-CODE-TEXT-COLOR: var(--TEXT-COLOR);
   --PUBLICATION-DATE-COLOR: var(--GREY-COLOR);
   --BLOCKQUOTE-TEXT-COLOR: var(--GREY-COLOR);
   --TITLE-TEXT-COLOR: var(--YELLOW-COLOR);
@@ -150,7 +150,7 @@ div.sourceCode {
 
 /* Not inline code */
 code.sourceCode {
-  color: var(--NOT-INLINE-CODE-COLOR);
+  color: var(--NOT-INLINE-CODE-TEXT-COLOR);
 }
 
 /* TODO use same text color in all code (inline and not inline) */
