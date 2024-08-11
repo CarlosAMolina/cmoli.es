@@ -1,5 +1,6 @@
 :root {
-  --BACKGROUND-COLOR: #1a1a1a;
+  --DARK-GREY-COLOR: #1a1a1a;
+  --BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --BUTTON-COLOR: #4caf50;
   --FONT-SIZE: 16px;
   --FONT-FAMILY: sans-serif;
