@@ -27,7 +27,7 @@
   --INPUT-BACKGROUND-COLOR: var(--WHITE-COLOR);
   --NOT-INLINE-CODE-BORDER-COLOR: var(--LIGTH-DARK-GREY-COLOR);
   --BLOCKQUOTE-BORDER-COLOR: var(--GREY-COLOR);
-  --BUTTON-COLOR: var(--GREEN-COLOR);
+  --BUTTON-BACKGROUND-COLOR: var(--GREEN-COLOR);
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-  background-color: var(--BUTTON-COLOR);
+  background-color: var(--BUTTON-BACKGROUND-COLOR);
   border: none;
   border-radius: 5px;
   color: var(--LIGHT-WHITE-COLOR);
