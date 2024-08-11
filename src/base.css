@@ -17,7 +17,7 @@
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
   /* Elements colors. */
   --BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
-  --BACKGROUND-INPUT-COLOR: #eee5e4;
+  --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
   --BUTTON-COLOR: #4caf50;
 }
 
