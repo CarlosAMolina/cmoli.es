@@ -148,7 +148,7 @@ code.sourceCode {
   color: var(--TEXT-COLOR);
 }
 
-/* TODO replace value with variable*/
+/* Inline code */
 code {
   background: var(--BACKGROUND-CODE-COLOR);
   border-radius: 2px;
