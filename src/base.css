@@ -29,6 +29,7 @@
   --PAGE-BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --NOT-INLINE-CODE-BORDER-COLOR: var(--LIGTH-DARK-GREY-COLOR);
   --BLOCKQUOTE-BORDER-COLOR: var(--GREY-COLOR);
+  --FIELDSET-BORDER-COLOR: var(--LIGHT-GREEN-COLOR);
   --INPUT-BORDER-COLOR: var(--YELLOW-COLOR);
   --RADIO-INPUT-BORDER-COLOR: var(--LIGHT-GREEN-COLOR);
   --CHECKED-RADIO-INPUT-BORDER-COLOR: var(--YELLOW-COLOR);
@@ -96,7 +97,7 @@ input[type="radio"]:checked {
 }
 
 fieldset {
-  border: 1px solid var(--LIGHT-GREEN-COLOR);
+  border: 1px solid var(--FIELDSET-BORDER-COLOR);
 }
 fieldset legend {
   padding: 6px;
