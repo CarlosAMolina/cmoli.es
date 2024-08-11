@@ -32,7 +32,7 @@
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
   --TEXT-COLOR: var(--WHITE-COLOR);
-  --INLINE-CODE-COLOR: var(--DARK-PURPLE-COLOR);
+  --INLINE-CODE-TEXT-COLOR: var(--DARK-PURPLE-COLOR);
   --NOT-INLINE-CODE-COLOR: var(--TEXT-COLOR);
   --PUBLICATION-DATE-COLOR: var(--GREY-COLOR);
   --BLOCKQUOTE-TEXT-COLOR: var(--GREY-COLOR);
@@ -158,7 +158,7 @@ code.sourceCode {
 code {
   background: var(--CODE-BACKGROUND-COLOR);
   border-radius: 2px;
-  color: var(--INLINE-CODE-COLOR);
+  color: var(--INLINE-CODE-TEXT-COLOR);
   margin: 0px -3px;
   padding: 0px 3px;
 }
