@@ -22,12 +22,12 @@
   --GREY-COLOR-FILTER: invert(75%) sepia(0%) saturate(48%) hue-rotate(171deg) brightness(91%) contrast(90%);
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
   /* Elements colors. */
+  --BUTTON-BACKGROUND-COLOR: var(--GREEN-COLOR);
   --CODE-BACKGROUND-COLOR: var(--BLACK-COLOR);
-  --PAGE-BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --INPUT-BACKGROUND-COLOR: var(--WHITE-COLOR);
+  --PAGE-BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --NOT-INLINE-CODE-BORDER-COLOR: var(--LIGTH-DARK-GREY-COLOR);
   --BLOCKQUOTE-BORDER-COLOR: var(--GREY-COLOR);
-  --BUTTON-BACKGROUND-COLOR: var(--GREEN-COLOR);
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
