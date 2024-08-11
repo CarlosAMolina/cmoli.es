@@ -22,7 +22,7 @@
   --BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
   --BUTTON-COLOR: var(--GREEN-COLOR);
-  --ICON-HOME-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
+  --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
   --PUBLICATION-DATE-COLOR: var(--GREY-COLOR);
   --TEXT-COLOR: var(--WHITE-COLOR);
   --TITLE-TEXT-COLOR: var(--YELLOW-COLOR);
@@ -178,7 +178,7 @@ a img.svg-color:hover {
   margin-top: -.5rem;
 }
 .icon-home-color-filter {
-  filter: var(--ICON-HOME-COLOR-FILTER);
+  filter: var(--HOME-ICON-COLOR-FILTER);
 }
 
 .hidden {
