@@ -6,9 +6,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [TODO] - TODO
-### Add
-TODO.md file.
-
 ### Change
 - Menu icon color to white.
 - Improve CSS and HTML: drop not required files, simplify code.
