@@ -22,7 +22,7 @@
   --GREY-COLOR-FILTER: invert(75%) sepia(0%) saturate(48%) hue-rotate(171deg) brightness(91%) contrast(90%);
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
   /* Elements colors. */
-  --BACKGROUND-CODE-COLOR: var(--BLACK-COLOR);
+  --CODE-BACKGROUND-COLOR: var(--BLACK-COLOR);
   --BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
   --BORDER-NOT-INLINE-CODE-COLOR: var(--LIGTH-DARK-GREY-COLOR);
@@ -141,7 +141,7 @@ blockquote {
 
 /* Not inline code */
 div.sourceCode {
-  background: var(--BACKGROUND-CODE-COLOR);
+  background: var(--CODE-BACKGROUND-COLOR);
   border:1px solid var(--BORDER-NOT-INLINE-CODE-COLOR);
   border-radius:2px;
   overflow-y:hidden;
@@ -156,7 +156,7 @@ code.sourceCode {
 /* TODO use same text color in all code (inline and not inline) */
 /* Inline code */
 code {
-  background: var(--BACKGROUND-CODE-COLOR);
+  background: var(--CODE-BACKGROUND-COLOR);
   border-radius: 2px;
   color: var(--INLINE-CODE-COLOR);
   margin: 0px -3px;
