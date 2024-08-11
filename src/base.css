@@ -30,6 +30,7 @@
   --NOT-INLINE-CODE-BORDER-COLOR: var(--LIGTH-DARK-GREY-COLOR);
   --BLOCKQUOTE-BORDER-COLOR: var(--GREY-COLOR);
   --INPUT-BORDER-COLOR: var(--YELLOW-COLOR);
+  --RADIO-INPUT-BORDER-COLOR: var(--LIGHT-GREEN-COLOR);
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
@@ -80,7 +81,7 @@ input[type=number] {
 }
 input[type="radio"]{
   appearance: none;
-  border: 2px solid var(--LIGHT-GREEN-COLOR);
+  border: 2px solid var(--RADIO-INPUT-BORDER-COLOR);
   border-radius: 50%;
   height: 16px;
   margin-right: 5px;
