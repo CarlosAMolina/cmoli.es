@@ -5,7 +5,7 @@
   --BLUE-COLOR: #63c0f5;
   --DARK-GREY-COLOR: #1a1a1a;
   --GREEN-COLOR: #30ec30;
-  --DARK-DARK-GREEN-COLOR: #3e8e41;
+  --DARK-GREEN-COLOR: #3e8e41;
   --GREY-COLOR: #aaa;
   --WHITE-COLOR: #eaeaea;
   --LIGHT-WHITE-COLOR: #fff;
@@ -51,7 +51,7 @@ button {
 
 /* TODO replace value with variable*/
 button:hover {
-  background-color: var(--DARK-DARK-GREEN-COLOR);
+  background-color: var(--DARK-GREEN-COLOR);
   color: white;
 }
 
