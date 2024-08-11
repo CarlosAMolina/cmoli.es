@@ -57,6 +57,17 @@ input[type=number] {
   border-radius: 5px;
   width: 10em;
 }
+input[type="radio"]{
+  appearance: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--GREEN-COLOR);
+  transition: 0.2s all linear;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
 h2 a {
   color: var(--YELLOW-COLOR);
 }
