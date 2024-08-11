@@ -6,6 +6,7 @@
   --DARK-GREY-COLOR: #1a1a1a;
   --GREEN-COLOR: #30ec30;
   --DARK-GREEN-COLOR: #fff;
+  --DARK-DARK-GREEN-COLOR: #3e8e41;
   --GREY-COLOR: #aaa;
   --WHITE-COLOR: #eaeaea;
   --YELLOW-COLOR: #b5e853;
@@ -50,7 +51,7 @@ button {
 
 /* TODO replace value with variable*/
 button:hover {
-  background-color: #3e8e41;
+  background-color: var(--DARK-DARK-GREEN-COLOR);
   color: white;
 }
 
