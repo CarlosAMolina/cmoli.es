@@ -1,10 +1,6 @@
 @import url("../../base.css");
 
 
-fieldset legend {
-  padding: 6px;
-}
-
 .hidden {
   display: none;
 }

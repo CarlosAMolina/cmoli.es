@@ -75,6 +75,9 @@ input[type="radio"]:checked {
 fieldset {
   border: 1px solid var(--GREEN-COLOR);
 }
+fieldset legend {
+  padding: 6px;
+}
 
 h2 a {
   color: var(--YELLOW-COLOR);
