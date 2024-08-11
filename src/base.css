@@ -23,7 +23,7 @@
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
   /* Elements colors. */
   --CODE-BACKGROUND-COLOR: var(--BLACK-COLOR);
-  --BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
+  --PAGE-BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
   --BORDER-NOT-INLINE-CODE-COLOR: var(--LIGTH-DARK-GREY-COLOR);
   --BORDER-BLOCKQUOTE-COLOR: var(--GREY-COLOR);
@@ -40,7 +40,7 @@
 }
 
 body {
-  background-color: var(--BACKGROUND-COLOR);
+  background-color: var(--PAGE-BACKGROUND-COLOR);
   color: var(--TEXT-COLOR);
   font-family: var(--FONT-FAMILY);
   font-size: var(--FONT-SIZE);
@@ -197,6 +197,6 @@ a img.svg-color:hover {
 }
 
 .background-color{
-  background-color: var(--BACKGROUND-COLOR);
+  background-color: var(--PAGE-BACKGROUND-COLOR);
 }
 
