@@ -1,7 +1,7 @@
 @import url("base.css");
 
 /* TODO
- * refactor. try to combine with flex-header (base.css)
+ * refactor. try to combine with menu (base.css)
  */
 .menu {
   display: flex;
