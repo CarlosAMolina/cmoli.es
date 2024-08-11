@@ -31,6 +31,7 @@
   --BLOCKQUOTE-BORDER-COLOR: var(--GREY-COLOR);
   --INPUT-BORDER-COLOR: var(--YELLOW-COLOR);
   --RADIO-INPUT-BORDER-COLOR: var(--LIGHT-GREEN-COLOR);
+  --CHECKED-RADIO-INPUT-BORDER-COLOR: var(--YELLOW-COLOR);
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
@@ -91,7 +92,7 @@ input[type="radio"]{
   width: 16px;
 }
 input[type="radio"]:checked {
-  border: 6px solid var(--YELLOW-COLOR);
+  border: 6px solid var(--CHECKED-RADIO-INPUT-BORDER-COLOR);
 }
 
 fieldset {
