@@ -1,6 +1,6 @@
 Refactor css:
 
-[ ] ./src/index.css
+[x] ./src/index.css
 [x] ./src/projects/index.css
 [ ] ./src/wiki/index.css
 [ ] ./src/base.css
