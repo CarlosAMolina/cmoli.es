@@ -151,6 +151,7 @@ code.sourceCode {
   color: var(--NOT-INLINE-CODE-COLOR);
 }
 
+/* TODO use same text color in all code (inline and not inline) */
 /* Inline code */
 code {
   background: var(--BACKGROUND-CODE-COLOR);
