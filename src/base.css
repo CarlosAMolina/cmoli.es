@@ -138,7 +138,7 @@ blockquote {
 /* TODO replace value with variable*/
 /* Not inline code */
 div.sourceCode {
-  background:rgba(0,0,0,0.9);
+  background: var(--BACKGROUND-CODE-COLOR);
   border:1px solid rgba(255,255,255,0.15);
   border-radius:2px;
   overflow-y:hidden;
