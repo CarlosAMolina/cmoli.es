@@ -147,10 +147,6 @@ a img.svg-color:hover {
   margin-top: -.5rem;
   color: var(--GREY-COLOR);
 }
-.icon-home {
-  height: 32px;
-  width: 32px;
-}
 .icon-home-color-filter {
   filter: var(--GREEN-COLOR-FILTER);
 }
