@@ -68,6 +68,10 @@ input[type="radio"]{
   position: relative;
   top: 2px;
 }
+input[type="radio"]:checked {
+  border: 6px solid var(--YELLOW-COLOR);
+}
+
 h2 a {
   color: var(--YELLOW-COLOR);
 }

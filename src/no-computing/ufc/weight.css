@@ -1,9 +1,5 @@
 @import url("../../base.css");
 
-input[type="radio"]:checked {
-  border: 6px solid var(--YELLOW-COLOR);
-}
-
 fieldset {
   border: 1px solid var(--GREEN-COLOR);
 }
