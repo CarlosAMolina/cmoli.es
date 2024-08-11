@@ -48,8 +48,6 @@ button {
   border-radius: 5px;
   text-align: center;
 }
-
-/* TODO replace value with variable*/
 button:hover {
   background-color: var(--DARK-GREEN-COLOR);
 }
