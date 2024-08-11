@@ -15,16 +15,14 @@ h1 {
   color: var(--GREEN-COLOR);
 }
 
+video {
+  height: auto;
+  width: 50%;
+}
+
 @media screen and (max-width: 930px) {
   video {
     height: auto;
     width: 95%;
-  }
-}
-
-@media screen and (min-width: 931px) {
-  video {
-    height: auto;
-    width: 50%;
   }
 }
