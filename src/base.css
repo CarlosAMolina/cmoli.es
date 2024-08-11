@@ -22,6 +22,7 @@
   --BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
   --BUTTON-COLOR: var(--GREEN-COLOR);
+  --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
   --PUBLICATION-DATE-COLOR: var(--GREY-COLOR);
@@ -168,7 +169,7 @@ img {
 }
 
 .svg-color {
-  filter: var(--WHITE-COLOR-FILTER);
+  filter: var(--MENU-ICON-COLOR-FILTER);
 }
 a img.svg-color:hover {
   filter: var(--HOVER-MENU-ICON-COLOR-FILTER);
