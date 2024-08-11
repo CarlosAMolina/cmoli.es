@@ -104,7 +104,7 @@ fieldset legend {
 }
 
 h2 a {
-  color: var(--YELLOW-COLOR);
+  color: var(--TITLE-TEXT-COLOR);
 }
 a {
   color: var(--BLUE-COLOR);
