@@ -52,7 +52,6 @@ button {
 /* TODO replace value with variable*/
 button:hover {
   background-color: var(--DARK-GREEN-COLOR);
-  color: white;
 }
 
 input[type=number] {
