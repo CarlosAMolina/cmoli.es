@@ -29,6 +29,7 @@
   --PAGE-BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
   --NOT-INLINE-CODE-BORDER-COLOR: var(--LIGTH-DARK-GREY-COLOR);
   --BLOCKQUOTE-BORDER-COLOR: var(--GREY-COLOR);
+  --INPUT-BORDER-COLOR: var(--YELLOW-COLOR);
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
@@ -73,7 +74,7 @@ button:hover {
 input[type=number] {
   background-color: var(--INPUT-BACKGROUND-COLOR);
   border-radius: 5px;
-  border: solid var(--YELLOW-COLOR);
+  border: solid var(--INPUT-BORDER-COLOR);
   padding: 4px 1px;
   width: 10em;
 }
