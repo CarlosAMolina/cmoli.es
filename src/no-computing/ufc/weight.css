@@ -1,10 +1,5 @@
 @import url("../../base.css");
 
-
-.hidden {
-  display: none;
-}
-
 .no-hover{
     background-color: var(--BACKGROUND-COLOR);
 }
