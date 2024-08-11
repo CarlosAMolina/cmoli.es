@@ -5,6 +5,7 @@
   --BLUE-COLOR: #63c0f5;
   --DARK-GREY-COLOR: #1a1a1a;
   --GREEN-COLOR: #30ec30;
+  --DARK-GREEN-COLOR: #fff;
   --GREY-COLOR: #aaa;
   --WHITE-COLOR: #eaeaea;
   --YELLOW-COLOR: #b5e853;
@@ -37,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-  color: #fff;
+  color: var(--DARK-GREEN-COLOR);
   background-color: var(--BUTTON-COLOR);
   font-size: var(--FONT-SIZE);
   padding: 8px 30px;
