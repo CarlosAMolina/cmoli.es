@@ -2,7 +2,7 @@ Refactor css:
 
 [x] ./src/index.css
 [x] ./src/projects/index.css
-[ ] ./src/wiki/index.css
+[x] ./src/wiki/index.css
 [ ] ./src/base.css
 [x] ./src/felices-fiestas/src/style.css
 [ ] ./src/no-computing/ufc/weight.css
