@@ -24,7 +24,7 @@
   /* Elements colors. */
   --CODE-BACKGROUND-COLOR: var(--BLACK-COLOR);
   --PAGE-BACKGROUND-COLOR: var(--DARK-GREY-COLOR);
-  --BACKGROUND-INPUT-COLOR: var(--WHITE-COLOR);
+  --INPUT-BACKGROUND-COLOR: var(--WHITE-COLOR);
   --BORDER-NOT-INLINE-CODE-COLOR: var(--LIGTH-DARK-GREY-COLOR);
   --BORDER-BLOCKQUOTE-COLOR: var(--GREY-COLOR);
   --BUTTON-COLOR: var(--GREEN-COLOR);
@@ -69,7 +69,7 @@ button:hover {
 }
 
 input[type=number] {
-  background-color: var(--BACKGROUND-INPUT-COLOR);
+  background-color: var(--INPUT-BACKGROUND-COLOR);
   border-radius: 5px;
   border: solid var(--YELLOW-COLOR);
   padding: 4px 1px;
