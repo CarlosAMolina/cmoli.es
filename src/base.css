@@ -33,6 +33,7 @@
   --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
   --TEXT-COLOR: var(--WHITE-COLOR);
   --BLOCKQUOTE-TEXT-COLOR: var(--GREY-COLOR);
+  --BUTTON-TEXT-COLOR: var(--LIGHT-WHITE-COLOR);
   --INLINE-CODE-TEXT-COLOR: var(--DARK-PURPLE-COLOR);
   --NOT-INLINE-CODE-TEXT-COLOR: var(--TEXT-COLOR);
   --PUBLICATION-DATE-TEXT-COLOR: var(--GREY-COLOR);
@@ -58,7 +59,7 @@ button {
   background-color: var(--BUTTON-BACKGROUND-COLOR);
   border: none;
   border-radius: 5px;
-  color: var(--LIGHT-WHITE-COLOR);
+  color: var(--BUTTON-TEXT-COLOR);
   cursor: pointer;
   font-size: var(--FONT-SIZE);
   padding: 8px 30px;
