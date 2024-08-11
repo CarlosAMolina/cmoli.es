@@ -1,16 +1,11 @@
 @import url("base.css");
 
-/* TODO
- * refactor. try to combine with menu (base.css)
- */
 .menu {
-  display: flex;
   align-items: center;
   border-bottom: 1px solid var(--GREY-COLOR);
   column-gap: 1.5rem;
   flex-direction: row;
   justify-content: flex-start;
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 .menu-icons {
