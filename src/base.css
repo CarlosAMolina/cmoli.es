@@ -44,6 +44,7 @@ button {
   text-align: center;
 }
 
+/* TODO replace value with variable*/
 button:hover {
   background-color: #3e8e41;
   color: white;
@@ -112,6 +113,7 @@ code.sourceCode {
   color: var(--WHITE-COLOR);
 }
 
+/* TODO replace value with variable*/
 code {
   background: rgba(0,0,0,0.9);
   padding: 0px 3px;
