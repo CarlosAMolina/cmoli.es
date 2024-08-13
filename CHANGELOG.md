@@ -5,18 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.25.0] - 2024-08-13
-### Change
-- Menu home icon:
-  - Change color to white.
-  - Drop deprecated HTML class value
-- Drop not required old CSS code
-
 ## [0.24.0] - 2024-08-13
 ### Change
 - Change all svg code, use svg files instead.
 - Improve CSS and HTML: extract common CSS code, drop not required files, simplify code.
-- Menu icon color to white.
+- GitHub menu icon color to white.
+- Menu home icon: change color and refactor code to set the color value.
 - Common tag `a` CSS for all files.
 - Video page: use base css.
 - Deploy wiki: maintain README.md file.
