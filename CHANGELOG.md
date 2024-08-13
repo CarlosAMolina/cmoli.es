@@ -5,13 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [TODO] - TODO
+## [0.24.0] - 2024-08-13
 ### Change
-- Menu icon color to white.
-- Improve CSS and HTML: drop not required files, simplify code.
-- Refactor extract common CSS code.
-- Common tag `a` CSS for all files.
 - Change all svg code, use svg files instead.
+- Improve CSS and HTML: extract common CSS code, drop not required files, simplify code.
+- Menu icon color to white.
+- Common tag `a` CSS for all files.
 - Video page: use base css.
 - Convert Markdown to HTML:
   - Move scripts to one folder.
