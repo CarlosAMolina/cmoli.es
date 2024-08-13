@@ -2,7 +2,7 @@
 
 .menu {
   align-items: center;
-  border-bottom: 1px solid var(--GREY-COLOR);
+  border-bottom: 1px solid var(--MENU-BORDER-COLOR);
   column-gap: 1.5rem;
   flex-direction: row;
   justify-content: flex-start;
