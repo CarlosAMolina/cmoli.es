@@ -6,6 +6,7 @@ main_project_pathname=$1
 
 wiki_repository_name=wiki
 wiki_content_pathname=$main_project_pathname/src/$wiki_repository_name/content
+mv ${wiki_content_pathname}/README.md /tmp
 if [ -d ${wiki_content_pathname} ]; then
   echo "[DEBUG] Deleting old wiki content pathname ${wiki_content_pathname}"
   rm -rf ${wiki_content_pathname}
@@ -16,3 +17,4 @@ echo "[DEBUG] Moving cloned wiki files to the current repository"
 mv /tmp/${wiki_repository_name}/src ${wiki_content_pathname}
 echo "[DEBUG] Deleting cloned wiki repository"
 rm -rf /tmp/${wiki_repository_name}
+mv /tmp/README.md ${wiki_content_pathname}
