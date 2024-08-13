@@ -9,7 +9,7 @@
 .group h2 {
   margin-top: 0;
   margin-bottom: 10px;
-  border-bottom: 1px dotted var(--BLUE-COLOR);
+  border-bottom: 1px dotted var(--GROUPS-BORDER-COLOR);
 }
 
 @media screen and (max-width: 930px) {
