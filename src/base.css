@@ -20,6 +20,8 @@
    * https://codepen.io/sosuke/pen/Pjoqqp
   */
   --GREY-COLOR-FILTER: invert(75%) sepia(0%) saturate(48%) hue-rotate(171deg) brightness(91%) contrast(90%);
+  --LIGHT-GREEN-COLOR-FILTER: invert(81%) sepia(42%) saturate(4152%) hue-rotate(66deg) brightness(101%) contrast(95%);
+  --DARK-GREEN-COLOR-FILTER: invert(41%) sepia(85%) saturate(326%) hue-rotate(72deg) brightness(95%) contrast(91%);
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
   /* Elements colors. */
   --LIST-SYMBOL-COLOR: var(--YELLOW-COLOR);
@@ -40,6 +42,8 @@
   --TABLE-BORDER-COLOR: var(--LIGHT-GREEN-COLOR);
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
+  --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER);
+  --HOVER-HOME-ICON-COLOR-FILTER: var(--DARK-GREEN-COLOR-FILTER);
   --TEXT-COLOR: var(--WHITE-COLOR);
   --BLOCKQUOTE-TEXT-COLOR: var(--GREY-COLOR);
   --BUTTON-TEXT-COLOR: var(--LIGHT-WHITE-COLOR);
@@ -194,6 +198,15 @@ img {
 a img.svg-color:hover {
   filter: var(--HOVER-MENU-ICON-COLOR-FILTER);
 }
+
+/* https://developer.mozilla.org/docs/Web/CSS/Attribute_selectors */
+.menu-icons img[src$="home.svg"] {
+  filter: var(--HOME-ICON-COLOR-FILTER);
+}
+.menu-icons img[src$="home.svg"]:hover {
+  filter: var(--HOVER-HOME-ICON-COLOR-FILTER);
+}
+
 .publication-date {
   color: var(--PUBLICATION-DATE-TEXT-COLOR);
   display: block;
