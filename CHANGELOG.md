@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [TODO] - TODO
 ### Change
-- Drop deprecated html class value
+- Menu home icon:
+  - Change color to white.
+  - Drop deprecated HTML class value
+- Drop not required old CSS code
 
 ## [0.24.0] - 2024-08-13
 ### Change
