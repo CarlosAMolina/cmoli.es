@@ -19,7 +19,6 @@
    * Convert a hexadecimal color code to a CSS filter:
    * https://codepen.io/sosuke/pen/Pjoqqp
   */
-  --LIGHT-GREEN-COLOR-FILTER: invert(81%) sepia(42%) saturate(4152%) hue-rotate(66deg) brightness(101%) contrast(95%);
   --GREY-COLOR-FILTER: invert(75%) sepia(0%) saturate(48%) hue-rotate(171deg) brightness(91%) contrast(90%);
   --WHITE-COLOR-FILTER: invert(99%) sepia(1%) saturate(2423%) hue-rotate(166deg) brightness(120%) contrast(84%);
   /* Elements colors. */
@@ -41,7 +40,6 @@
   --TABLE-BORDER-COLOR: var(--LIGHT-GREEN-COLOR);
   --MENU-ICON-COLOR-FILTER: var(--WHITE-COLOR-FILTER);
   --HOVER-MENU-ICON-COLOR-FILTER: var(--GREY-COLOR-FILTER);
-  --HOME-ICON-COLOR-FILTER: var(--LIGHT-GREEN-COLOR-FILTER); /*TODO use same variable for all icons */
   --TEXT-COLOR: var(--WHITE-COLOR);
   --BLOCKQUOTE-TEXT-COLOR: var(--GREY-COLOR);
   --BUTTON-TEXT-COLOR: var(--LIGHT-WHITE-COLOR);
@@ -200,9 +198,6 @@ a img.svg-color:hover {
   color: var(--PUBLICATION-DATE-TEXT-COLOR);
   display: block;
   margin-top: -.5rem;
-}
-.icon-home-color-filter {
-  filter: var(--HOME-ICON-COLOR-FILTER);
 }
 
 .hidden {
