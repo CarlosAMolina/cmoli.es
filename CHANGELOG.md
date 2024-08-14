@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [TODO] - TODO
+## Change
+- Replace links in headers with link in paragraphs.
+
 ## [0.24.0] - 2024-08-13
 ### Change
 - Change all svg code, use svg files instead.
