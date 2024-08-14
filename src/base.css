@@ -112,9 +112,6 @@ fieldset legend {
   padding: 6px;
 }
 
-h2 a {
-  color: var(--TITLE-TEXT-COLOR);
-}
 a {
   color: var(--HYPERLINK-TEXT-COLOR);
   text-decoration: none;
