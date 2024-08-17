@@ -8,3 +8,7 @@ In order to quit the red border set by the `Scroll` button, you shoul use the `C
 
 1. Open the main menu of the add-on by clicking the add-on icon.
 2. Click the `Clean border` button in the main menu of the add-on.
+
+### Resources
+
+[Add-on documentation home page](https://cmoli.es/projects/check-iframe/introduction.html).

@@ -10,6 +10,10 @@ In this section you can check the sources related to this project.
 
 <https://github.com/CarlosAMolina/checkIframe>
 
+### Add-on documentation home page
+
+<https://cmoli.es/projects/check-iframe/introduction.html>
+
 ### Project's references
 
 Some projects have been used as a reference to develop this add-on:

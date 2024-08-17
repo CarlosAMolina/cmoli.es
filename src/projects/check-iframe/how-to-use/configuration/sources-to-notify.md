@@ -29,3 +29,6 @@ The steps to add a term are:
 
     You can edit them by clicking over each saved term and modify the values.
 
+### Resources
+
+[Add-on documentation home page](https://cmoli.es/projects/check-iframe/introduction.html).
