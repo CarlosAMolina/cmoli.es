@@ -37,4 +37,5 @@ The meaning of the icon's colours is:
   - [Scroll](how-to-use/scroll.html)
   - [Clean border](how-to-use/clean-border.html)
   - [Show tags info](how-to-use/show-tags-info.html)
+  - [Work in Android device](how-to-use/work-in-android-device.html)
 - [Resources](resources/resources.html)
