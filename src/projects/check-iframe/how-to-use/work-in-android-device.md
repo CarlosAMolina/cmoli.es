@@ -22,6 +22,6 @@ When you are on a web page:
 
 The color of the add-on icon does not change in the Android version of the add-on.
 
-### Resources
+### Documentation links
 
 [Add-on documentation home page](https://cmoli.es/projects/check-iframe/introduction.html).

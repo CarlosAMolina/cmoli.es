@@ -10,6 +10,6 @@ A background script will listen for tab, window and URL events and update the ad
 
 To save the add-on configuration.
 
-### Resources
+### Documentation links
 
 [Add-on documentation home page](https://cmoli.es/projects/check-iframe/introduction.html).
