@@ -1,6 +1,6 @@
-## Redirection 
+# Redirection
 
-### Introduction
+## Introduction
 
 The user can specify a list of sites where the add-on will apply a redirection automatically to the first iframe/frame source.
 
@@ -12,7 +12,7 @@ You can read a perfect explanation of this option at the following issue:
 
 <https://github.com/CarlosAMolina/checkIframe/issues/1>
 
-### Configuration
+## Configuration
 
 Note. If the first iframe/frame URL should not be used as the redirection location, you can add it to the blacklist and will be omitted
 
@@ -35,6 +35,6 @@ The steps to add a term are:
 
     You can edit them by clicking over each saved term and modify the values.
 
-### Resources
+## Documentation links
 
 [Add-on documentation home page](https://cmoli.es/projects/check-iframe/introduction.html).

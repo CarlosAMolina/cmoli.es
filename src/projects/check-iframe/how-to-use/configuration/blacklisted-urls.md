@@ -1,12 +1,12 @@
-## Blacklisted URLs
+# Blacklisted URLs
 
-### Introduction
+## Introduction
 
 This option creates and modifies a blacklist of sources that should not be listed in the message shown when the `Show tags info` button is clicked, these sources won't be bordered neither.
 
 These sources will be taken into account when changing the add-on's icon colour to notify something has been detected.
 
-### Configuration
+## Configuration
 
 Only URLs that match exactly what you specified will be blacklisted. For example, to blacklist the source `https://duckduckgo.com/post3.html`, you must configure the whole URL, not only a part like `https://duckduckgo.com/`.
 
@@ -29,6 +29,6 @@ The steps to add a new blacklisted source are:
 
     You can edit them by clicking over each saved rule and modify the values.
 
-### Resources
+## Documentation links
 
 [Add-on documentation home page](https://cmoli.es/projects/check-iframe/introduction.html).

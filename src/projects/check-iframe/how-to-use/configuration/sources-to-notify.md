@@ -1,6 +1,6 @@
-## Special sources to notify
+# Special sources to notify
 
-### Introduction
+## Introduction
 
 With this option you can create and modify a list with terms to search in the sources of the elements and notify with the add-on icon using a different colour.
 
@@ -8,7 +8,7 @@ All urls that contains the specified terms will be notified.
 
 Example. Saving the term `youtube`, the add-on will nofity the source `https://www.youtube.com/embed/owsfdh4gxyc`.
 
-### Configuration
+## Configuration
 
 The steps to add a term are:
 
@@ -29,6 +29,6 @@ The steps to add a term are:
 
     You can edit them by clicking over each saved term and modify the values.
 
-### Resources
+## Documentation links
 
 [Add-on documentation home page](https://cmoli.es/projects/check-iframe/introduction.html).
