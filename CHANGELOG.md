@@ -8,8 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.26.0] - 2024-08-17
 ## Add
 - Check iframe project:
-  - Add work in android device.
+  - Add work in Android device.
   - Links to the main page of the project documentation.
+
+## Change
+- Check iframe project: title levels.
 
 ## [0.25.0] - 2024-08-14
 ## Change
