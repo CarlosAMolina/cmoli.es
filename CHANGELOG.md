@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.26.0] - 2024-08-17
+## Add
+- Check iframe project: add work in android device.
+
 ## [0.25.0] - 2024-08-14
 ## Change
 - Replace links in headers with links in paragraphs.
