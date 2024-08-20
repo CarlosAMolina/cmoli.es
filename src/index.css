@@ -3,20 +3,26 @@
 .menu {
   align-items: center;
   border-bottom: 1px solid var(--MENU-BORDER-COLOR);
-  column-gap: 1.5rem;
   flex-direction: row;
-  justify-content: flex-start;
   padding-bottom: 20px;
 }
-.menu-icons {
-  margin-left: auto;
+.menu ul {
+  column-gap: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
 }
 @media screen and (max-width: 930px) {
   .menu {
     flex-direction: column;
     row-gap: 1rem;
   }
-  .menu-icons {
-    margin-left: unset;
+  .menu ul {
+    align-items: center;
+    flex-direction: column;
+    row-gap: 1rem;
   }
 }
