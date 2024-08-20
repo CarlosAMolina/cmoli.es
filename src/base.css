@@ -186,6 +186,8 @@ img {
 }
 .menu-icons img {
   min-width: 2rem;
+  position: relative;
+  top: 3px;
   width: 2rem;
 }
 
