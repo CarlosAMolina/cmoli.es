@@ -13,7 +13,7 @@ Only URLs that match exactly what you specified will be blacklisted. For example
 The steps to add a new blacklisted source are:
 
 1. Click the `Configuration` button to open the configuration menu.
-2. Below `Sources options`, select the `Sources to avoid listing (exact match)` option.
+2. Below `Sources options`, select the `Sources to omit (exact match)` option.
 3. Save new sources, you can write them in two ways:
     - One by one
 
