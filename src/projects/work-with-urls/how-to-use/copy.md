@@ -12,3 +12,7 @@ Click the `Copy to clipboard` button.
 ### Copy stored rules
 
 Please, read the `Export rules` section.
+
+## Documentation links
+
+[Add-on documentation home page](https://cmoli.es/projects/work-with-urls/introduction.html)

@@ -99,3 +99,7 @@ Steps:
 1. Click the `Configuration` button at the add-on's popup.
 2. Click the `Lazy loading configuration` button and specify the desired milliseconds.
 3. Save this value clicking on the `Update` button near the box where you set the desired milliseconds.
+
+## Documentation links
+
+[Add-on documentation home page](https://cmoli.es/projects/work-with-urls/introduction.html)

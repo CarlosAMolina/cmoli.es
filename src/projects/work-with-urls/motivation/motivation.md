@@ -9,3 +9,7 @@ Thanks to the users’ feedback, more options were added, like configure a delay
 I think this is an useful add-on for all the people who analyze URLs and I hope you enjoy it!
 
 Carlos A. Molina
+
+## Documentation links
+
+[Add-on documentation home page](https://cmoli.es/projects/work-with-urls/introduction.html)

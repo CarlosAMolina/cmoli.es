@@ -35,3 +35,7 @@ Run tests:
 ```bash
 npm test
 ```
+
+## Documentation links
+
+[Add-on documentation home page](https://cmoli.es/projects/work-with-urls/introduction.html)

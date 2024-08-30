@@ -28,3 +28,6 @@ See the icons/LICENSE file of the project.
 
 Modified icons: <https://github.com/CarlosAMolina/workWithUrls-icons>
 
+## Documentation links
+
+[Add-on documentation home page](https://cmoli.es/projects/work-with-urls/introduction.html)

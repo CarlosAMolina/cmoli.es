@@ -9,3 +9,7 @@ The deobfuscation and obfuscation rules configured in the `Configuration` sectio
 5. The rules will appear in the box below `Value to change (line i). New value (line i+1)` and copied to the clipboard.
 
 The rules will be stored in the clipboard with the format used when multiple rules are configured (see the `Configuration` section).
+
+## Documentation links
+
+[Add-on documentation home page](https://cmoli.es/projects/work-with-urls/introduction.html)

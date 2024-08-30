@@ -33,3 +33,7 @@ Required steps:
 1. The modification rules must be configured by the user, please read the `Configuration` section.
 2. Paste the desired URLs in the box below `URLs`. Each URL in a different line.
 3. Click the `Obfuscate` button in the main add-on's menu and the URLs will be modified in the box below `URLs`.
+
+## Documentation links
+
+[Add-on documentation home page](https://cmoli.es/projects/work-with-urls/introduction.html)

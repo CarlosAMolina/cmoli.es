@@ -29,3 +29,7 @@ http://www.example.com/a
 
 http://www.example.com/ 
 ```
+
+## Documentation links
+
+[Add-on documentation home page](https://cmoli.es/projects/work-with-urls/introduction.html)

@@ -4,3 +4,7 @@
 2. Click the `Open Urls` button.
 
 Each URL will be opened in a new tab.
+
+## Documentation links
+
+[Add-on documentation home page](https://cmoli.es/projects/work-with-urls/introduction.html)
