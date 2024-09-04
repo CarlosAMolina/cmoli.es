@@ -6,10 +6,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.27.1] - TODO
-## Change
+### Change
 - Project Check Iframe:
   - Update front text.
   - Add links to the main page of the project documentation.
+
+### Fix
+- Main page:
+  - Fix text
 
 ## [0.27.0] - 2024-08-26
 ## Add
