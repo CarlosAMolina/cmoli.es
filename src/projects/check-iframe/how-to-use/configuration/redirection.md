@@ -6,7 +6,7 @@ The user can specify a list of sites where the add-on will apply a redirection a
 
 If the current tab URL contains any term in the list, it will be redirected to the first iframe/frame URL of the page.
 
-For example, if you visit `https://html.com/tags/iframe/` and scroll down where the iframe `https://www.youtube.com/embed/owsfdh4gxyc` is loaded, if you configured the term `youtube` you will be redirected to that iframe.
+For example, if you visit `https://html.com/tags/iframe/` and scroll down to where the `https://www.youtube.com/embed/owsfdh4gxyc` iframe loads, if you have added any of the tab URL terms, for example `html.com`, to the configuration list, you will be redirected to that iframe.
 
 You can read a perfect explanation of this option at the following issue:
 

@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fix
 - Main page:
   - Fix text
+- Project Check Iframe:
+  - Fix how to configure redirection.
 
 ## [0.27.0] - 2024-08-26
 ## Add
