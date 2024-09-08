@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.27.1] - TODO
 ### Change
 - Project Check Iframe:
-  - Update front text.
+  - Add automatic highlighting.
+  - Update front text and icon.
   - Add links to the main page of the project documentation.
 
 ### Fix
