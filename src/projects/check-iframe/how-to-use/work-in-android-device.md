@@ -20,7 +20,9 @@ When you are on a web page:
 
 ## Limitations
 
-The color of the add-on icon does not change in the Android version of the add-on.
+Some features do not work in the Android version of the add-on, for example, the color of the plug-in icon does not change.
+
+Other limitations are indicated in the specific section of this documentation.
 
 ## Documentation links
 
