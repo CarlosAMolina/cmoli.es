@@ -29,10 +29,11 @@ The meaning of the icon's colours is:
 - [Permissions](permissions/permissions.html)
 - How to use the add-on
   - Configuration
-    - [Blacklisted URLs](how-to-use/configuration/blacklisted-urls.html)
-    - [Special sources to notify](how-to-use/configuration/sources-to-notify.html)
-    - [Redirection](how-to-use/configuration/redirection.html)
+    - [Automatic highlighting](how-to-use/configuration/automatic-highlighting.html)
     - [Logs](how-to-use/configuration/logs.html)
+    - [Special sources to notify](how-to-use/configuration/sources-to-notify.html)
+    - [Blacklisted URLs](how-to-use/configuration/blacklisted-urls.html)
+    - [Redirection](how-to-use/configuration/redirection.html)
   - [Recheck tags](how-to-use/recheck.html)
   - [Scroll](how-to-use/scroll.html)
   - [Clean border](how-to-use/clean-border.html)
