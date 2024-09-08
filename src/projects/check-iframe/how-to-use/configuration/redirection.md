@@ -31,6 +31,8 @@ The steps to add a term are:
 
     The saved terms will appear below the input box.
 
+    The configured terms can be any string of the URLs of the websites where the redirect will be executed. This means that the terms will be searched for in the URL of the visited website, not in the URLs of the (i)frames.
+
 4. Edit saved terms 
 
     You can edit them by clicking over each saved term and modify the values.
