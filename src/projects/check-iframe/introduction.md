@@ -18,7 +18,7 @@ Set the mouse over the icon to see a description of the result.
 
 The meaning of the icon's colours is: 
 
-- Blue icon: the website cannot be checked.
+- Gray icon: the website cannot be checked.
 - Green icon: no tag iframe or frame detected.
 - Orange icon: tag detected.
 - Purple icon: tag detected and at least one source matches with any term in the configured user's list of special sources to notify.
