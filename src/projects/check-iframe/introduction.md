@@ -39,4 +39,5 @@ The meaning of the icon's colours is:
   - [Clean border](how-to-use/clean-border.html)
   - [Show tags info](how-to-use/show-tags-info.html)
   - [Work in Android device](how-to-use/work-in-android-device.html)
+- [Development](how-to-use/development.html)
 - [Resources](resources/resources.html)
