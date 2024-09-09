@@ -21,6 +21,9 @@ assert-required-file-updated-and-update-branch:
 activate-docker-if-not-active:
 	/bin/bash activate-docker-service-if-not-active
 
+clone-projects-content:
+	/bin/bash $(ROOT_PATHNAME)/projects/clone-projects-content $(MAIN_PROJECT_ROOT_PATHNAME)
+
 clone-wiki-content:
 	/bin/bash $(ROOT_PATHNAME)/wiki/clone-wiki-content $(MAIN_PROJECT_ROOT_PATHNAME)
 
@@ -64,6 +67,7 @@ stop-containers:
 	    stop-if-running
 
 test: assert-required-file-updated-and-update-branch \
+	clone-projects-content \
 	clone-wiki-content \
 	activate-docker-if-not-active \
 	stop-containers \
@@ -72,6 +76,7 @@ test: assert-required-file-updated-and-update-branch \
 	show-web
 
 deploy: assert-required-file-updated-and-update-branch \
+	clone-projects-content \
 	clone-wiki-content \
 	activate-docker-if-not-active \
 	stop-containers \
