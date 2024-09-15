@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.28.2] - 2024-09-15
 ### Add
-- Wiki: Android, Shodan, VPS.
+- Wiki: Aemet, Android, Shodan, VPS.
 
 ## [0.28.1] - 2024-09-12
 ### Add
