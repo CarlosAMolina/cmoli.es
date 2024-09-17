@@ -5,9 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [TODO] - TODO
-### Add
-- Wiki: Bitcoin, CSS.
+## [0.29.0] - 2024-09-17
+### Change
+- Wiki: move index page to external project.
 
 ## [0.28.2] - 2024-09-15
 ### Add
