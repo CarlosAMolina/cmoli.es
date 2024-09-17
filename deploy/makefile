@@ -24,8 +24,8 @@ activate-docker-if-not-active:
 clone-projects-content:
 	/bin/bash $(ROOT_PATHNAME)/projects/clone-projects-content $(MAIN_PROJECT_ROOT_PATHNAME)
 
-clone-wiki-content:
-	/bin/bash $(ROOT_PATHNAME)/wiki/clone-wiki-content $(MAIN_PROJECT_ROOT_PATHNAME)
+clone-wiki:
+	/bin/bash $(ROOT_PATHNAME)/wiki/clone-wiki $(MAIN_PROJECT_ROOT_PATHNAME)
 
 create-web-content:
 	/bin/bash remove-volumes \
@@ -68,7 +68,7 @@ stop-containers:
 
 test: assert-required-file-updated-and-update-branch \
 	clone-projects-content \
-	clone-wiki-content \
+	clone-wiki \
 	activate-docker-if-not-active \
 	stop-containers \
 	create-web-content \
@@ -77,7 +77,7 @@ test: assert-required-file-updated-and-update-branch \
 
 deploy: assert-required-file-updated-and-update-branch \
 	clone-projects-content \
-	clone-wiki-content \
+	clone-wiki \
 	activate-docker-if-not-active \
 	stop-containers \
 	create-web-content
