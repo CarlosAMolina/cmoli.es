@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [TODO] - TODO
 ### Add
-- Wiki: Bitcoin.
+- Wiki: Bitcoin, CSS.
 
 ## [0.28.2] - 2024-09-15
 ### Add
