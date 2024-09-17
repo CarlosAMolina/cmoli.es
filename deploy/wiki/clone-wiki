@@ -2,7 +2,6 @@
 
 set -e # Exit if any command fails.
 
-# TODO rename folder to clone-wiki
 main_project_pathname=$1
 
 wiki_repository_name=wiki
