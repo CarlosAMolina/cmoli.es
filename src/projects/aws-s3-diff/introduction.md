@@ -3,17 +3,17 @@
 ## Table of contents
 
 - [Introduction](#introduction)
-- [How to run the program. Practical example](#how-to-run-the-program-practical-example)
+- [How to run the program. Practical example](#how-to-run-the-program.-practical-example)
   - [Requirements installation](#requirements-installation)
   - [Configuration files](#configuration-files)
-    - [s3-uris-to-analyze.csv](#s3-uris-to-analyze-csv)
-    - [analysis.py](#analysis.py)
+    - [s3-uris-to-analyze.csv](#s3-uris-to-analyze.csv)
+    - [analysis.csv](#analysis.csv)
   - [Run the program](#run-the-program)
 - [FAQ](#faq)
 - [Development](#development)
 - [Testing](#testing)
-  - [Run all tests](run-all-tests)
-  -[Run local S3 server to make requests](run-local-S3-server-to-make-requests)
+  - [Run all tests](#run-all-tests)
+  - [Run local S3 server to make requests](#run-local-s3-server-to-make-requests)
 - [Resources](#resources)
 
 ## Introduction
