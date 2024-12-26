@@ -28,7 +28,9 @@ Some analysis columns will be added too to the final result file. For example, a
 
 Note. Despite AWS S3 uses the term `prefix` instead of `path` and `folder`, I won't use `prefix` because I think that the explanation will be easier to understand :).
 
-## Requirements installation
+## How to run the program. Practical example
+
+### Requirements installation
 
 The dependencies are managed with [Poetry](https://python-poetry.org/docs/), so the first step is to [install it](https://python-poetry.org/docs/#installation).
 
@@ -36,13 +38,13 @@ Now the dependencies can be installed running `poetry install`.
 
 Before execute the program, the configuration files must be updated.
 
-## Configuration files
+### Configuration files
 
 In order to tell the program what to analyze, two files must be updated.
 
 These files are in the `config` folder.
 
-### s3-uris-to-analyze.csv
+#### s3-uris-to-analyze.csv
 
 The first row of this csv file specifies how to group the results. The other rows are the URIs to analyze, so the first row indicates the AWS account where the URIs are.
 
@@ -60,7 +62,7 @@ The firs row of previous file shows that three accounts will be analyzed: pro, r
 
 From the second row, the S3 URIs to analyze are set; there is no limit in the number of URIs to compare. In the previous example, the files of the `s3://pets/dogs/big-size` URI in the pro account will be compared against the `s3://pets/dogs/big-size` URI of the release account and the `s3://pets-dev/dogs-dev/big-size-dev` URI of the dev account, in the final results file, these URIs will be shown grouped together.
 
-### analysis.csv
+#### analysis.csv
 
 This file indicates what extra information will the program generate by analyzing the data obtained from S3.
 
@@ -69,7 +71,7 @@ The current possibilities are:
 - Add a summary column that shows with a boolean if the files in each URI are the same or not.
 - A new column to indicate if the file can exist in the account. For example, if we want the release account to have the same files of the pro account, a `False` value will be set if a file in the realise URI does not exist in the pro URI.
 
-## Run the program
+### Run the program
 
 Now that the configuration file are ready, let's run the program!
 
