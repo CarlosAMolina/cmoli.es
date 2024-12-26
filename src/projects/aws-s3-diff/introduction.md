@@ -50,7 +50,7 @@ Each row contains the URIs to compare between the AWS accounts.
 
 Example file:
 
-```csv
+```bash
 pro,relase,dev
 s3://cars/europe/,s3://cars/europe/,s3://cars-dev/europe-dev
 s3://pets/dogs/big-size,s3://pets/dogs/big-size,s3://pets-dev/dogs-dev/big-size-dev
@@ -93,7 +93,7 @@ It is not possible, each URI must be unique per AWS account. The current version
 
 For example, if you want to analyze this:
 
-```csv
+```bash
 pro,relase
 s3://pets/dogs/big,s3://pets/dogs
 s3://pets/dogs/small,s3://pets/dogs
@@ -103,14 +103,14 @@ The program detects that the `s3://pets/dogs` is duplicated for the release acco
 
 You need to run the program twice two create different result folders, first run this configuration:
 
-```csv
+```bash
 pro,relase
 s3://pets/dogs/big,s3://pets/dogs
 ```
 
 And finally run the program with this configuration:
 
-```csv
+```bash
 pro,relase
 s3://pets/dogs/small,s3://pets/dogs
 ```
@@ -156,13 +156,13 @@ make start-local-s3-server
 
 After that, you can:
 
-    - List files:
+- List files:
 
     ```bash
     make awscli-local-s3-ls
     ```
 
-    - Run the CLI:
+- Run the CLI:
 
     ```bash
     make run-using-local-s3-server
