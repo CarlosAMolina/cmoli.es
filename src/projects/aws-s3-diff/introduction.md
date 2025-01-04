@@ -117,9 +117,9 @@ pro,relase
 s3://pets/dogs/small,s3://pets/dogs
 ```
 
-- The URIS in each account must match?
+- The URIS between accounts must match?
 
-Now, we can compare de `s3://pets/dogs/` URI with `s3://puppies` for example.
+No. For example, we can compare the `s3://pets/dogs/` URI in account 1 with the `s3://puppies` URI in account 2.
 
 - Can the S3 URI contain folders?
 
@@ -130,6 +130,12 @@ If the S3 URI contains any folder, the program will end with an error.
 - Can be empty values in the `s3-uris-to-analyze.csv` file?
 
 No, the program will raise an exception if any account name or S3 URI is empty.
+
+- How can I extract the S3 data of an already managed AWS account?
+
+You have to remove the result files of that account and all the accounts that follow it. After that, authenticate to the account and run the program.
+
+For example, if four accounts are configured and the last extracted data was of the third one, to extract the second account values again, delete the files with S3 data of the second and third accounts.
 
 ## Development
 
