@@ -75,12 +75,12 @@ Acabé con este pequeño proyecto:
 ```bash
 src
 |__subfolder
-|  |__exception.py
+|  |__exceptions.py
 |__main.py
 ```
 
 ```python
-# exception.py
+# exceptions.py
 class CustomError(IsADirectoryError):
     pass
 ```
