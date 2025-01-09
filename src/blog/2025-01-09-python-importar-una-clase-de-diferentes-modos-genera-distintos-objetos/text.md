@@ -207,4 +207,4 @@ Podemos ver cómo un alias no cambia el objeto ya que tienen el mismo ID; al tra
 
 ## Conclusión
 
-Gracias a este análisis pude entender mejor las importaciones en Python, los módulos y sus namespaces; así como el funcionamiento de los bloques `typ-except` utilizados tan habitualmente, y las funciones `isinstance()` o `type()`.
+Gracias a este análisis pude entender mejor las importaciones en Python, los módulos y sus namespaces; así como el funcionamiento de los bloques `type-except` utilizados tan habitualmente, y las funciones `isinstance()` o `type()`.
