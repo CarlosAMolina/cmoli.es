@@ -18,7 +18,7 @@ except FromSubfolderCustomError:
 except FromFileCustomError:
     print("Captured by FromFileCustomError")
 
-# No instances relation between classes imported in a different way.
+# No relation between instances of classes imported in a different way.
 assert not isinstance(FromFileCustomError(), FromSubfolderCustomError)
 assert not isinstance(FromSubfolderCustomError(), FromFileCustomError)
 

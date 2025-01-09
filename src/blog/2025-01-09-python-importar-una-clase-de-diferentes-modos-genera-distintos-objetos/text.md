@@ -53,9 +53,9 @@ Para que no haga falta leer todo el artículo, aquí resumo la conclusión. En l
 Hay que tener claros varios puntos para comprender el motivo:
 
 - Cada módulo posee un `namespace` diferente y los objetos que contiene no tienen relación con los objetos de otros módulos.
-- El bloque `try-except` captura excepciones que son instancias de la clase indicada o de alguna clase hija.
+- El bloque `try-except`, la cláusula `except` captura excepciones que son instancias de la clase indicada o de alguna clase hija.
 
-Lo que provocaba que la excepción mockeada no fuera capturada es que, al importar la excepción `FolderInS3UriError` de diferentes maneras, Python la asocia a módulos diferentes y el objeto mockeado desde el archivo de test no tiene relación con el utilizado en la cláusula `except FolderInS3UriError` del archivo `main.py`, por lo que la excepción quedaba sin capturar.
+Lo que provocaba que la excepción mockeada no fuera capturada es que, al importar la excepción `FolderInS3UriError` de diferentes maneras, Python la asocia a módulos diferentes y el objeto mockeado desde el archivo de test no tiene relación con el utilizado en la cláusula `except FolderInS3UriError` del archivo `main.py`, impidiendo capturar la excepción.
 
 Muy resumida esta es la conclusión, ahora llegaremos a ella analizando paso a paso un código de ejemplo.
 
@@ -106,7 +106,7 @@ except FromSubfolderCustomError:
 except FromFileCustomError:
     print("Captured by FromFileCustomError")
 
-# No instances relation between classes imported in a different way.
+# No relation between instances of classes imported in a different way.
 assert not isinstance(FromFileCustomError(), FromSubfolderCustomError)
 assert not isinstance(FromSubfolderCustomError(), FromFileCustomError)
 
@@ -122,30 +122,30 @@ print(sys.modules["subfolder.exceptions"])  # <module 'subfolder.exceptions' fro
 print(sys.modules["exceptions"])  # <module 'exceptions' from '/tmp/src/subfolder/exceptions.py'>
 ```
 
-Gracias a este código queda replicada la excepción que puede capturarse y la que no, por lo que también se ha añadido más código que permite estudiar el porqué; lo comentamos en los siguientes apartados.
+Gracias a este código queda replicada la excepción que puede capturarse y la que no, también se ha añadido más código que permite estudiar el porqué; lo comentamos en los siguientes apartados.
 
 ### Funcionamiento de try-except
 
-El objetivo es comprender por qué la cláusula `except` no captura la excepción; por tanto, el primer paso es entender cómo funciona `except`. Si vemos la [documentación oficial](https://docs.python.org/3/tutorial/errors.html).
+El objetivo es comprender por qué la cláusula `except` no captura la excepción; por tanto, el primer paso es entender cómo funciona `except`. Si vemos la [documentación oficial](https://docs.python.org/3/tutorial/errors.html#handling-exceptions):
 
 > A class in an `except` clause matches exceptions which are instances of the class itself or one of its derived classes.
 
-Es decir, la excepción sólo se captura si es una instancia de la clase que aparece tras `except`. Para saber si una clase es instancia de otra, tenemos la función [isinstance](https://docs.python.org/3/library/functions.html#isinstance); en el código anterior se muestra que, clases importadas de diferentes modos no son instancias unas de otras:
+Es decir, la excepción sólo se captura si es una instancia de la clase que aparece tras `except`, o de sus hijas. Para saber si una clase es instancia de otra, tenemos la función [isinstance()](https://docs.python.org/3/library/functions.html#isinstance); en el código anterior se muestra que, clases importadas de diferentes modos no son instancias unas de otras:
 
 ```python
-# No instances relation between classes imported in a different way.
+# No relation between instances of classes imported in a different way.
 assert not isinstance(FromFileCustomError(), FromSubfolderCustomError)
 assert not isinstance(FromSubfolderCustomError(), FromFileCustomError)
 ```
 
-También, verificamos que son objetos diferentes al tener distinto ID, el ID se muestra con la función [id()](https://docs.python.org/3/library/functions.html#id), y los IDs pueden compararse con la función [is()](https://docs.python.org/3/reference/expressions.html#is-not):
+También, verificamos que son objetos diferentes al tener distinto ID, el ID se muestra con la función [id()](https://docs.python.org/3/library/functions.html#id), y los IDs pueden compararse con la expresión [is](https://docs.python.org/3/reference/expressions.html#is-not):
 
 ```python
 # Different imports generate different objects.
 assert FromFileCustomError is not FromSubfolderCustomError
 ```
 
-Aquí tenemos la primera pista, aunque ambas clases vienen del mismo archivo `exceptions.py`, al inicializar una no es instancia de otra ni tampoco se trata del mismo objeto. ¿Qué diferencia hay entre las clases?
+Aquí tenemos la primera pista, aunque ambas clases vienen del mismo archivo `exceptions.py`, al inicializar una no es instancia de la otra ni tampoco se trata del mismo objeto. ¿Qué diferencia hay entre las clases?
 
 ### Mostrar diferencia entre las clases importadas
 
@@ -172,7 +172,7 @@ Aclarar que la función anterior `sys.modules`, [ofrece la siguiente informació
 
 > This is a dictionary that maps module names to modules which have already been loaded.
 
-Esta es la clave, la clase importada de diferentes maneras pertenece a módulos diferentes. El siguiente punto importante es que cada módulo tiene su propio namespace, como explica la [documentación oficial](https://docs.python.org/3/tutorial/modules.html):
+Esta es la clave, la clase importada de diferentes maneras pertenece a módulos diferentes. El siguiente punto importante es que cada módulo tiene su propio namespace, como explica la [documentación oficial](https://docs.python.org/3/tutorial/modules.html#more-on-modules):
 
 > Each module has its own private namespace.
 
@@ -186,11 +186,11 @@ Aclarar que, un namespace es ([link a documentación](https://docs.python.org/3/
 
 Recapitulemos la información obtenida hasta ahora: la misma clase importada de distintas maneras, `from subfolder.exceptions import CustomError as FromSubfolderCustomError` y `from exceptions import CustomError as FromFileCustomError`, produce objetos diferentes.
 
-Solo faltaría aclarar que la parte `from ... import ...`, realiza lo siguiente ([documentación](https://docs.python.org/3/tutorial/modules.html)):
+Solo faltaría aclarar que la parte `from ... import ...`, realiza lo siguiente ([documentación](https://docs.python.org/3/tutorial/modules.html#more-on-modules)):
 
 > There is a variant of the `import` statement that imports names from a module directly into the importing module’s namespace. For example: from fibo import fib, fib2
 
-Con todo esto, la conclusión es que, en nuestro namespace, hemos importado las clases `FromSubfolderCustomError` y `FromFileCustomError`, pero están asociadas a diferentes módulos; como en cada módulo pertenecen a un namespace distinto, no tienen relación entre ellas y no son el mismo objeto. Al no haber relación entre estos objetos, unos no pueden capturar a otros en el bloque `try-except`.
+Con todo esto la conclusión es que, en nuestro namespace hemos importado las clases `FromSubfolderCustomError` y `FromFileCustomError`, pero están asociadas a diferentes módulos; como en cada módulo pertenecen a un namespace distinto, no tienen relación entre ellas y no son el mismo objeto. Al no haber relación entre estos objetos, unos no pueden capturar a otros en el bloque `try-except`.
 
 ### ¿Afectan los alias?
 
@@ -209,6 +209,6 @@ Podemos ver cómo un alias no cambia el objeto ya que tienen el mismo ID; al tra
 
 ## Conclusión
 
-Gracias a este análisis pude entender mejor las importaciones en Python, los módulos y sus namespaces; así como el funcionamiento de los bloques `type-except` utilizados tan habitualmente, y las funciones `isinstance()` o `type()`.
+Gracias a este análisis pude entender mejor las importaciones en Python, los módulos y sus namespaces; así como el funcionamiento de los bloques `try-except` utilizados tan habitualmente, y las funciones `isinstance()` o `type()`.
 
-Ojalá te haya resultado interesante el artículo y pueda evitarte dolores de cabeza si alguna vez te ves ante esta situación.
+Ojalá te haya resultado interesante el artículo y pueda ahorrarte tiempo si alguna vez te ves ante esta situación.
