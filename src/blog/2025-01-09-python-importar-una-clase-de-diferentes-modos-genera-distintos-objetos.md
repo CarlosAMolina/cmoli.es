@@ -37,7 +37,7 @@ Para que la excepción fuera capturada, el test debía hacer el `import` de igua
 from src.main import FolderInS3UriError
 ```
 
-¿Qué más da importarlo de una manera u otra? No comprendía que ocurría en Python para que esto afectara al capturar la excepción, al fin y al cabo la clase importada se encuentra en el mismo archivo `exceptions.py`.
+¿Por qué afecta importarlo de una manera u otra? No comprendía que ocurría en Python para que esto modificara el comportamiento de capturar la excepción, al fin y al cabo la clase importada se encuentra en el mismo archivo `exceptions.py`.
 
 ## Resumen del motivo
 
