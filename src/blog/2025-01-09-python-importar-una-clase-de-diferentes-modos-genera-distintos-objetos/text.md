@@ -2,8 +2,15 @@
 
 ## Contenidos
 
+- [Contenidos](#contenidos)
 - [Introducción](#introducción)
 - [Resumen del motivo](#resumen-del-motivo)
+- [Análisis](#análisis)
+  - [Preparar el laboratorio](#preparar-el-laboratorio)
+  - [Funcionamiento de try-except](#funcionamiento-de-try-except)
+  - [Mostrar diferencia entre las clases importadas](#mostrar-diferencia-entre-las-clases-importadas)
+  - [¿Afectan los alias?](#¿afectan-los-alias?)
+- [Conclusión](#conclusión)
 
 ## Introducción
 
@@ -86,14 +93,14 @@ import sys
 
 from subfolder.exceptions import CustomError as FromSubfolderCustomError
 
-# Modificar sys.path para hacer el import de otra manera.
+# Modify sys.path to make a different import.
 sys.path.append(str(pathlib.Path(__file__).parent.absolute().joinpath("subfolder")))
 
 from exceptions import CustomError as FromFileCustomError
 
 
-# Comprobar que la clase importada de diferente manera no captura la excepción.
-# El siguiente código hace print de `Captured by FromFileCustomError`.
+# The class imported in a different way does not capture the exception.
+# The following code prints `Captured by FromFileCustomError`.
 try:
     raise FromFileCustomError()
 except FromSubfolderCustomError:
@@ -101,84 +108,95 @@ except FromSubfolderCustomError:
 except FromFileCustomError:
     print("Captured by FromFileCustomError")
 
-# Las instancias no tienen relación con la clase importada de diferente manera.
+# No instances relaction with the class imported in a different way.
 assert not isinstance(FromFileCustomError(), FromSubfolderCustomError)
 assert not isinstance(FromSubfolderCustomError(), FromFileCustomError)
 
-# Diferentes imports generan diferentes objetos.
+# Different imports generate diferent objects.
 assert FromFileCustomError is not FromSubfolderCustomError
 
-# Mostrar en qué se diferencias las clases
+# Show differnce between classes.
 print(FromSubfolderCustomError)  # <class 'subfolder.exceptions.CustomError'>
 print(FromFileCustomError)  # <class 'exceptions.CustomError'>
 
-# Los datos anteriores nos dicen que se han cargado distintos módulos.
+# The previous data means that different modules were loaded.
 print(sys.modules["subfolder.exceptions"])  # <module 'subfolder.exceptions' from '/tmp/src/subfolder/exceptions.py'>
 print(sys.modules["exceptions"])  # <module 'exceptions' from '/tmp/src/subfolder/exceptions.py'>
+
+# The classses are different objects.
+assert FromFileCustomError is not FromSubfolderCustomError
 ```
 
-Con esto tengo importadas las dos situaciones, la que captura la excepción y la que no, de modo que puedo analizar sus diferencias. En el código anterior en lugar de trabajar con `try-except` se utiliza `isinstance`, ahora veremos por qué.
+Con este código he simulado el error, la excepción no se captura si no se importa de determinada manera. Gracias a este pequeño código he podido replicar el error y escribir nuevo código que me permite estudiar el porqué; lo comentamos en los siguientes apartados.
 
 ### Funcionamiento de try-except
 
-El problema es que la cláusula `except` no capturaba la excepción, por lo que el primer paso es entender qué hace `except`. Como indica la [documentación oficial](https://docs.python.org/3/tutorial/errors.html).
+El objetivo es comprender por qué la cláusula `except` no capturaba la excepción; por tanto, el primer paso es entender cómo funciona la cláusula `except`. Como indica la [documentación oficial](https://docs.python.org/3/tutorial/errors.html).
 
 > A class in an except clause matches exceptions which are instances of the class itself or one of its derived classes.
 
 Es decir, la excepción no capturada es porque no es una instancia de la clase que aparece tras `except`. Para saber si una clase es instancia de otra, tenemos la función [isinstance](https://docs.python.org/3/library/functions.html#isinstance); en el código anterior se muestra que clases importadas de diferentes modos no son instancias unas de otras.
 
-Esto es lo que no comprendía; si ambas clases vienen del mismo archivo `exceptions.py`, yo pensaría que se tratan del mismo objeto por lo que al al instanciarlas unas deberían ser instancias de otras, pero no es así.
+Aquí tenemos la primera pista, aunque ambas clases vienen del mismo archivo `exceptions.py`, al inicializarlas unas no son instancias de otras. ¿Qué diferencia hay entre las clases?
 
-### ¿Por qué el import afecta a las clases?
+### Mostrar diferencia entre las clases importadas
 
-Para comprender la diferencia entre las clases, hay que obtener información de ellas, puede utilizarse la función `type` pasándole una instancia de la clase, pero he trabajado con `print` y las clases sin inicializar (muestra la misma información que daría `type()`):
+Ya hemos visto que las clases no son iguales, obtengamos información de ellas para conocer el motivo.
+
+Para esto, puede utilizarse la función `type()` pasándole una instancia de la clase, pero he trabajado con `print()` ya que muestra los mismos datos que `type()` sin utilizar como argumentos las clases inicializadas:
 
 ```python
+# from subfolder.exceptions import CustomError as FromSubfolderCustomError
 print(FromSubfolderCustomError)  # <class 'subfolder.exceptions.CustomError'>
-print(BFromSubfolderCustomError)  # <class 'subfolder.exceptions.CustomError'>
+
+# from exceptions import CustomError as FromFileCustomError
 print(FromFileCustomError)  # <class 'exceptions.CustomError'>
 ```
 
-Como se ve, las clases importadas como `from subfolder.exceptions import CustomError as ...`, tiene el mismo valor `subfolder.exceptions.CustomError` a pesar de haber utilizado un alias al importarlas; pero la clase importada mediante `from exceptions import CustomError as ...` tiene un valor diferente, `exceptions.CustomError`.
-
-¿Qué significan los valores `subfolder.exceptions.CustomError` y `exceptions.CustomError`? Se trata del módulo cargado y el nombre de la clase en ese módulo, aunque no he encontrado documentación que lo diga directamente, puede verificarse esto con la función `sys.modules`:
+Como se ve, las clases muestran diferentes valores `subfolder.exceptions.CustomError` y `exceptions.CustomError` pero, ¿qué significado tienen? Se trata del módulo cargado y el nombre de la clase en ese módulo, aunque no he encontrado documentación que lo especifique directamente, puede verificarse con la función `sys.modules`:
 
 ```python
-print(sys.modules["subfolder.exceptions"]) # <module 'subfolder.exceptions' from '/tmp/src/subfolder/exceptions.py'>
-print(sys.modules["exceptions"]) # <module 'exceptions' from '/tmp/src/subfolder/exceptions.py'>
+print(sys.modules["subfolder.exceptions"])  # <module 'subfolder.exceptions' from '/tmp/src/subfolder/exceptions.py'>
+print(sys.modules["exceptions"])  # <module 'exceptions' from '/tmp/src/subfolder/exceptions.py'>
 ```
 
 Aclarar que la función anterior `sys.modules`, [da la siguiente información](https://docs.python.org/3/library/sys.html#sys.modules):
 
 > This is a dictionary that maps module names to modules which have already been loaded
 
-Aquí está la clave, la clase importada de diferentes maneras pertenece a módulos diferentes, y cada uno tiene su propio namespace independiente, como explica la [documentación oficial](https://docs.python.org/3/tutorial/modules.html):
+Aquí está la clave, la clase importada de diferentes maneras pertenece a módulos diferentes. El siguiente punto importante es que cada módulo tiene su propio namespace, como explica la [documentación oficial](https://docs.python.org/3/tutorial/modules.html):
 
 > Each module has its own private namespace
 
-Además, vemos en [la documentación oficial](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces) los namespaces no tienen relación entre ellos:
+Además, vemos en [la documentación oficial](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces) que los namespaces no tienen relación entre ellos:
 
 > there is absolutely no relation between names in different namespaces
 
-Aclarar que un namespace es ([link a documentación](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces)):
+Aclarar que, un namespace es ([link a documentación](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces)):
 
 > A namespace is a mapping from names to objects
 
-La información obtenida hasta ahora nos muestra que la misma clase importada de distintas maneras, `from subfolder.exceptions import CustomError as ...` y `from exceptions import CustomError as ...`, produce objetos diferentes.
+Recapitulemos la información obtenida hasta ahora: la misma clase importada de distintas maneras, `from subfolder.exceptions import CustomError as ...` y `from exceptions import CustomError as ...`, produce objetos diferentes.
 
-Terminar indicando qué hace la parte `from ... import ...`, podemos revisarlo en la [documentación](https://docs.python.org/3/tutorial/modules.html):
+Verificamos que son objetos diferentes al tener distino ID, el ID se muestra con la función [id()](https://docs.python.org/3/library/functions.html#id), y los IDs pueden compararse con la función [is](https://docs.python.org/3/reference/expressions.html#is-not):
+
+```python
+# The classses are different objects.
+assert FromFileCustomError is not FromSubfolderCustomError
+```
+
+Solo faltaría aclarar que la parte `from ... import ...`, realiza lo siguiente ([documentación](https://docs.python.org/3/tutorial/modules.html)):
 
 > There is a variant of the import statement that imports names from a module directly into the importing module’s namespace. For example: from fibo import fib, fib2
 
-Con todo esto, la conclusión es que, en nuestro namespace, hemos importado las clases `FromSubfolderCustomError` y `FromFileCustomError`, pero están asociadas a diferentes módulos; como en cada módulo pertenecen a un namespace diferente, no tienen relación entre ellas y son objetos distintos, no habiendo relación entre ellos, lo que impide que unos capturen a los otros en `try-except`.
+Con todo esto, la conclusión es que, en nuestro namespace, hemos importado las clases `FromSubfolderCustomError` y `FromFileCustomError`, pero están asociadas a diferentes módulos; como en cada módulo pertenecen a un namespace diferente, no tienen relación entre ellas y son objetos distintos. Al no haber relación entre estos objetos, unos no pueden capturar a otros en el bloque `try-except`.
 
 ### ¿Afectan los alias?
 
-Si con lo visto hasta ahora me llevo la idea de que diferentes imports crean distintos objetos, empiezo a dudar si los alias también impactan. Por suerte no es así ;).
-
-Puede verse en este código:
+Hay que tener claro que, la diferencia al hacer los imports es la ruta del módulo importado; los alias no afectan a las clases importadas:
 
 ```python
+# alias.py
 from subfolder.exceptions import CustomError as FromSubfolderCustomError
 from subfolder.exceptions import CustomError as BFromSubfolderCustomError
 
@@ -186,10 +204,8 @@ assert FromSubfolderCustomError is BFromSubfolderCustomError
 assert isinstance(FromSubfolderCustomError(), BFromSubfolderCustomError)
 ```
 
-Podemos ver cómo un alias no cambia el objeto ya que tienen el mismo ID, el ID se muestra con la función [id()](https://docs.python.org/3/library/functions.html#id), y pueden compararse los IDs con la función [is](https://docs.python.org/3/reference/expressions.html#is-not).
-
-Al tratarse del mismo objeto, también se cumple la función `isinstance`.
+Podemos ver cómo un alias no cambia el objeto ya que tienen el mismo ID; al tratarse del mismo objeto, también se cumple la función `isinstance`.
 
 ## Conclusión
 
-Gracias a este análisis he podido comprender mejor funciones de Python como `id, `isinstance` o `type`, y otros aspectos de Python como los módulos y namespaces.
+Gracias a este análisis pude entender mejor las importaciones en Python, los módulos y sus namespaces; así como el funcionamiento de los bloques `typ-except` utilizados tan habitualmente, y las funciones `isinstance()` o `type()`.
