@@ -186,11 +186,11 @@ Aclarar que, un namespace es ([link a documentación](https://docs.python.org/3/
 
 Recapitulemos la información obtenida hasta ahora: la misma clase importada de distintas maneras, `from subfolder.exceptions import CustomError as FromSubfolderCustomError` y `from exceptions import CustomError as FromFileCustomError`, produce objetos diferentes.
 
-Solo faltaría aclarar que la parte `from ... import ...`, realiza lo siguiente ([documentación](https://docs.python.org/3/tutorial/modules.html#more-on-modules)):
+Solo faltaría aclarar que, la parte `from ... import ...` realiza lo siguiente ([documentación](https://docs.python.org/3/tutorial/modules.html#more-on-modules)):
 
 > There is a variant of the `import` statement that imports names from a module directly into the importing module’s namespace. For example: from fibo import fib, fib2
 
-Con todo esto la conclusión es que, en nuestro namespace hemos importado las clases `FromSubfolderCustomError` y `FromFileCustomError`, pero están asociadas a diferentes módulos; como en cada módulo pertenecen a un namespace distinto, no tienen relación entre ellas y no son el mismo objeto. Al no haber relación entre estos objetos, unos no pueden capturar a otros en el bloque `try-except`.
+Con todo esto, ya conocemos la causa del comportamiento extraño comentado inicialmente; al final de este artículo se resume lo visto, pero antes hagamos un pequeño comentario a los alias en los imports.
 
 ### ¿Afectan los alias?
 
@@ -208,6 +208,8 @@ assert isinstance(FromSubfolderCustomError(), BFromSubfolderCustomError)
 Podemos ver cómo un alias no cambia el objeto ya que tienen el mismo ID; al tratarse del mismo objeto, también se cumple la función `isinstance`.
 
 ## Conclusión
+
+Con lo visto en las secciones anteriores hemos comprendido que, pese a importar una clase que se encuentra en un archivo, en nuestro namespace aparece como clases asociadas a diferentes módulos porque se importa el archivo desde distintas rutas. Como en cada módulo las clases pertenecen a namespaces independientes, no tienen relación entre ellas y no son el mismo objeto. Al no haber relación entre estos objetos, uno no pueden capturar al otro en el bloque `try-except`.
 
 Gracias a este análisis pude entender mejor las importaciones en Python, los módulos y sus namespaces; así como el funcionamiento de los bloques `try-except` utilizados tan habitualmente, y las funciones `isinstance()` o `type()`.
 
