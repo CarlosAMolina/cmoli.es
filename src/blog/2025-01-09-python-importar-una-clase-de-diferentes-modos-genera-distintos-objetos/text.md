@@ -28,7 +28,7 @@ except FolderInS3UriError as exception:
     show_folder_error_message(exception)
 ```
 
-Al hacer peticiones contra AWS, el funcionamiento era el esperado; incluso escribí un test para verificar que el bloque `except FolderInS3UriError` capturaba la excepción, para ello enviaba peticiones a un servidor local que simula AWS S3. Pero quería agilizar el test evitando iniciar el servidor local, por lo que gracias a `unittest.mock` haría que la función `run()` generara la excepción.
+Al hacer peticiones contra AWS, el funcionamiento era el esperado; incluso escribí un test donde verificar que el bloque `except FolderInS3UriError` capturaba la excepción, para ello enviaba peticiones a un servidor local que simula AWS S3. Pero quería agilizar el test evitando iniciar el servidor local, por lo que gracias a `unittest.mock` haría que la función `run()` generara la excepción.
 
 Es con este mock donde el comportamiento era extraño; la excepción no era capturada por el bloque `try-except`. Al final, el problema estaba en el archivo de test cuando importaba la excepción a mockear de este modo:
 
@@ -57,7 +57,7 @@ Para que no haga falta leer todo el artículo, muestro la conclusión. En las si
 Hay que tener claros varios puntos para comprender el motivo:
 
 - Cada módulo posee un `namespace` diferente y los objetos que contiene no tienen relación con los objetos de otros módulos.
-- El bloque `try-except`, la cláusula `except` captura excepciones que son instancias de la clase indicada o de alguna clase hija.
+- En el bloque `try-except`, la cláusula `except` captura excepciones que son instancias de la clase indicada o de alguna clase hija.
 
 Lo que provocaba que la excepción mockeada no fuera capturada es que, al importar la excepción `FolderInS3UriError` de diferentes maneras, Python la asocia a módulos diferentes y el objeto mockeado desde el archivo de test no tiene relación con el utilizado en la cláusula `except FolderInS3UriError` del archivo `main.py`, impidiendo capturar la excepción.
 
@@ -161,14 +161,14 @@ print(FromSubfolderCustomError)  # <class 'subfolder.exceptions.CustomError'>
 print(FromFileCustomError)  # <class 'exceptions.CustomError'>
 ```
 
-Como se ve, las clases muestran diferentes valores `subfolder.exceptions.CustomError` y `exceptions.CustomError` pero, ¿qué significado tienen? Se trata del módulo cargado y el nombre de la clase en ese módulo, aunque no he encontrado documentación que lo especifique directamente, puede verificarse con la función `sys.modules`:
+Como se ve, las clases muestran diferentes valores `subfolder.exceptions.CustomError` y `exceptions.CustomError` pero, ¿qué significado tienen? Se trata del módulo cargado y el nombre de la clase en ese módulo, aunque no he encontrado documentación que lo especifique directamente, puede verificarse con el valor de `sys.modules`:
 
 ```python
 print(sys.modules["subfolder.exceptions"])  # <module 'subfolder.exceptions' from '/tmp/src/subfolder/exceptions.py'>
 print(sys.modules["exceptions"])  # <module 'exceptions' from '/tmp/src/subfolder/exceptions.py'>
 ```
 
-Aclarar que la función anterior `sys.modules`, [ofrece la siguiente información](https://docs.python.org/3/library/sys.html#sys.modules):
+Aclarar que, `sys.modules` [ofrece la siguiente información](https://docs.python.org/3/library/sys.html#sys.modules):
 
 > This is a dictionary that maps module names to modules which have already been loaded.
 
@@ -205,7 +205,7 @@ assert FromSubfolderCustomError is BFromSubfolderCustomError
 assert isinstance(FromSubfolderCustomError(), BFromSubfolderCustomError)
 ```
 
-Podemos ver cómo un alias no cambia el objeto ya que tienen el mismo ID; al tratarse del mismo objeto, también se cumple la función `isinstance`.
+Podemos ver cómo un alias no cambia el objeto ya que tienen el mismo ID; al tratarse del mismo objeto, también se cumple la función `isinstance()`.
 
 ## Conclusión
 
