@@ -22,6 +22,7 @@ El programa donde ocurrió esto consiste en listar los archivos de AWS S3; pero 
 # main.py
 from exceptions import FolderInS3UriError
 
+
 try:
     run()
 except FolderInS3UriError as exception:
@@ -35,7 +36,6 @@ Es con este mock donde el comportamiento era extraño; la excepción no era capt
 ```python
 # test_main.py
 from src.exceptions import FolderInS3UriError
-from src.main import run
 ```
 
 Para que la excepción fuera capturada, el test debía hacer el `import` de esta manera:
@@ -43,7 +43,6 @@ Para que la excepción fuera capturada, el test debía hacer el `import` de esta
 ```python
 # test_main.py
 from src.main import FolderInS3UriError
-from src.main import run
 ```
 
 ¿Por qué afecta importarlo de una manera u otra? Al fin y al cabo la clase importada se encuentra en el mismo archivo `exceptions.py`, no comprendía qué ocurre en Python para que esto modificara el capturar la excepción.
@@ -108,14 +107,14 @@ except FromSubfolderCustomError:
 except FromFileCustomError:
     print("Captured by FromFileCustomError")
 
-# No instances relaction with the class imported in a different way.
+# No instances relation between classes imported in a different way.
 assert not isinstance(FromFileCustomError(), FromSubfolderCustomError)
 assert not isinstance(FromSubfolderCustomError(), FromFileCustomError)
 
-# Different imports generate diferent objects.
+# Different imports generate different objects.
 assert FromFileCustomError is not FromSubfolderCustomError
 
-# Show differnce between classes.
+# Show the difference between classes.
 print(FromSubfolderCustomError)  # <class 'subfolder.exceptions.CustomError'>
 print(FromFileCustomError)  # <class 'exceptions.CustomError'>
 
@@ -123,7 +122,7 @@ print(FromFileCustomError)  # <class 'exceptions.CustomError'>
 print(sys.modules["subfolder.exceptions"])  # <module 'subfolder.exceptions' from '/tmp/src/subfolder/exceptions.py'>
 print(sys.modules["exceptions"])  # <module 'exceptions' from '/tmp/src/subfolder/exceptions.py'>
 
-# The classses are different objects.
+# Classes are different objects.
 assert FromFileCustomError is not FromSubfolderCustomError
 ```
 
@@ -133,7 +132,7 @@ Con este código he simulado el error, la excepción no se captura si no se impo
 
 El objetivo es comprender por qué la cláusula `except` no capturaba la excepción; por tanto, el primer paso es entender cómo funciona la cláusula `except`. Como indica la [documentación oficial](https://docs.python.org/3/tutorial/errors.html).
 
-> A class in an except clause matches exceptions which are instances of the class itself or one of its derived classes.
+> A class in an `except` clause matches exceptions which are instances of the class itself or one of its derived classes.
 
 Es decir, la excepción no capturada es porque no es una instancia de la clase que aparece tras `except`. Para saber si una clase es instancia de otra, tenemos la función [isinstance](https://docs.python.org/3/library/functions.html#isinstance); en el código anterior se muestra que clases importadas de diferentes modos no son instancias unas de otras.
 
@@ -160,40 +159,40 @@ print(sys.modules["subfolder.exceptions"])  # <module 'subfolder.exceptions' fro
 print(sys.modules["exceptions"])  # <module 'exceptions' from '/tmp/src/subfolder/exceptions.py'>
 ```
 
-Aclarar que la función anterior `sys.modules`, [da la siguiente información](https://docs.python.org/3/library/sys.html#sys.modules):
+Aclarar que la función anterior `sys.modules`, [ofrece la siguiente información](https://docs.python.org/3/library/sys.html#sys.modules):
 
-> This is a dictionary that maps module names to modules which have already been loaded
+> This is a dictionary that maps module names to modules which have already been loaded.
 
 Aquí está la clave, la clase importada de diferentes maneras pertenece a módulos diferentes. El siguiente punto importante es que cada módulo tiene su propio namespace, como explica la [documentación oficial](https://docs.python.org/3/tutorial/modules.html):
 
-> Each module has its own private namespace
+> Each module has its own private namespace.
 
 Además, vemos en [la documentación oficial](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces) que los namespaces no tienen relación entre ellos:
 
-> there is absolutely no relation between names in different namespaces
+> There is absolutely no relation between names in different namespaces.
 
 Aclarar que, un namespace es ([link a documentación](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces)):
 
-> A namespace is a mapping from names to objects
+> A namespace is a mapping from names to objects.
 
-Recapitulemos la información obtenida hasta ahora: la misma clase importada de distintas maneras, `from subfolder.exceptions import CustomError as ...` y `from exceptions import CustomError as ...`, produce objetos diferentes.
+Recapitulemos la información obtenida hasta ahora: la misma clase importada de distintas maneras, `from subfolder.exceptions import CustomError as FromSubfolderCustomError` y `from exceptions import CustomError as FromFileCustomError`, produce objetos diferentes.
 
-Verificamos que son objetos diferentes al tener distino ID, el ID se muestra con la función [id()](https://docs.python.org/3/library/functions.html#id), y los IDs pueden compararse con la función [is](https://docs.python.org/3/reference/expressions.html#is-not):
+Verificamos que son objetos diferentes al tener distinto ID, el ID se muestra con la función [id()](https://docs.python.org/3/library/functions.html#id), y los IDs pueden compararse con la función [is](https://docs.python.org/3/reference/expressions.html#is-not):
 
 ```python
-# The classses are different objects.
+# Classses are different objects.
 assert FromFileCustomError is not FromSubfolderCustomError
 ```
 
 Solo faltaría aclarar que la parte `from ... import ...`, realiza lo siguiente ([documentación](https://docs.python.org/3/tutorial/modules.html)):
 
-> There is a variant of the import statement that imports names from a module directly into the importing module’s namespace. For example: from fibo import fib, fib2
+> There is a variant of the `import` statement that imports names from a module directly into the importing module’s namespace. For example: from fibo import fib, fib2
 
 Con todo esto, la conclusión es que, en nuestro namespace, hemos importado las clases `FromSubfolderCustomError` y `FromFileCustomError`, pero están asociadas a diferentes módulos; como en cada módulo pertenecen a un namespace diferente, no tienen relación entre ellas y son objetos distintos. Al no haber relación entre estos objetos, unos no pueden capturar a otros en el bloque `try-except`.
 
 ### ¿Afectan los alias?
 
-Hay que tener claro que, la diferencia al hacer los imports es la ruta del módulo importado; los alias no afectan a las clases importadas:
+Hay que tener claro que, la diferencia que afecta al hacer los imports es en la ruta del módulo importado; los alias no modifican las clases importadas:
 
 ```python
 # alias.py
