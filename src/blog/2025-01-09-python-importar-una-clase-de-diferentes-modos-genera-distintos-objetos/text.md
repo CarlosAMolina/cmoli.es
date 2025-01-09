@@ -190,7 +190,7 @@ Solo faltaría aclarar que, la parte `from ... import ...` realiza lo siguiente 
 
 > There is a variant of the `import` statement that imports names from a module directly into the importing module’s namespace. For example: from fibo import fib, fib2
 
-Con todo esto, ya conocemos la causa del comportamiento extraño comentado inicialmente; al final de este artículo se resume lo visto, pero antes hagamos un pequeño comentario a los alias en los imports.
+Con todo esto, ya conocemos la causa del comportamiento extraño comentado inicialmente; al final de este artículo se resume lo visto, pero antes hagamos un pequeño comentario sobre los alias en los imports.
 
 ### ¿Afectan los alias?
 
