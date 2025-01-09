@@ -3,8 +3,8 @@
 ## Contenidos
 
 - [Introducción](#introducción)
-- [Resumen del motivo](#resumen-del-motivo)
 - [Análisis](#análisis)
+  - [Resumen de la conclusión](#resumen-de-la-conclusión)
   - [Preparar el laboratorio](#preparar-el-laboratorio)
   - [Funcionamiento de try-except](#funcionamiento-de-try-except)
   - [Mostrar diferencia entre las clases importadas](#mostrar-diferencia-entre-las-clases-importadas)
@@ -46,9 +46,13 @@ from src.main import FolderInS3UriError
 
 ¿Por qué afecta importarlo de un modo u otro? Al fin y al cabo la clase importada se encuentra en el mismo archivo `exceptions.py`, no comprendía qué ocurre en Python para que esto modificara el capturar la excepción.
 
-## Resumen del motivo
+## Análisis
 
-Para que no haga falta leer todo el artículo, aquí resumo la conclusión. En los siguientes apartados se explicará el análisis con más detalle.
+En este apartado, resolveremos el misterio.
+
+### Resumen de la conclusión
+
+Para que no haga falta leer todo el artículo, muestro la conclusión. En las siguientes secciones se explicará el análisis con más detalle.
 
 Hay que tener claros varios puntos para comprender el motivo:
 
@@ -58,10 +62,6 @@ Hay que tener claros varios puntos para comprender el motivo:
 Lo que provocaba que la excepción mockeada no fuera capturada es que, al importar la excepción `FolderInS3UriError` de diferentes maneras, Python la asocia a módulos diferentes y el objeto mockeado desde el archivo de test no tiene relación con el utilizado en la cláusula `except FolderInS3UriError` del archivo `main.py`, impidiendo capturar la excepción.
 
 Muy resumida esta es la conclusión, ahora llegaremos a ella analizando paso a paso un código de ejemplo.
-
-## Análisis
-
-Lo primero es escribir un código con el que poder hacer pruebas para comprender cada parte involucrada.
 
 ### Preparar el laboratorio
 
