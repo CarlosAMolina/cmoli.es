@@ -2,7 +2,6 @@
 
 ## Contenidos
 
-- [Contenidos](#contenidos)
 - [Introducción](#introducción)
 - [Resumen del motivo](#resumen-del-motivo)
 - [Análisis](#análisis)
@@ -29,9 +28,9 @@ except FolderInS3UriError as exception:
     show_folder_error_message(exception)
 ```
 
-Al hacer peticiones contra AWS, el funcionamiento era el esperado, incluso escribí un test que demostraba que el bloque `except FolderInS3UriError` capturaba la excepción, para ello el test se comunica con un servidor local que simula AWS S3. Pero quería agilizar el test evitando iniciar el servidor local, por lo que gracias a `unittest.mock` modificaría `run()` para generar la excepción.
+Al hacer peticiones contra AWS, el funcionamiento era el esperado; incluso escribí un test para verificar que el bloque `except FolderInS3UriError` capturaba la excepción, para ello enviaba peticiones a un servidor local que simula AWS S3. Pero quería agilizar el test evitando iniciar el servidor local, por lo que gracias a `unittest.mock` haría que la función `run()` generara la excepción.
 
-Es con este mock donde el comportamiento era extraño; la excepción no era capturada por el bloque `try-except`. El problema estaba en el test cuando importaba la excepción a mockear de este modo:
+Es con este mock donde el comportamiento era extraño; la excepción no era capturada por el bloque `try-except`. Al final, el problema estaba en el archivo de test cuando importaba la excepción a mockear de este modo:
 
 ```python
 # test_main.py
@@ -45,7 +44,7 @@ Para que la excepción fuera capturada, el test debía hacer el `import` de esta
 from src.main import FolderInS3UriError
 ```
 
-¿Por qué afecta importarlo de una manera u otra? Al fin y al cabo la clase importada se encuentra en el mismo archivo `exceptions.py`, no comprendía qué ocurre en Python para que esto modificara el capturar la excepción.
+¿Por qué afecta importarlo de un modo u otro? Al fin y al cabo la clase importada se encuentra en el mismo archivo `exceptions.py`, no comprendía qué ocurre en Python para que esto modificara el capturar la excepción.
 
 ## Resumen del motivo
 
@@ -56,7 +55,7 @@ Hay que tener claros varios puntos para comprender el motivo:
 - Cada módulo posee un `namespace` diferente y los objetos que contiene no tienen relación con los objetos de otros módulos.
 - El bloque `try-except` captura excepciones que son instancias de la clase indicada o de alguna clase hija.
 
-Al importar la excepción `FolderInS3UriError` de diferentes maneras, Python la asocia a módulos diferentes y el objeto mockeado desde el archivo de test no tiene relación con el utilizado en la cláusula `except FolderInS3UriError` del archivo `main.py`, por lo que la excepción no era capturada.
+Lo que provocaba que la excepción mockeada no fuera capturada es que, al importar la excepción `FolderInS3UriError` de diferentes maneras, Python la asocia a módulos diferentes y el objeto mockeado desde el archivo de test no tiene relación con el utilizado en la cláusula `except FolderInS3UriError` del archivo `main.py`, por lo que la excepción quedaba sin capturar.
 
 Muy resumida esta es la conclusión, ahora llegaremos a ella analizando paso a paso un código de ejemplo.
 
@@ -131,7 +130,7 @@ El objetivo es comprender por qué la cláusula `except` no captura la excepció
 
 > A class in an `except` clause matches exceptions which are instances of the class itself or one of its derived classes.
 
-Es decir, la excepción no se captura cuando no es una instancia de la clase que aparece tras `except`. Para saber si una clase es instancia de otra, tenemos la función [isinstance](https://docs.python.org/3/library/functions.html#isinstance); en el código anterior se muestra que clases importadas de diferentes modos no son instancias unas de otras:
+Es decir, la excepción no se captura cuando no es una instancia de la clase que aparece tras `except`. Para saber si una clase es instancia de otra, tenemos la función [isinstance](https://docs.python.org/3/library/functions.html#isinstance); en el código anterior se muestra que, clases importadas de diferentes modos no son instancias unas de otras:
 
 ```python
 # No instances relation between classes imported in a different way.
@@ -139,7 +138,7 @@ assert not isinstance(FromFileCustomError(), FromSubfolderCustomError)
 assert not isinstance(FromSubfolderCustomError(), FromFileCustomError)
 ```
 
-También, verificamos que son objetos diferentes al tener distinto ID, el ID se muestra con la función [id()](https://docs.python.org/3/library/functions.html#id), y los IDs pueden compararse con la función [is](https://docs.python.org/3/reference/expressions.html#is-not).
+También, verificamos que son objetos diferentes al tener distinto ID, el ID se muestra con la función [id()](https://docs.python.org/3/library/functions.html#id), y los IDs pueden compararse con la función [is()](https://docs.python.org/3/reference/expressions.html#is-not):
 
 ```python
 # Different imports generate different objects.
