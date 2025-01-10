@@ -52,9 +52,9 @@ En este apartado, resolveremos el misterio.
 
 ### Resumen de la conclusión
 
-Para que no haga falta leer todo el artículo, muestro la conclusión. En las siguientes secciones se explicará el análisis con más detalle.
+Muestro la conclusión por si no quieres leer todo el artículo. En las siguientes secciones se explicará el análisis con más detalle.
 
-Hay que tener claros varios puntos para comprender el motivo:
+Hay que tener claros varios puntos para comprender qué ocurría:
 
 - Cada módulo posee un `namespace` diferente y los objetos que contiene no tienen relación con los objetos de otros módulos.
 - En el bloque `try-except`, la cláusula `except` captura excepciones que son instancias de la clase indicada o de alguna clase hija.
@@ -65,9 +65,9 @@ Muy resumida esta es la conclusión, ahora llegaremos a ella analizando paso a p
 
 ### Preparar el laboratorio
 
-Aunque podía modificar el proyecto original, prefería llevar la situación a estudiar a un proyecto diferente, así podía hacer modificaciones libremente y guardar comentarios que consultar a futuro.
+Aunque pude modificar el proyecto original, preferí crear uno nuevo para hacer modificaciones libremente y guardar comentarios que consultar a futuro.
 
-Una vez duplicado el proyecto original en uno de prueba, trabajé con el código que provocaba el error a estudiar (que la excepción mockeada no se capturase) y eliminé todo el código que no afectara a esto.
+Una vez duplicado el proyecto en uno de prueba, trabajé con el código que provocaba el error a estudiar (que la excepción mockeada no se capturase) y eliminé todo el código que no afectara a esto.
 
 Acabé con este pequeño proyecto:
 
@@ -172,7 +172,7 @@ Aclarar que, `sys.modules` [ofrece la siguiente información](https://docs.pytho
 
 > This is a dictionary that maps module names to modules which have already been loaded.
 
-Esta es la clave, la clase importada de diferentes maneras pertenece a módulos diferentes. El siguiente punto importante es que cada módulo tiene su propio namespace, como explica la [documentación oficial](https://docs.python.org/3/tutorial/modules.html#more-on-modules):
+Esta es la clave, la clase importada de diferentes maneras pertenece a módulos distintos. El siguiente punto importante es que cada módulo tiene su propio namespace, como explica la [documentación oficial](https://docs.python.org/3/tutorial/modules.html#more-on-modules):
 
 > Each module has its own private namespace.
 
