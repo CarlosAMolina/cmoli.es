@@ -3,6 +3,7 @@
 ## Table of contents
 
 - [Introduction](#introduction)
+- [Example results](#example-results)
 - [How to run the program. Practical example](#how-to-run-the-program.-practical-example)
   - [Requirements installation](#requirements-installation)
   - [Configuration files](#configuration-files)
@@ -10,7 +11,7 @@
     - [analysis.csv](#analysis.csv)
   - [Run the program](#run-the-program)
 - [FAQ](#faq)
-- [Development](#development)
+- [Develop](#develop)
 - [Testing](#testing)
   - [Run all tests](#run-all-tests)
   - [Run local S3 server to make requests](#run-local-s3-server-to-make-requests)
@@ -28,6 +29,49 @@ Some analysis columns will be added too to the final result file. For example, a
 
 Note. Despite AWS S3 uses the term `prefix` instead of `path` and `folder`, I won't use `prefix` because I think that the explanation will be easier to understand :).
 
+## Example results
+
+Example of [results file](https://github.com/CarlosAMolina/aws-s3-diff/blob/main/tests/expected-results/analysis.csv).
+
+Example of the CLI output if two accounts have been analyzed:
+
+```bash
+$ awsume pro
+
+$ make run
+poetry run python run.py
+[INFO] Welcome to the AWS S3 Diff tool!
+[DEBUG] Checking if the URIs to analyze configuration file is correct
+[INFO] AWS accounts configured to be analyzed:
+1. pro
+2. dev
+[DEBUG] Creating the directory: /home/user/Software/aws-s3-diff/s3-results/20250519224348
+[INFO] Analyzing the AWS account 'pro'
+[INFO] Analyzing S3 URI 1/2: s3://pets/dogs/
+[INFO] Analyzing S3 URI 2/2: s3://pets/cats/
+[INFO] Exporting /home/user/Software/aws-s3-diff/s3-results/20250519224348/pro.csv
+[INFO] The next account to be analyzed is 'dev'. Authenticate and run the program again
+
+$ awsume dev
+
+$ make run
+poetry run python run.py
+[INFO] Welcome to the AWS S3 Diff tool!
+[DEBUG] Checking if the URIs to analyze configuration file is correct
+[INFO] AWS accounts configured to be analyzed:
+1. pro
+2. dev
+[INFO] Analyzing the AWS account 'dev'
+[INFO] Analyzing S3 URI 1/2: s3://pets-dev/doggies/
+[INFO] Analyzing S3 URI 2/2: s3://pets-dev/kitties/
+[INFO] Exporting /home/user/Software/aws-s3-diff/s3-results/20250519224348/dev.csv
+[INFO] Exporting /home/user/Software/aws-s3-diff/s3-results/20250519224348/s3-files-all-accounts.csv
+[INFO] Analyzing if files of the account 'pro' have been copied to the account 'dev'
+[INFO] Analyzing if files in account 'dev' can exist, compared to account 'pro'
+[INFO] Exporting /home/user/Software/aws-s3-diff/s3-results/20250519224348/analysis.csv
+[DEBUG] Removing: /home/user/Software/aws-s3-diff/s3-results/analysis_date_time.txt
+```
+
 ## How to run the program. Practical example
 
 ### Requirements installation
@@ -36,19 +80,26 @@ The dependencies are managed with [Poetry](https://python-poetry.org/docs/), so 
 
 Now the dependencies can be installed running `poetry install`.
 
-Before execute the program, the configuration files must be updated.
+After that, we need to edit some configuration files. Once it is done, execute `make run` and follow the instructions.
 
 ### Configuration files
 
 In order to tell the program what to analyze, two files must be updated.
 
-These files are in the `config` folder.
+These files are in the [config](https://github.com/CarlosAMolina/aws-s3-diff/tree/main/config) folder.
 
 #### s3-uris-to-analyze.csv
 
-The first row of this csv file specifies how to group the results. The other rows are the URIs to analyze, so the first row indicates the AWS account where the URIs are.
+The file to configure with your AWS information to analyze [is here](https://github.com/CarlosAMolina/aws-s3-diff/blob/main/config/s3-uris-to-analyze.csv).
 
-Each row contains the URIs to compare between the AWS accounts.
+File structure:
+
+- It is a `.csv` file separated by `,`.
+- Each column represents an AWS account configuration.
+- The first row is special, is where the account names are specified. This information will be used in the CLI outputs and in the result files to organize the data.
+- The other rows are the S3 URIs to be analyzed. Each row contains the URIs to compare between the AWS accounts.
+
+The order in which the AWS accounts are specified is the order in which they will be analyzed.
 
 Example file:
 
@@ -66,18 +117,47 @@ From the second row, the S3 URIs to analyze are set; there is no limit in the nu
 
 This file indicates what extra information will the program generate by analyzing the data obtained from S3.
 
-The current possibilities are:
+File path: [here](https://github.com/CarlosAMolina/aws-s3-diff/blob/main/config/analysis-config.json).
 
-- Add a summary column that shows with a boolean if the files in each URI are the same or not.
-- A new column to indicate if the file can exist in the account. For example, if we want the release account to have the same files of the pro account, a `False` value will be set if a file in the realise URI does not exist in the pro URI.
+You can configure the values of the following keys (do not modify the keys, only the values):
+
+Key                   | Type of the value | What is it?
+----------------------|-------------------|---------------------------------------------------------------------------
+run_analysis          | Boolean           | If the analysis should be executed.
+origin                | String            | The reference account to compare other accounts.
+is_the_file_copied_to | Array of strings  | Checks if the file in the origin account has been copied to other accounts.
+can_the_file_exist_in | Array of strings  | If the file does not exist in the origin account, it cannot exist in other accounts.
+
+For example, if we want the release account to have the same files of the pro account, we set `"can_the_file_exist_in": ["release"]` and a `False` value will be set if a file in the release URI does not exist in the pro URI.
 
 ### Run the program
 
-Now that the configuration file are ready, let's run the program!
+Now that the configuration files are ready, let's run the program!
 
 The program will guide you over the required steps, but we will see a detailed execution example in order to understand them better.
 
-Before run it, we need to authenticate to the first AWS account specified in the `s3-uris-to-analyze.csv.` file. If you don't execute the authentication commands, the program won't be able to request AWS information and the program will exit with an error message.
+Before run it, authenticate in the terminal to the first AWS account specified in the `s3-uris-to-analyze.csv.` file that will be analyzed. If you don't execute the authentication commands, the program won't be able to request AWS information and the program will exit with an error message. For example:
+
+```bash
+awsume dev
+```
+
+After that, execute:
+
+```bash
+make run
+```
+
+Now, we have the results for the buckets of the first account ([file example](https://github.com/CarlosAMolina/aws-s3-diff/blob/main/tests/expected-results/dev.csv)). Let's create the second AWS account results!
+
+We authenticate in the terminal to the second AWS account and run `make run` again. The script will detect that the first account results exist and will analyze the second account.
+
+We repeat the previous steps per each configured AWS account:
+
+1. Authenticate in the terminal to the AWS account to analyze.
+2. Execute `make run`
+
+The analysis results are stored in the [s3-results](https://github.com/CarlosAMolina/aws-s3-diff/tree/main/s3-results) folder, a folder with the current analysis timestamp is created and all the accounts results are stored in that folder. The final file with all the results and the analysis is called `analysis.csv`, you can open and examine that file ([example](https://github.com/CarlosAMolina/aws-s3-diff/blob/main/tests/expected-results/analysis.csv)).
 
 ## FAQ
 
@@ -85,13 +165,15 @@ Before run it, we need to authenticate to the first AWS account specified in the
 
 Minimum two accounts. There isn't a maximum number of accounts.
 
-- Can I compare paths in the same AWS account?
+- Can I compare paths for the same account?
 
-Sure, but you can't repeat the same AWS account name in the first line of the `s3-uris-to-analyze.csv` file. It can be solved with a prefix, for example `pro,pro-b`.
+Yes, instead of managing each `s3-uris-to-analyze.csv` column as a different account, configure them using the desired paths of the target AWS account.
+
+You can't repeat the same AWS account name in the first line of the `s3-uris-to-analyze.csv` file. It can be solved with a prefix, for example `pro,pro-b`.
 
 - Can I specify an URI more than once in the `s3-uris-to-analyze.csv` file in the same AWS account?
 
-It is not possible, each URI must be unique per AWS account. The current version of the program cannot manage a duplicated URI.
+It is not possible, each URI must be unique per AWS account. The current version of the program cannot manage duplicated URIs.
 
 For example, if you want to analyze this:
 
@@ -123,7 +205,7 @@ No. For example, we can compare the `s3://pets/dogs/` URI in account 1 with the 
 
 - Can the S3 URI contain folders?
 
-No, the current version of the program cannot manage folders, it only compares files.
+No, the current version of the program cannot manage folders. The analyzed paths must contain only files, not folders.
 
 If the S3 URI contains any folder, the program will end with an error.
 
@@ -137,7 +219,7 @@ You have to remove the result files of that account and all the accounts that fo
 
 For example, if four accounts are configured and the last extracted data was of the third one, to extract the second account values again, delete the files with S3 data of the second and third accounts.
 
-## Development
+## Develop
 
 Run:
 
