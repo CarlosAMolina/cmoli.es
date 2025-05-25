@@ -148,7 +148,7 @@ After that, execute:
 make run
 ```
 
-Now, we have the results for the buckets of the first account ([file example](https://github.com/CarlosAMolina/aws-s3-diff/blob/main/tests/expected-results/dev.csv)). Let's create the second AWS account results!
+Now, we have the results for the buckets of the first account ([file example](https://github.com/CarlosAMolina/aws-s3-diff/blob/main/tests/expected-results/pro.csv)). Let's create the second AWS account results!
 
 We authenticate in the terminal to the second AWS account and run `make run` again. The script will detect that the first account results exist and will analyze the second account.
 
