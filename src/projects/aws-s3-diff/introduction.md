@@ -21,7 +21,7 @@
 
 Thank you for reading this documentation!
 
-The objective of this program is to compare files between AWS S3 URIs.
+The purpose of this program is to compare files between AWS S3 URIs.
 
 In a configuration file the user specifies the URIs to compare (they can be in different AWS accounts and buckets) and the program will retrieve their information (name, date time, size and hash) and export to a csv file where the user can compare them in a easy way.
 
