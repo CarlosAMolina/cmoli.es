@@ -209,6 +209,10 @@ No, the current version of the program cannot manage folders. The analyzed paths
 
 If the S3 URI contains any folder, the program will end with an error.
 
+- Can a S3 URI without prefix be analyzed?
+
+No, the program currently only manages S3 URIs with buket and prefix. For example, `s3://cars` cannot be analyzed.
+
 - Can be empty values in the `s3-uris-to-analyze.csv` file?
 
 No, the program will raise an exception if any account name or S3 URI is empty.
