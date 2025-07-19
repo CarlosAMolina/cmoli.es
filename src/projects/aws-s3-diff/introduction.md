@@ -122,10 +122,10 @@ File path: [here](https://github.com/CarlosAMolina/aws-s3-diff/blob/main/config/
 You can configure the values of the following keys (do not modify the keys, only the values):
 
 Key                   | Type of the value | What is it?
-----------------------|-------------------|--------------------------------------------------------------------------------------------------
+----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------
 run_analysis          | Boolean           | If the analysis should be executed.
 origin                | String            | The reference account to compare other accounts.
-can_the_file_exist_in | Array of strings  | If the file does not exist in the origin account, it cannot exist in other accounts.
+can_the_file_exist_in | Array of strings  | If the file does not exist in the origin account, it cannot exist in other accounts. This is useful when checking synchronization between accounts.
 is_hash_the_same_in   | Array of strings  | Checks if the files in the specified accounts have the same hash as in the origin account.
 
 For example, if we want the release account to have the same files of the pro account, we set `"can_the_file_exist_in": ["release"]` and a `False` value will be set if a file in the release URI does not exist in the pro URI.
