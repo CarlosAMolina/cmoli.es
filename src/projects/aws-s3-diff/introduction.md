@@ -8,7 +8,7 @@
   - [Requirements installation](#requirements-installation)
   - [Configuration files](#configuration-files)
     - [s3-uris-to-analyze.csv](#s3-uris-to-analyze.csv)
-    - [analysis.csv](#analysis.csv)
+    - [analysis-config.json](#analysis-config.json)
   - [Run the program](#run-the-program)
 - [FAQ](#faq)
 - [Develop](#develop)
@@ -113,7 +113,7 @@ The firs row of previous file shows that three accounts will be analyzed: pro, r
 
 From the second row, the S3 URIs to analyze are set and there is no limit in the number of URIs to compare. In the previous example, the files of the `s3://pets/dogs/big-size` URI of the pro account will be compared against the `s3://pets/dogs/big-size` URI of the release account and the `s3://pets-dev/dogs-dev/big-size-dev` URI of the dev account, in the final results file, these URIs will be shown grouped together.
 
-#### analysis.csv
+#### analysis-config.json
 
 This file indicates what extra information will the program generate by analyzing the data obtained from S3.
 
