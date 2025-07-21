@@ -136,7 +136,7 @@ Now that the configuration files are ready, let's run the program!
 
 The program will guide you over the required steps, but we will see a detailed execution example in order to understand them better.
 
-Before run it, authenticate in the terminal to the first AWS account specified in the `s3-uris-to-analyze.csv` file that will be analyzed. If you don't execute the authentication command, the program won't be able to request AWS information and the program will exit with an error message. For example:
+Before run it, authenticate in the terminal to the first AWS account specified in the `s3-uris-to-analyze.csv` file that will be analyzed. If you don't execute the authentication command, the program won't be able to request AWS information and will exit with an error message. For example:
 
 ```bash
 awsume pro
@@ -203,7 +203,7 @@ s3://pets/dogs/small,s3://pets/dogs
 
 - Must the URIS between accounts match?
 
-No. For example, we can compare the `s3://pets/dogs/` URI in account 1 with the `s3://puppies` URI in account 2.
+No. For example, we can compare the `s3://pets/dogs/` URI in account 1 with the `s3://puppies/doggies/` URI in account 2.
 
 - Can the S3 URI contain folders?
 
