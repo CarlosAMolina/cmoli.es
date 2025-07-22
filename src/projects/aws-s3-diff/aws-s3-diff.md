@@ -185,7 +185,7 @@ s3://pets/dogs/small,s3://pets/dogs
 
 The program detects that the `s3://pets/dogs` is duplicated for the release account and will raise an exception.
 
-You need to run the program twice two create different result folders, first run this configuration:
+You need to run the program twice to create different result folders, first run this configuration:
 
 ```bash
 pro,relase
