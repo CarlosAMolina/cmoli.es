@@ -225,9 +225,9 @@ For example, if four accounts are configured and the last extracted data was fro
 
 - How can I start a new process if the previous one has not finished?
 
-The results are organized using the date and time stored in the analysis_date_time.txt file. This file is automatically deleted when all results have been created.
+The results are organized using the date and time stored in the `analysis_date_time.txt` file. This file is automatically deleted when all results have been created.
 
-To start a new set of results if all previous results have not been created, you can delete the analysis_date_time.txt file and run the program. Then a new results folder with the date and time will be created and the accounts will be managed from the fist one.
+To start a new set of results if all previous results have not been created, you can delete the `analysis_date_time.txt` file and run the program. Then a new results folder with the date and time will be created and the accounts will be managed from the fist one.
 
 ## Develop
 
