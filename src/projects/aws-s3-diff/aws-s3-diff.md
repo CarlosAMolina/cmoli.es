@@ -23,7 +23,7 @@ Thanks for your interest in this project!
 
 The purpose of the program is to compare files between AWS S3 URIs.
 
-In a configuration file the user specifies the URIs to analyze, they can be in different AWS accounts and buckets. The program will retrieve the files information (name, date time, size and hash) and export it to a CSV file where a comparison can be made easily.
+In a configuration file the user specifies the URIs to analyze, they can be in different AWS accounts and buckets. The program will retrieve the files information (name, date and time, size and hash) and export it to a CSV file where a comparison can be made easily.
 
 Some analysis columns can be added to the final CSV file. For example, a column that indicates if the files have the same hash in each compared URI.
 
@@ -224,6 +224,12 @@ No, the program will raise an exception if any account name or S3 URI is empty.
 You have to remove the result file of that account and all the accounts that follow it. After that, authenticate to the account and run the program.
 
 For example, if four accounts are configured and the last extracted data was from the third one, to extract the second account values again, in the results folder delete the files with S3 data of the second and third accounts.
+
+- How can I start a new process if the previous one has not finished?
+
+The results are organized using the date and time stored in the analysis_date_time.txt file. This file is automatically deleted when all results have been created.
+
+To start a new set of results if all previous results have not been created, you can delete the analysis_date_time.txt file and run the program. Then a new results folder with the date and time will be created and the accounts will be managed from the fist one.
 
 ## Develop
 
