@@ -134,9 +134,6 @@ th, td {
 td {
   text-align: center;
 }
-td:first-letter {
-  text-transform: uppercase;
-}
 tr:hover {
   background-color: var(--HOVER-TABLE-BACKGROUND-COLOR);
 }
