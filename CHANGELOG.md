@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.31.0] - 2026-01-31
+### Removed
+- Deploy: drop de deploy folder. It has been moved to the cmoli.es-deploy project.
+
+## [0.30.0] - 2026-01-31
+### Feat
+- Deploy: this is the last commit with the deploy folder. The folder will be removed in the next commit.
+
 ## [0.29.0] - 2024-09-17
 ### Change
 - Wiki: move index page to external project.
