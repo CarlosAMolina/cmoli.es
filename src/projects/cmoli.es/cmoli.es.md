@@ -48,7 +48,7 @@ Sobre Go, estoy encantado de las posibilidades que ofrece.
 
 - Poder generar el binario en local y subirlo al VPS me ahorra instalar software adicional. Este binario ocupa 8,8MB.
 - Ofrece respuestas HTTPS, logs, cabeceras y redireccionamientos que tenía configurados en Nginx. Además, he podido implementar reglas de seguridad, por ejemplo controlar el número máximo de peticiones.
-- El binario lo ejecuto sin ser root; otra ventaja. Sí que tengo que utilizar root para cambiar los permisos de los certificados de Certbot y que puedan ser leídos por el binario. De momento, no he podido eliminar la manualidad de generar los certificados :(.
+- El binario lo ejecuto sin ser root, otra ventaja. Sí que tengo que utilizar root para cambiar los permisos de los certificados de Certbot y que puedan ser leídos por el binario. De momento, no he podido eliminar la manualidad de generar los certificados :(.
 
 Además, con Go también puede deprecar scripts en Bash que utilizaba para generar el contenido web. Hice este cambio porque llegué a un punto que tenía muchos scripts en Bash y era un poco lioso, con las funciones de Go he ganado más control.
 
