@@ -53,7 +53,6 @@ Usage
         The next arguments are the size (Gigabyte) of each log file to be generated.
     Example:
         cargo run /tmp 1.5 0.5 1
-
 ```
 
 Obtenemos mensaje de error porque no hemos proporcionado como argumento el path donde crear los archivos de logs; no supone un problema, ya que solo queríamos lanzar el programa a modo de prueba.
